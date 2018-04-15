@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body class="bgWhite">
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>进度条/数据图表</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                让数据更直观展示，数据可视化。
+            </p>
+            <div class="p10">
+                <div class="ui_progress"><span style="width:60%"></span></div>
+                <br>
+                <div class="ui_progress ui_flash_progress"><span style="width:80%"></span></div>
+            </div>
+
+            <div id="pie" style="padding-top: 20px;height:300px;"></div>
+
+            <div id="line" style="padding-top: 20px;height:300px;"></div>
+        </div>
+    </div>
+    
+<!-- ECharts单文件引入 -->
+<script src="js/3rd-plugins/echarts.common.min.js"></script>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('pie')); 
+        option = {
+            title : {
+                text: '各支部用户活跃度',
+                subtext: '',
+                x:'center'
+            },
+            tooltip : {
+                show: true,
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                y : 'bottom',
+                data:['第一支部','第二支部','第三支部','第四支部']
+            },
+            calculable : true,
+            series : [
+                {
+                    name:'各支部用户活跃度',
+                    type:'pie',
+                    center : ['50%', 150],
+                    radius : '80',
+                    itemStyle : {
+                        normal : {
+                            label : {
+                                position : 'inner',
+                                formatter : function (params) {                         
+                                  return (params.percent - 0).toFixed(0) + '%'
+                                }
+                            },
+                            labelLine : {
+                                show : false
+                            }
+                        },
+                        emphasis : {
+                            label : {
+                                position : 'outer',
+                                show : true,
+                                formatter : "{b}\n{d}%"
+                            },
+                        }
+                        
+                    },
+                    data:[
+                        {value:1654, name:'第一支部'},
+                        {value:1504, name:'第二支部'},
+                        {value:1045, name:'第三支部'},
+                        {value:924, name:'第四支部'}
+                    ]
+                },
+            ]
+        };
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+
+         //  echart11111
+       // 基于准备好的dom，初始化echarts实例
+       var lineChart = echarts.init(document.getElementById('line'));
+       // 指定图表的配置项和数据
+        lineOption = {
+           title: {
+                text: '总趋势',
+                left:'41%'
+           },
+           tooltip : {
+               trigger: 'axis',
+               axisPointer: {
+                   type: 'cross',
+                   label: {
+                       backgroundColor: '#6a7985'
+                   }
+               }
+           },
+           legend: {
+               // data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+           },
+           toolbox: {
+               feature: {
+                   // saveAsImage: {}
+               }
+           },
+           grid: {
+               left: '3%',
+               right: '4%',
+               bottom: '3%',
+               containLabel: true
+           },
+           xAxis : [
+               {
+                   type : 'category',
+                   // boundaryGap : false,//坐标轴两边留白策略
+                   data : ['周一','周二','周三','周四','周五','周六','周日'],
+                   axisLine:{
+                    lineStyle:{
+                      color:'#8c8c8c'
+                    }
+                   },
+                   // rich:{},
+                   // axisLabel:{
+                   //    width:'10%'
+                   // }
+               }
+           ],
+           yAxis : [
+               {
+                   type : 'value',
+                   name:'(时)',
+                   nameLocation:'end',
+                   nameGap:10,
+                   nameTextStyle:{
+                     color:'#666666'
+                   },
+                   axisLine:{
+                     lineStyle:{
+                       color:'#8c8c8c'
+                     }
+                   },
+                   splitLine:{
+                       show:true,
+                       // 网格线颜色
+                       lineStyle:{
+                           color:"#e6e6e6"
+                       }                     
+                   }
+               }
+           ],
+           series : [
+               {
+                   name:'',
+                   type:'line',
+                   stack: '总量',
+                   symbolSize:10,
+                   areaStyle: {
+                       normal: {
+                           color:"#d5effb"
+                       }
+                   },
+                   lineStyle:{
+                       normal:{
+                           width:2,
+                           color:"#3fb7ef",
+                       }
+                   },
+                   itemStyle:{
+                       normal:{
+                           label:{
+                               color:"yellow"
+                           }
+                       }
+                   },
+                   data:[0,5, 8, 13, 9, 12,16, 10]
+               }
+               
+           ]
+        };
+
+         // 为echarts对象加载数据 
+        lineChart.setOption(lineOption); 
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+   
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+     <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>弹出式菜单</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                android和ios操作系统在UI表现层面差异还是很大的，select就是其中之一。抹平差异的最常用方式就是自定义UI
+            </p>
+            <div class="p10">
+                <button type="button" class="ui_btn" onclick="toggleActionSheet()">弹出</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui_actionSheet_wrap" id="js_actionSheet">
+        <div class="ui_actionSheet_mask" onclick="toggleActionSheet()"></div>
+        <div class="ui_actionSheet">
+            <ul class="ui_actionSheet_bd">
+                <li class="ui_actionSheet_item">内容1</li>
+                <li class="ui_actionSheet_item">内容2</li>
+                <li class="ui_actionSheet_item">内容3</li>
+            </ul>
+            <footer class="ui_actionSheet_ft">
+                <a href="javascript:;" onclick="toggleActionSheet()" class="ui_actionSheet_item">取消</a>
+            </footer>
+        </div>
+    </div>
+
+<!--本项目的js-->
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript">
+     function toggleActionSheet(){
+        var el = document.querySelector('#js_actionSheet');
+        if (el.className.indexOf('actionSheet_active') > -1) {
+            el.classList.remove('actionSheet_active');
+        }else{
+            el.classList.add('actionSheet_active');
+        }
+    }
+    
+
+</script>
+</body>
+</html>

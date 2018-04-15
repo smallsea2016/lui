@@ -1,0 +1,103 @@
+{"cssComponent":[
+	{
+		"icon":"fa fa-fw fa-lg fa-search","href":"search.html","text":"搜索"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-hand-pointer-o","href":"button.html","text":"按钮"
+	},	
+	{
+		"icon":"fa fa-fw fa-lg fa-pencil-square","href":"form.html","text":"表单"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-list-ul","href":"list.html","text":"列表"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-window-maximize","href":"card.html","text":"卡片"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-th-large","href":"grid.html","text":"网格"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-paper-plane","href":"tabBar.html","text":"底栏菜单"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-columns","href":"flex.html","text":"flex布局"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-table","href":"table.html","text":"表格"
+	},	
+	{
+		"icon":"fa fa-fw fa-lg fa-minus","href":"1px.html","text":"1像素边框"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-bookmark","href":"mark.html","text":"角标/标签/箭头"
+	},	
+	{
+		"icon":"fa fa-fw fa-lg fa-sort-numeric-asc","href":"flow.html","text":"流程流转"
+	}
+],
+"jsComponent":[
+	{
+		"icon":"fa fa-fw fa-lg fa-text-height","href":"textarea.html","text":"多行输入框"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-exchange","href":"tab.html","text":"tab切换"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-caret-square-o-right","href":"swiper.html","text":"图片轮播"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-sliders","href":"touchAction.html","text":"滑动操作"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-calendar","href":"date.html","text":"日期时间"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-spinner","href":"loading.html","text":"loading"
+	},	
+	{
+		"icon":"fa fa-fw fa-lg fa-check-square","href":"toast.html","text":"toast"
+	},	
+	{
+		"icon":"fa fa-fw fa-lg fa-window-restore","href":"modal.html","text":"模态框/弹出层"
+	},	
+	{
+		"icon":"fa fa-fw fa-lg fa-navicon ","href":"ActionSheet.html","text":"ActionSheet"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-arrow-circle-up","href":"scroll.html","text":"滚动加载"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-arrows-v","href":"iscroll.html","text":"iscroll下拉刷新上拉加载"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-vcard","href":"watermark.html","text":"水印"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-leaf","href":"sign.html","text":"签名功能"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-hourglass-half","href":"lazyload.html","text":"图片懒加载"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-sort-alpha-asc","href":"indexList.html","text":"索引列表"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-line-chart","href":"chart.html","text":"进度条/数据图表"
+	}
+],
+"list":[
+	{
+		"icon":"fa fa-fw fa-lg fa-wrench","href":"https://www.cnblogs.com/tkzc2013/p/5454220.html","text":"性能优化"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-font-awesome","href":"//fontawesome.dashgame.com","text":"字体图标"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-paper-plane","href":"about.html","text":"关于LUI"
+	},
+	{
+		"icon":"fa fa-fw fa-lg fa-paper-plane","href":"getStarted.html","text":"快速上手"
+	}
+]
+}

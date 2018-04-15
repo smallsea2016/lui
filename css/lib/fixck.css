@@ -1,0 +1,15 @@
+/*恢复浏览器默认样式，主要用于富文本*/
+body .fixck {font-family: Arial, Verdana, sans-serif;color: #222;line-height: normal;font-size: 16px} 
+body .fixck p {margin: 12px 0; } 
+body .fixck a {text-decoration: underline;color: #00E; } 
+body .fixck strong {font-weight:bold;}
+body .fixck ul, body .fixck ol {padding-left: 40px;padding-right: 40px; } 
+body .fixck ul li{list-style: disc inside none; display: list-item;} 
+body .fixck ol li {list-style: decimal inside none;display: list-item; } 
+body .fixck h1 {font-weight: bold;font-size: 32px;margin: 21px 0; } 
+body .fixck h2 {font-weight: bold;font-size: 24px;margin: 19px 0; } 
+body .fixck h3 {font-weight: bold;font-size: 19px;margin: 18px 0; } 
+body .fixck h4 {font-weight: bold;font-size: 16px;margin: 21px 0; } 
+body .fixck h5 {font-weight: bold;font-size: 13px;margin: 22px 0; } 
+body .fixck h6 {font-weight: bold;font-size: 11px;margin: 24px 0; }
+body .fixck dd {margin-left: 40px}

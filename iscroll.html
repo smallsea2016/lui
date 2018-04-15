@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+    <style type="text/css">
+        .scroller_wrap {position: absolute;top:60px;left: 0;right: 0;bottom: 0}
+    </style>
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>iscroll</header>
+        <div class="ui_page_bd" id="main">
+            <p class="ui_con_block">
+                iscroll下拉刷新，上拉加载
+            </p>
+            <div class="scroller_wrap" id="scroller_wrap">
+                <section id="scroller">
+                    <div id="pullDown">
+                        <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+                    </div>
+                    <ul class="ui_list" id="list">
+                    </ul>
+                    <div id="pullUp">
+                      <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+                    </div>
+                </section>
+            </div>            
+        </div>
+    </div>
+
+<script type="text/javascript" src="js/3rd-plugins/jquery-1.10.1.min.js"></script>
+<!--mock模拟数据-->
+<script src="js/3rd-plugins/mock.js"></script>
+<!--iscroll下拉刷新，上拉加载-->
+<script type="text/javascript" src="js/3rd-plugins/iscroll.js"></script>
+<script type="text/javascript">
+    // 使用 Mock生成随机数据
+    var data = Mock.mock('/path/to/file',{
+        'result|10':[{
+            'content' : "@cparagraph()"
+        }]
+    });
+
+    var num = 0;
+    function loadData(){
+        $.ajax({
+            url: '/path/to/file',
+            type: 'GET',
+            dataType: 'json',
+        })
+        .done(function(data) {
+            var str = '',
+                len = data.result.length;
+            for (var i = 0; i < len; i++) {
+                str += '<li>'
+                str +=     num+++data.result[i].content
+                str +=  '</li>';
+            };
+            $('#list').append(str);
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+    }
+    loadData();
+
+/*========== iscroll无限加载 START ==========*/
+  var myScroll,
+    pullDownEl, 
+    pullDownOffset,
+    pullUpEl, 
+    pullUpOffset;
+
+/**
+ * 下拉刷新 （自定义实现此方法）
+ * myScroll.refresh();      // 数据加载完成后，调用界面更新方法
+ */
+function pullDownAction () {
+    // console.log('down');
+    myScroll.refresh();     // 数据加载完成后，调用界面更新方法
+}
+
+/**
+ * 上拉翻页 （自定义实现此方法）
+ * myScroll.refresh();      // 数据加载完成后，调用界面更新方法
+ */
+function pullUpAction () {
+    // console.log('up');
+    loadData();    
+}
+
+/**
+ * 初始化iScroll控件
+ */
+function loaded() {
+    pullDownEl = document.getElementById('pullDown');
+    pullDownOffset = pullDownEl.offsetHeight;
+    pullUpEl = document.getElementById('pullUp');   
+    pullUpOffset = pullUpEl.offsetHeight;
+    console.log(pullUpOffset);
+    myScroll = new iScroll('scroller_wrap', {
+        scrollbarClass: 'myScrollbar', 
+        useTransition: false, 
+        checkDOMChanges: true, //dom改变的时候refresh
+        topOffset: pullDownOffset,
+        onRefresh: function () {
+            if (pullDownEl.className.match('loading')) {
+                pullDownEl.className = '';
+                pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+            } else if (pullUpEl.className.match('loading')) {
+                pullUpEl.className = '';
+                pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+            }
+        },
+        onScrollMove: function () {
+            if (this.y > 5 && !pullDownEl.className.match('flip')) {
+                pullDownEl.className = 'flip';
+                pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
+                this.minScrollY = 0;
+            } else if (this.y < 5 && pullDownEl.className.match('flip')) {
+                pullDownEl.className = '';
+                pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+                this.minScrollY = -pullDownOffset;
+            } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+                pullUpEl.className = 'flip';
+                pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+                this.maxScrollY = this.maxScrollY;
+            } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+                pullUpEl.className = '';
+                pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                this.maxScrollY = pullUpOffset;
+            }
+        },
+        onScrollEnd: function () {
+            if (pullDownEl.className.match('flip')) {
+                pullDownEl.className = 'loading';
+                pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';                
+                pullDownAction();   // Execute custom function (ajax call?)
+            } else if (pullUpEl.className.match('flip')) {
+                pullUpEl.className = 'loading';
+                pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';                
+                pullUpAction(); // Execute custom function (ajax call?)
+            }
+        }
+    });
+}
+
+//初始化绑定iScroll控件 
+function preventEvent(e){
+    // console.log(e);
+    e.preventDefault();
+}
+document.addEventListener('touchmove', preventEvent, false);
+// document.addEventListener('touchmove', function(e){console.log(e);e.preventDefault();}, false);
+document.addEventListener('DOMContentLoaded', loaded, false); 
+/*========== iscroll无限加载 END ==========*/
+</script>
+</body>
+</html>

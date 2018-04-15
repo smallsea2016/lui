@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+    <style type="text/css">
+        .rank_table .rank_score {display: inline-block;width: 20px;height: 27px;font-family: arial;}
+        .rank_table tr:nth-child(1) td .rank_score {background: url(images/icon/gold.png) no-repeat;
+          background-size: contain
+        }
+        .rank_table tr:nth-child(2) td .rank_score {background: url(images/icon/silver.png) no-repeat;
+          background-size: contain
+        }
+        .rank_table tr:nth-child(3) td .rank_score {background: url(images/icon/bronze.png) no-repeat;
+          background-size: contain
+        }
+        .rank_table tr:nth-child(1) td .rank_score,
+        .rank_table tr:nth-child(2) td .rank_score,
+        .rank_table tr:nth-child(3) td .rank_score {text-indent: -150%}
+        .rank_table tr:nth-child(n+4) td .rank_score {width: 21px;height: 21px;background-color:#f26689;color: #fff;
+          border-radius: 100%;background-clip: padding-box
+        }
+        .ranking_user {margin-right: 5px;width: 36px;height:36px;border-radius: 100%;background-clip: padding-box}
+
+    </style>
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>表格</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                基础表格应用于排行榜
+            </p>
+            <table class="ui_table rank_table">
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>姓名</th>
+                        <th>分数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="rank_score">1</span></td>
+                        <td>吕布</td>
+                        <td>400</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank_score">2</span></td>
+                        <td>典韦</td>
+                        <td>390</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank_score">3</span></td>
+                        <td>许褚</td>
+                        <td>380</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank_score">4</span></td>
+                        <td>张辽</td>
+                        <td>360</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank_score">5</span></td>
+                        <td>徐晃</td>
+                        <td>350</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank_score">6</span></td>
+                        <td>乐进</td>
+                        <td>320</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

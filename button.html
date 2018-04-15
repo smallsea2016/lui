@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+    <style type="text/css">
+        .page_btns li {padding: 10px}
+    </style>
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>按钮</header>
+        <div class="ui_page_bd" style="padding-bottom: 65px">
+            <p class="ui_con_block">按钮作为交互操作指引元素，可以分为填充背景的按钮，镂空按钮，尺寸不同的按钮。根据使用情景合理地表达用户的操作意图</p>
+            <ul class="page_btns">                
+                <li><button type="button" class="ui_btn">主要按钮</button></li>
+                <li><button type="button" class="ui_btn ui_warm_btn">警示按钮</button></li>
+                <li><button type="button" class="ui_btn ui_danger_btn">危险按钮</button></li>
+                <li><button type="button" class="ui_btn ui_default_btn">默认按钮</button></li>
+                <li><button type="button" class="ui_btn ui_warm_btn" skin="plain">镂空按钮</button></li>
+                <li><button type="button" class="ui_btn" size="sm">小按钮</button></li>
+                <li><button type="button" class="ui_btn ui_danger_btn ui_inline" size="xs">超小按钮</button></li>
+            </ul>     
+        </div>
+        <footer class="ui_page_ft">            
+            <ul class="ui_btn_group flexbox">
+                <li class="flexItem"><button type="button" class="ui_btn ui_default_btn" skin="plain">取消</button></li>
+                <li class="flexItem"><button type="button" class="ui_btn">确定</button></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>

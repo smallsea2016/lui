@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>滑动操作</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                移动端手势滑动操作
+            </p>
+            <ul class="ui_list" id="ui_list">
+                <li>
+                    <div class="f17">向左滑动试试1</div>
+                    <div class="ui_touch_item">
+                        <button type="button" class="ui_del_btn js_del_btn" data-idx="0">删除</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="f17">向左滑动试试2</div>
+                    <div class="ui_touch_item">
+                        <button type="button" class="ui_del_btn js_del_btn" data-idx="1">删除</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="f17">向左滑动试试3</div>
+                    <div class="ui_touch_item">
+                        <button type="button" class="ui_del_btn js_del_btn" data-idx="2">删除</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="f17">向左滑动试试4</div>
+                    <div class="ui_touch_item">
+                        <button type="button" class="ui_del_btn js_del_btn" data-idx="3">删除</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="f17">向左滑动试试5</div>
+                    <div class="ui_touch_item">
+                        <button type="button" class="ui_del_btn js_del_btn" data-idx="4">删除</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<!--公共js-->
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript" src="js/lib/cellSwipe.js"></script>
+<script type="text/javascript">
+    var slide =  new CellSwipe('#ui_list li','.ui_touch_item');
+
+    var items = document.querySelectorAll('#ui_list .ui_touch_item');
+    for (var i = 0; i < items.length; i++) {
+      items[i].onclick = function(e){
+          var idx = e.target.dataset.idx;
+          var c = confirm('确认删除？');
+          if (c) {
+              slide.remove(idx);
+          }else{
+              slide.update();
+          }
+      }
+    }
+
+</script>
+</body>
+</html>

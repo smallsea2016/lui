@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body class="bgWhite">
+     <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>滚动加载</header>
+        <div class="ui_page_bd" id="main">
+            <p class="ui_con_block">
+                通过scroll事件实现
+            </p>
+            
+                <ul class="ui_list" id="list">
+                <script id="tpl" type="text/html">
+                    {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
+                        <li>{{d.list[i].title}}</li>
+                    {{# } }}
+                </script>
+                </ul>
+
+            <div id="tpl_view"></div>
+
+             <p class="ui_loadMore_line"><span class="ui_loadMore_tips">努力加载中</span></p>
+        </div>
+    </div>
+
+<!--mock模拟数据-->
+<script src="js/3rd-plugins/mock.js"></script>
+<script type="text/javascript" src="js/3rd-plugins/laytpl.js"></script>  
+<!--公共js-->
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript">
+    lui.scrollLoadData('#main',function(){
+        loadData(); //加载数据
+    })
+    // 使用 Mock生成随机数据
+    var data = Mock.mock({
+        'list|20':[{
+            'title' : "@city",
+            'img':"@image('80X60')",
+            'time':'@date("yyyy/MM/dd")',
+        }]
+    });
+
+    function loadData(){
+        var gettpl = document.getElementById('tpl').innerHTML;
+            laytpl(gettpl).render(data, function(html){
+                var node = document.createElement('ul');
+                node.classList = "ui_list";
+                node.innerHTML = html;
+            document.getElementById('tpl_view').appendChild(node);
+        });
+    }
+    loadData();
+</script>
+</body>
+</html>

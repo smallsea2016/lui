@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>保密水印</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                添加用户水印，防止用户随意截图，用于比较机密的信息保密。
+            </p>
+            <ul class="ui_form ui_form_detail" id="js_form">
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">姓名</label>
+                    <div class="flexItem ui_align_center">
+                        <span class="c666">张婷</span>
+                    </div>
+                </li>       
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">午餐补助次数</label>
+                    <div class="flexItem ui_align_center">
+                        <span class="c666">15</span>
+                    </div>
+                </li>   
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">午餐补助合计</label>
+                    <div class="flexItem ui_align_center">
+                        <span class="c666">225</span>
+                    </div>
+                </li>   
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">加班次数</label>
+                    <div class="flexItem ui_align_center">
+                        <span class="c666">12</span>
+                    </div>
+                </li>     
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">加班餐补</label>
+                    <div class="flexItem ui_align_center">
+                        <span class="c666">180</span>
+                    </div>
+                </li>   
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">合计餐补</label>
+                    <div class="flexItem ui_align_center">
+                        <span class="c666">405</span>
+                    </div>
+                </li>   
+            </ul>
+            <footer class="ui_btn_box mt20">
+                <button type="button" class="ui_btn">确认无误</button>
+            </footer>
+        </div>    
+    </div>
+    
+<!--公共js-->
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript">    
+    lui.watermark('#js_form','张婷6500',18);
+</script>
+</body>
+</html>

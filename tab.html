@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+   <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>tab内容切换</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                手势滑动tab内容切换是通过swiper插件实现的。点击则是自写js实现。
+            </p>
+            <ul class="ui_tab flexbox" id="tab_tt">
+                <li class="flexItem active" data-index="0"><a href="javascript:;">tab1</a></li>
+                <li class="flexItem" data-index="1"><a href="javascript:;">tab2</a></li>
+                <li class="flexItem" data-index="2"><a href="javascript:;">tab3</a></li>
+            </ul>
+            <div class="swiper-scrollbar"></div>
+
+            <div class="swiper-container mt10">
+                <div class="swiper-wrapper boxModal">
+                    <!--tab1-->
+                    <div class="swiper-slide" id="swiper-slide0">
+                        <ul class="ui_list">
+                            <li>
+                                tab1内容
+                            </li>
+                            <li>
+                                tab1内容
+                            </li>
+                        </ul>
+                    </div>
+                    <!--tab2-->
+                    <div class="swiper-slide" id="swiper-slide1">                        
+                        <ul class="ui_list">
+                            <li>
+                                tab2内容
+                            </li>
+                        </ul>
+                    </div>
+                    <!--tab3-->
+                    <div class="swiper-slide" id="swiper-slide2">
+                        <ul class="ui_list">
+                            <li>
+                                tab3内容
+                            </li>
+                            <li>
+                                tab3内容
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <section data-role="tabs">
+                <nav class="ui_capsule_tab flexbox">
+                    <a href="javascript:;" data-role="tab" class="flexItem active">tab1</a>
+                    <a href="javascript:;" data-role="tab" class="flexItem">tab2</a>
+                    <a href="javascript:;" data-role="tab" class="flexItem">tab3</a>
+                </nav>
+                <div id="tab_content">
+                    <div data-role="tabContainer" class="ui_con_block active">
+                        tab1
+                    </div>
+                    <div data-role="tabContainer" class="ui_con_block">
+                        tab2
+                    </div>
+                    <div data-role="tabContainer" class="ui_con_block">
+                        tab3
+                    </div>
+                </div>
+            </section>           
+        </div>
+    </div>
+
+<!--tab切换依赖-->
+<script type="text/javascript" src="js/3rd-plugins/swiper-4.1.0.jquery.min.js"></script>
+<!--公共js-->
+<script type="text/javascript" src="js/lui.js"></script>
+
+<script type="text/javascript">
+    /*tab手势切换*/
+    var lis = document.querySelectorAll("#tab_tt>li");
+    var tabSwiper = new Swiper('.swiper-container',{
+         scrollbar: {
+            el: '.swiper-scrollbar',
+          },
+        on:{
+            transitionEnd: function(){
+                var index = this.activeIndex;
+                for (var i = 0; i < lis.length; i++) {
+                    if (i == index) {
+                        lis[i].classList.add('active');
+                    }else{
+                       lis[i].classList.remove('active'); 
+                    }
+                }
+            }
+        }
+    }); 
+
+    //点击滑动tab
+    for (var i = 0; i < lis.length; i++) {
+        (function(i){
+            lis[i].onclick = function(e){
+                var index = e.currentTarget.dataset.index;
+                tabSwiper.slideTo(index);
+                if (i == index) {
+                    lis[i].classList.add('active');
+                }else{
+                   lis[i].classList.remove('active'); 
+                }
+            }
+        })(i)
+    }
+    
+
+	lui.tab('[data-role="tabs"]');
+</script>
+</body>
+</html>

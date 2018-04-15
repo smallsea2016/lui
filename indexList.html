@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>touch城市选择</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                通过移动端touch事件，滑动定位城市
+            </p>
+            <script id="tpl" type="text/html">
+                {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
+                    <section>
+                        <h2 class="ui_list_hd" data-role="word_index" id="{{d.list[i].tagName}}">{{d.list[i].tagName}}</h2>
+                        <ul class="ui_list_padded">
+                            {{# for(var j = 0,len2 = d.list[i].cityList.length;j< len2;j++ ){ }}
+                                <li>{{d.list[i].cityList[j]}}</li>
+                            {{# } }} 
+                        </ul>     
+                    </section>   
+                {{# } }}        
+            </script>
+
+            <div id="tpl_view"></div>
+        </div>
+    </div>
+
+    <!--英文字母-->
+    <script type="text/html" id="word_list_tpl">
+        <div class="word_list" data-role="word_list">
+            {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
+                <a href="#{{d.list[i].tagName}}">{{d.list[i].tagName}}</a>
+            {{# } }} 
+        </div>
+    </script>
+    <aside id="word_list_tpl_view"></aside>
+
+    <!--popup-->
+    <div class="word_popup" data-role="word_popup"></div>
+</body> 
+    <script type="text/javascript" src="js/3rd-plugins/laytpl.js"></script>  
+    <script type="text/javascript" src="js/lui.js"></script>
+    <script type="text/javascript">
+         var data = {
+          list:[
+            {
+                tagName:'A',
+                cityList:['安阳','安庆','艾河','安溪']
+            },
+            {
+                tagName:'B',
+                cityList:['北京','北海','包头','北戴河','宝鸡']
+            },
+            {
+                tagName:'C',
+                cityList:['成都','重庆','潮州','常德','郴州','沧州','承德','长春']
+            },
+            {
+                tagName:'D',
+                cityList:['东莞','大同','大连']
+            },
+            {
+                tagName:'E',
+                cityList:['恩施','鄂尔多斯']
+            },
+            {
+                tagName:'F',
+                cityList:['佛山','福州','抚州','风陵渡','凤州']
+            },
+            {
+                tagName:'G',
+                cityList:['广州','赣州','桂林','贵港','高州']
+            },
+            {
+                tagName:'H',
+                cityList:['杭州','海口','呼和浩特','惠州','葫芦岛']
+            },
+            {
+                tagName:'J',
+                cityList:['济南','晋江','揭阳','吉林','佳木斯','荆州']
+            },
+            {
+                tagName:'M',
+                cityList:['绵阳','茂名','马鞍山']
+            },
+            {
+                tagName:'Q',
+                cityList:['青岛','泉州']
+            },
+            {
+                tagName:'R',
+                cityList:['汝阳','瑞金']
+            },
+            {
+                tagName:'S',
+                cityList:['上海','深圳','韶关','沈阳','三亚']
+            },
+            {
+                tagName:'T',
+                cityList:['天津','太原','台州']
+            },
+            {
+                tagName:'W',
+                cityList:['武昌','武汉','温州','无锡']
+            },
+            {
+                tagName:'X',
+                cityList:['西安','厦门','咸阳','襄阳','徐州']
+            },
+            {
+                tagName:'Z',
+                cityList:['郑州','珠海','肇庆','中山','湛江']
+            }
+          ]
+        };
+
+        function renderFn(tpl,view){
+            var gettpl = document.getElementById(tpl).innerHTML;
+            laytpl(gettpl).render(data, function(html){
+              document.getElementById(view).innerHTML = html;
+            });
+        }
+        renderFn('tpl','tpl_view');
+        renderFn('word_list_tpl','word_list_tpl_view');
+
+        lui.touchIndex();
+    </script>
+</body>
+</html>

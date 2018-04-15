@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>图片轮播</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                图片轮播采用的是swiper插件，内置丰富的api，简单的配置即可实现大部分轮播功能。
+            </p>
+            <section class="w">
+                <div class="ui_titleBar_wrap"><h2 class="ui_titleBar">带标题的轮播</h2></div>
+                <div class="bannerBox">
+                    <div class="swiper-container" id="bannerText">
+                        <ul class="swiper-wrapper boxModal">
+                            <li class="swiper-slide"><img src="images/m1.jpg" alt="温暖演绎"></li>
+                            <li class="swiper-slide"><img src="images/m2.jpg" alt="魔幻"></li>
+                        </ul>
+                    </div>
+                    <div class="swiper-ft-box flexbox">
+                        <div class="flexItem"><p class="ellipsis" id="swiperText"></p></div>
+                        <div class="swiper-pagination-square flexCenter"></div>
+                    </div>
+                </div>
+            </section>           
+
+            <br><br>
+            <section class="w">
+                <div class="ui_titleBar_wrap"><h2 class="ui_titleBar">焦点轮播</h2></div>
+                <div class="swiper-container w" id="banner">
+                    <ul class="swiper-wrapper boxModal">
+                        <li class="swiper-slide"><img src="images/redtory1.jpg"></li>
+                        <li class="swiper-slide"><img src="images/redtory2.jpg"></li>
+                    </ul>
+                    <div class="swiper-pagination-circle"></div>
+                </div>
+            </section> 
+            <br><br>
+            <div class="ui_titleBar_wrap"><h2 class="ui_titleBar">仿app下载应用截图展示</h2></div>
+            <div class="swiper-container" id="phoneSwiper">
+                <ul class="swiper-wrapper boxModal">
+                    <li class="swiper-slide"><img src="images/p1.jpg"></li>
+                    <li class="swiper-slide"><img src="images/p2.jpg"></li>
+                    <li class="swiper-slide"><img src="images/p3.jpg"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<!--tab切换依赖-->
+<script type="text/javascript" src="js/3rd-plugins/swiper-4.1.0.jquery.min.js"></script>
+<script type="text/javascript">
+    //swiper
+    function changeTitle(index){
+        var imgs = document.querySelectorAll("#bannerText img");
+        document.querySelector('#swiperText').innerHTML = imgs[index].getAttribute('alt');
+    } 
+   var mySwiper = new Swiper ('#bannerText', {
+        pagination: {
+            el: '.swiper-pagination-square',
+            clickable: true
+        },
+        loop : true,
+        on:{
+            init:function(){                
+                var index = this.activeIndex;
+                changeTitle(index)
+            },
+            transitionEnd:function(){       
+                var index = this.activeIndex;
+                changeTitle(index)
+            }
+        }
+   })      
+
+    setInterval("mySwiper.slideNext()", 4000);
+
+    var banner = new Swiper ('#banner', {
+        pagination: {
+            el: '.swiper-pagination-circle',
+            clickable: true
+        },
+        loop : true
+   })    
+   setInterval("banner.slideNext()", 3000);  
+
+   var phoneSwiper = new Swiper('#phoneSwiper', {
+        slidesPerView: '2.5',
+        centeredSlides: false,
+        spaceBetween:10,
+        grabCursor: true
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body class="bgWhite">
+     <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>1像素边框</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                对于移动开发者而言，搞清设备分辨率和css像素之间的关系是很重要的，css单位的1像素和移动端屏幕的1像素并不是相等的。
+                比如iPhone6s的分辨率是750X1334，但实际上对应css是375X667。也就是手机1px=css的0.5px。
+                通过css伪类+css3缩放则可以达到视觉效果。
+            </p>   
+            <div class="p10">
+                <div class="p10  _pixel">1像素边框</div>
+            </div>
+            <div class="p10">
+                <div class="p10  top_pixel">1像素上边框</div>
+            </div>
+            <div class="p10">
+                <div class="p10  right_pixel">1像素右边框</div>
+            </div>
+            <div class="p10">
+                <div class="p10  bottom_pixel">1像素下边框</div>
+            </div>
+            <div class="p10">
+                <div class="p10  left_pixel">1像素左边框</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

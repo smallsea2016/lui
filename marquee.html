@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>marquee</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                marquee
+            </p>
+            <div class="ui_marquee">
+                <ul class="ui_marquee_box" id="j_marquee">
+                    
+                </ul>
+            </div>            
+        </div>
+    </div>
+
+<!--公共js-->
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript">
+    var i  = 0 ;
+    var  arr = ['下雨天1','下雨天2','下雨天3','下雨天4','下雨天5']
+    setInterval(function(){
+        var j_marquee = lui.selector('#j_marquee');        
+        i ++;
+        if (i > 4) {
+            i = 0
+        } 
+        j_marquee.innerHTML = '<li class="f17">'+arr[i]+'</li>';
+        
+        j_marquee.style.cssText = 'transform:translateY(-24px);transition:all .3s';
+        j_marquee.addEventListener('webkitTransitionEnd',function(){
+            j_marquee.style.cssText = 'transform:translateY(0)';  
+        },false)
+        
+    },1000)
+
+
+</script>
+</body>
+</html>

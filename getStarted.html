@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+    <!--富文本样式-->
+    <link rel="stylesheet" type="text/css" href="css/lib/fixck.css" />
+    <!--大图预览样式-->
+    <link rel="stylesheet" type="text/css" href="css/lib/zoom.css" />
+</head>
+<body class="bgWhite">
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>快速上手</header>
+        <div class="ui_page_bd">
+            <div class="ui_article_detail">
+                <div class="fixck">
+                    <h3>html</h3>
+                    <p>页面布局采用万能的<mark>上中下</mark>布局。一个大层包含里面上中下三层。最外层使用absolute定位铺满整屏，Header和Footer根据你的项目是否需要而增减。</p>
+                    <div class="tc">
+                        <h5 align="center" style="color: red">布局图示</h5>
+                        <img src="images/layout.png">
+                        <h5 align="center" style="color: red">布局代码</h5>
+                        <img src="images/layout-code.png">
+                    </div>
+                    <h3>css</h3>
+                    <p>一般情况下引入<mark>lui.css</mark>就可以了，lui.css已经import了一个<mark>reset.css</mark>，重置了浏览器默认样式以及包含了一些基础辅助样式。针对某些不是很常用的组件，进行了单独抽离。如果页面中有需要用到图片预览放大，要另外引入<mark>zoom.css</mark>，如果页面包含富文本，要引入<mark>fixck.css</mark>，比如这个快速开始页面。</p>
+                    <h3>js</h3>
+                    <p>依赖jq的只有<mark>mobiscroll</mark>日期控件。因此，如果你的应用没有依赖jq不需要用到mobiscroll，直接引入<mark>lui.js</mark>就可以了。</p>
+                    <a href="demo.html">好了，来看一个使用示例。</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/lui.js"></script>
+    <script type="text/javascript">
+        lui.loadScript('js/3rd-plugins/swiper-4.1.0.jquery.min.js',function(){
+            lui.photoZoom('img');
+        })    
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>正则匹配</header>
+        <div class="ui_page_bd">
+            <section class="ui_con_block">
+              <h2 class="ui_titleBar">匹配指定字符串</h2>
+              <div class="pt10">一句字符串，“xxxxx0-5xxxxx”，怎么把里面的0-5字符串提取出来，不知道位置的</div>
+              <p id="r"></p>
+            </section>
+            <section class="ui_con_block">
+              <h2 class="ui_titleBar">匹配手机号码</h2>
+              <div class="pt10"><input type="tel" id="tel" maxlength="11" class="ui_ipt" placeholder="请输入11位手机号码" oninput="regTel()"></div>
+              <p id="r-tel"></p>
+            </section>
+            <ul class="ui_list ui_list_padded ui_list_arrow">
+                <li><a href="http://tool.chinaz.com/regex/">更多正则匹配</a></li>
+                <li><a href="http://www.cnblogs.com/shuaisam/archive/2012/04/12/2442741.html">字符串替换</a></li>
+                <li><a href="http://www.runoob.com/js/js-regexp.html">教程</a></li>
+            </ul>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    var str = "xxxxx0-5xxxxx";
+    var reg = /0-5/;
+    // var reg = /\d-\d/;  //"-"左右数字
+    var strResult = str.match(reg);
+    document.querySelector('#r').innerHTML = '结果：'+strResult;
+
+    function regTel(){
+        var str = /^(((13[0-9]{1})|158|159|153|147)+\d{8})$/;   //手机号码验证
+        var v = document.querySelector('#tel').value;
+        if(!v.match(str)){
+            document.querySelector('#r-tel').innerHTML = '不符合要求';
+        }else{
+            document.querySelector('#r-tel').innerHTML = '格式正确';
+        }
+    }
+</script>
+</body>
+</html>

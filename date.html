@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>日期时间</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                移动端日期控件mobiscroll，支持多种日期格式配置。
+            </p>
+            <div class="p10">
+                <ul class="flexbox">
+                     <li class="flexItem"><input type="text" readonly placeholder="开始时间" class="w100p ui_ipt" id="taskStart"></li>
+                     <span class="flexCenter pl5 pr5">-</span>
+                     <li class="flexItem"><input type="text" readonly placeholder="结束时间" class="w100p ui_ipt" id="taskStop"></li>
+                </ul>
+            </div>
+            <div class="p10">
+                原生日期控件:<input type="date" class="ui_ipt">
+            </div>
+            <div class="p10">
+                今天是星期：<u class="primary_color" id="j_day"></u>
+            </div>
+            <div class="p10">
+                10天后是：<u class="primary_color" id="j_time"></u>
+            </div>
+            <div class="p10">
+                距离2018年国庆还有：<u class="primary_color" id="j_gq"></u>
+            </div>
+        </div>
+    </div>
+
+
+<script type="text/javascript" src="js/3rd-plugins/jquery-1.10.1.min.js"></script>
+<!--日历css和js-->
+<link rel="stylesheet" type="text/css" href="css/3rd-css/mobiscroll.2.13.2.min.css">
+<script type="text/javascript" src="js/3rd-plugins/mobiscroll.2.13.2.min.js"></script>
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript">
+    /**
+        ====日历设置====
+        var opt = {
+        preset: 'datetime', //日期
+        theme: 'android-holo light', //皮肤样式
+        display: 'bottom', //显示方式 
+        mode: 'scroller', //日期选择模式
+        dateFormat: 'yy-mm-dd', // 上面部分的日期格式
+        setText: '确定', //确认按钮名称
+        cancelText: '取消',//取消按钮
+        dateOrder: 'yymmdD', //面板中日期排列格式
+        showNow: true,  
+        nowText: "今天", 
+        group: true,
+        stepMinute: 5,//设置分钟间隔
+        dayText: '日', monthText: '月份', yearText: '年份', //面板中年月日文字
+        endYear:2050 //结束年份
+    }; */
+
+    //日历插件
+    // opt.preset = 'date';    //年月日
+    $('#taskStart,#taskStop').mobiscroll(opt);
+
+    document.querySelector('#j_day').innerHTML = lui.getCnDay();
+
+    document.querySelector('#j_time').innerHTML = lui.getTime(10,'','datetime');
+
+    lui.countDown('2018-10-01',function(res){
+        if (res == undefined) {
+            console.log('设定时间小于或等于当前时间');
+        }else{
+            var s = res.split('|');
+            document.querySelector('#j_gq').innerHTML = s[0]+'天'+s[1]+'时'+s[2]+'分'+s[3]+'秒';  
+        }        
+    });
+</script>
+</body>
+</html>

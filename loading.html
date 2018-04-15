@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+     <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>loading</header>
+        <div class="ui_page_bd">
+			<p class="ui_con_block">包括局部加载中和整页加载中</p>
+            <div class="ui_loading_block">
+               <div class="ui_loading"><div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div><p class="text">正在加载中...</p>
+            </div>
+            
+        </div>
+    </div>
+
+<!--本项目的js-->
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript">
+    lui.loading();
+    setTimeout(function(){
+		// lui.loading('close')
+	 },3000)
+</script>
+</body>
+</html>

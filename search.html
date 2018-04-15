@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>搜索框</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">多种输入框风格，满足各种常见场景。</p>
+            <section class="mb15">
+                <div class="ui_search_box">
+                    <input type="search" name="" class="ui_search_ipt ui_search_icon" placeholder="搜索">
+                </div>
+            </section>
+
+            <section class="mb15">
+                <div class="ui_search_box flexbox">
+                    <div class="flexItem">
+                        <input type="search" name="" class="ui_search_ipt" placeholder="搜索">
+                    </div>
+                    <a href="javascript:;" class="ui_search_action ui_search_icon"></a>
+                </div>
+            </section>
+
+            <section class="mb15">
+                <div class="ui_search_box flexbox" id="js_search">
+                    <div class="flexItem ui_search_item">
+                        <div class="flexbox">
+                            <div class="flexItem"><input type="search" name="" class="ui_search_ipt ui_search_icon" placeholder="搜索" id="search_label" role="search-input"></div>
+                            <a href="javascript:;" class="ui_search_close" role="search-close"></a>
+                        </div>                        
+                    </div>
+                    <a href="javascript:;" class="ui_search_cancel" role="search-cancel">取消</a>
+                    <label for="search_label" class="ui_search_label" role="search-label">
+                        <i class="ui_search_action ui_search_icon"></i>
+                        <span>搜索</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="mb15">
+                <div class="ui_search_box flexbox">
+                    <div class="flexItem ui_search_item">
+                        <div class="flexbox">
+                            <div class="ui_search_condition ui_triangle_down" onclick="showCondition(this)">
+                                <i class="ui_search_arrow"></i>
+                                <ul class="ui_search_list" id="schValueId">
+                                    <li>全部</li>
+                                    <li>公司动态</li>
+                                </ul>
+                            </div>  
+                            <div class="flexItem ml-10"><input type="search" name="" class="ui_search_ipt" placeholder="搜索"></div>
+                        </div>
+                    </div>
+                    <a href="javascript:;" class="ui_search_action ui_search_icon"></a>
+                </div>
+            </section>            
+        </div>
+    </div>
+<!--公共js-->
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript">
+    lui.searchControl({
+        el:'#js_search',
+        input:function(val){
+           console.log('你输入的是：'+val); 
+        },
+        clear:function(){
+            console.log('clear');
+        },
+        cancel:function(){
+            console.log('cancel');
+        },
+        enter:function(val){
+            console.log('点击了回车,输入的内容是：'+val);
+        }
+    });
+
+    /*显示和隐藏搜索条件*/
+    function showCondition(_this){
+        if (!_this.classList.contains('active')) {
+            _this.classList.add('active');
+        }else{
+            _this.classList.remove('active');
+        }       
+    }
+
+</script>
+</body>
+</html>

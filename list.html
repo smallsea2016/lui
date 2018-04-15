@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>列表</header>
+        <div class="ui_page_bd">
+            <script type="text/html" id="tpl">
+                <p class="ui_con_block">
+                    包含通栏列表，缩进列表，卡片列表，媒体列表。
+                </p>
+                 <section>
+                    <h2 class="ui_list_hd">通栏列表</h2>
+                    <ul class="ui_list ui_list_arrow">
+                        {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
+                            <li><a href="{{d.list[i].url}}">{{d.list[i].title}}</a></li>
+                        {{# }}}
+                    </ul>
+                </section>
+                <section>
+                    <h2 class="ui_list_hd">缩进列表</h2>
+                    <ul class="ui_list_padded">
+                        {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
+                            <li>{{d.list[i].content}}</li>
+                        {{# }}}
+                    </ul>
+                </section>
+                <section>
+                    <h2 class="ui_list_hd">卡片列表</h2>
+                    <ul class="ui_list ui_list_margin">
+                        {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
+                            <li>
+                                <a href="#">
+                                    <h2 class="ellipsis tit">{{d.list[i].content}}</h2>
+                                    <p class="pt5"><time>{{d.list[i].datetime}}</time></p>
+                                </a>
+                            </li>
+                        {{# }}}
+                    </ul>
+                </section>
+                <section>
+                    <h2 class="ui_list_hd">媒体列表</h2>
+                    <ul class="ui_list">
+                        {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
+                            <li class="flexbox">
+                                <figure><img src="{{d.list[i].image}}" class="ui_list_thumb"></figure>
+                                <section class="flexItem ui_list_right">
+                                    <h2 class="tit ellipsis_line2">{{d.list[i].content}}</h2>
+                                    <div>
+                                        <time>{{d.list[i].datetime}}</time>
+                                    </div>
+                                </section>
+                            </li>
+                        {{# }}}
+                    </ul>
+                </section>
+            </script>
+            <div id="tpl_view"></div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="js/3rd-plugins/laytpl.js"></script> 
+<!--mock模拟数据-->
+<script src="js/3rd-plugins/mock.js"></script> 
+<script type="text/javascript">
+    var data = Mock.mock({
+        'list|5':[{
+            'name':"@name(true)",  
+            'datetime':"@datetime('yyyy/MM/dd')", 
+            'title' : "@ctitle(3, 5)",
+            'content':'@cword(5, 70)',
+            'image':"@image('100X80','#467DB9','#fff','100X80')",
+            'url':"@url"
+        }]
+    });
+   var gettpl = document.getElementById('tpl').innerHTML;
+        laytpl(gettpl).render(data, function(html){
+        document.getElementById('tpl_view').innerHTML = html;
+    });
+</script>
+</body>
+</html>

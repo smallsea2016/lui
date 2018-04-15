@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>流程流转</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                流程流转，让进程环节更清晰。
+            </p>
+            <ul class="ui_flow_list">
+                <!-- states="cancel" 未通过 -->
+                <li states="on" data-step="1">
+                    <div class="item_lt">
+                        发起人
+                    </div>
+                    <div class="item_rt">
+                        <p>张三 预约成功 </p>
+                        <time>20160512 15:32</time>
+                    </div>
+                </li>
+                <li states="on" data-step="2">
+                    <div class="item_lt">
+                        处理人1
+                    </div>
+                    <div class="item_rt">
+                        <p>李四 开始办理</p>
+                    </div>
+                </li>
+                <li states="on" data-step="3">
+                    <div class="item_lt">
+                        处理人3
+                    </div>
+                    <div class="item_rt">
+                        <p>王五 后续操作</p>
+                    </div>
+                </li>
+                <li states="on" data-step="4">
+                    <div class="item_lt">
+                        处理人3
+                    </div>
+                    <div class="item_rt">
+                        <p>赵柳 完成办理</p>
+                    </div>
+                </li>
+                <li data-step="5">
+                    <div class="item_lt">
+                        结束
+                    </div>
+                    <div class="item_rt">
+                        <p>等待评价</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

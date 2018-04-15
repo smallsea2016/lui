@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+    <link rel="stylesheet" type="text/css" href="css/lib/zoom.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>表单</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                这里囊括了各种表单元素，从此，告别表单烦恼。
+            </p>
+            <ul class="ui_form">
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">滑块</label>
+                    <div class="flexItem">
+                        <label class="ui_slider_check">
+                            <input type="checkbox" checked>
+                        </label>
+                    </div>
+                </li>       
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">复选</label>
+                    <div class="flexItem">
+                        <label class="ui_checkbox">
+                          <input type="checkbox" checked value="yes" name="checkbox">
+                          <b>同意</b>
+                        </label> 
+                   </div>        
+                </li>
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">单选</label>
+                    <div class="flexItem">
+                        <label class="ui_radio">
+                              <input type="radio" value="yes" checked name="radio">
+                              <b>YES</b>
+                            </label> 
+                            <label class="ui_radio">
+                              <input type="radio" value="no" name="radio">
+                              <b>NO</b>
+                        </label> 
+                    </div>
+                </li>
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">日期选择</label>
+                    <div class="flexItem">
+                       <input type="text" readonly name="" placeholder="请选择" id="date-picker" class="ui_ipt">
+                    </div>
+                </li>
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">范围选择</label>
+                    <div class="flexItem">
+                        <small id="rangeVal" class="c999">30</small>
+                        <input type="range" oninput="changeRange(this)" value="30" min="1" max="100" step="1" class="ui_range">                       
+                    </div>
+                </li>
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">下拉选择</label>
+                    <div class="flexItem">
+                       <select class="ui_select" name="select">
+                           <option value="">妹子类型</option>
+                           <option value="1">女汉子</option>
+                           <option value="2">萌妹子</option>
+                       </select>
+                    </div>
+                </li>
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">星星评分</label> 
+                    <div class="flexItem">
+                        <ul class="ui_star_review fr" id="star1">
+                            <li class="item" title="差"><input value="1" type="radio" name="review" hidden="hidden"></li>
+                            <li class="item" title="较差"><input value="2" type="radio" name="review" hidden="hidden"></li>
+                            <li class="item" title="一般"><input value="3" type="radio" name="review" hidden="hidden"></li>
+                            <li class="item" title="好"><input value="4" type="radio" name="review" hidden="hidden"></li>
+                            <li class="item" title="很好"><input value="5" type="radio" name="review" hidden="hidden"></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">单行输入框</label>
+                    <div class="flexItem">
+                       <input type="text" placeholder="请输入" class="ui_ipt">
+                    </div>
+                </li>
+                <li class="ui_form_item">
+                    <label class="ui_form_label">多行输入框</label>
+                    <div class="">
+                       <textarea placeholder="请输入" class="ui_textarea" rows="5"></textarea>
+                    </div>
+                </li>
+                <li class="ui_form_item">
+                    <label class="ui_form_label">图片上传</label>
+                    <div class="ui_uploader_control">
+                        <ul class="ui_uploader_box" id="loader-box">
+                        </ul>
+                        <label class="ui_uploader"><input type="file" accept="image/gif,image/jpeg,image/png" hidden id="upload_photo"></label>
+                   </div>
+                </li>
+            </ul>
+        </div>    
+    </div>
+
+<script type="text/javascript" src="js/3rd-plugins/jquery-1.10.1.min.js"></script>
+<!--公共js-->
+<script type="text/javascript" src="js/lui.js"></script>
+<!--日历css和js-->
+<link rel="stylesheet" type="text/css" href="css/3rd-css/mobiscroll.2.13.2.min.css">
+<script type="text/javascript" src="js/3rd-plugins/mobiscroll.2.13.2.min.js"></script>
+<script type="text/javascript" src="js/lib/form.js"></script>
+<script type="text/javascript">    
+    //星级评分
+	form.Raty('#star1 li',function(num){
+        console.log('选中了'+num+'颗星');
+    })
+	//图片上传
+	form.chooseImage('#upload_photo',function(objUrl){
+        console.log(objUrl);
+    });
+	
+    /*日期选择*/
+    var d = new Date();
+    //设置初始化
+    $("#date-picker").val(d.Format("yyyy-MM-dd ")+"09:00");
+    //日历插件
+    $('#date-picker').mobiscroll(opt);
+
+    /*唤起图片上传大图预览*/
+    var _hasLoadSwiper = false;
+    document.addEventListener('click',function(ev){
+        var tagName = ev.target.tagName.toLowerCase();
+        //判断是不是要预览的图片
+        if(tagName == 'img' && ev.target.parentNode.className.indexOf('ui_uploader_item') > -1){
+
+            var imgs = document.querySelectorAll('#loader-box img'),index;
+            for(var i = 0,len = imgs.length;i < len;i++){
+                imgs[i].setAttribute('data-index',i)
+            }
+            index = ev.target.dataset.index;
+            if(! _hasLoadSwiper){   //避免重复加载swiper
+                lui.loadScript('js/3rd-plugins/swiper-4.1.0.jquery.min.js',function(){
+                    lui.photoZoomUpload('#loader-box img',index);                    
+                    _hasLoadSwiper = true
+                })   
+            }else{
+                lui.photoZoomUpload('#loader-box img',index);    
+            }   
+        }
+    },false)
+</script>
+</body>
+</html>

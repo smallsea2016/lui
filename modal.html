@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+   
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+     <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>模态框/弹出层</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                alert,confirm,弹出层。
+            </p>
+            <div class="nav_tab_wrap">
+                <nav class="ui_capsule_tab flexbox" id="js_tabs">
+                    <a href="javascript:;" class="flexItem on" id="js_alert">alert</a>
+                    <a href="javascript:;" class="flexItem" id="js_confirm">confirm</a>
+                    <a href="javascript:;" class="flexItem" id="js_modal_ipt">带输入框</a>
+                </nav>
+            </div>
+
+            <br>
+            <div class="p10">
+                <button type="button" class="ui_btn" onclick="openPage()">底部弹出层</button>
+            </div>
+        </div>
+    </div>
+
+    <!--底部弹出层-->
+    <aside class="ui_aside_page modal_out" id="aside">
+        <header class="abs_top">
+            <div class="ui_aside_page_header">
+                <h2>底部弹出层标题</h2>
+                <a href="javascript:closePage();" class="ui_close_dialog"></a>
+            </div>
+        </header>
+        <div class="ui_aside_page_inner">
+            <p class="ui_con_block">底部弹出层内容</p>   
+        </div>
+    </aside>
+
+<!--本项目的js-->
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript">
+    lui.selector('#js_tabs').onclick = function(e){
+        var _id = e.target.id;
+        if (_id == 'js_alert') {
+             lui.showModal({
+                content:'alert',
+                showCancel:false,
+                confirm:function(){
+                   lui.showModal({
+                        content:'呵呵',
+                        confirm:function(){
+                            console.log('confirm');
+                        }
+                    });
+                }
+            });
+        }else if (_id == 'js_confirm') {
+             lui.showModal({
+                content:'confirm',
+                showCancel:true,
+                cancel:function(){
+                   console.log('cancel');
+                },
+                confirm:function(){
+                    console.log('confirm');
+                }
+            });
+        }else if(_id == 'js_modal_ipt'){
+            lui.showModal({
+                content:'<input type="text" placeholder="请输入" class="ui_ipt" id="ipt"/>',
+                confirm:function(){
+                    console.log(lui.selector('#ipt').value);
+                }
+            });
+        }
+    };
+
+
+    function openPage(){
+        lui.viewModal('#aside',{
+            open:function(){
+                console.log('open');
+            }
+        });
+    }
+
+     function closePage(){
+        lui.viewModal('#aside',{
+            close:function(){
+                console.log('close');
+            }
+        });
+    }
+    
+
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>卡片</header>
+        <div class="ui_page_bd">
+            <div class="ui_card">
+                <header class="ui_card_hd">
+                    卡头
+                </header>
+                <div class="ui_card_bd">
+                    一个完整的卡片，包含卡头，卡主体内容，卡尾
+                </div>
+                <footer class="ui_card_ft">
+                    卡尾
+                </footer>
+            </div>              
+            <div class="ui_card">
+                <header class="ui_card_hd ui_hover" data-role="toggle" onclick="toggleCard(this)">
+                    <span>卡头</span>
+                    <i class="ui_arrow_right"></i>
+                </header>
+                <div class="ui_card_bd">
+                    <section class="ui_card_inner">
+                        可折叠卡片
+                    </section>                    
+                </div>
+            </div>    
+            <div class="ui_card">
+                <header class="ui_card_hd">
+                    <span>卡头</span>
+                </header>
+                <div class="ui_card_bd">
+                    带连接的卡片
+                </div>
+                <a href="about.html" class="ui_card_ft ui_hover">
+                    <span>卡尾</span>
+                    <i class="ui_arrow_right"></i>
+                </a>
+            </div>  
+        </div>
+    </div>
+    <script type="text/javascript">
+        /*显示折叠*/
+          function toggleCard(_this){
+            var target = _this.dataset.role;
+            if(target){
+                if(_this.className.indexOf('active') > -1){
+                    _this.classList.remove('active')
+                }else{
+                    _this.classList.add('active')
+                }
+            }
+          }
+    </script>
+</body>
+</html>
