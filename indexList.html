@@ -17,10 +17,10 @@
 </head>
 <body>
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>touch城市选择</header>
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>索引列表</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
-                通过移动端touch事件，滑动定位城市
+                索引列表常用于通讯录选人和城市选择
             </p>
             <script id="tpl" type="text/html">
                 {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
@@ -136,7 +136,7 @@
         }
         renderFn('tpl','tpl_view');
         renderFn('word_list_tpl','word_list_tpl_view');
-
+        
         lui.touchIndex();
     </script>
 </body>

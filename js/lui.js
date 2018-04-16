@@ -112,15 +112,17 @@
         *@param num 克隆的textarea的随机id(用于一个页面有多个textarea的情况)
     */
     g.autoTextarea = function(textarea,num){
-        var textarea = document.querySelector(textarea);
-        var node = textareg.cloneNode();
+        var textarea = document.querySelector(textarea),
+            node = textarea.cloneNode(),
+            num = num || 0;
         node.id = 'clone_textarea2017'+num;
        document.querySelector('body').appendChild(node);
        node.style.cssText = 'position:absolute;left:-1000000px';
-       textareg.oninput = function(e){
-           node.value = textareg.value;
-           node.style.cssText += 'width:'+textareg.scrollWidth+'px';
-           var h = node.scrollHeighteight;
+       textarea.oninput = function(e){
+          console.log('input');
+           node.value = textarea.value;
+           node.style.cssText += 'width:'+textarea.scrollWidth+'px';
+           var h = node.scrollHeight;
            h=h>70?70:(h>35 ? h+2 : 30);
            e.target.style.cssText = 'height:'+h+'px';
        }
@@ -436,7 +438,7 @@
         word_popup = document.querySelector('[data-role="word_popup"]'); //popup
         var fixed_h = (document.body.clientHeight - english.clientHeight) / 2; //原生js的offsetTop在元素用了fixed属性后，有bug，会从0计算，所以用窗口的高度减去元素的高度来计算距离
         // console.log((fixed_h));
-        for (var i = 0; i < g.length; i++) {
+        for (var i = 0; i < a.length; i++) {
             a[i].addEventListener('touchstart', _start, false);
             a[i].addEventListener('touchmove', _move, false);
             a[i].addEventListener('touchend', _end, false);
@@ -462,9 +464,9 @@
               moveX = touch.pageX;
               moveY = touch.pageY;
               word_popup.classList.add('active');
-              var scrollTopop = document.body.scrollTopop;
+              var scrollTop = document.body.scrollTop;
               for (var j = 0; j < title.length; j++) { //循环需要滑动的英文字母
-                  if ((y[j] + scrollTopop < moveY) && (moveY < y[j] + h[j] + scrollTopop)) { //计算区间获得对应字母的位置
+                  if ((y[j] + scrollTop < moveY) && (moveY < y[j] + h[j] + scrollTop)) { //计算区间获得对应字母的位置
                       window.location.hash = title[j].id;
                       word_popup.innerText = title[j].id;
                   }
