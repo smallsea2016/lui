@@ -80,10 +80,14 @@
                 }
             });
         }else if(_id == 'js_modal_ipt'){
+            var val;
             lui.showModal({
                 content:'<input type="text" placeholder="请输入" class="ui_ipt" id="ipt"/>',
-                confirm:function(){
-                    console.log(lui.selector('#ipt').value);
+                beforeHide:function(){
+                    val = lui.selector('#ipt').value;
+                },
+                confirm:function(){                    
+                    console.log(val);
                 }
             });
         }

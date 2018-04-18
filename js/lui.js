@@ -315,7 +315,16 @@
         },opts.duration)
     }
     /**
-      * showModal
+      * showModal模态框  (opts 接收一个object对象)
+      * @param title 标题
+      * @param content 内容
+      * @param cancelText 取消按钮的文字
+      * @param confirmText 确认按钮的文字
+      * @param skin 自定义class样式
+      * @param showCancel 是否显示取消按钮，默认为 true
+      * @param cancel {function} 取消按钮的回调函数
+      * @param confirm {function}  确定按钮的回调函数
+      * @param beforeHide {function}  退出模态框前的回调函数
     */
     g.showModal = function(opts){
       var opts = opts || {}
@@ -352,6 +361,9 @@
        var hideModal = function(){
             modal.classList.remove('ui_modal_in');
             modal.classList.add('ui_modal_out');
+            if (opts.beforeHide && typeof opts.beforeHide == 'function') {
+              opts.beforeHide()
+            }
             setTimeout(function(){
               modal_wrap.parentNode.removeChild(modal_wrap);
             },200)
