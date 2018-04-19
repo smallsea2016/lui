@@ -4,7 +4,6 @@
     @time 2018-04-15
     @versions 1.0
 */
-
 /*页面架构*/
 .ui_page_wrap,
 .ui_page_hd,
@@ -16,7 +15,6 @@
 .ui_page_wrap {height: 100%;overflow: hidden;}
 .ui_page_bd {bottom: 0;overflow-x: hidden;overflow-y:auto;-webkit-scrolling-overflow:touch;}
 .ui_page_ft {bottom: 0}
-
 .ui_page_hd {height:45px;line-height: 45px;font-size: 18px;text-align: center;background-color: #f7f7f7}
 .ui_page_hd:after {position: absolute;content: '';left: 0;right: 0;bottom: 0;border-bottom: 1px solid #ccc;
     transform:scaleY(.5);-webkit-transform:scaleY(.5); 
@@ -64,7 +62,6 @@
        -webkit-transform: translateY(-24px); 
     }
 }
-
 /*搜索*/
 input::-webkit-search-decoration,
 input::-webkit-search-cancel-button {
@@ -149,7 +146,6 @@ a.ui_btn {line-height: 45px;}
 /*尺寸*/
 .ui_btn[size="sm"] {height: 35px;}
 .ui_btn[size="xs"] {height: 25px;font-size: 12px;}
-
 /*镂空*/
 .ui_btn[skin="plain"] {
     background-color: transparent;
@@ -165,7 +161,6 @@ a.ui_btn {line-height: 45px;}
 .ui_fill_mark,
 .ui_circular_mark {
     position: relative;
-    display: inline-block;vertical-align: middle;
     padding:5px 8px;
 	line-height:1;
     font-size: 10px;
@@ -178,7 +173,6 @@ a.ui_btn {line-height: 45px;}
     color: #fff;
 }
 .ui_stick_mark {
-    display: inline-block;
     padding:2px 5px;
     line-height:1;
     font-size: 10px;
@@ -254,7 +248,6 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
 } 
-
 /*flex布局*/
 .ui_flex {
     display: -webkit-box;
@@ -272,7 +265,6 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
 .ui_aligns_end {-webkit-box-pack:end;-webkit-box-align:end;box-pack:end;box-align:end;justify-content: flex-end;align-items: flex-end;}
 .placeholder {margin: 5px;padding: 10px;background-color: #467DB9;color: #fff}
 .ui_flex_wrap {flex-wrap:wrap;}
-
 /*列表*/
 .ui_list,
 .ui_list_padded {position: relative;}
@@ -316,7 +308,6 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
 .loading_gif {background: url(../images/icon/loading.gif) no-repeat center #efefef;
     background-size: 30px
 }
-
 /*卡片*/
 .ui_card {margin: 15px;background-color: #fff;border-radius: 3px;background-clip: padding-box}
 .ui_card_hd,
@@ -413,7 +404,6 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
 }
 .ui_flow_list .item_lt {width: 70px}
 .ui_flow_list .item_rt {padding-left: 10px;}
-
 /*========= 表单 =========*/
 .ui_form {padding-left: 15px;background-color: #fff;font-size: 16px}
 .ui_form_item { 
@@ -449,7 +439,6 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
     background-size: 60%;
 }
 .ui_checkbox input[type="checkbox"] {width: 20px;height: 20px;border-radius: 2px}
-
 /*滑块*/
 .ui_slider_check input[type="checkbox"] {
   display: inline-block;vertical-align: middle;
@@ -482,7 +471,6 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
     background-color: #467DB9;
     -webkit-appearance: none ;
 }
-
 /*星星评分*/
 .ui_star_review>li {float: left;display: inline;margin-left: 5px;margin-top: 3px;
   width:16px;height: 16px;background: url(../images/icon/star.png) no-repeat;
@@ -690,18 +678,28 @@ i.ui_star_on {display: inline-block;width: 15px;height: 16px;}
 }
 .ui_actionSheet {position: fixed;
     z-index: 1000;
-    left: 0;right: 0;bottom: 0;
     background-color: #efefef;
     -webkit-transform: translate3d(0,100%,0);
     transform: translate3d(0,100%,0);-webkit-transition: all .25s;transition: all .25s;
 }
-.ui_actionSheet_bd {max-height: 50vh;overflow-y: auto;-webkit-scrolling-overflow:touch;}
+.ui_actionSheet:not(.ui_actionSheet_middle) {left: 0;right: 0;bottom: 0;
+    -webkit-transform: translate3d(0,100%,0);
+    transform: translate3d(0,100%,0);-webkit-transition: all .25s;transition: all .25s;
+}
+.ui_actionSheet_middle {left: 10%;right: 10%;top:50%;-webkit-transform: translate3d(0,-50%,0);
+    transform: translate3d(0,-50%,0);max-width: 480px;margin-left: auto;margin-right: auto;display: none;
+}
+.ui_actionSheet_middle,
+.ui_actionSheet_middle .ui_actionSheet_bd {border-radius: 3px;background-clip: padding-box;}
+.ui_actionSheet_bd {max-height: 50vh;overflow-y: auto;-webkit-scrolling-overflow:touch;
+    background-color: #fff
+}
+.ui_actionSheet_middle .ui_actionSheet_item {font-size: 16px}
 .ui_actionSheet_item {
     position: relative;
     padding: 10px 0;
     text-align: center;
     font-size: 18px;
-    background-color: #fff
 }
 a.ui_actionSheet_item {display: block;}
 .ui_actionSheet_item:before {
@@ -718,13 +716,13 @@ a.ui_actionSheet_item {display: block;}
 .ui_actionSheet_item:active {
     background-color: #ECECEC;
 }
-.ui_actionSheet_ft {margin-top: 6px}
+.ui_actionSheet_ft {margin-top: 6px;background-color: #fff}
 .actionSheet_active .ui_actionSheet_mask {display: block;}
-.actionSheet_active .ui_actionSheet {
+.actionSheet_active .ui_actionSheet:not(.ui_actionSheet_middle) {
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
 }
-
+.actionSheet_active .ui_actionSheet_middle {display: block;}
 
 /*宫格布局*/
 .ui_grid {display: table;table-layout: fixed;width: 100%;background-color: #fff;box-sizing: border-box;}
@@ -749,7 +747,6 @@ a.ui_actionSheet_item {display: block;}
   border-top: 1px solid #e5e5e5;border-bottom: 1px solid #e5e5e5;}
 .ui_table th {background-color: #f7f7f7;font-size: 15px;color: #656565}
 .ui_table .tl {text-align: left;}
-
 /*字母检索*/
 .word_list {position: fixed;
     right: 5px;top:50%;transform:translateY(-50%);
@@ -813,56 +810,6 @@ a.ui_actionSheet_item {display: block;}
 .swiper-pagination-circle > span.swiper-pagination-bullet-active,
 .swiper-pagination-square > span.swiper-pagination-bullet-active {
     background-color:#fff;
-}
-
-
-/**
-  * 下拉样式 Pull down styles
-*/
-.scroller_wrap {position: relative;overflow: hidden;}
-#pullDown, #pullUp {
-    text-align: center;
-    height:40px;
-    line-height:40px;
-    padding:5px 10px;
-    color:#888;
-}
-#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
-    display:inline-block;vertical-align: middle;
-    width:40px; height:40px;
-    background:url(../images/icon/pull-icon@2x.png) 0 0 no-repeat;
-    background-size:40px 80px;
-    -webkit-transition-property:-webkit-transform;
-    -webkit-transition-duration:250ms;  
-}
-#pullDown .pullDownIcon {
-    -webkit-transform:rotate(0deg) translateZ(0);
-}
-#pullUp .pullUpIcon  {
-    -webkit-transform:rotate(-180deg) translateZ(0);
-}
-
-#pullDown.flip .pullDownIcon {
-    -webkit-transform:rotate(-180deg) translateZ(0);
-}
-
-#pullUp.flip .pullUpIcon {
-    -webkit-transform:rotate(0deg) translateZ(0);
-}
-
-#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
-    background-position:0 100%;
-    -webkit-transform:rotate(0deg) translateZ(0);
-    -webkit-transition-duration:0ms;
-
-    -webkit-animation-name:loading;
-    -webkit-animation-duration:2s;
-    -webkit-animation-iteration-count:infinite;
-    -webkit-animation-timing-function:linear;
-}
-@-webkit-keyframes loading {
-    from { -webkit-transform:rotate(0deg) translateZ(0); }
-    to { -webkit-transform:rotate(360deg) translateZ(0); }
 }
 
 /*toast*/

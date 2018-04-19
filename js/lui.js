@@ -1,5 +1,6 @@
-/*
-	*一些公共方法
+/**
+  组件核心js
+  @author 黄小海
 */
 ;(function(global,undefined){
     var g = {};
@@ -15,7 +16,35 @@
     g.selectorAll = function(el){
       return document.querySelectorAll(el);
     }
-
+    /**
+      * 判断是否支持touch事件
+    */
+    g.isSupportTocuh = function(){
+        return 'ontouchstart' in window
+    }
+    /*
+      * 长按事件
+    */
+    g.longPress = function(el,cb){
+        var t = null,selector = g.selector(el);
+        var handlStart = g.isSupportTocuh() ? 'touchstart' : 'mousedown',
+            handlEnd = g.isSupportTocuh() ? 'touchend' : 'mouseup';
+        selector.addEventListener('contextmenu', function(e){
+          e.preventDefault();
+        });
+        selector.addEventListener(handlStart,function(e){
+            selector.style.cssText += '-webkit-touch-callout:none';
+            e.preventDefault();
+            t = setTimeout(function(){
+              if (cb && typeof cb == 'function') {
+                cb();
+              }
+            },800)
+        },false)
+        selector.addEventListener(handlEnd,function(){
+            clearTimeout(t);
+        },false)
+    }
     /**
      * 动态加载js
      * @param url 传入的url,单个直接是字符串形式，多个以数组形式
@@ -82,7 +111,6 @@
         }
       };
     }
-
     /**
       * tab切换
       * @params tabs 包含tab和tabContainer的外层div
@@ -105,7 +133,6 @@
         }
       },true)
     }
-
     /**
         *输入框高度自适应
         *@param textarea 要绑定的textarea
@@ -127,7 +154,6 @@
            e.target.style.cssText = 'height:'+h+'px';
        }
     }
-
     /**
       * 计算文本域输入字数
       * @param textField 要绑定的文本域
@@ -250,7 +276,6 @@
           };
         }
     }
-
     /**
          * loading
          * @param text 提示内容，如果传入参数为close，则关闭loading
@@ -392,7 +417,6 @@
         ModalbtnHandle(e);
       },false);
     }
-
     /**
      * ajax封装(使用方法与jq的ajax方法几乎一样)
      */
@@ -438,9 +462,8 @@
             }
         }
     }
-
     /**
-        * 滑动英文字母定位目标
+      索引列表滑动
     */
     g.touchIndex = function(){
         var startX, startY, moveX, moveY, title, a, y = [],h = [],english,word_popup,t = null,flag = false;
@@ -533,7 +556,6 @@
         }
       }
     }
-
     /**
       *详情大图预览
       * @param img 图片选择器集合
@@ -565,8 +587,7 @@
                  str +='</div>';
             div.innerHTML = str;
             document.body.appendChild(div);
-        }()
-
+        }();
           var swiper = new Swiper('#swiperZoom', {
             zoom: true,
             pagination: {

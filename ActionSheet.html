@@ -23,13 +23,17 @@
                 android和ios操作系统在UI表现层面差异还是很大的，select就是其中之一。抹平差异的最常用方式就是自定义UI
             </p>
             <div class="p10">
-                <button type="button" class="ui_btn" onclick="toggleActionSheet()">弹出</button>
+                <button type="button" class="ui_btn" onclick="toggleActionSheet('#js_actionSheet')">弹出</button>
+            </div>
+            <div class="p10">
+                <button type="button" class="ui_btn" id="longPress">长按</button>
             </div>
         </div>
     </div>
 
+    <!--底部弹出-->
     <div class="ui_actionSheet_wrap" id="js_actionSheet">
-        <div class="ui_actionSheet_mask" onclick="toggleActionSheet()"></div>
+        <div class="ui_actionSheet_mask" onclick="toggleActionSheet('#js_actionSheet')"></div>
         <div class="ui_actionSheet">
             <ul class="ui_actionSheet_bd">
                 <li class="ui_actionSheet_item">内容1</li>
@@ -37,23 +41,38 @@
                 <li class="ui_actionSheet_item">内容3</li>
             </ul>
             <footer class="ui_actionSheet_ft">
-                <a href="javascript:;" onclick="toggleActionSheet()" class="ui_actionSheet_item">取消</a>
+                <a href="javascript:;" onclick="toggleActionSheet('#js_actionSheet')" class="ui_actionSheet_item">取消</a>
             </footer>
+        </div>
+    </div>
+
+    <!--中间弹出-->
+    <div class="ui_actionSheet_wrap" id="js_actionSheetMiddle">
+        <div class="ui_actionSheet_mask" onclick="toggleActionSheet('#js_actionSheetMiddle')" ></div>
+        <div class="ui_actionSheet ui_actionSheet_middle">
+            <ul class="ui_actionSheet_bd">
+                <li class="ui_actionSheet_item">删除</li>
+                <li class="ui_actionSheet_item">置顶</li>
+            </ul>
         </div>
     </div>
 
 <!--本项目的js-->
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
-     function toggleActionSheet(){
-        var el = document.querySelector('#js_actionSheet');
+     function toggleActionSheet(item){
+        var el = document.querySelector(item);
         if (el.className.indexOf('actionSheet_active') > -1) {
             el.classList.remove('actionSheet_active');
         }else{
             el.classList.add('actionSheet_active');
         }
     }
-    
+
+    lui.longPress('#longPress',function(){
+        toggleActionSheet('#js_actionSheetMiddle')
+    })
+
 
 </script>
 </body>
