@@ -51,6 +51,7 @@
      * @param callback 加载js后的回调
     */
      g.loadScript = function(url, callback) {
+      var script;
       if(typeof url == 'string'){
         script = document.createElement("script");
         script.type = "text/javascript";
@@ -91,8 +92,8 @@
     g.scrollLoadData =function(wrap,callback){
       var wrap = document.querySelector(wrap),
          divHeight = wrap.clientHeight,
-         scrollTop = 0, 
-         scrollHeight = 0,
+         scrollTop, 
+         scrollHeight,
          t = null,
          res;
       wrap.onscroll = function(){
@@ -170,7 +171,7 @@
     }
     /**
       *搜索交互
-      @param opts 接收一个object对象
+      @param opts 接收一个对象参数 
     */
     g.searchControl = function(opts){
       var opts = opts || {
@@ -308,7 +309,7 @@
       }
     }
      /**
-         * toast
+         * toast (opts接受一个对象参数）
          * @param type 操作提示类型
          * @param text 提示文本内容
          * @param duration 持续多少毫秒退出
@@ -340,7 +341,7 @@
         },opts.duration)
     }
     /**
-      * showModal模态框  (opts 接收一个object对象)
+      * showModal模态框  (opts 接收一个对象参数 )
       * @param title 标题
       * @param content 内容
       * @param cancelText 取消按钮的文字
