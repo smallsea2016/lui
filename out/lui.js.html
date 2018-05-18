@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: lui.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: lui.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
   * @file 组件核心js
   * @author 黄小海
 */
@@ -30,21 +58,21 @@
     */
     g.longPress = function(el,cb){
         var t = null,selector = g.selector(el);
-        var handleStart = g.isSupportTouch() ? 'touchstart' : 'mousedown',
-            handleEnd = g.isSupportTouch() ? 'touchend' : 'mouseup';
+        var handlStart = g.isSupportTouch() ? 'touchstart' : 'mousedown',
+            handlEnd = g.isSupportTouch() ? 'touchend' : 'mouseup';
         selector.addEventListener('contextmenu', function(e){
           e.preventDefault();
         });
-        selector.addEventListener(handleStart,function(e){
+        selector.addEventListener(handlStart,function(e){
             selector.style.cssText += '-webkit-touch-callout:none';
             e.preventDefault();
             t = setTimeout(function(){
-              if (cb && typeof cb == 'function') {
+              if (cb &amp;&amp; typeof cb == 'function') {
                 cb();
               }
             },800)
         },false)
-        selector.addEventListener(handleEnd,function(){
+        selector.addEventListener(handlEnd,function(){
             clearTimeout(t);
         },false)
     }
@@ -63,7 +91,7 @@
         script.src = url;
         document.body.appendChild(script);
       }else{
-        for(var i = 0;i < url.length;i ++){
+        for(var i = 0;i &lt; url.length;i ++){
           script = document.createElement("script");
           script.type = "text/javascript";
           script.async = true;
@@ -72,7 +100,7 @@
           document.body.appendChild(script);
         }
       }
-      if(callback && typeof callback == 'function'){
+      if(callback &amp;&amp; typeof callback == 'function'){
         if (script.readyState) {
             script.onreadystatechange = function () {
               if (script.readyState == "loaded" || script.readyState == "complete") {
@@ -103,7 +131,7 @@
         scrollHeight = this.scrollHeight;
         scrollTop = this.scrollTop;
         if(scrollTop + divHeight >= scrollHeight){
-          if(callback && typeof callback === "function"){
+          if(callback &amp;&amp; typeof callback === "function"){
               clearTimeout(t);
               t = setTimeout(function(){
                   callback();
@@ -124,7 +152,7 @@
         tab = tabs.querySelectorAll('[data-role="tab"]'),
         tabContainer = tabs.querySelectorAll('[data-role="tabContainer"]');
       tabs.addEventListener('click',function(e){
-        for(var i =0,len = tab.length;i < len;i++){
+        for(var i =0,len = tab.length;i &lt; len;i++){
           tab[i].setAttribute('data-id',i);
           var index = e.target.dataset.id;
           if(index == i){
@@ -167,7 +195,7 @@
         var el = g.selector(textField);
         el.oninput = function(e){
           var res = e.target.value;
-          if (cb && typeof cb == 'function') {
+          if (cb &amp;&amp; typeof cb == 'function') {
               cb(res.length);
           }
         }
@@ -206,7 +234,7 @@
             var val = inputEl.value;
             if(val.length){
                 closeEl.style.display = 'block';
-                if (input && typeof input === "function") {
+                if (input &amp;&amp; typeof input === "function") {
                     input(val)
                 }
             }else{
@@ -217,7 +245,7 @@
         var _clearValue = function(){
             inputEl.value = '';
             closeEl.style.display = 'none';
-            if (clear && typeof clear === "function") {
+            if (clear &amp;&amp; typeof clear === "function") {
                 clear()
             }
         };
@@ -225,7 +253,7 @@
         var _cancelSearch = function(){
             _clearValue();
             labelEl.style.display = 'block';
-            if (cancel && typeof cancel === "function") {
+            if (cancel &amp;&amp; typeof cancel === "function") {
                 cancel()
             }
         };
@@ -234,7 +262,7 @@
             var keyCode = e.which || e.keyCode;
             var val = e.target.value;
             if(keyCode == 13){
-                if(enter && typeof enter === "function"){
+                if(enter &amp;&amp; typeof enter === "function"){
                     enter(val)
                 }
             }
@@ -262,7 +290,7 @@
           el.classList.remove('modal_out');
           el.classList.add('modal_in');
         },10)
-          if (callback && typeof callback === "object" && callback['open']) {
+          if (callback &amp;&amp; typeof callback === "object" &amp;&amp; callback['open']) {
             callback['open']();
           };
         }else {
@@ -275,7 +303,7 @@
           t = setTimeout(function(){
               el.style.display = 'none';
           },300)
-          if (callback && typeof callback  === "object" && callback['close']) {
+          if (callback &amp;&amp; typeof callback  === "object" &amp;&amp; callback['close']) {
               callback['close']();
           };
         }
@@ -296,13 +324,13 @@
             el.id = 'j_loading_mask';
             el.className = 'ui_loading_mask';
             el.style.cssText = 'background:rgba(0,0,0,'+opacity+')';
-            el.innerHTML =  '<div class="ui_loading_wrap" id="ui_loading_wrap">'
-                    +            '<div id="loading" class="ui_loading"><div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>'
-                    +            '</div>'
-                    +            '<div class="ui_loading_text">'
-                    +                '<p>'+text+'</p>'
-                    +           '</div>'
-                    +    '</div>';
+            el.innerHTML =  '&lt;div class="ui_loading_wrap" id="ui_loading_wrap">'
+                    +            '&lt;div id="loading" class="ui_loading">&lt;div>&lt;span>&lt;/span>&lt;span>&lt;/span>&lt;span>&lt;/span>&lt;span>&lt;/span>&lt;span>&lt;/span>&lt;span>&lt;/span>&lt;span>&lt;/span>&lt;span>&lt;/span>&lt;span>&lt;/span>&lt;span>&lt;/span>&lt;span>&lt;/span>&lt;span>&lt;/span>&lt;/div>'
+                    +            '&lt;/div>'
+                    +            '&lt;div class="ui_loading_text">'
+                    +                '&lt;p>'+text+'&lt;/p>'
+                    +           '&lt;/div>'
+                    +    '&lt;/div>';
         document.body.appendChild(el);
        } else {
         var childEl = document.getElementById('j_loading_mask');
@@ -327,14 +355,14 @@
        var el = document.createElement('div');
           el.id = 'js_ui_toast';
           el.className = 'ui_toast_wrap';
-          el.innerHTML =  '<div class="ui_toast toast_'+opts.position+'">'
-                  +           '<div class="ui_toast_inner">'
-                    +            '<span class="ui_toast_ico_wrap"><i class="ui_toast_ico ui_toast_'+opts.type+'_ico"></i></span>'
-                    +            '<div class="ui_toast_text">'
-                    +                '<p>'+opts.text+'</p>'
-                    +             '</div>'
-                  +           '</div>'
-                  +    '</div>';
+          el.innerHTML =  '&lt;div class="ui_toast toast_'+opts.position+'">'
+                  +           '&lt;div class="ui_toast_inner">'
+                    +            '&lt;span class="ui_toast_ico_wrap">&lt;i class="ui_toast_ico ui_toast_'+opts.type+'_ico">&lt;/i>&lt;/span>'
+                    +            '&lt;div class="ui_toast_text">'
+                    +                '&lt;p>'+opts.text+'&lt;/p>'
+                    +             '&lt;/div>'
+                  +           '&lt;/div>'
+                  +    '&lt;/div>';
         document.body.appendChild(el);
         setTimeout(function(){
           var childEl = document.getElementById('js_ui_toast');
@@ -370,18 +398,18 @@
       var el = document.createElement('div');
           el.id = 'j_modal_wrap';
           el.className = 'ui_modal_wrap';
-          el.innerHTML =  '<div class="ui_modal '+opts.skin+'" id="j_modal">'
-                    +          '<div class="ui_modal_hd">'+opts.title+'</div>'
-                    +          '<div class="ui_modal_bd">'+opts.content+'</div>'
-                    +          '<div class="ui_modal_ft" id="js_btns2017">'
-                    +             '<a href="javascript:;" class="ui_modal_btn ui_modal_default_btn" data-btn="_cancel2017">'+opts.cancelText+'</a>'
-                    +             '<a href="javascript:;" class="ui_modal_btn ui_modal_primary_btn" data-btn="_confirm2017">'+opts.confirmText+'</a>'
-                    +           '</div>'
-                    +    '</div>';
+          el.innerHTML =  '&lt;div class="ui_modal '+opts.skin+'" id="j_modal">'
+                    +          '&lt;div class="ui_modal_hd">'+opts.title+'&lt;/div>'
+                    +          '&lt;div class="ui_modal_bd">'+opts.content+'&lt;/div>'
+                    +          '&lt;div class="ui_modal_ft" id="js_btns2017">'
+                    +             '&lt;a href="javascript:;" class="ui_modal_btn ui_modal_default_btn" data-btn="_cancel2017">'+opts.cancelText+'&lt;/a>'
+                    +             '&lt;a href="javascript:;" class="ui_modal_btn ui_modal_primary_btn" data-btn="_confirm2017">'+opts.confirmText+'&lt;/a>'
+                    +           '&lt;/div>'
+                    +    '&lt;/div>';
         document.body.appendChild(el);
         var cancelBtn = g.selector('[data-btn="_cancel2017"]'),
             confirmBtn = g.selector('[data-btn="_confirm2017"]');
-        !opts.showCancel &&  cancelBtn.parentNode.removeChild(cancelBtn);
+        !opts.showCancel &amp;&amp;  cancelBtn.parentNode.removeChild(cancelBtn);
         var modal_wrap = document.querySelector('#j_modal_wrap'),
             modal = document.querySelector('#j_modal');
         setTimeout(function(){
@@ -390,7 +418,7 @@
        var hideModal = function(){
             modal.classList.remove('ui_modal_in');
             modal.classList.add('ui_modal_out');
-            if (opts.beforeHide && typeof opts.beforeHide == 'function') {
+            if (opts.beforeHide &amp;&amp; typeof opts.beforeHide == 'function') {
               opts.beforeHide()
             }
             setTimeout(function(){
@@ -401,12 +429,12 @@
        var ModalbtnHandle = function(e){
         var  btn = e.target.dataset.btn;
           if (btn) {
-              if(btn == "_cancel2017" && opts.cancel && typeof opts.cancel == "function"){
+              if(btn == "_cancel2017" &amp;&amp; opts.cancel &amp;&amp; typeof opts.cancel == "function"){
                   setTimeout(function(){
                     opts.cancel();
                   },201)
               }
-              if(btn == "_confirm2017" && opts.confirm && typeof opts.confirm == "function") {
+              if(btn == "_confirm2017" &amp;&amp; opts.confirm &amp;&amp; typeof opts.confirm == "function") {
                   setTimeout(function(){
                     opts.confirm();
                   },201)
@@ -414,10 +442,10 @@
               hideModal();
           };
       }
-      cancelBtn && cancelBtn.addEventListener('click',function(e){
+      cancelBtn &amp;&amp; cancelBtn.addEventListener('click',function(e){
         ModalbtnHandle(e);
       },false);
-      confirmBtn && confirmBtn.addEventListener('click',function(e){
+      confirmBtn &amp;&amp; confirmBtn.addEventListener('click',function(e){
         ModalbtnHandle(e);
       },false);
     }
@@ -445,7 +473,7 @@
         for (var key in opts.data) {
             params.push(key + '=' + opts.data[key]);
         }
-        var postData = params.join('&');
+        var postData = params.join('&amp;');
         opts.beforeSend();
         if (opts.type === 'POST') {
             xmlhttp.open(opts.type, opts.url, true);
@@ -459,7 +487,7 @@
             g.loading();
         }
         xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if (xmlhttp.readyState == 4 &amp;&amp; xmlhttp.status == 200) {
                 g.loading('close');
                 var res = JSON.parse(xmlhttp.responseText);
                 opts.success(res)
@@ -477,7 +505,7 @@
         word_popup = document.querySelector('[data-role="word_popup"]'); //popup
         var fixed_h = (document.body.clientHeight - english.clientHeight) / 2; //原生js的offsetTop在元素用了fixed属性后，有bug，会从0计算，所以用窗口的高度减去元素的高度来计算距离
         // console.log((fixed_h));
-        for (var i = 0; i < a.length; i++) {
+        for (var i = 0; i &lt; a.length; i++) {
             a[i].addEventListener('touchstart', _start, false);
             a[i].addEventListener('touchmove', _move, false);
             a[i].addEventListener('touchend', _end, false);
@@ -504,8 +532,8 @@
               moveY = touch.pageY;
               word_popup.classList.add('active');
               var scrollTop = document.body.scrollTop;
-              for (var j = 0; j < title.length; j++) { //循环需要滑动的英文字母
-                  if ((y[j] + scrollTop < moveY) && (moveY < y[j] + h[j] + scrollTop)) { //计算区间获得对应字母的位置
+              for (var j = 0; j &lt; title.length; j++) { //循环需要滑动的英文字母
+                  if ((y[j] + scrollTop &lt; moveY) &amp;&amp; (moveY &lt; y[j] + h[j] + scrollTop)) { //计算区间获得对应字母的位置
                       window.location.hash = title[j].id;
                       word_popup.innerText = title[j].id;
                   }
@@ -530,7 +558,7 @@
       var str = str || '保密水印';
       var el,top,left,translateX,len = len || 10,container = document.querySelector(div);
       container.style.cssText += 'position:relative;overflow:hidden;user-select:none;-webkit-user-select:none;'
-      for (var i = 0; i < len; i++) {
+      for (var i = 0; i &lt; len; i++) {
         top = 19*i-40;
         if(i%5 == 0){
           left = '10%';
@@ -574,21 +602,21 @@
         div.id = 'js_photoZoomWrap';
         div.className = 'photoZoomWrap';
         var init = function(){
-              str +='<div class="swiper-container photoZoom modal_out" id="swiperZoom">'
-                      str += '<div class="swiper-wrapper">'
-                     for (i = 0; i < len; i++) {
-                      str +=   '<div class="swiper-slide">'
-                      str +=         '<div class="swiper-zoom-container">'
-                      str +=            '<img src="'+arr[i].src+'" class="swiper-lazy">'
-                      str +=       '</div>'
-                      str +=    '</div>';
+              str +='&lt;div class="swiper-container photoZoom modal_out" id="swiperZoom">'
+                      str += '&lt;div class="swiper-wrapper">'
+                     for (i = 0; i &lt; len; i++) {
+                      str +=   '&lt;div class="swiper-slide">'
+                      str +=         '&lt;div class="swiper-zoom-container">'
+                      str +=            '&lt;img src="'+arr[i].src+'" class="swiper-lazy">'
+                      str +=       '&lt;/div>'
+                      str +=    '&lt;/div>';
                      }
-                      str +='</div>'
-                      str +='<div class="swiper-pagination swiper-pagination-white"></div>'
-                      str +=  '<div class="swiper-button-prev"></div>'
-                      str +=  '<div class="swiper-button-next"></div>'
-                      str +='<div class="close_photoZoom" id="close_photoZoom"></div>'
-                 str +='</div>';
+                      str +='&lt;/div>'
+                      str +='&lt;div class="swiper-pagination swiper-pagination-white">&lt;/div>'
+                      str +=  '&lt;div class="swiper-button-prev">&lt;/div>'
+                      str +=  '&lt;div class="swiper-button-next">&lt;/div>'
+                      str +='&lt;div class="close_photoZoom" id="close_photoZoom">&lt;/div>'
+                 str +='&lt;/div>';
             div.innerHTML = str;
             document.body.appendChild(div);
         }();
@@ -621,7 +649,7 @@
           }
         },false)
         //预览当前
-        for (var i = 0; i < arr.length; i++) {
+        for (var i = 0; i &lt; arr.length; i++) {
             (function(index){
                 arr[index].addEventListener('click',function(){
                     swiper.slideTo(index,0);
@@ -647,21 +675,21 @@
         div.id = 'js_photoZoomUploadWrap';
         div.className = 'photoZoomWrap';
         var init = function(){
-            str += '<div class="swiper-container photoZoom modal_out" id="swiperZoomUpload">'
-                str += '<div class="swiper-wrapper">'
-                for (i = 0; i < len; i++) {
-                 str += '<div class="swiper-slide">'
-                 str +=         '<div class="swiper-zoom-container">'
-                 str +=            '<img src="'+arr[i].src+'" class="swiper-lazy">'
-                 str +=        '</div>'
-                 str +=    '</div>';
+            str += '&lt;div class="swiper-container photoZoom modal_out" id="swiperZoomUpload">'
+                str += '&lt;div class="swiper-wrapper">'
+                for (i = 0; i &lt; len; i++) {
+                 str += '&lt;div class="swiper-slide">'
+                 str +=         '&lt;div class="swiper-zoom-container">'
+                 str +=            '&lt;img src="'+arr[i].src+'" class="swiper-lazy">'
+                 str +=        '&lt;/div>'
+                 str +=    '&lt;/div>';
           }
-                 str +='</div>'
-                 str +='<div class="swiper-pagination swiper-pagination-white"></div>'
-                 str +='<div class="swiper-button-prev"></div>'
-                 str +='<div class="swiper-button-next"></div>'
-                str +='<div class="close_photoZoom" id="close_photoZoomUpload"></div>'
-             str +='</div>';
+                 str +='&lt;/div>'
+                 str +='&lt;div class="swiper-pagination swiper-pagination-white">&lt;/div>'
+                 str +='&lt;div class="swiper-button-prev">&lt;/div>'
+                 str +='&lt;div class="swiper-button-next">&lt;/div>'
+                str +='&lt;div class="close_photoZoom" id="close_photoZoomUpload">&lt;/div>'
+             str +='&lt;/div>';
             div.innerHTML = str;
             document.body.appendChild(div);
         }();
@@ -709,7 +737,7 @@
         str = str.replace(/-/g,"/");
         var lastDate = new Date(str);
         var currDate = new Date();
-        if(lastDate < currDate){           
+        if(lastDate &lt; currDate){           
             clearInterval(t);
             cb();
         }
@@ -724,10 +752,10 @@
           minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
           second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
         }
-        if (day < 10) day = '0' + day;
-        if (hour < 10) hour = '0' + hour;
-        if (minute < 10) minute = '0' + minute;
-        if (second < 10) second = '0' + second;
+        if (day &lt; 10) day = '0' + day;
+        if (hour &lt; 10) hour = '0' + hour;
+        if (minute &lt; 10) minute = '0' + minute;
+        if (second &lt; 10) second = '0' + second;
         s = day+"|"+hour+'|'+minute+'|'+second;
         intDiff--;
         cb(s)
@@ -749,11 +777,11 @@
             h = d.getHours(),
             m = d.getMinutes(),
             s = d.getSeconds();
-        if(M<10){M='0'+M}
-        if(h<10){h='0'+h}
-        if(m<10){m='0'+m}
-        if(s<10){s='0'+s}
-        if(_d<10){_d='0'+_d}
+        if(M&lt;10){M='0'+M}
+        if(h&lt;10){h='0'+h}
+        if(m&lt;10){m='0'+m}
+        if(s&lt;10){s='0'+s}
+        if(_d&lt;10){_d='0'+_d}
         if(type == 'datetime'){
             return y + "-" + M + "-" + _d;
         }else{
@@ -788,3 +816,26 @@
     }
     global.lui = g;
 })(window);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="CellSwipe.html">CellSwipe</a></li><li><a href="Signature.html">Signature</a></li></ul><h3>Namespaces</h3><ul><li><a href="form.html">form</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon May 07 2018 00:28:58 GMT+0800 (中国标准时间)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

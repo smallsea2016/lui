@@ -128,6 +128,10 @@
 	form.chooseImage('#upload_photo',function(objUrl){
         console.log(objUrl);
     });
+    //滑块监听
+    function changeRange(_this){
+        form.changeRange(_this)
+    }
 	
     /*日期选择*/
     var d = new Date();
