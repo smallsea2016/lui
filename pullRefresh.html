@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+    <link rel="stylesheet" type="text/css" href="css/lib/refresh.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>pullDownRefresh</header>
+        <div class="ui_page_bd" id="main">
+            <p class="ui_con_block">
+                下拉刷新
+            </p>
+            <div class="scroller_wrap" id="scroller_wrap">
+                <section id="scroller">
+                    <div class="pr">
+                        <div id="pullDown">
+                            <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+                        </div>
+                    </div>
+                    <ul class="ui_list" id="list">
+                    </ul>
+                    <div id="pullUp">
+                      <span class="pullUpIcon"></span><span class="pullUpLabel">已经到底了</span>
+                    </div>
+                </section>
+            </div>            
+        </div>
+    </div>
+
+<script type="text/javascript" src="js/3rd-plugins/jquery-1.10.1.min.js"></script>
+<!--mock模拟数据-->
+<script src="js/3rd-plugins/mock.js"></script>
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript">
+    // 使用 Mock生成随机数据
+    var data = Mock.mock('/path/to/file',{
+        'result|10':[{
+            'content' : "@cparagraph()"
+        }]
+    });
+
+    var num = 0;
+    function loadData(){
+        $.ajax({
+            url: '/path/to/file',
+            type: 'GET',
+            dataType: 'json',
+        })
+        .done(function(data) {
+            var str = '',
+                len = data.result.length;
+            for (var i = 0; i < len; i++) {
+                str += '<li>'
+                str +=     num+++data.result[i].content
+                str +=  '</li>';
+            };
+            $('#list').append(str);
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+    }
+    loadData();
+
+    //下拉刷新
+    lui.pullDownRefresh('#scroller');
+</script>
+</body>
+</html>

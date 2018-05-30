@@ -41,8 +41,8 @@ function Signature(ratio,container,canvas,save,reset){
     (_this.canvasStyle  = function (){
         //画布初始化
         _this.cavas.style.cssText += 'background:url(images/icon/shouxie.png) no-repeat center #fff;background-size:auto 60px'
-        _this.cavas.width = document.body.clientWidth;
-        _this.cavas.height = _this.cavas.width * (ratio);
+        _this.cavas.width = _this.container.clientWidth;
+        _this.cavas.height = _this.container.clientWidth * (ratio);
         if(isIframe()){  
             //iframe高
             parent.document.querySelector('[role="canvasIframe"]').setAttribute("height",_this.cavas.height+2);

@@ -1,18 +1,23 @@
-/**
-  * @file 组件核心js
-  * @author 黄小海
-*/
+
 ;(function(global,undefined){
+    "use strict";
+    /**
+       * 闭包使用g作为命名空间
+       * @namespace g
+     */
     var g = {};
     /**
-      * 选择器，选择单个元素
-      * param {string}  选择器
+      返回文档中匹配指定 CSS 选择器的一个元素
+      * @method selector
+      * @memberof  g
     */
     g.selector = function(el){
       return document.querySelector(el);
     }
     /**
-      * 选择器，选择元素集合
+      返回文档中匹配指定 CSS 选择器的集合
+      *  @method selectorAll()
+      *  @memberof  g
     */
     g.selectorAll = function(el){
       return document.querySelectorAll(el);
@@ -87,8 +92,52 @@
           }
       }
     }
+    g.pullDownRefresh = function(container,callback){
+        var touch,startX,startY,moveX,moveY,touchX,touchY,flag = false;
+        var div = document.querySelector(container),
+          iconHeight = 50;
+         div.style.cssText += 'transform:translate3d(0,-'+iconHeight+'px,0);webkitTransform:translate3d(0,-'+iconHeight+'px,0);overscroll-behavior: contain';
+
+        div.addEventListener("touchstart",touchstart,false);
+        div.addEventListener("touchmove",touchmove,false);
+        div.addEventListener("touchend",touchend,false);
+
+        function touchstart(e){
+            flag = true;
+            // e.preventDefault();
+            var touch = e.changedTouches[0];
+            startX = touch.pageX;
+            startY = touch.pageY;
+            // console.log('touchstart:'+startX);
+        }
+
+        function touchmove(e){
+            var touch = e.changedTouches[0];
+            moveX = touch.pageX;
+            moveY = touch.pageY;
+            touchX = moveX - startX;
+            touchY = moveY - startY - iconHeight;
+            if (moveY - startY > 0 && flag){
+              if (touchY > 6) {
+                document.querySelector('#pullDown').classList.add('flip');
+              }else{
+                document.querySelector('#pullDown').classList.remove('flip');
+              }
+              div.style.cssText += 'transform:translate3d(0,'+touchY+'px,0);webkitTransform:translate3d(0,'+touchY+'px,0);';
+            }
+            // console.log('touchY:'+touchY);
+        }
+
+        function touchend(e){
+            flag = false;
+            div.style.cssText += 'transform:translate3d(0,-'+iconHeight+'px,0);webkitTransform:translate3d(0,-'+iconHeight+'px,0);transition:all .2s cubic-bezier(.08,.87,.08,.87);webkitTransition:all .2s cubic-bezier(.08,.87,.08,.87);';
+            if (callback && typeof callback === "object" && callback['end']) {
+                callback['end'](touchY)
+            };
+        }
+    },
     /**
-      * 滚动加载（需要注意的是，有滚动条才能滚动，如果页面禁止了默认滑动，则滚动不了）
+      * 滑动到底加载更多（需要注意的是，有滚动条才能滚动，如果页面禁止了默认滑动，也无法使用该方法）
       * @param wrap要滚动的元素
       * @param callback滚动到底的回调函数
     */
@@ -117,22 +166,22 @@
     }
     /**
       * tab切换
-      * @params tabs 包含tab和tabContainer的外层div
+      * @params tabs 包含tab和tabContent的外层div
     */
     g.tab = function(tabs){
       var tabs = document.querySelector(tabs),
-        tab = tabs.querySelectorAll('[data-role="tab"]'),
-        tabContainer = tabs.querySelectorAll('[data-role="tabContainer"]');
+        tab = tabs.querySelectorAll('[tab-role="tab"]'),
+        tabContent = tabs.querySelectorAll('[tab-role="tabContent"]');
       tabs.addEventListener('click',function(e){
         for(var i =0,len = tab.length;i < len;i++){
           tab[i].setAttribute('data-id',i);
           var index = e.target.dataset.id;
           if(index == i){
             tab[i].classList.add('active');
-            tabContainer[i].style.display = 'block'
+            tabContent[i].style.display = 'block'
           }else{
             tab[i].classList.remove('active');
-            tabContainer[i].style.display = 'none';
+            tabContent[i].style.display = 'none';
           }
         }
       },true)
@@ -465,6 +514,9 @@
                 opts.success(res)
             }
         }
+        xmlhttp.onerror = function(e){
+          opts.error(e)
+        }
     }
     /**
       索引列表滑动
@@ -483,8 +535,6 @@
             a[i].addEventListener('touchend', _end, false);
             y[i] = a[i].offsetTop + fixed_h;
             h[i] = a[i].clientHeight;
-            // console.log(y[i]);
-            // console.log('数组的高度范围是：[' + i + ']' + y[i] + '--' + (y[i] + h[i]) + 'JS获取距离窗口顶部距离');
         };
 
         function _start(e) {
@@ -561,7 +611,7 @@
       }
     }
     /**
-      *详情大图预览
+      * 详情图片预览
       * @param img 图片选择器集合
     */
     g.photoZoom = function(img){
