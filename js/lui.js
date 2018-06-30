@@ -790,7 +790,7 @@
      * @param type {String} 时间类型
      */
     g.getTime = function(num,datetime,type){
-        var datetime = datetime || new Date();
+        var datetime = datetime || new Date(),
           d = new Date(datetime);
         d.setTime(d.getTime() + (24*60*60*1000) * num);
         var y = d.getFullYear(),
