@@ -240,7 +240,7 @@
       var el = opts.el,
           input = opts.input,
           clear = opts.clear,
-          cancel = opts.cancel;
+          cancel = opts.cancel,
           enter = opts.enter;
       var labelEl = g.selector(el).querySelector('[role="search-label"]'),
           inputEl = g.selector(el).querySelector('[role="search-input"]'),
@@ -283,6 +283,7 @@
             var keyCode = e.which || e.keyCode;
             var val = e.target.value;
             if(keyCode == 13){
+                inputEl.blur();
                 if(enter && typeof enter === "function"){
                     enter(val)
                 }
@@ -716,6 +717,13 @@
             document.body.appendChild(div);
         }();
 
+          //关闭
+          var closePhotoZoom = function(){
+            var photoZoomWrap = g.selector('#js_photoZoomUploadWrap');
+            console.log(photoZoomWrap.parentNode)
+            photoZoomWrap.parentNode.removeChild(photoZoomWrap)
+          }
+
           var swiper = new Swiper('#swiperZoomUpload', {
               zoom: true,
               initialSlide:index,
@@ -737,11 +745,7 @@
            g.selector('#swiperZoomUpload').classList.remove('modal_out')
            g.selector('#swiperZoomUpload').classList.add('modal_in');
 
-          //关闭
-          var closePhotoZoom = function(){
-            var photoZoomWrap = g.selector('#js_photoZoomUploadWrap');
-            photoZoomWrap.parentNode.removeChild(photoZoomWrap)
-          }
+
           document.addEventListener('click',function(e){
             if (e.target.id == 'close_photoZoomUpload') {
               closePhotoZoom();
@@ -835,6 +839,16 @@
                 break; 
             }
         return x
+    }
+    /**
+     * 控制select默认样式
+     */
+    g.changeSelectStyle = function(ev){
+        if (ev.target.value === '') {
+          ev.target.classList.add('placeholderColor')
+        }else{
+          ev.target.classList.remove('placeholderColor')
+        }
     }
     global.lui = g;
 })(window);

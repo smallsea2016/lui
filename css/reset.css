@@ -152,6 +152,8 @@ pre{
 .pr30{padding-right:30px;}
 .pr50{padding-right:50px;}
 
+.pl0 {padding-left: 0 !important;}
+.pr0 {padding-right: 0 !important;}
 .p10-p20 {
     padding: 10px 20px;
 }
@@ -170,6 +172,7 @@ pre{
 .c_red {color: #ff0000} /*红色*/
 .c_green {color: #467DB9} /*青绿色*/
 .cWhite {color: #fff}
+.placeholderColor {color: #757575} /*预输入文本颜色*/
 .primary_color {color: #467DB9}
 
 .w {width: 100%;max-width: 750px;margin-left: auto;margin-right: auto}
