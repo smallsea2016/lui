@@ -68,7 +68,7 @@
 		"icon":"fa fa-fw fa-lg fa-navicon ","href":"ActionSheet.html","text":"ActionSheet"
 	},
 	{
-		"icon":"fa fa-fw fa-lg fa-arrow-circle-up","href":"scroll.html","text":"滚动加载"
+		"icon":"fa fa-fw fa-lg fa-arrow-circle-up","href":"scroll.html","text":"滑动加载更多"
 	},
 	{
 		"icon":"fa fa-fw fa-lg fa-arrows-v","href":"iscroll.html","text":"iscroll下拉刷新上拉加载"

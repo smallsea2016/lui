@@ -41,27 +41,6 @@
 .ui_legend legend:before {margin-right: 10px;}
 .ui_legend legend:after {margin-left: 10px;}
 
-/*marquee*/
-.ui_marquee {line-height: 24px;overflow: hidden;}
-.marqueeTop {
-    animation: marqueeTop  1.5s ease-in infinite both;-webkit-animation: marqueeTop  1.5s ease-in infinite both
-}
-@keyframes marqueeTop{
-    0%{
-        transform: translateY(0);
-    }
-    100%{
-       transform: translateY(-24px); 
-    }
-}
-@-webkit-keyframes marqueeTop{
-    0%{
-        -webkit-transform: translateY(0);
-    }
-    100%{
-       -webkit-transform: translateY(-24px); 
-    }
-}
 /*搜索*/
 input::-webkit-search-decoration,
 input::-webkit-search-cancel-button {
@@ -351,7 +330,6 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
   animation: flash 5s linear infinite;
   -webkit-animation: flash 5s linear infinite;
 }
-
 @keyframes flash{
     from {
         background-position: 0% 0%;
@@ -368,10 +346,31 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
         background-position: 200px 0%;
       }
 }
+
 /*marquee*/
 .ui_marquee {padding-left: 15px;padding-right: 15px}
 .ui_marquee,
 .ui_marquee .item {height: 22px;overflow: hidden;}
+
+.marqueeTop {
+    animation: marqueeTop  1.5s ease-in infinite both;-webkit-animation: marqueeTop  1.5s ease-in infinite both
+}
+@keyframes marqueeTop{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+       transform: translateY(-24px); 
+    }
+}
+@-webkit-keyframes marqueeTop{
+    0%{
+        -webkit-transform: translateY(0);
+    }
+    100%{
+       -webkit-transform: translateY(-24px); 
+    }
+}
 
 /*流程流转*/
 .ui_flow_list {position: relative;
@@ -746,7 +745,7 @@ a.ui_actionSheet_item {display: block;}
   border-top: 1px solid #e5e5e5;border-bottom: 1px solid #e5e5e5;}
 .ui_table th {background-color: #f7f7f7;font-size: 15px;color: #656565}
 .ui_table .tl {text-align: left;}
-/*字母检索*/
+/*字母索引*/
 .word_list {position: fixed;
     right: 5px;top:50%;transform:translateY(-50%);
     -webkit-transform:translateY(-50%);
@@ -936,7 +935,6 @@ a.ui_actionSheet_item {display: block;}
 .ui_article_content {padding-top: 20px}
 .ui_article_foot {padding-top: 20px}
 
-
 /*列表无数据*/
 .ui_noListData {
     padding-top: 130px;text-align: center;
@@ -947,3 +945,18 @@ a.ui_actionSheet_item {display: block;}
     background-size: contain;
 }
 .ui_noListData p {color: #888;padding-top: 10px}
+
+/*已没有更多*/
+.ui_noMore {display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;align-items: center;
+    padding: 20px 15%
+}
+.ui_noMore:before,
+.ui_noMore:after {content: '';-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;border-top: 1px solid #e5e5e5;
+}
+.ui_noMore_text {display: inline-block;padding-left: 6px;padding-right: 6px;color: #999}
