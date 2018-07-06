@@ -1,0 +1,5 @@
+# 忽略文件提交
+node_modules
+conf.json
+package.json
+gulpfile.js

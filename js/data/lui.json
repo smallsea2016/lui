@@ -36,7 +36,7 @@
 		"icon":"fa fa-fw fa-lg fa-sort-numeric-asc","href":"flow.html","text":"流程流转"
 	},	
 	{
-		"icon":"fa fa-fw fa-lg fa-file-o","href":"noListData.html","text":"暂无数据"
+		"icon":"fa fa-fw fa-lg fa-file-o","href":"noListData.html","text":"内容缺省"
 	}
 ],
 "jsComponent":[
