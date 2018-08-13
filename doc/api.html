@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>lui</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///C:\Users\10663\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.5\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <ul>
+<li><a href="#api%E6%96%87%E6%A1%A3">api文档</a>
+<ul>
+<li><a href="#%E5%9F%BA%E7%A1%80api">基础api</a><br>
+* <a href="#luiselectorel">lui.selector(el)</a><br>
+* <a href="#luiselectorallel">lui.selectorAll(el)</a><br>
+* <a href="#luiissupporttouch">lui.isSupportTouch()</a><br>
+* <a href="#luilongpresselcb">lui.longPress(el,cb)</a><br>
+* <a href="#luichangeselectstyle-ev">lui.changeSelectStyle (ev)</a><br>
+* <a href="#luiloadscripturlcb">lui.loadScript(url,cb)</a><br>
+* <a href="#luicountdowndatetimecb">lui.countDown(datetime,cb)</a><br>
+* <a href="#luigettimenumdatetimetype">lui.getTime(num,datetime,type)</a><br>
+* <a href="#luigetcndaydatetime">lui.getCnDay(datetime)</a></li>
+<li><a href="#%E4%BA%A4%E4%BA%92api">交互api</a><br>
+* <a href="#luiscrolltobottomelcallback">lui.scrollToBottom(el,callback)</a><br>
+* <a href="#luitabscontainer">lui.tabs(container)</a><br>
+* <a href="#luitextareaautoheightelrandom">lui.textareaAutoHeight(el,random)</a><br>
+* <a href="#luisearchobject">lui.search(object)</a><br>
+* <a href="#luicoverhandlerelobject">lui.coverHandler(el,object)</a><br>
+* <a href="#luiloadingtextopacity">lui.loading(text,opacity)</a><br>
+* <a href="#luitoastobject">lui.toast(object)</a><br>
+* <a href="#luishowmodalobject">lui.showModal(object)</a><br>
+* <a href="#luiindexaction">lui.indexAction()</a><br>
+* <a href="#luiwatermarkelnamelen">lui.watermark(el,name,len)</a><br>
+* <a href="#luiphotoviewerimgs">lui.photoViewer(imgs)</a></li>
+</ul>
+</li>
+</ul>
+<h1 class="mume-header" id="api%E6%96%87%E6%A1%A3">api文档</h1>
+
+<h2 class="mume-header" id="%E5%9F%BA%E7%A1%80api">基础api</h2>
+
+<h4 class="mume-header" id="luiselectorel">lui.selector(el)</h4>
+
+<p>返回文档中匹配指定 CSS 选择器的一个元素。等同于document.querySelector(el)</p>
+<h4 class="mume-header" id="luiselectorallel">lui.selectorAll(el)</h4>
+
+<p>返回文档中匹配指定 CSS 选择器的集合。等同于document.querySelectorAll(el)</p>
+<h4 class="mume-header" id="luiissupporttouch">lui.isSupportTouch()</h4>
+
+<p>判断是否支持touch事件，返回布尔值</p>
+<h4 class="mume-header" id="luilongpresselcb">lui.longPress(el,cb)</h4>
+
+<p>长按事件</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el</td>
+<td>String</td>
+<td>是</td>
+<td>目标节点选择器</td>
+</tr>
+<tr>
+<td>cb</td>
+<td>Function</td>
+<td>是</td>
+<td>长按后的回调函数</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="luichangeselectstyle-ev">lui.changeSelectStyle (ev)</h4>
+
+<p>控制select默认样式，和input的placeholder样式保持一致</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ev</td>
+<td>event</td>
+<td>是</td>
+<td>事件源，只能传递event</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="html" class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ui_select placeholderColor<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>select<span class="token punctuation">"</span></span> <span class="token attr-name">onchange</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lui.changeSelectStyle(event)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>请选择<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>女汉子<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>萌妹子<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span>
+</pre><h4 class="mume-header" id="luiloadscripturlcb">lui.loadScript(url,cb)</h4>
+
+<p>动态异步加载js</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>是</td>
+<td>js路径,单个直接是字符串形式，多个以数组形式</td>
+</tr>
+<tr>
+<td>cb</td>
+<td>Function</td>
+<td>是</td>
+<td>js加载完毕的回调函数</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">lui<span class="token punctuation">.</span><span class="token function">loadScript</span><span class="token punctuation">(</span><span class="token string">'util.js'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//加载完毕，想干什么就干什么</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+也可以一次加载多个js
+lui<span class="token punctuation">.</span><span class="token function">loadScript</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'js1.js'</span><span class="token punctuation">,</span><span class="token string">'js2.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//加载完毕，一次加载多个js，呵呵哒</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="luicountdowndatetimecb">lui.countDown(datetime,cb)</h4>
+
+<p>倒计时</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>datetime</td>
+<td>Date</td>
+<td>是</td>
+<td>指定倒计时时间，可被new Date()解析</td>
+</tr>
+<tr>
+<td>cb</td>
+<td>Function</td>
+<td>是</td>
+<td>回调函数，携带一个参数为倒计时剩余时间</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">countDown</span><span class="token punctuation">(</span><span class="token string">'2018-10-01'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>res <span class="token operator">==</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'设定时间小于或等于当前时间'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token keyword">var</span> s <span class="token operator">=</span> res<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#j_gq'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'天'</span><span class="token operator">+</span>s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'时'</span><span class="token operator">+</span>s<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'分'</span><span class="token operator">+</span>s<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'秒'</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>        
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="luigettimenumdatetimetype">lui.getTime(num,datetime,type)</h4>
+
+<p>返回第几天的时间</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num</td>
+<td>Number</td>
+<td>是</td>
+<td>某天</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>Date</td>
+<td>否</td>
+<td>某天日期，可被new Date()解析</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>否</td>
+<td>日期类型，默认,返回YYYY-MM-DD,如果传'datetime'，返回YYYY-MM-DD hh:mm:ss</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="luigetcndaydatetime">lui.getCnDay(datetime)</h4>
+
+<p>返回某天中文星期</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>datetime</td>
+<td>Date</td>
+<td>否</td>
+<td>某天日期，可被new Date()解析</td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="%E4%BA%A4%E4%BA%92api">交互api</h2>
+
+<h4 class="mume-header" id="luiscrolltobottomelcallback">lui.scrollToBottom(el,callback)</h4>
+
+<p>监听滑动/滚动到底</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el</td>
+<td>String</td>
+<td>是</td>
+<td>容器选择器，如： '#id'。也可以是DOM对象</td>
+</tr>
+</tbody>
+</table>
+<p><mark>注意</mark>：因为监听的是scroll事件，因此绑定的容器必须要用滚动条。</p>
+<p>示例代码</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">lui<span class="token punctuation">.</span><span class="token function">scrollToBottom</span><span class="token punctuation">(</span><span class="token string">'#myScroll'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">//已经滚动到底了，你可以在这里加载翻页数据</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="luitabscontainer">lui.tabs(container)</h4>
+
+<p>tab切换</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>container</td>
+<td>String</td>
+<td>是</td>
+<td>tab头和tab内容的外层选择器，如： 'data-role=&quot;tabs&quot;'</td>
+</tr>
+</tbody>
+</table>
+<p><mark>注意</mark>：需要按照html固定结构。tab头必须含 tab-role=&quot;tab&quot;属性，tab内容必须含tab-role=&quot;tabContent&quot;属性。</p>
+<p>示例代码</p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tabs<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ui_capsule_tab flexbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript:;<span class="token punctuation">"</span></span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>flexItem active<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>tab1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript:;<span class="token punctuation">"</span></span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>flexItem<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>tab2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript:;<span class="token punctuation">"</span></span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>flexItem<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>tab3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab_content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tabContent<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>p20 active<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          tab1
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tabContent<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>p20<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          tab2
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tabContent<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>p20<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          tab3
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
+</pre><h4 class="mume-header" id="luitextareaautoheightelrandom">lui.textareaAutoHeight(el,random)</h4>
+
+<p>textarea高度自适应</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el</td>
+<td>String</td>
+<td>是</td>
+<td>textarea选择器</td>
+</tr>
+<tr>
+<td>random</td>
+<td>Number</td>
+<td>否</td>
+<td>随机数，如果一个页面存在多个textarea需要高度自适应，则为必填，而且random不能相同</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"> lui<span class="token punctuation">.</span><span class="token function">textareaAutoHeigh</span><span class="token punctuation">(</span><span class="token string">'#textarea1'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ lui<span class="token punctuation">.</span><span class="token function">textareaAutoHeigh</span><span class="token punctuation">(</span><span class="token string">'#textarea2'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="luisearchobject">lui.search(object)</h4>
+
+<p>复杂搜索交互</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>container</td>
+<td>String</td>
+<td>是</td>
+<td>搜索组件容器</td>
+</tr>
+<tr>
+<td>input</td>
+<td>Function</td>
+<td>否</td>
+<td>实时输入的回调函数，携带一个参数为输入框的值</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>Function</td>
+<td>否</td>
+<td>清空搜索的回调函数</td>
+</tr>
+<tr>
+<td>cancel</td>
+<td>Function</td>
+<td>否</td>
+<td>取消搜索的回调函数</td>
+</tr>
+<tr>
+<td>enter</td>
+<td>Function</td>
+<td>否</td>
+<td>按下回车键搜索的回调函数，携带一个参数为输入框的值</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      container<span class="token punctuation">:</span><span class="token string">'#js_search'</span><span class="token punctuation">,</span>
+      input<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'你输入的是：'</span><span class="token operator">+</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      clear<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'clear'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      cancel<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'cancel'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      enter<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'点击了回车,输入的内容是：'</span><span class="token operator">+</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="luicoverhandlerelobject">lui.coverHandler(el,object)</h4>
+
+<p>遮盖层显示和隐藏</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el</td>
+<td>String</td>
+<td>是</td>
+<td>选择器</td>
+</tr>
+<tr>
+<td>open</td>
+<td>Function</td>
+<td>否</td>
+<td>遮盖层打开时的回调函数</td>
+</tr>
+<tr>
+<td>close</td>
+<td>Function</td>
+<td>否</td>
+<td>遮盖层关闭时的回调函数</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">coverHandler</span><span class="token punctuation">(</span><span class="token string">'#coverPage'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+      open<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'open'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      close<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="luiloadingtextopacity">lui.loading(text,opacity)</h4>
+
+<p>页面loading效果</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>String</td>
+<td>是</td>
+<td>loading提示文字，如果文字为close，则loading关闭</td>
+</tr>
+<tr>
+<td>opacity</td>
+<td>Number</td>
+<td>否</td>
+<td>loading遮罩层透明度</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">loading</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//loading</span>
+
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment">//3s后关闭loading</span>
+    lui<span class="token punctuation">.</span><span class="token function">loading</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">3000</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="luitoastobject">lui.toast(object)</h4>
+
+<p>页面轻提示</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>否</td>
+<td>提示类型，有两种类型，&quot;ok&quot;和&quot;warning&quot;，即对应成功类型和警告类型。默认为&quot;ok&quot;。</td>
+</tr>
+<tr>
+<td>text</td>
+<td>String</td>
+<td>否</td>
+<td>提示文字</td>
+</tr>
+<tr>
+<td>position</td>
+<td>String</td>
+<td>否</td>
+<td>在页面的位置，包含&quot;top&quot;,&quot;middle&quot;,&quot;bottom&quot;.</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>String</td>
+<td>否</td>
+<td>提示显示持续的时间,默认2s</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">toast</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span><span class="token string">'ok'</span><span class="token punctuation">,</span>
+      text<span class="token punctuation">:</span><span class="token string">'操作成功'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  lui<span class="token punctuation">.</span><span class="token function">toast</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      position<span class="token punctuation">:</span><span class="token string">'top'</span><span class="token punctuation">,</span>
+      text<span class="token punctuation">:</span><span class="token string">'提示内容'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="luishowmodalobject">lui.showModal(object)</h4>
+
+<p>ios风格模态框</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>否</td>
+<td>提示的标题</td>
+</tr>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>是</td>
+<td>提示的内容，可嵌入html代码</td>
+</tr>
+<tr>
+<td>showCancel</td>
+<td>Boolean</td>
+<td>否</td>
+<td>是否显示取消按钮，默认为 false</td>
+</tr>
+<tr>
+<td>cancelText</td>
+<td>String</td>
+<td>否</td>
+<td>取消按钮的文字，默认为&quot;取消&quot;，文字不宜过长</td>
+</tr>
+<tr>
+<td>confirmText</td>
+<td>String</td>
+<td>否</td>
+<td>确定按钮的文字，默认为&quot;确定&quot;，文字不宜过长</td>
+</tr>
+<tr>
+<td>skin</td>
+<td>String</td>
+<td>否</td>
+<td>传入的自定义class，用于自定义风格</td>
+</tr>
+<tr>
+<td>beforeHide</td>
+<td>Function</td>
+<td>否</td>
+<td>模态框关闭前的回调函数</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      content<span class="token punctuation">:</span><span class="token string">'alert呵呵'</span><span class="token punctuation">,</span>
+      confirm<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'confirm'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">var</span> val <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  lui<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      content<span class="token punctuation">:</span><span class="token string">'&lt;input type="text" placeholder="请输入" class="ui_popup_ipt" id="ipt"/>'</span><span class="token punctuation">,</span>
+      beforeHide<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          val <span class="token operator">=</span> lui<span class="token punctuation">.</span><span class="token function">selector</span><span class="token punctuation">(</span><span class="token string">'#ipt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      confirm<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                    
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'输入框的值是：'</span><span class="token operator">+</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="luiindexaction">lui.indexAction()</h4>
+
+<p>滑动索引定位列表位置<br>
+<mark>注意</mark>：html结构，需要给列表英文标题加上'data-role=&quot;word_index&quot;'属性,给英文列表加上'data-role=&quot;word_list&quot;',给弹出提示框加上'data-role=&quot;word_popup&quot;'属性</p>
+<h4 class="mume-header" id="luiwatermarkelnamelen">lui.watermark(el,name,len)</h4>
+
+<p>水印</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el</td>
+<td>String</td>
+<td>是</td>
+<td>挂载水印的文档节点</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>是</td>
+<td>水印内容</td>
+</tr>
+<tr>
+<td>len</td>
+<td>String</td>
+<td>否</td>
+<td>水印个数</td>
+</tr>
+</tbody>
+</table>
+<h4></h4>
+<p>示例代码</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">watermark</span><span class="token punctuation">(</span><span class="token string">'#js_watermarkbox'</span><span class="token punctuation">,</span><span class="token string">'张碧晨10056500'</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="luiphotoviewerimgs">lui.photoViewer(imgs)</h4>
+
+<p>图片预览</p>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>imgs</td>
+<td>String</td>
+<td>是</td>
+<td>图片选择器集合</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      
+      
+    </body>
+    
+    
+    
+    
+    
+    
+    
+  </html>

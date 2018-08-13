@@ -121,6 +121,17 @@ input::-webkit-search-cancel-button {
 
 .ui_btn.ui_inline {display: inline-block;width: auto;padding-left: 15px;padding-right: 15px} 
 a.ui_btn {line-height: 45px;}
+.float_btn {
+  position: absolute;right: 20px;bottom: 30px;
+  width: 60px;height: 60px;border-radius: 50%;
+  background-clip: padding-box;color: #fff;
+  background-color: #467DB9;font-size: 17px;
+  display: box;display: -webkit-box;
+  box-align: center; -webkit-box-align: center;
+  box-pack: center;
+  -webkit-box-pack: center;
+  box-shadow: 0 0 5px #999 
+}
 
 /*尺寸*/
 .ui_btn[size="sm"] {height: 35px;}

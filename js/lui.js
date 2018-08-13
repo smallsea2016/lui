@@ -1,23 +1,17 @@
 
 ;(function(global,undefined){
     "use strict";
-    /**
-       * 闭包使用g作为命名空间
-       * @namespace g
-     */
     var g = {};
     /**
       返回文档中匹配指定 CSS 选择器的一个元素
-      * @method selector
-      * @memberof  g
+      * @param el CSS 选择器
     */
     g.selector = function(el){
       return document.querySelector(el);
     }
     /**
       返回文档中匹配指定 CSS 选择器的集合
-      *  @method selectorAll()
-      *  @memberof  g
+      * @param el CSS 选择器
     */
     g.selectorAll = function(el){
       return document.querySelectorAll(el);
@@ -31,7 +25,7 @@
    /**
     * 长按事件
     * @param  {string}   el [选择器]
-    * @param  {Function} cb [回调函数]
+    * @param  {Function} cb [长按后的回调函数]
     */
     g.longPress = function(el,cb){
         var t = null,selector = g.selector(el);
@@ -66,7 +60,7 @@
         script.async = true;
         script.defer = true;
         script.src = url;
-        document.body.appendChild(script);
+        document.head.appendChild(script);
       }else{
         for(var i = 0;i < url.length;i ++){
           script = document.createElement("script");
@@ -74,7 +68,7 @@
           script.async = true;
           script.defer = true;
           script.src = url[i];
-          document.body.appendChild(script);
+          document.head.appendChild(script);
         }
       }
       if(callback && typeof callback == 'function'){
@@ -141,7 +135,7 @@
       * @param wrap要滚动的元素
       * @param callback滚动到底的回调函数
     */
-    g.scrollLoadData =function(wrap,callback){
+    g.scrollToBottom = function(wrap,callback){
       var wrap = document.querySelector(wrap),
          divHeight = wrap.clientHeight,
          scrollTop, 
@@ -168,7 +162,7 @@
       * tab切换
       * @params tabs 包含tab和tabContent的外层div
     */
-    g.tab = function(tabs){
+    g.tabs = function(tabs){
       var tabs = document.querySelector(tabs),
         tab = tabs.querySelectorAll('[tab-role="tab"]'),
         tabContent = tabs.querySelectorAll('[tab-role="tabContent"]');
@@ -191,7 +185,7 @@
         *@param textarea 要绑定的textarea
         *@param num 克隆的textarea的随机id(用于一个页面有多个textarea的情况)
     */
-    g.autoTextarea = function(textarea,num){
+    g.textareaAutoHeight = function(textarea,num){
         var textarea = document.querySelector(textarea),
             node = textarea.cloneNode(),
             num = num || 0;
@@ -225,7 +219,7 @@
       *搜索交互
       @param opts 接收一个对象参数 
     */
-    g.searchControl = function(opts){
+    g.search = function(opts){
       var opts = opts || {
         el:el,  //绑定搜索框外层元素
         input:function(){ //实时输入的回调
@@ -299,7 +293,7 @@
         @param el 弹窗页面的选择器
         @param callback 回调方法
      */
-    g.viewModal = function(el,callback){
+    g.coverHandler = function(el,callback){
       var t = null,el = document.querySelector(el);
         if(!(el.className.indexOf('isOpenModal') > -1)){
         clearTimeout(t);
@@ -522,7 +516,7 @@
     /**
       索引列表滑动
     */
-    g.touchIndex = function(){
+    g.indexAction = function(){
         var startX, startY, moveX, moveY, title, a, y = [],h = [],english,word_popup,t = null,flag = false;
         title = document.querySelectorAll('[data-role="word_index"]');
         english = document.querySelector('[data-role="word_list"]');
@@ -615,7 +609,7 @@
       * 详情图片预览
       * @param img 图片选择器集合
     */
-    g.photoZoom = function(img){
+  g.photoViewer = function(img){
         var arr = document.querySelectorAll(img),
             slide = '',
             _this = this;
