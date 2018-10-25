@@ -53,24 +53,26 @@
      * @param callback 加载js后的回调
     */
      g.loadScript = function(url, callback) {
-      var script;
-      if(typeof url == 'string'){
-        script = document.createElement("script");
-        script.type = "text/javascript";
-        script.async = true;
-        script.defer = true;
-        script.src = url;
-        document.head.appendChild(script);
-      }else{
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.defer = true;
+      if(typeof url === 'string'){
+          document.createElement("script");
+          script.type = "text/javascript";
+          script.async = true;
+          script.defer = true;
+          script.src = url;
+      } else {
         for(var i = 0;i < url.length;i ++){
-          script = document.createElement("script");
+          document.createElement("script");
           script.type = "text/javascript";
           script.async = true;
           script.defer = true;
           script.src = url[i];
-          document.head.appendChild(script);
         }
       }
+      document.head.appendChild(script);
       if(callback && typeof callback == 'function'){
         if (script.readyState) {
             script.onreadystatechange = function () {
@@ -154,7 +156,7 @@
           }
         }else{
             res = divHeight+'+'+scrollTop +'>'+ scrollHeight+'?';
-            // console.log(res);          
+            callback(res);          
         }
       };
     }
