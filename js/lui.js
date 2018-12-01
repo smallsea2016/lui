@@ -516,9 +516,10 @@
         }
     }
     /**
-      索引列表滑动
+      * 索引列表滑动
+      * @param scrollElem 滚动元素的选择器
     */
-    g.indexAction = function(){
+    g.indexAction = function(scrollElem){
         var startX, startY, moveX, moveY, title, a, y = [],h = [],english,word_popup,t = null,flag = false;
         title = document.querySelectorAll('[data-role="word_index"]');
         english = document.querySelector('[data-role="word_list"]');
@@ -526,22 +527,32 @@
         word_popup = document.querySelector('[data-role="word_popup"]'); //popup
         var fixed_h = (document.body.clientHeight - english.clientHeight) / 2; //原生js的offsetTop在元素用了fixed属性后，有bug，会从0计算，所以用窗口的高度减去元素的高度来计算距离
         // console.log((fixed_h));
+        var scrollElem = scrollElem || '.ui_page_bd';
+        var offsetTop = 0;
+        var item = document.querySelector(scrollElem);
+
+        var startAction = this.isSupportTouch() ? 'touchstart' : 'mousedown'; 
+        var endAction = this.isSupportTouch() ? 'touchend' : 'mouseup'; 
         for (var i = 0; i < a.length; i++) {
-            a[i].addEventListener('touchstart', _start, false);
+            a[i].addEventListener([startAction], _start, false);
             a[i].addEventListener('touchmove', _move, false);
-            a[i].addEventListener('touchend', _end, false);
+            a[i].addEventListener([endAction], _end, false);
             y[i] = a[i].offsetTop + fixed_h;
             h[i] = a[i].clientHeight;
         };
 
         function _start(e) {
             flag = true;
-            var touch = e.changedTouches[0];
-            startX = touch.pageX;
-            startY = touch.pageY,
-            href_split = e.target.getAttribute('href').split('#')[1];
+            if (g.isSupportTouch()) {
+              var touch = e.changedTouches[0];
+               startX = touch.pageX;
+               startY = touch.pageY;
+            }
+            var attr = e.target.dataset.href;
             word_popup.classList.add('active');
-            word_popup.innerText = href_split;
+            word_popup.innerText = attr;
+            offsetTop = document.querySelector('#'+attr).offsetTop;
+            item.scrollTo(0,offsetTop);
         }
         function _move(e) {
             e.preventDefault();
@@ -553,7 +564,8 @@
               var scrollTop = document.body.scrollTop;
               for (var j = 0; j < title.length; j++) { //循环需要滑动的英文字母
                   if ((y[j] + scrollTop < moveY) && (moveY < y[j] + h[j] + scrollTop)) { //计算区间获得对应字母的位置
-                      window.location.hash = title[j].id;
+                      offsetTop = document.querySelector('#'+title[j].id).offsetTop;
+                      item.scrollTo(0,offsetTop);
                       word_popup.innerText = title[j].id;
                   }
               };

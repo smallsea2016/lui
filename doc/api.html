@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <title>lui</title>
+<!DOCTYPE html><html><head>
+      <title>api</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\10663\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.5\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
-      
+      <link rel="stylesheet" href="file:///C:\Users\10663\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.11\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -215,9 +212,9 @@ code.language-yaml {
     <body for="html-export">
       <div class="mume markdown-preview   ">
       <ul>
-<li><a href="#api%E6%96%87%E6%A1%A3">api文档</a>
+<li><a href="#api%E6%96%87%E6%A1%A3">api&#x6587;&#x6863;</a>
 <ul>
-<li><a href="#%E5%9F%BA%E7%A1%80api">基础api</a><br>
+<li><a href="#%E5%9F%BA%E7%A1%80api">&#x57FA;&#x7840;api</a><br>
 * <a href="#luiselectorel">lui.selector(el)</a><br>
 * <a href="#luiselectorallel">lui.selectorAll(el)</a><br>
 * <a href="#luiissupporttouch">lui.isSupportTouch()</a><br>
@@ -227,7 +224,7 @@ code.language-yaml {
 * <a href="#luicountdowndatetimecb">lui.countDown(datetime,cb)</a><br>
 * <a href="#luigettimenumdatetimetype">lui.getTime(num,datetime,type)</a><br>
 * <a href="#luigetcndaydatetime">lui.getCnDay(datetime)</a></li>
-<li><a href="#%E4%BA%A4%E4%BA%92api">交互api</a><br>
+<li><a href="#%E4%BA%A4%E4%BA%92api">&#x4EA4;&#x4E92;api</a><br>
 * <a href="#luiscrolltobottomelcallback">lui.scrollToBottom(el,callback)</a><br>
 * <a href="#luitabscontainer">lui.tabs(container)</a><br>
 * <a href="#luitextareaautoheightelrandom">lui.textareaAutoHeight(el,random)</a><br>
@@ -242,630 +239,630 @@ code.language-yaml {
 </ul>
 </li>
 </ul>
-<h1 class="mume-header" id="api%E6%96%87%E6%A1%A3">api文档</h1>
+<h1 class="mume-header" id="api%E6%96%87%E6%A1%A3">api&#x6587;&#x6863;</h1>
 
-<h2 class="mume-header" id="%E5%9F%BA%E7%A1%80api">基础api</h2>
+<h2 class="mume-header" id="%E5%9F%BA%E7%A1%80api">&#x57FA;&#x7840;api</h2>
 
 <h4 class="mume-header" id="luiselectorel">lui.selector(el)</h4>
 
-<p>返回文档中匹配指定 CSS 选择器的一个元素。等同于document.querySelector(el)</p>
+<p>&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x4E2D;&#x5339;&#x914D;&#x6307;&#x5B9A; CSS &#x9009;&#x62E9;&#x5668;&#x7684;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002;&#x7B49;&#x540C;&#x4E8E;document.querySelector(el)</p>
 <h4 class="mume-header" id="luiselectorallel">lui.selectorAll(el)</h4>
 
-<p>返回文档中匹配指定 CSS 选择器的集合。等同于document.querySelectorAll(el)</p>
+<p>&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x4E2D;&#x5339;&#x914D;&#x6307;&#x5B9A; CSS &#x9009;&#x62E9;&#x5668;&#x7684;&#x96C6;&#x5408;&#x3002;&#x7B49;&#x540C;&#x4E8E;document.querySelectorAll(el)</p>
 <h4 class="mume-header" id="luiissupporttouch">lui.isSupportTouch()</h4>
 
-<p>判断是否支持touch事件，返回布尔值</p>
+<p>&#x5224;&#x65AD;&#x662F;&#x5426;&#x652F;&#x6301;touch&#x4E8B;&#x4EF6;&#xFF0C;&#x8FD4;&#x56DE;&#x5E03;&#x5C14;&#x503C;</p>
 <h4 class="mume-header" id="luilongpresselcb">lui.longPress(el,cb)</h4>
 
-<p>长按事件</p>
-<p><strong>参数说明</strong></p>
+<p>&#x957F;&#x6309;&#x4E8B;&#x4EF6;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>el</td>
 <td>String</td>
-<td>是</td>
-<td>目标节点选择器</td>
+<td>&#x662F;</td>
+<td>&#x76EE;&#x6807;&#x8282;&#x70B9;&#x9009;&#x62E9;&#x5668;</td>
 </tr>
 <tr>
 <td>cb</td>
 <td>Function</td>
-<td>是</td>
-<td>长按后的回调函数</td>
+<td>&#x662F;</td>
+<td>&#x957F;&#x6309;&#x540E;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</td>
 </tr>
 </tbody>
 </table>
 <h4 class="mume-header" id="luichangeselectstyle-ev">lui.changeSelectStyle (ev)</h4>
 
-<p>控制select默认样式，和input的placeholder样式保持一致</p>
-<p><strong>参数说明</strong></p>
+<p>&#x63A7;&#x5236;select&#x9ED8;&#x8BA4;&#x6837;&#x5F0F;&#xFF0C;&#x548C;input&#x7684;placeholder&#x6837;&#x5F0F;&#x4FDD;&#x6301;&#x4E00;&#x81F4;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>ev</td>
 <td>event</td>
-<td>是</td>
-<td>事件源，只能传递event</td>
+<td>&#x662F;</td>
+<td>&#x4E8B;&#x4EF6;&#x6E90;&#xFF0C;&#x53EA;&#x80FD;&#x4F20;&#x9012;event</td>
 </tr>
 </tbody>
 </table>
-<pre data-role="codeBlock" data-info="html" class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ui_select placeholderColor<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>select<span class="token punctuation">"</span></span> <span class="token attr-name">onchange</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lui.changeSelectStyle(event)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>请选择<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>女汉子<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>萌妹子<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span>
+<pre data-role="codeBlock" data-info="html" class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>ui_select placeholderColor<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>select<span class="token punctuation">&quot;</span></span> <span class="token attr-name">onchange</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>lui.changeSelectStyle(event)<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x8BF7;&#x9009;&#x62E9;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>1<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x5973;&#x6C49;&#x5B50;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>2<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x840C;&#x59B9;&#x5B50;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">&gt;</span></span>
 </pre><h4 class="mume-header" id="luiloadscripturlcb">lui.loadScript(url,cb)</h4>
 
-<p>动态异步加载js</p>
-<p><strong>参数说明</strong></p>
+<p>&#x52A8;&#x6001;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;js</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>url</td>
 <td>String</td>
-<td>是</td>
-<td>js路径,单个直接是字符串形式，多个以数组形式</td>
+<td>&#x662F;</td>
+<td>js&#x8DEF;&#x5F84;,&#x5355;&#x4E2A;&#x76F4;&#x63A5;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#xFF0C;&#x591A;&#x4E2A;&#x4EE5;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;</td>
 </tr>
 <tr>
 <td>cb</td>
 <td>Function</td>
-<td>是</td>
-<td>js加载完毕的回调函数</td>
+<td>&#x662F;</td>
+<td>js&#x52A0;&#x8F7D;&#x5B8C;&#x6BD5;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</td>
 </tr>
 </tbody>
 </table>
-<p>示例代码</p>
-<pre data-role="codeBlock" data-info="js" class="language-javascript">lui<span class="token punctuation">.</span><span class="token function">loadScript</span><span class="token punctuation">(</span><span class="token string">'util.js'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment">//加载完毕，想干什么就干什么</span>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">lui<span class="token punctuation">.</span><span class="token function">loadScript</span><span class="token punctuation">(</span><span class="token string">&apos;util.js&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//&#x52A0;&#x8F7D;&#x5B8C;&#x6BD5;&#xFF0C;&#x60F3;&#x5E72;&#x4EC0;&#x4E48;&#x5C31;&#x5E72;&#x4EC0;&#x4E48;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
-也可以一次加载多个js
-lui<span class="token punctuation">.</span><span class="token function">loadScript</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'js1.js'</span><span class="token punctuation">,</span><span class="token string">'js2.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment">//加载完毕，一次加载多个js，呵呵哒</span>
+&#x4E5F;&#x53EF;&#x4EE5;&#x4E00;&#x6B21;&#x52A0;&#x8F7D;&#x591A;&#x4E2A;js
+lui<span class="token punctuation">.</span><span class="token function">loadScript</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;js1.js&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;js2.js&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//&#x52A0;&#x8F7D;&#x5B8C;&#x6BD5;&#xFF0C;&#x4E00;&#x6B21;&#x52A0;&#x8F7D;&#x591A;&#x4E2A;js&#xFF0C;&#x5475;&#x5475;&#x54D2;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </pre><h4 class="mume-header" id="luicountdowndatetimecb">lui.countDown(datetime,cb)</h4>
 
-<p>倒计时</p>
-<p><strong>参数说明</strong></p>
+<p>&#x5012;&#x8BA1;&#x65F6;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>datetime</td>
 <td>Date</td>
-<td>是</td>
-<td>指定倒计时时间，可被new Date()解析</td>
+<td>&#x662F;</td>
+<td>&#x6307;&#x5B9A;&#x5012;&#x8BA1;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x53EF;&#x88AB;new Date()&#x89E3;&#x6790;</td>
 </tr>
 <tr>
 <td>cb</td>
 <td>Function</td>
-<td>是</td>
-<td>回调函数，携带一个参数为倒计时剩余时间</td>
+<td>&#x662F;</td>
+<td>&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x643A;&#x5E26;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x5012;&#x8BA1;&#x65F6;&#x5269;&#x4F59;&#x65F6;&#x95F4;</td>
 </tr>
 </tbody>
 </table>
-<p>示例代码</p>
-<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">countDown</span><span class="token punctuation">(</span><span class="token string">'2018-10-01'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">countDown</span><span class="token punctuation">(</span><span class="token string">&apos;2018-10-01&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>res <span class="token operator">==</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'设定时间小于或等于当前时间'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;&#x8BBE;&#x5B9A;&#x65F6;&#x95F4;&#x5C0F;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;&#x5F53;&#x524D;&#x65F6;&#x95F4;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-        <span class="token keyword">var</span> s <span class="token operator">=</span> res<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#j_gq'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'天'</span><span class="token operator">+</span>s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'时'</span><span class="token operator">+</span>s<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'分'</span><span class="token operator">+</span>s<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'秒'</span><span class="token punctuation">;</span>  
+        <span class="token keyword">var</span> s <span class="token operator">=</span> res<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">&apos;|&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;#j_gq&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">&apos;&#x5929;&apos;</span><span class="token operator">+</span>s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">&apos;&#x65F6;&apos;</span><span class="token operator">+</span>s<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">&apos;&#x5206;&apos;</span><span class="token operator">+</span>s<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">&apos;&#x79D2;&apos;</span><span class="token punctuation">;</span>  
     <span class="token punctuation">}</span>        
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </pre><h4 class="mume-header" id="luigettimenumdatetimetype">lui.getTime(num,datetime,type)</h4>
 
-<p>返回第几天的时间</p>
-<p><strong>参数说明</strong></p>
+<p>&#x8FD4;&#x56DE;&#x7B2C;&#x51E0;&#x5929;&#x7684;&#x65F6;&#x95F4;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>num</td>
 <td>Number</td>
-<td>是</td>
-<td>某天</td>
+<td>&#x662F;</td>
+<td>&#x67D0;&#x5929;</td>
 </tr>
 <tr>
 <td>datetime</td>
 <td>Date</td>
-<td>否</td>
-<td>某天日期，可被new Date()解析</td>
+<td>&#x5426;</td>
+<td>&#x67D0;&#x5929;&#x65E5;&#x671F;&#xFF0C;&#x53EF;&#x88AB;new Date()&#x89E3;&#x6790;</td>
 </tr>
 <tr>
 <td>type</td>
 <td>String</td>
-<td>否</td>
-<td>日期类型，默认,返回YYYY-MM-DD,如果传'datetime'，返回YYYY-MM-DD hh:mm:ss</td>
+<td>&#x5426;</td>
+<td>&#x65E5;&#x671F;&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;,&#x8FD4;&#x56DE;YYYY-MM-DD,&#x5982;&#x679C;&#x4F20;&apos;datetime&apos;&#xFF0C;&#x8FD4;&#x56DE;YYYY-MM-DD hh:mm:ss</td>
 </tr>
 </tbody>
 </table>
 <h4 class="mume-header" id="luigetcndaydatetime">lui.getCnDay(datetime)</h4>
 
-<p>返回某天中文星期</p>
-<p><strong>参数说明</strong></p>
+<p>&#x8FD4;&#x56DE;&#x67D0;&#x5929;&#x4E2D;&#x6587;&#x661F;&#x671F;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>datetime</td>
 <td>Date</td>
-<td>否</td>
-<td>某天日期，可被new Date()解析</td>
+<td>&#x5426;</td>
+<td>&#x67D0;&#x5929;&#x65E5;&#x671F;&#xFF0C;&#x53EF;&#x88AB;new Date()&#x89E3;&#x6790;</td>
 </tr>
 </tbody>
 </table>
-<h2 class="mume-header" id="%E4%BA%A4%E4%BA%92api">交互api</h2>
+<h2 class="mume-header" id="%E4%BA%A4%E4%BA%92api">&#x4EA4;&#x4E92;api</h2>
 
 <h4 class="mume-header" id="luiscrolltobottomelcallback">lui.scrollToBottom(el,callback)</h4>
 
-<p>监听滑动/滚动到底</p>
-<p><strong>参数说明</strong></p>
+<p>&#x76D1;&#x542C;&#x6ED1;&#x52A8;/&#x6EDA;&#x52A8;&#x5230;&#x5E95;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>el</td>
 <td>String</td>
-<td>是</td>
-<td>容器选择器，如： '#id'。也可以是DOM对象</td>
+<td>&#x662F;</td>
+<td>&#x5BB9;&#x5668;&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x5982;&#xFF1A; &apos;#id&apos;&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;DOM&#x5BF9;&#x8C61;</td>
 </tr>
 </tbody>
 </table>
-<p><mark>注意</mark>：因为监听的是scroll事件，因此绑定的容器必须要用滚动条。</p>
-<p>示例代码</p>
-<pre data-role="codeBlock" data-info="js" class="language-javascript">lui<span class="token punctuation">.</span><span class="token function">scrollToBottom</span><span class="token punctuation">(</span><span class="token string">'#myScroll'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token comment">//已经滚动到底了，你可以在这里加载翻页数据</span>
+<p><mark>&#x6CE8;&#x610F;</mark>&#xFF1A;&#x56E0;&#x4E3A;&#x76D1;&#x542C;&#x7684;&#x662F;scroll&#x4E8B;&#x4EF6;&#xFF0C;&#x56E0;&#x6B64;&#x7ED1;&#x5B9A;&#x7684;&#x5BB9;&#x5668;&#x5FC5;&#x987B;&#x8981;&#x7528;&#x6EDA;&#x52A8;&#x6761;&#x3002;</p>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">lui<span class="token punctuation">.</span><span class="token function">scrollToBottom</span><span class="token punctuation">(</span><span class="token string">&apos;#myScroll&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">//&#x5DF2;&#x7ECF;&#x6EDA;&#x52A8;&#x5230;&#x5E95;&#x4E86;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x52A0;&#x8F7D;&#x7FFB;&#x9875;&#x6570;&#x636E;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </pre><h4 class="mume-header" id="luitabscontainer">lui.tabs(container)</h4>
 
-<p>tab切换</p>
-<p><strong>参数说明</strong></p>
+<p>tab&#x5207;&#x6362;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>container</td>
 <td>String</td>
-<td>是</td>
-<td>tab头和tab内容的外层选择器，如： 'data-role=&quot;tabs&quot;'</td>
+<td>&#x662F;</td>
+<td>tab&#x5934;&#x548C;tab&#x5185;&#x5BB9;&#x7684;&#x5916;&#x5C42;&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x5982;&#xFF1A; &apos;data-role=&quot;tabs&quot;&apos;</td>
 </tr>
 </tbody>
 </table>
-<p><mark>注意</mark>：需要按照html固定结构。tab头必须含 tab-role=&quot;tab&quot;属性，tab内容必须含tab-role=&quot;tabContent&quot;属性。</p>
-<p>示例代码</p>
-<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tabs<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ui_capsule_tab flexbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript:;<span class="token punctuation">"</span></span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>flexItem active<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>tab1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript:;<span class="token punctuation">"</span></span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>flexItem<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>tab2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript:;<span class="token punctuation">"</span></span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>flexItem<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>tab3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab_content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tabContent<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>p20 active<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<p><mark>&#x6CE8;&#x610F;</mark>&#xFF1A;&#x9700;&#x8981;&#x6309;&#x7167;html&#x56FA;&#x5B9A;&#x7ED3;&#x6784;&#x3002;tab&#x5934;&#x5FC5;&#x987B;&#x542B; tab-role=&quot;tab&quot;&#x5C5E;&#x6027;&#xFF0C;tab&#x5185;&#x5BB9;&#x5FC5;&#x987B;&#x542B;tab-role=&quot;tabContent&quot;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tabs<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>ui_capsule_tab flexbox<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>javascript:;<span class="token punctuation">&quot;</span></span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tab<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>flexItem active<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>tab1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>javascript:;<span class="token punctuation">&quot;</span></span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tab<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>flexItem<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>tab2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>javascript:;<span class="token punctuation">&quot;</span></span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tab<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>flexItem<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>tab3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tab_content<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tabContent<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>p20 active<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
           tab1
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tabContent<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>p20<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tabContent<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>p20<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
           tab2
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tabContent<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>p20<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">tab-role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tabContent<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>p20<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
           tab3
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> 
 </pre><h4 class="mume-header" id="luitextareaautoheightelrandom">lui.textareaAutoHeight(el,random)</h4>
 
-<p>textarea高度自适应</p>
-<p><strong>参数说明</strong></p>
+<p>textarea&#x9AD8;&#x5EA6;&#x81EA;&#x9002;&#x5E94;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>el</td>
 <td>String</td>
-<td>是</td>
-<td>textarea选择器</td>
+<td>&#x662F;</td>
+<td>textarea&#x9009;&#x62E9;&#x5668;</td>
 </tr>
 <tr>
 <td>random</td>
 <td>Number</td>
-<td>否</td>
-<td>随机数，如果一个页面存在多个textarea需要高度自适应，则为必填，而且random不能相同</td>
+<td>&#x5426;</td>
+<td>&#x968F;&#x673A;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x5B58;&#x5728;&#x591A;&#x4E2A;textarea&#x9700;&#x8981;&#x9AD8;&#x5EA6;&#x81EA;&#x9002;&#x5E94;&#xFF0C;&#x5219;&#x4E3A;&#x5FC5;&#x586B;&#xFF0C;&#x800C;&#x4E14;random&#x4E0D;&#x80FD;&#x76F8;&#x540C;</td>
 </tr>
 </tbody>
 </table>
-<p>示例代码</p>
-<pre data-role="codeBlock" data-info="js" class="language-javascript"> lui<span class="token punctuation">.</span><span class="token function">textareaAutoHeigh</span><span class="token punctuation">(</span><span class="token string">'#textarea1'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- lui<span class="token punctuation">.</span><span class="token function">textareaAutoHeigh</span><span class="token punctuation">(</span><span class="token string">'#textarea2'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"> lui<span class="token punctuation">.</span><span class="token function">textareaAutoHeigh</span><span class="token punctuation">(</span><span class="token string">&apos;#textarea1&apos;</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ lui<span class="token punctuation">.</span><span class="token function">textareaAutoHeigh</span><span class="token punctuation">(</span><span class="token string">&apos;#textarea2&apos;</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><h4 class="mume-header" id="luisearchobject">lui.search(object)</h4>
 
-<p>复杂搜索交互</p>
-<p><strong>参数说明</strong></p>
+<p>&#x590D;&#x6742;&#x641C;&#x7D22;&#x4EA4;&#x4E92;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>container</td>
 <td>String</td>
-<td>是</td>
-<td>搜索组件容器</td>
+<td>&#x662F;</td>
+<td>&#x641C;&#x7D22;&#x7EC4;&#x4EF6;&#x5BB9;&#x5668;</td>
 </tr>
 <tr>
 <td>input</td>
 <td>Function</td>
-<td>否</td>
-<td>实时输入的回调函数，携带一个参数为输入框的值</td>
+<td>&#x5426;</td>
+<td>&#x5B9E;&#x65F6;&#x8F93;&#x5165;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x643A;&#x5E26;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x8F93;&#x5165;&#x6846;&#x7684;&#x503C;</td>
 </tr>
 <tr>
 <td>clear</td>
 <td>Function</td>
-<td>否</td>
-<td>清空搜索的回调函数</td>
+<td>&#x5426;</td>
+<td>&#x6E05;&#x7A7A;&#x641C;&#x7D22;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</td>
 </tr>
 <tr>
 <td>cancel</td>
 <td>Function</td>
-<td>否</td>
-<td>取消搜索的回调函数</td>
+<td>&#x5426;</td>
+<td>&#x53D6;&#x6D88;&#x641C;&#x7D22;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</td>
 </tr>
 <tr>
 <td>enter</td>
 <td>Function</td>
-<td>否</td>
-<td>按下回车键搜索的回调函数，携带一个参数为输入框的值</td>
+<td>&#x5426;</td>
+<td>&#x6309;&#x4E0B;&#x56DE;&#x8F66;&#x952E;&#x641C;&#x7D22;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x643A;&#x5E26;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x8F93;&#x5165;&#x6846;&#x7684;&#x503C;</td>
 </tr>
 </tbody>
 </table>
-<p>示例代码</p>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
 <pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      container<span class="token punctuation">:</span><span class="token string">'#js_search'</span><span class="token punctuation">,</span>
+      container<span class="token punctuation">:</span><span class="token string">&apos;#js_search&apos;</span><span class="token punctuation">,</span>
       input<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
-         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'你输入的是：'</span><span class="token operator">+</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;&#x4F60;&#x8F93;&#x5165;&#x7684;&#x662F;&#xFF1A;&apos;</span><span class="token operator">+</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span> 
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       clear<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'clear'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;clear&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       cancel<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'cancel'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;cancel&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       enter<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
-          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'点击了回车,输入的内容是：'</span><span class="token operator">+</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;&#x70B9;&#x51FB;&#x4E86;&#x56DE;&#x8F66;,&#x8F93;&#x5165;&#x7684;&#x5185;&#x5BB9;&#x662F;&#xFF1A;&apos;</span><span class="token operator">+</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </pre><h4 class="mume-header" id="luicoverhandlerelobject">lui.coverHandler(el,object)</h4>
 
-<p>遮盖层显示和隐藏</p>
-<p><strong>参数说明</strong></p>
+<p>&#x906E;&#x76D6;&#x5C42;&#x663E;&#x793A;&#x548C;&#x9690;&#x85CF;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>el</td>
 <td>String</td>
-<td>是</td>
-<td>选择器</td>
+<td>&#x662F;</td>
+<td>&#x9009;&#x62E9;&#x5668;</td>
 </tr>
 <tr>
 <td>open</td>
 <td>Function</td>
-<td>否</td>
-<td>遮盖层打开时的回调函数</td>
+<td>&#x5426;</td>
+<td>&#x906E;&#x76D6;&#x5C42;&#x6253;&#x5F00;&#x65F6;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</td>
 </tr>
 <tr>
 <td>close</td>
 <td>Function</td>
-<td>否</td>
-<td>遮盖层关闭时的回调函数</td>
+<td>&#x5426;</td>
+<td>&#x906E;&#x76D6;&#x5C42;&#x5173;&#x95ED;&#x65F6;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</td>
 </tr>
 </tbody>
 </table>
-<p>示例代码</p>
-<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">coverHandler</span><span class="token punctuation">(</span><span class="token string">'#coverPage'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">coverHandler</span><span class="token punctuation">(</span><span class="token string">&apos;#coverPage&apos;</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
       open<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'open'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;open&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       close<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;close&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </pre><h4 class="mume-header" id="luiloadingtextopacity">lui.loading(text,opacity)</h4>
 
-<p>页面loading效果</p>
-<p><strong>参数说明</strong></p>
+<p>&#x9875;&#x9762;loading&#x6548;&#x679C;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>text</td>
 <td>String</td>
-<td>是</td>
-<td>loading提示文字，如果文字为close，则loading关闭</td>
+<td>&#x662F;</td>
+<td>loading&#x63D0;&#x793A;&#x6587;&#x5B57;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x5B57;&#x4E3A;close&#xFF0C;&#x5219;loading&#x5173;&#x95ED;</td>
 </tr>
 <tr>
 <td>opacity</td>
 <td>Number</td>
-<td>否</td>
-<td>loading遮罩层透明度</td>
+<td>&#x5426;</td>
+<td>loading&#x906E;&#x7F69;&#x5C42;&#x900F;&#x660E;&#x5EA6;</td>
 </tr>
 </tbody>
 </table>
-<p>示例代码</p>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
 <pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">loading</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//loading</span>
 
-  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment">//3s后关闭loading</span>
-    lui<span class="token punctuation">.</span><span class="token function">loading</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">)</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment">//3s&#x540E;&#x5173;&#x95ED;loading</span>
+    lui<span class="token punctuation">.</span><span class="token function">loading</span><span class="token punctuation">(</span><span class="token string">&apos;close&apos;</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">3000</span><span class="token punctuation">)</span>
 </pre><h4 class="mume-header" id="luitoastobject">lui.toast(object)</h4>
 
-<p>页面轻提示</p>
-<p><strong>参数说明</strong></p>
+<p>&#x9875;&#x9762;&#x8F7B;&#x63D0;&#x793A;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>type</td>
 <td>String</td>
-<td>否</td>
-<td>提示类型，有两种类型，&quot;ok&quot;和&quot;warning&quot;，即对应成功类型和警告类型。默认为&quot;ok&quot;。</td>
+<td>&#x5426;</td>
+<td>&#x63D0;&#x793A;&#x7C7B;&#x578B;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&quot;ok&quot;&#x548C;&quot;warning&quot;&#xFF0C;&#x5373;&#x5BF9;&#x5E94;&#x6210;&#x529F;&#x7C7B;&#x578B;&#x548C;&#x8B66;&#x544A;&#x7C7B;&#x578B;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;&quot;ok&quot;&#x3002;</td>
 </tr>
 <tr>
 <td>text</td>
 <td>String</td>
-<td>否</td>
-<td>提示文字</td>
+<td>&#x5426;</td>
+<td>&#x63D0;&#x793A;&#x6587;&#x5B57;</td>
 </tr>
 <tr>
 <td>position</td>
 <td>String</td>
-<td>否</td>
-<td>在页面的位置，包含&quot;top&quot;,&quot;middle&quot;,&quot;bottom&quot;.</td>
+<td>&#x5426;</td>
+<td>&#x5728;&#x9875;&#x9762;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5305;&#x542B;&quot;top&quot;,&quot;middle&quot;,&quot;bottom&quot;.</td>
 </tr>
 <tr>
 <td>duration</td>
 <td>String</td>
-<td>否</td>
-<td>提示显示持续的时间,默认2s</td>
+<td>&#x5426;</td>
+<td>&#x63D0;&#x793A;&#x663E;&#x793A;&#x6301;&#x7EED;&#x7684;&#x65F6;&#x95F4;,&#x9ED8;&#x8BA4;2s</td>
 </tr>
 </tbody>
 </table>
-<p>示例代码</p>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
 <pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">toast</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      type<span class="token punctuation">:</span><span class="token string">'ok'</span><span class="token punctuation">,</span>
-      text<span class="token punctuation">:</span><span class="token string">'操作成功'</span>
+      type<span class="token punctuation">:</span><span class="token string">&apos;ok&apos;</span><span class="token punctuation">,</span>
+      text<span class="token punctuation">:</span><span class="token string">&apos;&#x64CD;&#x4F5C;&#x6210;&#x529F;&apos;</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
   lui<span class="token punctuation">.</span><span class="token function">toast</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      position<span class="token punctuation">:</span><span class="token string">'top'</span><span class="token punctuation">,</span>
-      text<span class="token punctuation">:</span><span class="token string">'提示内容'</span>
+      position<span class="token punctuation">:</span><span class="token string">&apos;top&apos;</span><span class="token punctuation">,</span>
+      text<span class="token punctuation">:</span><span class="token string">&apos;&#x63D0;&#x793A;&#x5185;&#x5BB9;&apos;</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </pre><h4 class="mume-header" id="luishowmodalobject">lui.showModal(object)</h4>
 
-<p>ios风格模态框</p>
-<p><strong>参数说明</strong></p>
+<p>ios&#x98CE;&#x683C;&#x6A21;&#x6001;&#x6846;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>title</td>
 <td>String</td>
-<td>否</td>
-<td>提示的标题</td>
+<td>&#x5426;</td>
+<td>&#x63D0;&#x793A;&#x7684;&#x6807;&#x9898;</td>
 </tr>
 <tr>
 <td>content</td>
 <td>String</td>
-<td>是</td>
-<td>提示的内容，可嵌入html代码</td>
+<td>&#x662F;</td>
+<td>&#x63D0;&#x793A;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x53EF;&#x5D4C;&#x5165;html&#x4EE3;&#x7801;</td>
 </tr>
 <tr>
 <td>showCancel</td>
 <td>Boolean</td>
-<td>否</td>
-<td>是否显示取消按钮，默认为 false</td>
+<td>&#x5426;</td>
+<td>&#x662F;&#x5426;&#x663E;&#x793A;&#x53D6;&#x6D88;&#x6309;&#x94AE;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A; false</td>
 </tr>
 <tr>
 <td>cancelText</td>
 <td>String</td>
-<td>否</td>
-<td>取消按钮的文字，默认为&quot;取消&quot;，文字不宜过长</td>
+<td>&#x5426;</td>
+<td>&#x53D6;&#x6D88;&#x6309;&#x94AE;&#x7684;&#x6587;&#x5B57;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&quot;&#x53D6;&#x6D88;&quot;&#xFF0C;&#x6587;&#x5B57;&#x4E0D;&#x5B9C;&#x8FC7;&#x957F;</td>
 </tr>
 <tr>
 <td>confirmText</td>
 <td>String</td>
-<td>否</td>
-<td>确定按钮的文字，默认为&quot;确定&quot;，文字不宜过长</td>
+<td>&#x5426;</td>
+<td>&#x786E;&#x5B9A;&#x6309;&#x94AE;&#x7684;&#x6587;&#x5B57;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&quot;&#x786E;&#x5B9A;&quot;&#xFF0C;&#x6587;&#x5B57;&#x4E0D;&#x5B9C;&#x8FC7;&#x957F;</td>
 </tr>
 <tr>
 <td>skin</td>
 <td>String</td>
-<td>否</td>
-<td>传入的自定义class，用于自定义风格</td>
+<td>&#x5426;</td>
+<td>&#x4F20;&#x5165;&#x7684;&#x81EA;&#x5B9A;&#x4E49;class&#xFF0C;&#x7528;&#x4E8E;&#x81EA;&#x5B9A;&#x4E49;&#x98CE;&#x683C;</td>
 </tr>
 <tr>
 <td>beforeHide</td>
 <td>Function</td>
-<td>否</td>
-<td>模态框关闭前的回调函数</td>
+<td>&#x5426;</td>
+<td>&#x6A21;&#x6001;&#x6846;&#x5173;&#x95ED;&#x524D;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</td>
 </tr>
 </tbody>
 </table>
-<p>示例代码</p>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
 <pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      content<span class="token punctuation">:</span><span class="token string">'alert呵呵'</span><span class="token punctuation">,</span>
+      content<span class="token punctuation">:</span><span class="token string">&apos;alert&#x5475;&#x5475;&apos;</span><span class="token punctuation">,</span>
       confirm<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'confirm'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;confirm&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-  <span class="token keyword">var</span> val <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> val <span class="token operator">=</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">;</span>
   lui<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      content<span class="token punctuation">:</span><span class="token string">'&lt;input type="text" placeholder="请输入" class="ui_popup_ipt" id="ipt"/>'</span><span class="token punctuation">,</span>
+      content<span class="token punctuation">:</span><span class="token string">&apos;&lt;input type=&quot;text&quot; placeholder=&quot;&#x8BF7;&#x8F93;&#x5165;&quot; class=&quot;ui_popup_ipt&quot; id=&quot;ipt&quot;/&gt;&apos;</span><span class="token punctuation">,</span>
       beforeHide<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-          val <span class="token operator">=</span> lui<span class="token punctuation">.</span><span class="token function">selector</span><span class="token punctuation">(</span><span class="token string">'#ipt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+          val <span class="token operator">=</span> lui<span class="token punctuation">.</span><span class="token function">selector</span><span class="token punctuation">(</span><span class="token string">&apos;#ipt&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       confirm<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                    
-          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'输入框的值是：'</span><span class="token operator">+</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;&#x8F93;&#x5165;&#x6846;&#x7684;&#x503C;&#x662F;&#xFF1A;&apos;</span><span class="token operator">+</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </pre><h4 class="mume-header" id="luiindexaction">lui.indexAction()</h4>
 
-<p>滑动索引定位列表位置<br>
-<mark>注意</mark>：html结构，需要给列表英文标题加上'data-role=&quot;word_index&quot;'属性,给英文列表加上'data-role=&quot;word_list&quot;',给弹出提示框加上'data-role=&quot;word_popup&quot;'属性</p>
+<p>&#x6ED1;&#x52A8;&#x7D22;&#x5F15;&#x5B9A;&#x4F4D;&#x5217;&#x8868;&#x4F4D;&#x7F6E;<br>
+<mark>&#x6CE8;&#x610F;</mark>&#xFF1A;html&#x7ED3;&#x6784;&#xFF0C;&#x9700;&#x8981;&#x7ED9;&#x5217;&#x8868;&#x82F1;&#x6587;&#x6807;&#x9898;&#x52A0;&#x4E0A;&apos;data-role=&quot;word_index&quot;&apos;&#x5C5E;&#x6027;,&#x7ED9;&#x82F1;&#x6587;&#x5217;&#x8868;&#x52A0;&#x4E0A;&apos;data-role=&quot;word_list&quot;&apos;,&#x7ED9;&#x5F39;&#x51FA;&#x63D0;&#x793A;&#x6846;&#x52A0;&#x4E0A;&apos;data-role=&quot;word_popup&quot;&apos;&#x5C5E;&#x6027;</p>
 <h4 class="mume-header" id="luiwatermarkelnamelen">lui.watermark(el,name,len)</h4>
 
-<p>水印</p>
-<p><strong>参数说明</strong></p>
+<p>&#x6C34;&#x5370;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>el</td>
 <td>String</td>
-<td>是</td>
-<td>挂载水印的文档节点</td>
+<td>&#x662F;</td>
+<td>&#x6302;&#x8F7D;&#x6C34;&#x5370;&#x7684;&#x6587;&#x6863;&#x8282;&#x70B9;</td>
 </tr>
 <tr>
 <td>name</td>
 <td>String</td>
-<td>是</td>
-<td>水印内容</td>
+<td>&#x662F;</td>
+<td>&#x6C34;&#x5370;&#x5185;&#x5BB9;</td>
 </tr>
 <tr>
 <td>len</td>
 <td>String</td>
-<td>否</td>
-<td>水印个数</td>
+<td>&#x5426;</td>
+<td>&#x6C34;&#x5370;&#x4E2A;&#x6570;</td>
 </tr>
 </tbody>
 </table>
 <h4></h4>
-<p>示例代码</p>
-<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">watermark</span><span class="token punctuation">(</span><span class="token string">'#js_watermarkbox'</span><span class="token punctuation">,</span><span class="token string">'张碧晨10056500'</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">  lui<span class="token punctuation">.</span><span class="token function">watermark</span><span class="token punctuation">(</span><span class="token string">&apos;#js_watermarkbox&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x5F20;&#x78A7;&#x6668;10056500&apos;</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span>
 </pre><h4 class="mume-header" id="luiphotoviewerimgs">lui.photoViewer(imgs)</h4>
 
-<p>图片预览</p>
-<p><strong>参数说明</strong></p>
+<p>&#x56FE;&#x7247;&#x9884;&#x89C8;</p>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>说明</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>imgs</td>
 <td>String</td>
-<td>是</td>
-<td>图片选择器集合</td>
+<td>&#x662F;</td>
+<td>&#x56FE;&#x7247;&#x9009;&#x62E9;&#x5668;&#x96C6;&#x5408;</td>
 </tr>
 </tbody>
 </table>
@@ -873,7 +870,6 @@ lui<span class="token punctuation">.</span><span class="token function">loadScri
       </div>
       
       
-    </body>
     
     
     
@@ -881,4 +877,6 @@ lui<span class="token punctuation">.</span><span class="token function">loadScri
     
     
     
-  </html>
+    
+  
+    </body></html>

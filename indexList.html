@@ -43,7 +43,7 @@
     <script type="text/html" id="word_list_tpl">
         <div class="word_list" data-role="word_list">
             {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
-                <a href="#{{d.list[i].tagName}}">{{d.list[i].tagName}}</a>
+                <a href="javascript:;" data-href="{{d.list[i].tagName}}">{{d.list[i].tagName}}</a>
             {{# } }} 
         </div>
     </script>
