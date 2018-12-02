@@ -7,6 +7,18 @@
 返回文档中匹配指定 CSS 选择器的集合。等同于document.querySelectorAll(el)
 #### lui.isSupportTouch()
 判断是否支持touch事件，返回布尔值
+#### lui.getQueryString(name)
+获取地址栏参数值
+
+  **参数说明**
+
+  参数 | 类型 | 必填 | 说明 
+  ---|---|---|---
+  name|String|是|参数名称
+  示例代码
+```js
+  lui.getQueryString('param')
+```
 #### lui.longPress(el,cb)
 长按事件
 
@@ -24,6 +36,7 @@
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
   ev|event|是|事件源，只能传递event
+  示例代码
   ```html
     <select class="ui_select placeholderColor" name="select" onchange="lui.changeSelectStyle(event)">
       <option value="">请选择</option>

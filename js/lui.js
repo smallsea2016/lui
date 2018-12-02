@@ -22,6 +22,17 @@
     g.isSupportTouch = function(){
         return 'ontouchstart' in window
     }
+    /**
+     * 获取地址栏参数值
+     * @param  {string} name 参数名称
+     * @return 返回匹配结果
+    */
+    g.getQueryString = function (name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return null;
+    }
    /**
     * 长按事件
     * @param  {string}   el [选择器]
@@ -859,6 +870,12 @@
         }else{
           ev.target.classList.remove('placeholderColor')
         }
+    }
+    //开启vConsole调试模式
+    if (g.getQueryString('isVConsole') === '1') {
+        g.loadScript('js/3rd-plugins/vconsole.min.js',function(){
+            var vConsole = new VConsole();
+        })
     }
     global.lui = g;
 })(window);
