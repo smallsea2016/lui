@@ -132,6 +132,10 @@ a.ui_btn {line-height: 45px;}
   -webkit-box-pack: center;
   box-shadow: 0 0 5px #999 
 }
+.ui_loading_ico {width: 20px;height: 20px;display: inline-block;background: url(../images/icon/loading.svg) no-repeat;
+    background-size: contain;
+}
+.ui_btn .ui_loading_ico {margin-right: 10px;}
 
 /*尺寸*/
 .ui_btn[size="sm"] {height: 35px;}
