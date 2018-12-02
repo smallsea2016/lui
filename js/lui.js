@@ -872,7 +872,7 @@
         }
     }
     //开启vConsole调试模式
-    if (g.getQueryString('isVConsole') === '1') {
+    if (g.getQueryString('vConsole') === '1') {
         g.loadScript('js/3rd-plugins/vconsole.min.js',function(){
             var vConsole = new VConsole();
         })
