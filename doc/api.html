@@ -233,7 +233,7 @@ code.language-yaml {
 * <a href="#luiloadingtextopacity">lui.loading(text,opacity)</a><br>
 * <a href="#luitoastobject">lui.toast(object)</a><br>
 * <a href="#luishowmodalobject">lui.showModal(object)</a><br>
-* <a href="#luiindexaction">lui.indexAction()</a><br>
+* <a href="#luiindexactionscrollelem">lui.indexAction(scrollElem)</a><br>
 * <a href="#luiwatermarkelnamelen">lui.watermark(el,name,len)</a><br>
 * <a href="#luiphotoviewerimgs">lui.photoViewer(imgs)</a></li>
 </ul>
@@ -803,10 +803,28 @@ lui<span class="token punctuation">.</span><span class="token function">loadScri
           console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;&#x8F93;&#x5165;&#x6846;&#x7684;&#x503C;&#x662F;&#xFF1A;&apos;</span><span class="token operator">+</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
-</pre><h4 class="mume-header" id="luiindexaction">lui.indexAction()</h4>
+</pre><h4 class="mume-header" id="luiindexactionscrollelem">lui.indexAction(scrollElem)</h4>
 
-<p>&#x6ED1;&#x52A8;&#x7D22;&#x5F15;&#x5B9A;&#x4F4D;&#x5217;&#x8868;&#x4F4D;&#x7F6E;<br>
-<mark>&#x6CE8;&#x610F;</mark>&#xFF1A;html&#x7ED3;&#x6784;&#xFF0C;&#x9700;&#x8981;&#x7ED9;&#x5217;&#x8868;&#x82F1;&#x6587;&#x6807;&#x9898;&#x52A0;&#x4E0A;&apos;data-role=&quot;word_index&quot;&apos;&#x5C5E;&#x6027;,&#x7ED9;&#x82F1;&#x6587;&#x5217;&#x8868;&#x52A0;&#x4E0A;&apos;data-role=&quot;word_list&quot;&apos;,&#x7ED9;&#x5F39;&#x51FA;&#x63D0;&#x793A;&#x6846;&#x52A0;&#x4E0A;&apos;data-role=&quot;word_popup&quot;&apos;&#x5C5E;&#x6027;</p>
+<p>&#x6ED1;&#x52A8;&#x7D22;&#x5F15;&#x5B9A;&#x4F4D;&#x5217;&#x8868;&#x4F4D;&#x7F6E;</p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5FC5;&#x586B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scrollElem</td>
+<td>String</td>
+<td>&#x662F;</td>
+<td>&#x6EDA;&#x52A8;&#x5143;&#x7D20;&#x7684;&#x9009;&#x62E9;&#x5668;&#x3002;&#x4F9D;&#x8D56;&#x8BE5;&#x9009;&#x62E9;&#x5668;&#x6765;&#x8BBE;&#x7F6E;scrollTop&#x503C;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<p><mark>&#x6CE8;&#x610F;</mark>&#xFF1A;html&#x7ED3;&#x6784;&#xFF0C;&#x9700;&#x8981;&#x7ED9;&#x5217;&#x8868;&#x82F1;&#x6587;&#x6807;&#x9898;&#x52A0;&#x4E0A;&apos;data-role=&quot;word_index&quot;&apos;&#x5C5E;&#x6027;,&#x7ED9;&#x82F1;&#x6587;&#x5217;&#x8868;&#x52A0;&#x4E0A;&apos;data-role=&quot;word_list&quot;&apos;,&#x7ED9;&#x5F39;&#x51FA;&#x63D0;&#x793A;&#x6846;&#x52A0;&#x4E0A;&apos;data-role=&quot;word_popup&quot;&apos;&#x5C5E;&#x6027;</p>
 <h4 class="mume-header" id="luiwatermarkelnamelen">lui.watermark(el,name,len)</h4>
 
 <p>&#x6C34;&#x5370;</p>

@@ -552,7 +552,8 @@
             word_popup.classList.add('active');
             word_popup.innerText = attr;
             offsetTop = document.querySelector('#'+attr).offsetTop;
-            item.scrollTo(0,offsetTop);
+            // item.scrollTo(0,offsetTop);
+            item.scrollTop = offsetTop
         }
         function _move(e) {
             e.preventDefault();
@@ -565,7 +566,8 @@
               for (var j = 0; j < title.length; j++) { //循环需要滑动的英文字母
                   if ((y[j] + scrollTop < moveY) && (moveY < y[j] + h[j] + scrollTop)) { //计算区间获得对应字母的位置
                       offsetTop = document.querySelector('#'+title[j].id).offsetTop;
-                      item.scrollTo(0,offsetTop);
+                      // item.scrollTo(0,offsetTop);
+                      item.scrollTop = offsetTop;
                       word_popup.innerText = title[j].id;
                   }
               };

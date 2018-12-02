@@ -286,8 +286,11 @@ ios风格模态框
         }
     })
   ```
-#### lui.indexAction()
+#### lui.indexAction(scrollElem)
 滑动索引定位列表位置
+  参数 | 类型 | 必填 | 说明 
+  ---|---|---|---
+  scrollElem|String|是|滚动元素的选择器。依赖该选择器来设置scrollTop值。
   ==注意==：html结构，需要给列表英文标题加上'data-role="word_index"'属性,给英文列表加上'data-role="word_list"',给弹出提示框加上'data-role="word_popup"'属性
 
 #### lui.watermark(el,name,len)
