@@ -1,5 +1,3 @@
-[toc]
-# api文档
 ##  基础api
 #### lui.selector(el)
 返回文档中匹配指定 CSS 选择器的一个元素。等同于document.querySelector(el)
@@ -15,6 +13,7 @@
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
   name|String|是|参数名称
+
   示例代码
 ```js
   lui.getQueryString('param')
@@ -28,6 +27,7 @@
   ---|---|---|---
   el|String|是|目标节点选择器
   cb|Function|是|长按后的回调函数
+
 #### lui.changeSelectStyle (ev)
 控制select默认样式，和input的placeholder样式保持一致
 
@@ -36,6 +36,7 @@
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
   ev|event|是|事件源，只能传递event
+  
   示例代码
   ```html
     <select class="ui_select placeholderColor" name="select" onchange="lui.changeSelectStyle(event)">
@@ -53,6 +54,7 @@
   ---|---|---|---
   url|String|是|js路径,单个直接是字符串形式，多个以数组形式
   cb|Function|是|js加载完毕的回调函数
+  
   示例代码
   ```js
   lui.loadScript('util.js',function(){
@@ -96,16 +98,20 @@
   num|Number|是|某天
   datetime|Date|否|某天日期，可被new Date()解析
   type|String|否|日期类型，默认,返回YYYY-MM-DD,如果传'datetime'，返回YYYY-MM-DD hh:mm:ss
+
 #### lui.getCnDay(datetime)
 返回某天中文星期
 
-  **参数说明**
+**参数说明**
 
-  参数 | 类型 | 必填 | 说明 
-  ---|---|---|---
-  datetime|Date|否|某天日期，可被new Date()解析
+参数 | 类型 | 必填 | 说明 
+---|---|---|---
+datetime|Date|否|某天日期，可被new Date()解析
 
-##交互api
+
+
+##  交互api
+
 #### lui.scrollToBottom(el,callback)
 监听滑动/滚动到底
 
@@ -114,6 +120,7 @@
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
   el|String|是|容器选择器，如： '#id'。也可以是DOM对象
+
   ==注意==：因为监听的是scroll事件，因此绑定的容器必须要用滚动条。
 
   示例代码
@@ -131,6 +138,7 @@ tab切换
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
   container|String|是|tab头和tab内容的外层选择器，如： 'data-role="tabs"'
+  
   ==注意==：需要按照html固定结构。tab头必须含 tab-role="tab"属性，tab内容必须含tab-role="tabContent"属性。
 
   示例代码
@@ -301,9 +309,13 @@ ios风格模态框
   ```
 #### lui.indexAction(scrollElem)
 滑动索引定位列表位置
+
+  **参数说明**
+
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
   scrollElem|String|是|滚动元素的选择器。依赖该选择器来设置scrollTop值。
+  
   ==注意==：html结构，需要给列表英文标题加上'data-role="word_index"'属性,给英文列表加上'data-role="word_list"',给弹出提示框加上'data-role="word_popup"'属性
 
 #### lui.watermark(el,name,len)
@@ -316,7 +328,7 @@ ios风格模态框
   el|String|是|挂载水印的文档节点
   name|String|是|水印内容
   len|String|否|水印个数
-  ####
+
   示例代码
   ```js
     lui.watermark('#js_watermarkbox','张碧晨10056500',18)

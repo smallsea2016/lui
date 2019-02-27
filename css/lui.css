@@ -557,7 +557,7 @@ i.ui_star_on {display: inline-block;width: 15px;height: 16px;}
 [tab-role="tabContent"].active {display: block;}
 
 /*底部tabBar*/
-.ui_page_ft.top_pixel {position: absolute;} 
+.ui_page_ft.ui_top_1px {position: absolute;} 
 .ui_tabBar {display: table;width: 100%;height: 50px;table-layout: fixed;background-color: #F7F7FA}
 .ui_tabBar>.item {position: relative;display:table-cell;vertical-align: middle;text-align: center;padding-top: 5px;font-size: 10px;color: #999}
 .ui_tabBar>.item:active {background-color: #ececec}

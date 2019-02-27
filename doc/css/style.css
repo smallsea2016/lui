@@ -1,0 +1,99 @@
+/* .app-nav {margin:0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 10px 60px 10px 15px;
+  z-index: 2;
+  background-color: #fff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease-in-out;
+}
+.github-corner {z-index: 3;}
+
+.sidebar {top: 30px;}
+.app-name img {height: 60px;}
+
+.logo,
+.feature {text-align: center}
+body .logo {
+  padding-top: 24px;
+  font-size: 72px !important;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #42b983
+} */
+
+ @media screen and (max-width:768px) {
+   .logo {
+     margin-top: 170px !important
+   }
+ }
+
+/*宫格布局*/
+.ui_grid {margin-top:40px;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.ui_row {
+  overflow: hidden;
+  /*display: table-row;*/
+}
+
+.ui_grid [class^="ui_col"] {
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+  padding: 20px 10px;
+  text-align: center;
+  box-sizing: border-box;
+  float: left;
+}
+
+
+.grid_icon[size="lg"] {
+  width: 70px;
+  height: 70px
+}
+
+.grid_icon[size="md"] {
+  width: 40px;
+  height: 40px
+}
+
+.ui_grid_border {
+  border-top: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
+}
+
+.ui_grid_border [class^="ui_col"] {
+  border-right: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.ui_grid [class^="ui_col"] p {
+  padding-top: 5px
+}
+
+.ui_col_6,
+.ui_col_4,
+.ui_col_3 {width: 100%}
+ @media screen and (min-width:720px){
+  .ui_col_6 {
+    width: 50%
+  }
+  .ui_col_4 {
+    width: 33.333333%
+  }
+  .ui_col_3 {
+    width: 25%
+  }
+}
+.cover {background: transparent !important}
+html body .ui_btn {display: inline-block;padding: 10px 30px;text-align: center;font-size: 16px;border-radius: 30px;background-clip: padding-box;
+    color: #fff;background-color: #42b983;border:1px solid #42b983;
+}
+html body .ui_btn[plain] {margin-right: 30px;
+  border-color: #42b983;color: #42b983;background-color: #fff
+}

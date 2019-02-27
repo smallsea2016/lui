@@ -41,8 +41,7 @@ pre{
     height: 0;
 }
 
-/*基本结构/辅助元素*/
-/*=======文字排版 start======*/
+/*=======文字 start======*/
 .f10{font-size:10px;}
 .f12{font-size:12px;}
 .f13{font-size:13px;}
@@ -53,24 +52,9 @@ pre{
 .f18{font-size:18px;}
 .f20{font-size:20px;}
 .f24{font-size:24px;}
-
 .fwb{font-weight:bold;}
 .fwn{font-weight:normal;}
-.ti2{text-indent:2em;}/*移动设备下，text-indent在input框的支持性不好，建议使用padding-left缩进*/
-.ti3{text-indent:3em;}
-.unl{text-decoration:underline;}
-.tl{text-align:left;}
-.tc{text-align:center;}
-.tr{text-align:right;}
-.rtl {direction: rtl}
-.pr {position: relative;}
-.pa {position: absolute;}
-.vt {vertical-align: top;}
-.db {display: block;}
-.ib {display: inline-block;vertical-align: middle;}
-.fl {float: left;display: inline;}
-.fr {float: right;display: inline;}
-/*=======文字排版 end======*/
+/*=======文字 end======*/
 
 /*=======边距 start======*/
 .ma{margin-left:auto; margin-right:auto;}
@@ -159,26 +143,41 @@ pre{
 }
 .p20-p10 {padding: 20px 10px}
 .ml-10 {margin-left: -10px}
-
 /*=======边距 end======*/
 
-/*======= 辅助样式 start======*/
-/*颜色*/
+/*字体颜色*/
 .c999 {color: #999}
 .c888 {color: #888}
 .c666 {color: #666}
 .c333 {color: #333}
-.bgWhite {background-color: #fff}
-.c_red {color: #ff0000} /*红色*/
-.c_green {color: #467DB9} /*青绿色*/
-.cWhite {color: #fff}
+.c_red {color: #ff0000} 
+.c_white {color: #fff}  
 .placeholderColor {color: #757575} /*预输入文本颜色*/
-.primary_color {color: #467DB9}
+.primary_color {color: #467DB9} /*主色*/
 
-.w {width: 100%;max-width: 750px;margin-left: auto;margin-right: auto}
-.w100p {width: 100%}
+/*背景色颜色*/
 .body_bg {background-color: #F0F2F5}
 .transparent_bg {background-color:transparent}
+.bg_white {background-color: #fff}
+
+/*布局辅助样式*/
+.w {width: 100%;max-width: 750px;margin-left: auto;margin-right: auto}
+.w100p {width: 100%}
+
+.ti2{text-indent:2em;}/*移动设备下，text-indent在input框的支持性不好，建议使用padding-left缩进*/
+.ti3{text-indent:3em;}
+.unl{text-decoration:underline;}
+.tl{text-align:left;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+.rtl {direction: rtl}
+.pr {position: relative;}
+.pa {position: absolute;}
+.vt {vertical-align: top;}
+.db {display: block;}
+.ib {display: inline-block;vertical-align: middle;}
+.fl {float: left;display: inline;}
+.fr {float: right;display: inline;}
 .nowrap {white-space: nowrap;}
 .ellipsis {white-space: nowrap;overflow: hidden;text-overflow:ellipsis;}
 .ellipsis_line2 {display: -webkit-box;
@@ -190,6 +189,7 @@ pre{
 i[class*="_ico"] {display: inline-block;vertical-align: middle;}
 .fixed_layout {table-layout: fixed;}
 
+/* 效果辅助样式 */
 .radius100p {border-radius: 100%;background-clip: padding-box}
 .rotate180 {transform: rotate(180deg);-webkit-transform: rotate(180deg);transition: all .3s;
     -webkit-transition: all .3s}
@@ -246,29 +246,29 @@ i[class*="_ico"] {display: inline-block;vertical-align: middle;}
 .ui_align_center {align-self: center;}
 
 /*1像素边框*/
-._pixel,
-.top_pixel,
-.right_pixel,
-.bottom_pixel,
-.left_pixel {position: relative;}
-._pixel:before {border: 1px solid #ccc;content: '';
+.ui_1px,
+.ui_top_1px,
+.ui_right_1px,
+.ui_bottom_1px,
+.ui_left_1px {position: relative;}
+.ui_1px:before {border: 1px solid #ccc;content: '';
     position: absolute;left:0;top:0;width: 200%;height: 200%;
     transform:scale(.5,.5);-webkit-transform:scale(.5,.5);transform-origin: left top;-webkit-transform-origin: left top
 }
-.top_pixel:before,
-.bottom_pixel:before {
+.ui_top_1px:before,
+.ui_bottom_1px:before {
     position: absolute;content: '';left: 0;right: 0;
     border-bottom: 1px solid #ccc;transform: scaleY(.5);-webkit-transform: scaleY(.5);
 }
-.top_pixel:before {top: 0;}
-.bottom_pixel:before {bottom: 0}
-.left_pixel:before,
-.right_pixel:before {
+.ui_top_1px:before {top: 0;}
+.ui_bottom_1px:before {bottom: 0}
+.ui_left_1px:before,
+.ui_right_1px:before {
     position: absolute;content: '';top: 0;bottom: 0;
     border-left: 1px solid #ccc;transform: scaleX(.5);-webkit-transform: scaleX(.5);
 }
-.left_pixel:before {left: 0;}
-.right_pixel:before {right: 0}
+.ui_left_1px:before {left: 0;}
+.ui_right_1px:before {right: 0}
 
 /*段落*/
 .ui_con_block {padding: 20px 10px;background-color:#f5f5f5;color: #656565}
