@@ -19,7 +19,7 @@ body .logo {
   padding-top: 24px;
   font-size: 72px !important;
   font-family: Arial, Helvetica, sans-serif;
-  color: #42b983
+  color: #467DB9
 } */
 
  @media screen and (max-width:768px) {
@@ -92,8 +92,8 @@ body .logo {
 }
 .cover {background: transparent !important}
 html body .ui_btn {display: inline-block;padding: 10px 30px;text-align: center;font-size: 16px;border-radius: 30px;background-clip: padding-box;
-    color: #fff;background-color: #42b983;border:1px solid #42b983;
+    color: #fff;background-color: #467DB9;border:1px solid #467DB9;
 }
 html body .ui_btn[plain] {margin-right: 30px;
-  border-color: #42b983;color: #42b983;background-color: #fff
+  border-color: #467DB9;color: #467DB9;background-color: #fff
 }
