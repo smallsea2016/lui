@@ -173,9 +173,10 @@
     }
     /**
       * tab切换
-      * @params tabs 包含tab和tabContent的外层div
+      * @params tabs 包含tab和tabContent的盒子选择器
+      * @params cb 回调函数，内置一个下标参数
     */
-    g.tabs = function(tabs){
+    g.tabs = function(tabs,cb){
       var tabs = document.querySelector(tabs),
         tab = tabs.querySelectorAll('[tab-role="tab"]'),
         tabContent = tabs.querySelectorAll('[tab-role="tabContent"]');
@@ -185,7 +186,10 @@
           var index = e.target.dataset.id;
           if(index == i){
             tab[i].classList.add('active');
-            tabContent[i].style.display = 'block'
+            tabContent[i].style.display = 'block';
+            if (cb && typeof cb === 'function') {
+              cb(Number(index))
+            }
           }else{
             tab[i].classList.remove('active');
             tabContent[i].style.display = 'none';
@@ -370,7 +374,7 @@
     }
      /**
          * toast (opts接受一个对象参数）
-         * @param type 操作提示类型
+         * @param type 操作提示类型,文本类型text,警告类型warning,成功类型ok
          * @param text 提示文本内容
          * @param duration 持续多少毫秒退出
          * @param position 所在页面位置
@@ -393,6 +397,7 @@
                   +           '</div>'
                   +    '</div>';
         document.body.appendChild(el);
+        el.childNodes[0].classList.add('ui_effect_fade');
         setTimeout(function(){
           var childEl = document.getElementById('js_ui_toast');
           if (childEl) {

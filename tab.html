@@ -127,7 +127,9 @@
     }
     
 
-	lui.tabs('[data-role="tabs"]');
+	lui.tabs('[data-role="tabs"]',function(idx){
+    lui.toast({type:'text',text:'点击了第'+(idx+1)+'个tab',position:'top'})
+  });
 </script>
 </body>
 </html>
