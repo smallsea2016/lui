@@ -24,11 +24,11 @@
             </p>
             <script type="text/html" id="tpl">
                 <ul class="ui_list ui_list_margin">
-                    {{# for(var i = 0,len = d.results.length;i< len;i++ ){ }}
+                    {{# for(var i = 0,len = d.data.length;i< len;i++ ){ }}
                         <li>
-                            <h2 class="list_tit">{{d.results[i].who}}</h2>
-                            <figure class="mb5"><img width="100%" src="images/icon/transparent.png" data-src="{{d.results[i].url}}" class="loading_gif"></figure>
-                            <time class="f12" style="color:#a7bac8">{{d.results[i].desc}}</time>
+                            <h2 class="tit">{{d.data[i].author}}</h2>
+                            <figure class="mb5"><img width="100%" src="images/icon/transparent.png" data-src="{{d.data[i].url}}" class="loading_gif"></figure>
+                            <span class="ct">{{d.data[i].desc}}</span>
                         </li>
                     {{# } }}
                 </ul>
@@ -45,21 +45,15 @@
 <script type="text/javascript">
     function loadData(){
         lui.request({
-            url: '//gank.io/api/data/\u798f\u5229/20/1',
+            url: 'https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/10',
             type: 'GET',
             dataType: 'json',
-            success:function(data) {
-                if(data.error){
-                alert('服务器响应异常！');
-                return
-              }
-              if(! data.results || ! data.results.length){
-                alert('数据不存在！');
-                return 
-              }
-
+            success:function(res) {
+                if(!res.data){
+                  return
+                }
                 var gettpl = document.getElementById('tpl').innerHTML;
-                laytpl(gettpl).render(data, function(html){
+                laytpl(gettpl).render(res, function(html){
                     document.getElementById('tpl_view').innerHTML = html;
 
                     var lazyLoadImg = new LazyLoadImg({

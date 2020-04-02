@@ -13,7 +13,6 @@
     <meta name="description" content="" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="ui_page_wrap">
@@ -26,7 +25,13 @@
                     </fieldset>
                     <ul class="ui_list_padded ui_list_arrow">
                         {{# for(var i = 0,len = d.cssComponent.length;i< len;i++ ){ }}
-                            <li><a href="{{d.cssComponent[i].href}}"><i class="{{d.cssComponent[i].icon}}"></i>{{d.cssComponent[i].text}}</a></li>
+                            <li>
+                              <a class="tit" href="{{d.cssComponent[i].href}}">
+                                <i class="{{d.cssComponent[i].icon}}"></i>                                
+                                <span class="mr5">{{d.cssComponent[i].enText}}</span>
+                                {{d.cssComponent[i].text}}
+                              </a>
+                            </li>
                         {{# } }}
                     </ul>
                 </section>
@@ -36,7 +41,13 @@
                     </fieldset>
                     <ul class="ui_list_padded ui_list_arrow">
                         {{# for(var i = 0,len = d.jsComponent.length;i< len;i++ ){ }}
-                            <li><a href="{{d.jsComponent[i].href}}"><i class="{{d.jsComponent[i].icon}}"></i>{{d.jsComponent[i].text}}</a></li>
+                            <li>
+                              <a class="tit" href="{{d.jsComponent[i].href}}">
+                                <i class="{{d.jsComponent[i].icon}}"></i>
+                                <span class="mr5">{{d.jsComponent[i].enText}}</span>
+                                {{d.jsComponent[i].text}}
+                              </a>
+                            </li>
                         {{# } }}
                     </ul>     
                 </section>   
@@ -46,7 +57,13 @@
                     </fieldset>
                     <ul class="ui_list_padded ui_list_arrow">
                         {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
-                            <li><a href="{{d.list[i].href}}"><i class="{{d.list[i].icon}}"></i>{{d.list[i].text}}</a></li>
+                            <li>
+                              <a class="tit" href="{{d.list[i].href}}">
+                                <i class="{{d.list[i].icon}}"></i>
+                                <span class="mr5">{{d.list[i].enText}}</span> 
+                                {{d.list[i].text}}
+                              </a>
+                            </li>
                         {{# } }}
                     </ul>     
                 </section>         
