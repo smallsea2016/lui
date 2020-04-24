@@ -7,8 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
-    <meta http-equiv="Cache-Control" CONTENT="no-cache">
-    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
     <meta name="keywords" content=""/>
     <meta name="description" content="" />
     <link rel="icon" href="images/icon/lui.png">
@@ -51,22 +51,32 @@
             </section>
 
             <section class="mb15">
-                <div class="ui_search_box flexbox">
-                    <div class="flexItem ui_search_item">
-                        <div class="flexbox">
-                            <div class="ui_search_condition ui_triangle_down" onclick="showCondition(this)">
-                                <i class="ui_search_arrow"></i>
-                                <ul class="ui_search_list" id="schValueId">
-                                    <li>全部</li>
-                                    <li>公司动态</li>
-                                </ul>
-                            </div>  
-                            <div class="flexItem"><input type="search" name="" class="ui_search_ipt pl0" placeholder="搜索"></div>
-                        </div>
-                    </div>
-                    <a href="javascript:;" class="ui_search_action ui_search_icon"></a>
+              <div class="ui_search_box bg_white flexbox">
+                <div class="flexItem">
+                  <input type="search" name="" class="ui_search_ipt ui_search_icon" placeholder="搜索">
                 </div>
-            </section>            
+                <a href="javascript:toggleActionSheet();" class="ui_search_action ui_search_menu">
+                  <i class="ui_search_menu_i"></i>
+                  <i class="ui_search_menu_i"></i>
+                  <i class="ui_search_menu_i"></i>
+                </a>
+              </div>
+            </section>
+        </div>
+
+        <!--底部弹出-->
+        <div class="ui_actionSheet_wrap" id="js_actionSheet">
+          <div class="ui_actionSheet_mask" onclick="toggleActionSheet()"></div>
+          <div class="ui_actionSheet">
+            <ul class="ui_actionSheet_bd">
+              <li class="ui_actionSheet_item">内容1</li>
+              <li class="ui_actionSheet_item">内容2</li>
+              <li class="ui_actionSheet_item">内容3</li>
+            </ul>
+            <footer class="ui_actionSheet_ft">
+              <a href="javascript:;" onclick="toggleActionSheet()" class="ui_actionSheet_item">取消</a>
+            </footer>
+          </div>
         </div>
     </div>
 <!--公共js-->
@@ -89,14 +99,10 @@
     });
 
     /*显示和隐藏搜索条件*/
-    function showCondition(_this){
-        if (!_this.classList.contains('active')) {
-            _this.classList.add('active');
-        }else{
-            _this.classList.remove('active');
-        }       
-    }
-
+    function toggleActionSheet() {
+        var el = document.querySelector('#js_actionSheet');
+         el.classList.toggle('actionSheet_active');
+      }
 </script>
 </body>
 </html>

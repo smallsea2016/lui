@@ -7,8 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
-    <meta http-equiv="Cache-Control" CONTENT="no-cache">
-    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
     <meta name="keywords" content=""/>
     <meta name="description" content="" />
     <link rel="icon" href="images/icon/lui.png">
@@ -121,11 +121,11 @@
 <script type="text/javascript" src="js/lib/form.js"></script>
 <script type="text/javascript">    
     //星级评分
-	form.Raty('#star1 li',function(num){
-        console.log('选中了'+num+'颗星');
-    })
-	//图片上传
-	form.chooseImage('#upload_photo',function(objUrl){
+    form.Raty('#star1 li',function(num){
+          console.log('选中了'+num+'颗星');
+      })
+    //图片上传
+    form.chooseImage('#upload_photo',function(objUrl){
         console.log(objUrl);
     });
     //滑块监听

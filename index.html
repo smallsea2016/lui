@@ -7,8 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
-    <meta http-equiv="Cache-Control" CONTENT="no-cache">
-    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
     <meta name="keywords" content=""/>
     <meta name="description" content="" />
     <link rel="icon" href="images/icon/lui.png">
@@ -26,7 +26,7 @@
                     <ul class="ui_list_padded ui_list_arrow">
                         {{# for(var i = 0,len = d.cssComponent.length;i< len;i++ ){ }}
                             <li>
-                              <a class="tit" href="{{d.cssComponent[i].href}}">
+                              <a class="mt10 tit" href="{{d.cssComponent[i].href}}">
                                 <i class="{{d.cssComponent[i].icon}}"></i>                                
                                 <span class="mr5">{{d.cssComponent[i].enText}}</span>
                                 {{d.cssComponent[i].text}}
@@ -42,7 +42,7 @@
                     <ul class="ui_list_padded ui_list_arrow">
                         {{# for(var i = 0,len = d.jsComponent.length;i< len;i++ ){ }}
                             <li>
-                              <a class="tit" href="{{d.jsComponent[i].href}}">
+                              <a class="mt10 tit" href="{{d.jsComponent[i].href}}">
                                 <i class="{{d.jsComponent[i].icon}}"></i>
                                 <span class="mr5">{{d.jsComponent[i].enText}}</span>
                                 {{d.jsComponent[i].text}}
@@ -58,7 +58,7 @@
                     <ul class="ui_list_padded ui_list_arrow">
                         {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
                             <li>
-                              <a class="tit" href="{{d.list[i].href}}">
+                              <a class="mt10 tit" href="{{d.list[i].href}}">
                                 <i class="{{d.list[i].icon}}"></i>
                                 <span class="mr5">{{d.list[i].enText}}</span> 
                                 {{d.list[i].text}}

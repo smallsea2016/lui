@@ -34,8 +34,8 @@ LUI本身不需要额外构建环境和安装依赖包，可直接打开html页�
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
-    <meta http-equiv="Cache-Control" CONTENT="no-cache">
-    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
     <meta name="keywords" content=""/>
     <meta name="description" content="" />
     <link rel="icon" href="images/icon/lui.png">      

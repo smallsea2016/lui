@@ -7,8 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
-    <meta http-equiv="Cache-Control" CONTENT="no-cache">
-    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
     <meta name="keywords" content=""/>
     <meta name="description" content="" />
     <link rel="icon" href="images/icon/lui.png">
@@ -61,11 +61,7 @@
 <script type="text/javascript">
      function toggleActionSheet(item){
         var el = document.querySelector(item);
-        if (el.className.indexOf('actionSheet_active') > -1) {
-            el.classList.remove('actionSheet_active');
-        }else{
-            el.classList.add('actionSheet_active');
-        }
+        el.classList.toggle('actionSheet_active');
     }
 
     lui.longPress('#longPress',function(){

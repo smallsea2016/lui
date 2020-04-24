@@ -7,8 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
-    <meta http-equiv="Cache-Control" CONTENT="no-cache">
-    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
     <meta name="keywords" content=""/>
     <meta name="description" content="" />
     <link rel="icon" href="images/icon/lui.png">
@@ -22,32 +22,37 @@
                 流程流转，让进程环节更清晰。
             </p>
             <ul class="ui_flow_list">
-                <!-- states="cancel" 未通过 -->
-                <li states="on" data-step="1">
+                <!-- data-states="cancel" 未通过 -->
+                <li data-states="on">
                     <p>张三 发起申请</p>
                     <time class="time">2016-05-12 15:32</time>
+                    <i class="ui_flow_node_icon">1</i>
                 </li>
-                <li states="on" data-step="2">
+                <li data-states="on">
                     <h3 class="tit">XXX市委</h3>
                     <p>审批人：王丹</p>
                     <p>审批意见：同意</p>
                     <time class="time">2016-05-13 08:32</time>
+                    <i class="ui_flow_node_icon">2</i>
                 </li>
-                <li states="on" data-step="3">
+                <li data-states="on">
                     <h3 class="tit">XXX区委</h3>
                     <p>审批人：林杰</p>
                     <p>审批意见：同意</p>
                     <time class="time">2016-05-14 12:32</time>
+                    <i class="ui_flow_node_icon">3</i>
                 </li>
-                <li states="holding" data-step="4">
+                <li data-states="holding">
                     <h3 class="tit">XXX街道党工委</h3>
                     <p>审批人：张希</p>
                     <p>审批意见：审批中</p>
                     <time class="time">2016-05-14 13:00</time>
+                    <i class="ui_flow_node_icon">4</i>
                 </li>
-                <li data-step="5">
+                <li>
                     <h3 class="tit">XXX党支部</h3>
                     <p>结束</p>
+                    <i class="ui_flow_node_icon">5</i>
                 </li>
             </ul>
         </div>

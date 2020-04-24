@@ -47,6 +47,8 @@ input::-webkit-search-cancel-button {
     display: none;
 }
 .ui_search_box {position: relative;padding: 10px;background-color:#EFEFF4;}
+.ui_search_box.bg_white {background-color: #fff}
+.ui_search_box.bg_white .ui_search_ipt {background-color:#EFEFF4;}
 .ui_search_box,
 .ui_search_ipt {height: 30px;}
 .ui_search_ipt {width: 100%;padding-left: 10px;}
@@ -73,38 +75,24 @@ input::-webkit-search-cancel-button {
 .ui_search_close {background: url(../images/icon/close.png) no-repeat center;
     background-size: 17px;
 }
-.ui_search_condition.ui_triangle_down:after {left: 8px;top: 11px}
-.ui_search_list {position: absolute;left: 0;top: 30px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(200, 200, 200, 0.8);
-    width: 95px;
-    max-height: 80vh;
-    overflow-y: auto;
+.ui_search_menu {
+  padding-left: 10px;padding-top: 2px;
+  line-height: .5;
 }
-.ui_search_arrow {
-    position: absolute;left: 10px;top: 25px;z-index: 2;
-    width:10px;height: 10px;border-top:1px solid #ccc;
-    border-right:  1px solid #e5e5e5;background-color: #fff;
-    transform: rotate(-45deg);-webkit-transform: rotate(-45deg);
+.ui_search_menu_i {
+  display: inline-block;
+  vertical-align: middle;margin-left: 10px;
+  line-height: .1;
+  background-color: #bebebe;
+  height: 2px;
+  width: 15px;border-radius: 3px;
 }
-.ui_search_list>li {padding:8px 10px;position: relative;color: #666;font-size: 12px}
-.ui_search_list>li.active {color: #467DB9}
-.ui_search_list>li:active {background-color: #ececec}
-.ui_search_list>li:after {
-    position: absolute;content: '';left: 5px;right: 5px;bottom: 0;
-    border-bottom: 1px solid #ccc;transform: scaleY(.5);-webkit-transform: scaleY(.5);
-}
-.ui_search_list>li:last-child:after {border-bottom: none;}
-.ui_search_condition .ui_search_list,
-.ui_search_condition .ui_search_arrow {display: none;}
-.ui_search_condition.active .ui_search_list,
-.ui_search_condition.active .ui_search_arrow {display: block;}
-
-.ui_search_condition:after {transition:all .2s;-webkit-transition:all .2s}
-.ui_search_condition.active:after {top: 3px;
-    transform: rotate(180deg);-webkit-transform: rotate(180deg);
+.ui_search_menu_i::before {
+  content: '';margin-left: -5px;margin-top: -2px;
+  display: inline-block;vertical-align: middle;
+  background-color: #aeaeae;
+  height: 3px;
+  width: 3px;border-radius: 50%
 }
 
 /*按钮*/
@@ -394,11 +382,8 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
 }
 
 /*流程流转*/
-.ui_flow_list {position: relative;
+.ui_flow_list {
     padding-left: 20px;background-color: #fff;
-}
-.ui_flow_list:after {position: absolute;content: '';left: 20px;top: 10px;bottom: 10px;
-    border-left: 1px solid #e5e5e5;
 }
 .ui_flow_list>li {position: relative;padding-top: 15px;padding-bottom: 15px;
     padding-left: 30px;font-size: 15px;
@@ -407,19 +392,22 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
     border-bottom: 1px solid #e5e5e5;transform:scaleY(.5);-webkit-transform:scaleY(.5);
 }
 .ui_flow_list>li:last-child:before {border-bottom: none;}
-.ui_flow_list>li:after {content: attr(data-step);position: absolute;z-index: 2;left: -10px;top:50%;margin-top: -10px;text-align: center;
+.ui_flow_list>li:after {position: absolute;content: '';left: 0;top: 0;bottom: 0;border-left: 1px solid #e5e5e5;        
+}
+.ui_flow_list>li:first-child:after {top:50%}
+.ui_flow_list>li:last-child:after {bottom:50%}
+.ui_flow_list .ui_flow_node_icon {position: absolute;z-index: 2;left: -14px;top:50%;margin-top: -10px;text-align: center;border:4px solid #fff;
     width: 20px;height: 20px;background-color: #e5e5e5;font-family: Arial;color: #fff;border-radius: 100%;background-clip: padding-box
 }
-.ui_flow_list>li[states="on"]:after {content: '';
+.ui_flow_list>li[data-states="on"] .ui_flow_node_icon {text-indent: -10000px;
     background: url(../images/icon/ok.png) no-repeat center #467DB9;
     background-size: 10px
 }
-.ui_flow_list>li[states="holding"]:after {
-  content: '';
-  background: #fff;box-sizing: border-box;
-  border:1px solid #467DB9
+.ui_flow_list>li[data-states="holding"] .ui_flow_node_icon {text-indent: -10000px;
+  background: #fff;
+  background: radial-gradient(circle, #467DB9 50%, rgba(70, 125, 185, .5) 50%)
 }
-.ui_flow_list>li[states="cancel"]:after {content: '';
+.ui_flow_list>li[data-states="cancel"]  .ui_flow_node_icon {text-indent: -10000px;
     background: url(../images/icon/cancel.png) no-repeat center #ec5e5d;
     background-size: 2px
 }
