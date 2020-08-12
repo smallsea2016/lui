@@ -75,7 +75,7 @@
 
     document.querySelector('#j_day').innerHTML = lui.getCnDay();
 
-    document.querySelector('#j_time').innerHTML = lui.getTime(10,'','datetime');
+    document.querySelector('#j_time').innerHTML = lui.getDateTime(10,'','yyyy-MM-dd');
 
     lui.countDown('2018-10-01',function(res){
         if (res == undefined) {

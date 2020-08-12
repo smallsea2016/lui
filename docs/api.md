@@ -88,7 +88,7 @@
     })
   ```
   
-#### lui.getTime(num,datetime,type)
+#### lui.getDateTime(num,datetime,format)
 返回第几天的时间
 
   **参数说明**
@@ -97,7 +97,7 @@
   ---|---|---|---
   num|Number|是|某天
   datetime|Date|否|某天日期，可被new Date()解析
-  type|String|否|日期类型，默认,返回YYYY-MM-DD,如果传'datetime'，返回YYYY-MM-DD hh:mm:ss
+  format|String|否|日期格式化，默认,返回yyyy-MM-dd HH:mm:ss
 
 #### lui.getCnDay(datetime)
 返回某天中文星期
@@ -284,7 +284,7 @@ ios风格模态框
   showCancel|Boolean|否|是否显示取消按钮，默认为 false
   cancelText|String|否|取消按钮的文字，默认为"取消"，文字不宜过长
   confirmText|String|否|确定按钮的文字，默认为"确定"，文字不宜过长
-  skin|String|否|传入的自定义class，用于自定义风格
+  customClass|String|否|传入的自定义class，用于自定义风格
   beforeHide|Function|否|模态框关闭前的回调函数
 
   示例代码

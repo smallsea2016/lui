@@ -223,10 +223,10 @@
       * @param textField 要绑定的文本域
       * @param cb 监听输入后的回调
     */
-    g.computeTextField = function(textField,cb){
+    g.getTextFieldLen = function(textField,cb){
         var el = g.selector(textField);
         el.oninput = function(e){
-          var res = e.target.value;
+          var res = e.target.value.trim();
           if (cb && typeof cb == 'function') {
               cb(res.length);
           }
@@ -253,10 +253,10 @@
           clear = opts.clear,
           cancel = opts.cancel,
           enter = opts.enter;
-      var labelEl = g.selector(el).querySelector('[role="search-label"]'),
-          inputEl = g.selector(el).querySelector('[role="search-input"]'),
-          closeEl = g.selector(el).querySelector('[role="search-close"]'),
-          cancelEl = g.selector(el).querySelector('[role="search-cancel"]');
+      var labelEl = g.selector(el + ' [role="search-label"]'),
+          inputEl = g.selector(el + ' [role="search-input"]'),
+          closeEl = g.selector(el + ' [role="search-close"]'),
+          cancelEl = g.selector(el + ' [role="search-cancel"]');
         //展开搜索框
         var _showSearch = function(){
             labelEl.style.display = 'none';
@@ -312,27 +312,21 @@
      */
     g.coverHandler = function(el,callback){
       var t = null,el = document.querySelector(el);
-        if(!(el.className.indexOf('isOpenModal') > -1)){
-        clearTimeout(t);
-            el.classList.add('isOpenModal');
-        if(document.querySelector('[data-role="main-page"]')){
-          document.querySelector('[data-role="main-page"]').style.display = 'none';
-        }
-        el.style.display = 'block';
-        setTimeout(function(){
-          el.classList.remove('modal_out');
-          el.classList.add('modal_in');
-        },10)
+        if (!el.classList.contains('j_isOpenModal')) {
+          clearTimeout(t);
+          el.classList.add('j_isOpenModal');
+          el.style.display = 'block';
+          setTimeout(function(){
+              el.classList.remove('modal_out');
+              el.classList.add('modal_in');
+          },10)
           if (callback && typeof callback === "object" && callback['open']) {
             callback['open']();
           };
         }else {
-        el.classList.remove('isOpenModal');
-        if(document.querySelector('[data-role="main-page"]')){
-          document.querySelector('[data-role="main-page"]').style.display = 'block';
-        }
-        el.classList.remove('modal_in');
-        el.classList.add('modal_out');
+          el.classList.remove('j_isOpenModal');
+          el.classList.remove('modal_in');
+          el.classList.add('modal_out');
           t = setTimeout(function(){
               el.style.display = 'none';
           },300)
@@ -348,10 +342,13 @@
      */
     g.loading = function(text,opacity) {
         var text = text || "加载中...";
-        var maskEl = document.getElementById('j_loading_mask');
-        if (maskEl) {
-          maskEl.parentNode.removeChild(maskEl);
+        var removeLoading = function(){
+          var maskEl = document.getElementById('j_loading_mask');
+          if (maskEl) {
+            maskEl.parentNode.removeChild(maskEl);
+          }
         }
+        removeLoading()
        if (text != 'close'){
          var el = document.createElement('div');
             el.id = 'j_loading_mask';
@@ -365,12 +362,7 @@
                     +           '</div>'
                     +    '</div>';
         document.body.appendChild(el);
-       } else {
-        var childEl = document.getElementById('j_loading_mask');
-        if (childEl) {
-          childEl.parentNode.removeChild(childEl);
-        }
-      }
+       }
     }
      /**
          * toast (opts接受一个对象参数）
@@ -411,7 +403,7 @@
       * @param content 内容
       * @param cancelText 取消按钮的文字
       * @param confirmText 确认按钮的文字
-      * @param skin 自定义class样式
+      * @param customClass 自定义class样式
       * @param showCancel 是否显示取消按钮，默认为 true
       * @param cancel {function} 取消按钮的回调函数
       * @param confirm {function}  确定按钮的回调函数
@@ -423,7 +415,7 @@
       opts.content = opts.content || '内容';
       opts.cancelText = opts.cancelText || '取消';
       opts.confirmText = opts.confirmText || '确认';
-      opts.skin = opts.skin || '';
+      opts.customClass = opts.customClass || '';
       opts.showCancel = opts.showCancel || false;
       var modalEl = document.querySelector('#j_modal_wrap');
       if (modalEl) {
@@ -432,7 +424,7 @@
       var el = document.createElement('div');
           el.id = 'j_modal_wrap';
           el.className = 'ui_modal_wrap';
-          el.innerHTML =  '<div class="ui_modal '+opts.skin+'" id="j_modal">'
+          el.innerHTML =  '<div class="ui_modal '+opts.customClass+'" id="j_modal">'
                     +          '<div class="ui_modal_hd">'+opts.title+'</div>'
                     +          '<div class="ui_modal_bd">'+opts.content+'</div>'
                     +          '<div class="ui_modal_ft" id="js_btns2017">'
@@ -460,7 +452,7 @@
             },200)
        }
 
-       var ModalbtnHandle = function(e){
+       var modalBtnHandler = function(e){
         var  btn = e.target.dataset.btn;
           if (btn) {
               if(btn == "_cancel2017" && opts.cancel && typeof opts.cancel == "function"){
@@ -477,10 +469,10 @@
           };
       }
       cancelBtn && cancelBtn.addEventListener('click',function(e){
-        ModalbtnHandle(e);
+        modalBtnHandler(e);
       },false);
       confirmBtn && confirmBtn.addEventListener('click',function(e){
-        ModalbtnHandle(e);
+        modalBtnHandler(e);
       },false);
     }
     /**
@@ -495,13 +487,13 @@
         opts.success = opts.success || function() {};
         opts.error = opts.error || function() {};
         opts.closeLoading = opts.closeLoading || false
-        var xmlhttp;
+        var xmlHttp;
         if (window.XMLHttpRequest) {
             // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-            xmlhttp = new XMLHttpRequest();
+            xmlHttp = new XMLHttpRequest();
         } else {
             // IE6, IE5 浏览器执行代码
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         var params = [];
         for (var key in opts.data) {
@@ -510,24 +502,24 @@
         var postData = params.join('&');
         opts.beforeSend();
         if (opts.type === 'POST') {
-            xmlhttp.open(opts.type, opts.url, true);
-            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xmlhttp.send(postData);
+            xmlHttp.open(opts.type, opts.url, true);
+            xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlHttp.send(postData);
         } else if (opts.type === 'GET') {
-            xmlhttp.open(opts.type, opts.url + '?' + postData, true);
-            xmlhttp.send();
+            xmlHttp.open(opts.type, opts.url + '?' + postData, true);
+            xmlHttp.send();
         }
         if (! opts.closeLoading) {
             g.loading();
         }
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
                 g.loading('close');
-                var res = JSON.parse(xmlhttp.responseText);
+                var res = JSON.parse(xmlHttp.responseText);
                 opts.success(res)
             }
         }
-        xmlhttp.onerror = function(e){
+        xmlHttp.onerror = function(e){
           opts.error(e)
         }
     }
@@ -641,12 +633,8 @@
       * 详情图片预览
       * @param img 图片选择器集合
     */
-  g.photoViewer = function(img){
-        var arr = document.querySelectorAll(img),
-            slide = '',
-            _this = this;
-
-        var i,len = arr.length,str ='',div;
+    g.photoViewer = function(img){
+        var arr = document.querySelectorAll(img),i,len = arr.length,str ='',div;
         div = document.createElement('div');
         div.id = 'js_photoZoomWrap';
         div.className = 'photoZoomWrap';
@@ -716,10 +704,7 @@
       * @param index 当前图片预览的索引
     */
     g.photoZoomUpload = function(img,index){
-        var arr = document.querySelectorAll(img),
-            slide = '',
-            _this = this;
-      var i,len = arr.length,str ='',div;
+        var arr = document.querySelectorAll(img),i,len = arr.length,str ='',div;
         div = document.createElement('div');
         div.id = 'js_photoZoomUploadWrap';
         div.className = 'photoZoomWrap';
@@ -817,28 +802,34 @@
      * 获取第几天的时间
      * @param num {Number} 第几天
      * @param datetime {Date} 某天的日期
-     * @param type {String} 时间类型
+     * @param format {String} 格式化
      */
-    g.getTime = function(num,datetime,type){
+    g.getDateTime = function (num, datetime, format) {
         var datetime = datetime || new Date(),
           d = new Date(datetime);
         d.setTime(d.getTime() + (24*60*60*1000) * num);
-        var y = d.getFullYear(),
-            M = d.getMonth() + 1,
-            _d = d.getDate(),
-            h = d.getHours(),
-            m = d.getMinutes(),
-            s = d.getSeconds();
-        if(M<10){M='0'+M}
-        if(h<10){h='0'+h}
-        if(m<10){m='0'+m}
-        if(s<10){s='0'+s}
-        if(_d<10){_d='0'+_d}
-        if(type == 'datetime'){
-            return y + "-" + M + "-" + _d;
-        }else{
-            return y + "-" + M + "-" + _d + ' '+h+':'+ m +':'+s;
-        }        
+        var addZero = function (n) {
+          return n < 10 ? "0" + n : n
+        }
+        var y = addZero(d.getFullYear()),
+           M = addZero(d.getMonth() + 1),
+           _d = addZero(d.getDate()),
+           h = addZero(d.getHours()),
+           m = addZero(d.getMinutes()),
+           s = addZero(d.getSeconds());
+        var res = ''
+        switch (format) {
+          case 'yyyy-MM-dd':
+            res = y + "-" + M + "-" + _d;
+            break;
+          case 'yyyy-MM-dd HH:mm':
+            res = y + "-" + M + "-" + _d + ' ' + h + ':' + m;
+           break;        
+          default:
+            res = y + "-" + M + "-" + _d + ' ' + h + ':' + m + ':' + s;
+            break;
+        }
+        return res
     },
     /**
      * 返回某天中文星期
@@ -846,25 +837,9 @@
      */
     g.getCnDay = function(datetime){    
         var datetime = datetime || new Date();
-        var d = new Date(datetime).getDay(),x; 
-        switch (d) 
-            { 
-                case 0:x="日"; 
-                break; 
-                case 1:x="一"; 
-                break; 
-                case 2:x="二"; 
-                break; 
-                case 3:x="三"; 
-                break; 
-                case 4:x="四"; 
-                break; 
-                case 5:x="五"; 
-                break; 
-                case 6:x="六"; 
-                break; 
-            }
-        return x
+        var d = new Date(datetime).getDay(); 
+        var arr = ['日','一','二','三','四','五','六']
+        return arr[d]
     }
     /**
      * 控制select默认样式
@@ -879,7 +854,7 @@
     //开启vConsole调试模式
     if (g.getQueryString('vConsole') === '1') {
         g.loadScript('js/3rd-plugins/vconsole.min.js',function(){
-            var vConsole = new VConsole();
+            new VConsole();
         })
     }
     global.lui = g;
