@@ -29,7 +29,7 @@
 
 /*标题栏*/
 .ui_titleBar_wrap {padding: 10px}
-.ui_titleBar {line-height: 1;border-left: 3px solid #467DB9;
+.ui_titleBar {line-height: 1;border-left: 3px solid var(--primary_color);
     padding-left: 5px;
 }
 .ui_legend {margin-left: 15px;margin-right: 15px}
@@ -71,7 +71,7 @@ input::-webkit-search-cancel-button {
 .ui_search_close {display: none}
 .ui_search_label {position: absolute;left: 10px;right: 10px;top: 10px;bottom: 10px;text-align: center;color: #888;}
 .ui_search_label span {display: inline-block;vertical-align: middle;}
-.ui_search_cancel {padding-left: 10px;color: #467DB9;line-height: 30px}
+.ui_search_cancel {padding-left: 10px;color: var(--primary_color);line-height: 30px}
 .ui_search_close {background: url(../images/icon/close.png) no-repeat center;
     background-size: 17px;
 }
@@ -97,7 +97,7 @@ input::-webkit-search-cancel-button {
 
 /*按钮*/
 .ui_btn {height: 45px;display: block;width: 100%;text-align: center;font-size: 16px;border-radius: 3px;background-clip: padding-box;
-    color: #fff;background-color: #467DB9;border:1px solid #467DB9;
+    color: #fff;background-color: var(--primary_color);border:1px solid var(--primary_color);
 }
 .ui_warm_btn {background-color: #FF8D00;border:1px solid #FF8D00;}
 .ui_danger_btn {background-color: #E51C23;border:1px solid #E51C23;}
@@ -113,7 +113,7 @@ a.ui_btn {line-height: 45px;}
   position: absolute;right: 30px;bottom: 30px;
   width: 60px;height: 60px;border-radius: 50%;
   background-clip: padding-box;color: #fff;
-  background-color: #467DB9;font-size: 17px;
+  background-color: var(--primary_color);font-size: 17px;
   display: box;display: -webkit-box;
   box-align: center; -webkit-box-align: center;
   box-pack: center;
@@ -132,7 +132,7 @@ a.ui_btn {line-height: 45px;}
 .ui_btn[skin="plain"] {
     background-color: transparent;
 }
-.ui_btn[skin="plain"] {color:#467DB9;}
+.ui_btn[skin="plain"] {color:var(--primary_color);}
 .ui_warm_btn[skin="plain"] {color: #FF8D00}
 .ui_danger_btn[skin="plain"] {color: #E51C23}
 .ui_default_btn[skin="plain"] {color: #000;background-color: #fff}
@@ -149,9 +149,9 @@ a.ui_btn {line-height: 45px;}
     border-radius: 2px;
     background-clip: padding-box;
 }
-.ui_mark {border:1px solid #467DB9;color: #467DB9;}
+.ui_mark {border:1px solid var(--primary_color);color: var(--primary_color);}
 .ui_fill_mark {
-    background-color:#467DB9;
+    background-color:var(--primary_color);
     color: #fff;
 }
 .ui_stick_mark {
@@ -163,7 +163,7 @@ a.ui_btn {line-height: 45px;}
 .ui_circular_mark {
     border-radius: 10px 0 0 10px;
     background-clip: padding-box;
-    color: #fff;background-color: #467DB9;
+    color: #fff;background-color: var(--primary_color);
 }
 .ui_circular_mark:after {position: absolute;
     right: 0;
@@ -172,7 +172,7 @@ a.ui_btn {line-height: 45px;}
     width: 0;
     height: 0;
     border: 4px solid;
-    border-color: #467DB9 #467DB9 transparent transparent;
+    border-color: var(--primary_color) var(--primary_color) transparent transparent;
 }
 .ui_triangle_up,
 .ui_triangle_down,
@@ -245,7 +245,7 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
 }
 .ui_items_center {-webkit-box-pack:center;-webkit-box-align:center;box-pack:center;box-align:center;justify-content: center;align-items: center;}
 .ui_items_end {-webkit-box-pack:end;-webkit-box-align:end;box-pack:end;box-align:end;justify-content: flex-end;align-items: flex-end;}
-.placeholder {margin: 5px;padding: 10px;background-color: #467DB9;color: #fff}
+.placeholder {margin: 5px;padding: 10px;background-color: var(--primary_color);color: #fff}
 .ui_flex_wrap {flex-wrap:wrap;}
 /*列表*/
 .ui_list,
@@ -272,7 +272,7 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
 }
 .ui_list_padded>li:after {left: 15px}
 .ui_list_padded>li:last-child:after {display: none;}
-.ui_list_padded>li>a  .fa {margin-right:5px;color: #467DB9}
+.ui_list_padded>li>a  .fa {margin-right:5px;color: var(--primary_color)}
 
 .ui_list_margin>li {margin-bottom: 10px}
 .ui_list:after,
@@ -323,7 +323,7 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
 
 /*进度条*/
 .ui_progress {position: relative;height: 10px;background-color: #f2f2f2;border-radius: 2px;background-clip: padding-box;}
-.ui_progress>span {position: relative;height: 10px;line-height: 10px;display: block;background-color:#467DB9;border-radius: 2px;background-clip: padding-box;
+.ui_progress>span {position: relative;height: 10px;line-height: 10px;display: block;background-color:var(--primary_color);border-radius: 2px;background-clip: padding-box;
     transition:width .3s;-webkit-transition:width .3s;
 }
 .ui_progress>span:before {z-index: 2;
@@ -400,12 +400,12 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
     width: 20px;height: 20px;background-color: #e5e5e5;font-family: Arial;color: #fff;border-radius: 100%;background-clip: padding-box
 }
 .ui_flow_list>li[data-states="on"] .ui_flow_node_icon {text-indent: -10000px;
-    background: url(../images/icon/ok.png) no-repeat center #467DB9;
+    background: url(../images/icon/ok.png) no-repeat center var(--primary_color);
     background-size: 10px
 }
 .ui_flow_list>li[data-states="holding"] .ui_flow_node_icon {text-indent: -10000px;
   background: #fff;
-  background: radial-gradient(circle, #467DB9 50%, rgba(70, 125, 185, .5) 50%)
+  background: radial-gradient(circle, var(--primary_color) 50%, rgba(70, 125, 185, .5) 50%)
 }
 .ui_flow_list>li[data-states="cancel"]  .ui_flow_node_icon {text-indent: -10000px;
     background: url(../images/icon/cancel.png) no-repeat center #ec5e5d;
@@ -444,8 +444,8 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
     transition:background .15s ease-in;-webkit-transition:background .15s ease-in;
 }
 .ui_radio input[type="radio"]:checked,
-.ui_checkbox input[type="checkbox"]:checked {border-color: #467DB9;
-    background: url(../images/icon/checked.png) no-repeat center #467DB9;
+.ui_checkbox input[type="checkbox"]:checked {border-color: var(--primary_color);
+    background: url(../images/icon/checked.png) no-repeat center var(--primary_color);
     background-size: 60%;
 }
 .ui_checkbox input[type="checkbox"] {width: 20px;height: 20px;border-radius: 2px}
@@ -459,7 +459,7 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
    border:1px solid #c9c9c9;border-radius: 100%;background-clip: padding-box;
   background-color: #fff;transition:transform .2s;-webkit-transition:transform .2s;
 }
-.ui_slider_check input[type="checkbox"]:checked {background-color: #467DB9}
+.ui_slider_check input[type="checkbox"]:checked {background-color: var(--primary_color)}
 .ui_slider_check input[type="checkbox"]:checked:after {
     transform: translate3d(22px,0,0);-webkit-transform: translate3d(22px,0,0);
 }
@@ -477,8 +477,8 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border-color: #467DB9;
-    background-color: #467DB9;
+    border-color: var(--primary_color);
+    background-color: var(--primary_color);
     -webkit-appearance: none ;
 }
 /*星星评分*/
@@ -541,15 +541,15 @@ i.ui_star_on {display: inline-block;width: 15px;height: 16px;}
 .ui_tab>li a {display: inline-block;padding-left: 10px;padding-right: 10px;line-height: 40px;color: #666;
     border-bottom:1px solid transparent;box-sizing: border-box;
 }
-.ui_tab>li.active a {color: #467DB9;/*border-bottom:1px solid #467DB9;*/}
+.ui_tab>li.active a {color: var(--primary_color);/*border-bottom:1px solid var(--primary_color);*/}
 .ui_tab+.swiper-scrollbar{position: relative;top: -2px}
-.swiper-scrollbar-drag {height: 2px;background:#467DB9;position: relative;}
+.swiper-scrollbar-drag {height: 2px;background:var(--primary_color);position: relative;}
 
-.ui_capsule_tab {margin: 10px 20px;border: 1px solid #467DB9;border-radius: 5px;background-clip: padding-box;}
+.ui_capsule_tab {margin: 10px 20px;border: 1px solid var(--primary_color);border-radius: 5px;background-clip: padding-box;}
 .ui_capsule_tab>a {display: block;padding-top: 5px;padding-bottom: 5px;text-align: center;
-  border-left: 1px solid #467DB9;color: #467DB9}
+  border-left: 1px solid var(--primary_color);color: var(--primary_color)}
 .ui_capsule_tab>a:first-child {border-left: none;} 
-.ui_capsule_tab>a.active {background-color:#467DB9;color: #fff}
+.ui_capsule_tab>a.active {background-color:var(--primary_color);color: #fff}
 [tab-role="tabContent"] {display: none}
 [tab-role="tabContent"].active {display: block;}
 
@@ -558,7 +558,7 @@ i.ui_star_on {display: inline-block;width: 15px;height: 16px;}
 .ui_tabBar {display: table;width: 100%;height: 50px;table-layout: fixed;background-color: #F7F7FA}
 .ui_tabBar>.item {position: relative;display:table-cell;vertical-align: middle;text-align: center;padding-top: 5px;font-size: 10px;color: #999}
 .ui_tabBar>.item:active {background-color: #ececec}
-.ui_tabBar>.item.active {color: #467DB9}
+.ui_tabBar>.item.active {color: var(--primary_color)}
 .ui_tabBar_icon {display: inline-block;width: 24px;height: 24px;margin-bottom: 5px;}
 .ui_tabBar .ico_wrap {display: inline-block;vertical-align: middle;overflow: hidden;}
 .ui_tabBar>.item:not(.active)  .ui_tabBar_icon {	
@@ -631,7 +631,7 @@ i.ui_star_on {display: inline-block;width: 15px;height: 16px;}
 .ui_modal_btn {position: relative;display: block; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1;text-decoration: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 .ui_modal_btn:active {background-color: #EEEEEE;}
 .ui_modal_default_btn {color: #333}
-.ui_modal_primary_btn {color: #467DB9}
+.ui_modal_primary_btn {color: var(--primary_color)}
 .ui_modal_btn+.ui_modal_btn::after { content: " "; position: absolute; left: 0; top: 0; width: 1px; height: 100%; border-left: 1px solid #D5D5D6; color: #D5D5D6; -webkit-transform-origin: 0 0; transform-origin: 0 0; -webkit-transform: scaleX(0.5); transform: scaleX(0.5); }
 .ui_modal_in {
   -webkit-transform: scale(1);
@@ -974,7 +974,7 @@ a.ui_actionSheet_item {display: block;}
 }
 .ui_article_title {margin-top: 5px;margin-bottom: 10px;font-size: 20px;color: #000}
 .ui_article_time {color: #888;font-family: arial;}
-.ui_article_name {margin-left: 10px;color:#467DB9}
+.ui_article_name {margin-left: 10px;color:var(--primary_color)}
 .ui_article_content {padding-top: 20px}
 .ui_article_foot {padding-top: 20px}
 
