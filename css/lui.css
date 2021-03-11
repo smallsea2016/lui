@@ -109,7 +109,7 @@ input::-webkit-search-cancel-button {
 
 .ui_btn.ui_inline {display: inline-block;width: auto;padding-left: 15px;padding-right: 15px} 
 a.ui_btn {line-height: 45px;}
-.float_btn {
+.sticky_bottom_btn {
   position: absolute;right: 30px;bottom: 30px;
   width: 60px;height: 60px;border-radius: 50%;
   background-clip: padding-box;color: #fff;
@@ -1003,3 +1003,12 @@ a.ui_actionSheet_item {display: block;}
     flex: 1;border-top: 1px solid #e5e5e5;
 }
 .ui_noMore_text {display: inline-block;padding-left: 6px;padding-right: 6px;color: #999}
+
+/*广告*/ 
+.ui_poster {position: relative;display: block;margin-top: 30px;padding:15px 20px;text-align: center;background-color: #fff}
+.ui_poster_img {height: 30px;}
+.ui_poster_text {
+  color: #ff6a00;
+}
+.ui_poster_tips {position: absolute;right: 10px;top: 5px;font-size: 10px;color: #666}
+

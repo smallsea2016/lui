@@ -70,10 +70,17 @@
             </script>
 
             <div id="tpl_view"></div>
+            <footer>
+              <a href="https://mi.aliyun.com/shop/43432" target="_blank" rel="noopener" class="ui_poster">
+                <img class="ui_poster_img" src="./images/aly.png" alt="阿里云">
+                <p class="ui_poster_text">米店</p>
+                <span class="ui_poster_tips">广告</span>
+              </a>
+            </footer>
         </div>
-        <a href="docs/#/" target="_blank" class="float_btn">doc</a>
+        <a href="docs/#/" target="_blank" class="sticky_bottom_btn">doc</a>
     </div>
-    <!--https://www.cnblogs.com/JsonShare/p/6018497.html-->
+    <!--laytpl资料 https://www.cnblogs.com/JsonShare/p/6018497.html-->
     <script type="text/javascript" src="js/3rd-plugins/laytpl.js"></script>  
     <script type="text/javascript" src="js/lui.js"></script>
     <script type="text/javascript">
@@ -81,8 +88,8 @@
             type:'GET',
             url:'js/data/lui.json',
             success:function(res){
-                var gettpl = document.getElementById('tpl').innerHTML;
-                laytpl(gettpl).render(res, function(html){
+                var getTpl = document.getElementById('tpl').innerHTML;
+                laytpl(getTpl).render(res, function(html){
                   document.getElementById('tpl_view').innerHTML = html;
                 });
             }

@@ -1,28 +1,4 @@
-/* .app-nav {margin:0;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  padding: 10px 60px 10px 15px;
-  z-index: 2;
-  background-color: #fff;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
-  transition: background-color 0.3s ease-in-out;
-}
-.github-corner {z-index: 3;}
-
-.sidebar {top: 30px;}
-.app-name img {height: 60px;}
-
-.logo,
-.feature {text-align: center}
-body .logo {
-  padding-top: 24px;
-  font-size: 72px !important;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #467DB9
-} */
-
- @media screen and (max-width:768px) {
+@media screen and (max-width:768px) {
    .logo {
      margin-top: 170px !important
    }
@@ -94,6 +70,32 @@ body .logo {
 html body .ui_btn {display: inline-block;padding: 10px 30px;text-align: center;font-size: 16px;border-radius: 30px;background-clip: padding-box;
     color: #fff;background-color: #467DB9;border:1px solid #467DB9;
 }
+.transition {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transition: 0.3s all;
+  -webkit-transition: 0.3s all;
+}
+.transition:hover {
+  box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+  transform: translate3d(0, -5px, 0);
+  -webkit-transform: translate3d(0, -5px, 0);
+}
+.btns {text-align: center;
+  padding-bottom: 40px;
+}
 html body .ui_btn[plain] {margin-right: 30px;
-  border-color: #467DB9;color: #467DB9;background-color: #fff
+  border-color: #467DB9;color: #467DB9;background-color: #fff;
+}
+.poster {
+  display: block;
+  text-align: center;
+}
+.poster-inner {
+  display: inline-block;
+  padding: 25px;border: 1px solid #eee;
+}
+.poster-img {height: 40px;}
+.poster-name {margin-top: 0;margin-bottom: 0;
+  color: #ff6a00;
 }
