@@ -19,8 +19,22 @@
         <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>loading</header>
         <div class="ui_page_bd">
 			<p class="ui_con_block">数据请求过程中的提示和页面滑动到底加载完数据提示</p>
-            <div class="ui_loading_block">
-               <div class="ui_loading"><div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div><p class="text">正在加载中...</p>
+            <div class="ui_spinner_block">
+               <div class="ui_spinner">
+                 <span class="ui_spinner_item"></span>
+                 <span class="ui_spinner_item"></span>
+                 <span class="ui_spinner_item"></span>
+                 <span class="ui_spinner_item"></span>
+                 <span class="ui_spinner_item"></span>
+                 <span class="ui_spinner_item"></span>
+                 <span class="ui_spinner_item"></span>
+                 <span class="ui_spinner_item"></span>
+                 <span class="ui_spinner_item"></span>
+                 <span class="ui_spinner_item"></span>
+                 <span class="ui_spinner_item"></span>
+                 <span class="ui_spinner_item"></span>
+                </div>
+                <p class="ui_spinner_text">正在加载中...</p>
             </div>
 
             <div class="ui_noMore">
@@ -34,8 +48,8 @@
 <script type="text/javascript">
     lui.loading();
     setTimeout(function(){
-		lui.loading('close')
-	 },3000)
+		  lui.loading('close')
+	  },3000)
 </script>
 </body>
 </html>

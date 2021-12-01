@@ -210,7 +210,6 @@
        document.querySelector('body').appendChild(node);
        node.style.cssText = 'position:absolute;left:-1000000px';
        textarea.oninput = function(e){
-          console.log('input');
            node.value = textarea.value;
            node.style.cssText += 'width:'+textarea.scrollWidth+'px';
            var h = node.scrollHeight;
@@ -355,8 +354,7 @@
             el.className = 'ui_loading_mask';
             el.style.cssText = 'background:rgba(0,0,0,'+opacity+')';
             el.innerHTML =  '<div class="ui_loading_wrap" id="ui_loading_wrap">'
-                    +            '<div id="loading" class="ui_loading"><div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>'
-                    +            '</div>'
+                    +'<div class="ui_loading"><i class="ui_loading_ico"></i></div>'
                     +            '<div class="ui_loading_text">'
                     +                '<p>'+text+'</p>'
                     +           '</div>'

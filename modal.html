@@ -32,22 +32,53 @@
 
             <br>
             <div class="p10">
-                <button type="button" class="ui_btn" onclick="openPage()">底部弹出层</button>
+                <button type="button" class="ui_btn" onclick="togglePopup()">普通popup</button>
+            </div>
+             <div class="p10">
+                <button type="button" class="ui_btn" onclick="openPage('#j-popup1')">底部弹出popup</button>
+            </div>
+            <div class="p10">
+              <button type="button" class="ui_btn" onclick="openPage('#j-popup2');toggleMask()">底部弹出非全屏popup</button>
             </div>
         </div>
     </div>
 
-    <!--底部弹出层-->
-    <aside class="ui_aside_page modal_out" id="aside">
-        <header class="abs_top">
-            <div class="ui_aside_page_header">
-                <h2>底部弹出层标题</h2>
-                <a href="javascript:closePage();" class="ui_close_dialog"></a>
-            </div>
-        </header>
-        <div class="ui_aside_page_inner">
-            <p class="ui_con_block">底部弹出层内容</p>   
+    <!--普通popup-->
+    <aside class="ui_mask" id="j-mask-normal" onclick="togglePopup()"></aside>
+    <aside class="ui_popup ui_popup_center" id="j-popup-normal">
+        <div class="ui_popup_inner">   
+          <main class="ui_popup_body">
+            普通popup
+          </main>
         </div>
+    </aside>
+
+
+    <!--底部弹出层1-->
+    <aside class="ui_popup modal_out" id="j-popup1">
+        <div class="ui_popup_inner">   
+          <header class="ui_popup_header">
+              <h2 class="ui_popup_title">底部弹出层标题</h2>
+              <a href="javascript:closePage('#j-popup1');" class="ui_close_dialog"></a>
+          </header>
+          <main class="ui_popup_body">
+              <p class="ui_con_block">底部弹出层内容</p>   
+          </main>
+        </div>
+    </aside>
+
+    <!--底部弹出层2-->
+    <aside class="ui_mask" id="j-mask" onclick="closePage('#j-popup2');toggleMask()"></aside>
+    <aside class="ui_popup ui_popup_round modal_out" id="j-popup2" style="top:10%">
+      <div class="ui_popup_inner">
+        <header class="ui_popup_header">
+          <h2 class="ui_popup_title">底部弹出层标题</h2>
+          <a href="javascript:closePage('#j-popup2');toggleMask()" class="ui_close_dialog"></a>
+        </header>
+        <main class="ui_popup_body">
+          <p class="ui_con_block">底部弹出层内容</p>
+        </main>
+      </div>
     </aside>
 
 <script type="text/javascript" src="js/lui.js"></script>
@@ -93,23 +124,35 @@
     };
 
 
-    function openPage(){
-        lui.coverHandler('#aside',{
+    function openPage(el){
+        lui.coverHandler(el,{
             open:function(){
                 console.log('open');
             }
         });
     }
 
-     function closePage(){
-        lui.coverHandler('#aside',{
+     function closePage(el){
+        lui.coverHandler(el,{
             close:function(){
                 console.log('close');
             }
         });
     }
     
+    function toggleMask(){
+      var el = document.querySelector('#j-mask');
+      el.classList.toggle('ui_mask_active');
+    }
 
+    function togglePopup(){
+      var mask = document.querySelector('#j-mask-normal')
+      var popup = document.querySelector('#j-popup-normal')
+      var maskStyle = window.getComputedStyle(mask)
+      var popupStyle = window.getComputedStyle(popup)
+      mask.style.display = maskStyle.display === 'none' ? 'block' : 'none'
+      popup.style.display = popupStyle.display === 'none' ? 'block' : 'none'    }
+    
 </script>
 </body>
 </html>

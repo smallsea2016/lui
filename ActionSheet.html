@@ -33,7 +33,7 @@
 
     <!--底部弹出-->
     <div class="ui_actionSheet_wrap" id="js_actionSheet">
-        <div class="ui_actionSheet_mask" onclick="toggleActionSheet('#js_actionSheet')"></div>
+        <div class="ui_mask" onclick="toggleActionSheet('#js_actionSheet')"></div>
         <div class="ui_actionSheet">
             <ul class="ui_actionSheet_bd">
                 <li class="ui_actionSheet_item">内容1</li>
@@ -48,7 +48,7 @@
 
     <!--中间弹出-->
     <div class="ui_actionSheet_wrap" id="js_actionSheetMiddle">
-        <div class="ui_actionSheet_mask" onclick="toggleActionSheet('#js_actionSheetMiddle')" ></div>
+        <div class="ui_mask" onclick="toggleActionSheet('#js_actionSheetMiddle')" ></div>
         <div class="ui_actionSheet ui_actionSheet_middle">
             <ul class="ui_actionSheet_bd">
                 <li class="ui_actionSheet_item">删除</li>
@@ -61,7 +61,7 @@
 <script type="text/javascript">
      function toggleActionSheet(item){
         var el = document.querySelector(item);
-        el.classList.toggle('actionSheet_active');
+        el.classList.toggle('ui_actionSheet_active');
     }
 
     lui.longPress('#longPress',function(){
