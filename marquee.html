@@ -18,13 +18,33 @@
     <div class="ui_page_wrap">
         <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>marquee</header>
         <div class="ui_page_bd">
-            <p class="ui_con_block">
-                marquee
+          <p class="ui_con_block">
+              动态消息滚动。
+          </p>
+            <p class="p20 f20">
+                marquee 纵向运动
             </p>
-            <div class="ui_marquee">
-                <ul class="ui_marquee_box" id="j_marquee">
+            <div class="ui_marquee_box">
+                <ul class="ui_marquee" id="j_marquee">
                     
                 </ul>
+            </div>            
+            <p class="p20 f20">
+                marquee 横向运动
+            </p>
+            <div class="ui_marquee_box"  id="j-marquee-x-box">
+              <div class="ui_marquee_row">                  
+                  <ul class="ui_marquee ui_marquee_row_content" id="j-marquee-x">
+                      <li class="ui_marquee_item f17">你双颊上的道理</li>
+                      <li class="ui_marquee_item f17">是人们的爱情</li>
+                      <li class="ui_marquee_item f17">撒向天空的一个星</li>
+                      <li class="ui_marquee_item f17">变幻出生命的颜色</li>
+                      <li class="ui_marquee_item f17">我跟着人们跳跃的心</li>
+                      <li class="ui_marquee_item f17">太阳也不必再为我迟疑</li>
+                      <li class="ui_marquee_item f17">记录着生命的凭证</li>
+                      <li class="ui_marquee_item f17">像飞在天空没有羁绊的云</li>
+                  </ul>
+              </div>
             </div>            
         </div>
     </div>
@@ -32,24 +52,31 @@
 <!--公共js-->
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
-    var i  = 0 ;
-    var  arr = ['下雨天1','下雨天2','下雨天3','下雨天4','下雨天5']
-    setInterval(function(){
-        var j_marquee = lui.selector('#j_marquee');        
-        i ++;
-        if (i > 4) {
-            i = 0
-        } 
-        j_marquee.innerHTML = '<li class="f17">'+arr[i]+'</li>';
-        
-        j_marquee.style.cssText = 'transform:translateY(-24px);transition:all .3s';
-        j_marquee.addEventListener('webkitTransitionEnd',function(){
-            j_marquee.style.cssText = 'transform:translateY(0)';  
-        },false)
-        
-    },1000)
+    var arr = [
+      '1、标准化，产品化',
+      '2、更多复用，更快效率',
+      '3、多人协作，更加统一',
+      '​4、维护方便',
+      '​​5、易于使用',
+      '6、减少UI设计时间']
+    function renderHtml(){            
+      var j_marquee = lui.selector('#j_marquee');   
+      var li = ''
+      for (var index = 0; index < arr.length; index++) {
+        li += '<li class="ui_marquee_item f17">' + arr[index] + '</li>'
+      }      
+      li+= '<li class="ui_marquee_item f17">' + arr[0] + '</li>'  //拷贝第一个数据放在最后，保证无缝滚动
+      j_marquee.innerHTML = li
+    }
+    renderHtml()
 
-
+    var marquee = lui.marqueeUp({el: '#j_marquee', height:24, size:arr.length})
+    marquee.start() 
+    
+  var marquee2 = lui.marquee({ 
+    container:'#j-marquee-x-box',
+    list: '#j-marquee-x'})
+  marquee2.start() 
 </script>
 </body>
 </html>

@@ -357,28 +357,15 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
 }
 
 /*marquee*/
-.ui_marquee {padding-left: 15px;padding-right: 15px}
-.ui_marquee,
-.ui_marquee .item {height: 22px;overflow: hidden;}
-
-.marqueeTop {
-    animation: marqueeTop  1.5s ease-in infinite both;-webkit-animation: marqueeTop  1.5s ease-in infinite both
+.ui_marquee_box {height: 24px;margin-left: 15px;margin-right: 15px;overflow: hidden;}
+.ui_marquee {white-space: nowrap;overflow: hidden;}
+.ui_marquee_item {line-height: 24px;padding-right: 15px;}
+.ui_marquee_row {float: left;width: 800%}
+.ui_marquee_row .ui_marquee_row_content {
+  float: left; height: 24px;
 }
-@keyframes marqueeTop{
-    0%{
-        transform: translateY(0);
-    }
-    100%{
-       transform: translateY(-24px); 
-    }
-}
-@-webkit-keyframes marqueeTop{
-    0%{
-        -webkit-transform: translateY(0);
-    }
-    100%{
-       -webkit-transform: translateY(-24px); 
-    }
+.ui_marquee_row_content .ui_marquee_item {
+  float: left;
 }
 
 /*流程流转*/

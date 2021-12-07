@@ -589,13 +589,13 @@
     }
     /**
       * 水印(增加密度)
-      * @param div 将水印挂载到指定div
-      * @param str 水印文字
+      * @param el 将水印挂载到指定html节点上
+      * @param name 水印文字
       * @param len 水印个数
     */
-    g.watermark = function(div,str,len){
-      var str = str || '保密水印';
-      var el,top,left,translateX,len = len || 10,container = document.querySelector(div);
+    g.watermark = function (el, name, len) {
+      var str = name || '保密水印';
+      var el,top,left,translateX,len = len || 10,container = el ? document.querySelector(el) : document.body;
       container.style.cssText += 'position:relative;overflow:hidden;user-select:none;-webkit-user-select:none;'
       for (var i = 0; i < len; i++) {
         top = 19*i-40;
@@ -854,6 +854,98 @@
         g.loadScript('js/3rd-plugins/vconsole.min.js',function(){
             new VConsole();
         })
+    }
+    /**
+     * 滚动效果-纵向(Object)
+     * @param {String} el 选择器元素
+     * @param {Number} height 单次滚动高度
+     * @param {Number} size 滚动元素的个数
+     * @param {Number} wait 间隔滚动时间，默认2s
+     * @return {Function} start 滚动开始函数
+     * @return {Function} stop 滚动终止函数
+     */
+    g.marqueeUp = function(opts){
+      var opts = opts || {};
+      opts.wait = opts.wait || 2000
+      var taskTimer = null;
+      var i = 0;
+      return {
+        start: function () {
+          if (!opts.el) {
+            throw new Error('缺少选择器参数：opts.el')
+          }
+          if (!opts.height) {
+            throw new Error('缺少滚动高度参数：opts.height')
+          }
+          if (!opts.size) {
+            throw new Error('缺少滚动总个数：opts.size')
+          }
+          var distance = opts.height;
+          var size = opts.size;
+          var duration = .5
+          var marquee = lui.selector(opts.el);
+          taskTimer = setInterval(function () {
+            i++;
+            if (i > size) {
+              i = 1
+            }
+            marquee.style.cssText = 'transform:translateY(-' + distance * i + 'px);transition:all ' + duration + 's';
+            var reset = function () {
+              marquee.style.cssText = 'transform:translateY(0)';
+            }
+            var t = null
+            if (i === size) { //最后一个滚动item实际上是拷贝了第一个，因此当结束的时候，重新开始滚动，保证滚动是无缝的
+              t = setTimeout(reset, duration*1000);
+            } else {
+              clearTimeout(t)
+            }
+          }, opts.wait)
+        },
+        stop:function(){
+          clearInterval(taskTimer)
+        }
+      }
+    }
+    /**
+     * 滚动效果-横向(Object)
+     * @param {String} container 滚动容器
+     * @param {String} list 滚动列表选择器
+     * @param {Number} speed 滚动速度，默认60ms
+     * @return {Function} start 滚动开始函数
+     * @return {Function} stop 滚动终止函数
+     */
+    g.marquee = function (opts) {
+      var opts = opts || {};
+      if (!opts.container) {
+        throw new Error('缺少容器参数：opts.container')
+      }
+      if (!opts.list) {
+        throw new Error('缺少滚动列表选择器参数：opts.list')
+      }
+      opts.speed = opts.speed || 60;
+      var taskTimer = null;
+      var box = document.querySelector(opts.container);
+      var el = document.querySelector(opts.list);
+      var el_clone = document.createElement(el.tagName);
+      el_clone.className = el.className;
+      el_clone.id = el.id + '-clone';
+      el_clone.innerHTML = el.innerHTML;
+      el.after(el_clone)
+      var run = function(){
+        if (el_clone.offsetWidth - box.scrollLeft <= 0)
+          box.scrollLeft -= el.offsetWidth
+        else {
+          box.scrollLeft++;
+        }
+      }
+      return {
+        start: function () {
+          taskTimer = setInterval(run,opts.speed);
+        },
+        stop:function(){
+          clearInterval(taskTimer)
+        }
+      }      
     }
     global.lui = g;
 })(window);

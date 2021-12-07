@@ -91,6 +91,12 @@
       "enText":"Tabs"
     },
     {
+      "icon": "fa fa-fw fa-lg fa-paper-plane",
+      "href": "marquee.html",
+      "text": "滚动消息",
+      "enText": "RollNotice"
+    },
+    {
       "icon": "fa fa-fw fa-lg fa-caret-square-o-right",
       "href": "swiper.html",
       "text": "图片轮播",
