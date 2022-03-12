@@ -112,51 +112,56 @@ datetime|Date|否|某天日期，可被new Date()解析
 
 ##  交互api
 
-#### lui.scrollToBottom(el,callback)
+#### lui.scrollToBottom(el,cb)
 监听滑动/滚动到底
 
   **参数说明**
 
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
-  el|String|是|容器选择器，如： '#id'。也可以是DOM对象
+  el|String|是|容器选择器，如： '#id'。也可以是DOM对象  
+  cb|Function|否|滚动的回调函数，返回参数如果为true，则已滚动到底
 
   ==注意==：因为监听的是scroll事件，因此绑定的容器必须要用滚动条。
 
   示例代码
   ```js
-  lui.scrollToBottom('#myScroll',function(){
+  lui.scrollToBottom('#myScroll',function(res){
     //已经滚动到底了，你可以在这里加载翻页数据
+    if(res === true){
+      
+    }
   })
   ```
   
-#### lui.tabs(container)
+#### lui.tabs(container，cb)
 tab切换
 
   **参数说明**
 
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
-  container|String|是|tab头和tab内容的外层选择器，如： 'data-role="tabs"'
+  container|String|是|tab头和tab内容的外层选择器，如：'data-role="tabs"'  
+  cb|Function|否|回调函数，携带一个参数为当前激活tab下标
   
-  ==注意==：需要按照html固定结构。tab头必须含 tab-role="tab"属性，tab内容必须含tab-role="tabContent"属性。
+  ==注意==：需要按照html固定结构。tab头必须含 data-role="tabItem"属性，tab内容必须含data-role="tabContent"属性。
 
   示例代码
   ```html
   <div data-role="tabs">
     <nav class="ui_capsule_tab flexbox">
-        <a href="javascript:;" tab-role="tab" class="flexItem active">tab1</a>
-        <a href="javascript:;" tab-role="tab" class="flexItem">tab2</a>
-        <a href="javascript:;" tab-role="tab" class="flexItem">tab3</a>
+        <a href="javascript:;" data-role="tabItem" class="flexItem active">tab1</a>
+        <a href="javascript:;" data-role="tabItem" class="flexItem">tab2</a>
+        <a href="javascript:;" data-role="tabItem" class="flexItem">tab3</a>
     </nav>
     <div id="tab_content">
-        <div tab-role="tabContent" class="p20 active">
+        <div data-role="tabContent" class="p20 active">
             tab1
         </div>
-        <div tab-role="tabContent" class="p20">
+        <div data-role="tabContent" class="p20">
             tab2
         </div>
-        <div tab-role="tabContent" class="p20">
+        <div data-role="tabContent" class="p20">
             tab3
         </div>
     </div>

@@ -275,7 +275,8 @@ i[class*="_ico"] {display: inline-block;vertical-align: middle;}
 
 /*段落*/
 .ui_con_block {padding: 20px 10px;background-color:#f5f5f5;color: #656565}
-.ui_loadMore_line {position: relative;margin-top: 15px;margin-bottom: 15px;text-align: center;}
+.ui_loadMore {min-height: 50px;padding-top: 15px;padding-bottom: 15px;}
+.ui_loadMore_line {position: relative;text-align: center;}
 .ui_loadMore_line:after {
      position: absolute;content: '';left: 15%;right: 15%;top: 50%;
     border-bottom: 1px solid #ccc;transform: scaleY(.5);-webkit-transform: scaleY(.5);

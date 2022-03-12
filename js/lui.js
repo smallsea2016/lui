@@ -145,8 +145,8 @@
     },
     /**
       * 滑动到底加载更多（需要注意的是，有滚动条才能滚动，如果页面禁止了默认滑动，也无法使用该方法）
-      * @param wrap要滚动的元素
-      * @param callback滚动到底的回调函数
+      * @param wrap 要滚动的元素
+      * @param callback 滚动回调函数，返回参数如果为true，则已滚动到底
     */
     g.scrollToBottom = function(wrap,callback){
       var wrap = document.querySelector(wrap),
@@ -158,11 +158,11 @@
       wrap.onscroll = function(){
         scrollHeight = this.scrollHeight;
         scrollTop = this.scrollTop;
-        if(scrollTop + divHeight >= scrollHeight){
+        if(Math.ceil(scrollTop + divHeight) >= scrollHeight){
           if(callback && typeof callback === "function"){
               clearTimeout(t);
               t = setTimeout(function(){
-                  callback();
+                  callback(true);
               },100)
           }
         }else{
@@ -173,29 +173,33 @@
     }
     /**
       * tab切换
-      * @params tabs 包含tab和tabContent的盒子选择器
-      * @params cb 回调函数，内置一个下标参数
+      * @param container 包含tab和tabContent的盒子选择器
+      * @param cb 回调函数，返回下标参数
     */
-    g.tabs = function(tabs,cb){
-      var tabs = document.querySelector(tabs),
-        tab = tabs.querySelectorAll('[tab-role="tab"]'),
-        tabContent = tabs.querySelectorAll('[tab-role="tabContent"]');
-      tabs.addEventListener('click',function(e){
-        for(var i =0,len = tab.length;i < len;i++){
-          tab[i].setAttribute('data-id',i);
-          var index = e.target.dataset.id;
-          if(index == i){
-            tab[i].classList.add('active');
-            tabContent[i].style.display = 'block';
-            if (cb && typeof cb === 'function') {
-              cb(Number(index))
+    g.tabs = function (container, cb) {
+      var tabs = document.querySelector(container),
+        tab = tabs.querySelectorAll('[data-role="tab"]'),
+        tabContent = tabs.querySelectorAll('[data-role="tabContent"]');
+      var changeTab = function(currentIndex) {
+        for (var i = 0, len = tab.length; i < len; i++) {
+            if (currentIndex === i) {
+              tab[i].classList.add('active');
+              tabContent[i].style.display = 'block';
+              if (cb && typeof cb === 'function') {
+                cb(Number(currentIndex))
+              }
+            } else {
+              tab[i].classList.remove('active');
+              tabContent[i].style.display = 'none';
             }
-          }else{
-            tab[i].classList.remove('active');
-            tabContent[i].style.display = 'none';
-          }
         }
-      },true)
+      }
+      for (let i = 0, len = tab.length; i < len; i++) {
+        tab[i].index = i
+        tab[i].addEventListener('click',function(){   
+          changeTab(this.index)
+        },true)
+      }
     }
     /**
         *输入框高度自适应

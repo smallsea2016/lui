@@ -32,7 +32,7 @@
 
             <ul id="tpl_view" class="ui_list"></ul>
 
-             <p class="ui_loadMore_line"><span class="ui_loadMore_tips">努力加载中</span></p>
+            <div class="ui_loadMore"><p class="ui_loadMore_line"><span class="ui_loadMore_tips">努力加载中</span></p></div> 
         </div>
     </div>
 
@@ -42,8 +42,10 @@
 <!--公共js-->
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
-    lui.scrollToBottom('#main',function(){
-        loadData(); //加载数据
+    lui.scrollToBottom('#main',function(res){
+        if(res === true){          
+          loadData(); //加载数据
+        }
     })
     // 使用 Mock生成随机数据
     var data = Mock.mock({
@@ -56,6 +58,7 @@
 
     var htmArr = [],page = -1,cdata = {};
     function loadData(){
+      console.log('loadData')
         page++;
         var res;
         cdata.list = data.list.slice(page*20,page*20+20);
