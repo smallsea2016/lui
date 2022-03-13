@@ -144,15 +144,15 @@ tab切换
   container|String|是|tab头和tab内容的外层选择器，如：'data-role="tabs"'  
   cb|Function|否|回调函数，携带一个参数为当前激活tab下标
   
-  ==注意==：需要按照html固定结构。tab头必须含 data-role="tabItem"属性，tab内容必须含data-role="tabContent"属性。
+  ==注意==：需要按照html固定结构。tab头必须含 data-role="tab"属性，tab内容必须含data-role="tabContent"属性。
 
   示例代码
   ```html
   <div data-role="tabs">
     <nav class="ui_capsule_tab flexbox">
-        <a href="javascript:;" data-role="tabItem" class="flexItem active">tab1</a>
-        <a href="javascript:;" data-role="tabItem" class="flexItem">tab2</a>
-        <a href="javascript:;" data-role="tabItem" class="flexItem">tab3</a>
+        <a href="javascript:;" data-role="tab" class="flexItem active">tab1</a>
+        <a href="javascript:;" data-role="tab" class="flexItem">tab2</a>
+        <a href="javascript:;" data-role="tab" class="flexItem">tab3</a>
     </nav>
     <div id="tab_content">
         <div data-role="tabContent" class="p20 active">
