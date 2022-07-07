@@ -309,27 +309,30 @@
         cancelEl.addEventListener('click',_cancelSearch,false);
     }
      /**
-        *底部弹出层
-        @param el 弹窗页面的选择器
+        *弹出层
+        @param el 弹窗选择器
+        @param direction 弹出方向，可选值，top，left，right，默认top
         @param callback 回调方法
      */
-    g.coverHandler = function(el,callback){
-      var t = null,el = document.querySelector(el);
+    g.popupHandler = function(el,direction,callback){
+      var t = null, _direction = direction || 'top',el = document.querySelector(el);
+      var _class = 'ui_translate_' + _direction
+      console.log('_class', _class)
         if (!el.classList.contains('j_isOpenModal')) {
           clearTimeout(t);
           el.classList.add('j_isOpenModal');
           el.style.display = 'block';
           setTimeout(function(){
-              el.classList.remove('modal_out');
-              el.classList.add('modal_in');
+              el.classList.remove(_class);
+              el.classList.add('ui_translate_origin');
           },10)
           if (callback && typeof callback === "object" && callback['open']) {
             callback['open']();
           };
         }else {
           el.classList.remove('j_isOpenModal');
-          el.classList.remove('modal_in');
-          el.classList.add('modal_out');
+          el.classList.remove('ui_translate_origin');
+          el.classList.add(_class);
           t = setTimeout(function(){
               el.style.display = 'none';
           },300)
@@ -641,7 +644,7 @@
         div.id = 'js_photoZoomWrap';
         div.className = 'photoZoomWrap';
         var init = function(){
-              str +='<div class="swiper-container photoZoom modal_out" id="swiperZoom">'
+              str +='<div class="swiper-container photoZoom ui_translate_top" id="swiperZoom">'
                       str += '<div class="swiper-wrapper">'
                      for (i = 0; i < len; i++) {
                       str +=   '<div class="swiper-slide">'
@@ -676,8 +679,8 @@
         });
         //关闭
         var closePhotoZoom = function(){
-            g.selector('#swiperZoom').classList.remove('modal_in');
-            g.selector('#swiperZoom').classList.add('modal_out');
+            g.selector('#swiperZoom').classList.remove('ui_translate_origin');
+            g.selector('#swiperZoom').classList.add('ui_translate_top');
             setTimeout(function(){
               g.selector('#js_photoZoomWrap').classList.remove('active');
             },200)
@@ -693,8 +696,8 @@
                 arr[index].addEventListener('click',function(){
                     swiper.slideTo(index,0);
                     g.selector('#js_photoZoomWrap').classList.add('active');
-                    g.selector('#swiperZoom').classList.remove('modal_out');
-                    g.selector('#swiperZoom').classList.add('modal_in');
+                    g.selector('#swiperZoom').classList.remove('ui_translate_top');
+                    g.selector('#swiperZoom').classList.add('ui_translate_origin');
                 },false)
             })(i)
         };
@@ -711,7 +714,7 @@
         div.id = 'js_photoZoomUploadWrap';
         div.className = 'photoZoomWrap';
         var init = function(){
-            str += '<div class="swiper-container photoZoom modal_out" id="swiperZoomUpload">'
+            str += '<div class="swiper-container photoZoom ui_translate_top" id="swiperZoomUpload">'
                 str += '<div class="swiper-wrapper">'
                 for (i = 0; i < len; i++) {
                  str += '<div class="swiper-slide">'
@@ -733,7 +736,6 @@
           //关闭
           var closePhotoZoom = function(){
             var photoZoomWrap = g.selector('#js_photoZoomUploadWrap');
-            console.log(photoZoomWrap.parentNode)
             photoZoomWrap.parentNode.removeChild(photoZoomWrap)
           }
 
@@ -755,8 +757,8 @@
           });
            swiper.pagination.update();
            g.selector('#js_photoZoomUploadWrap').classList.add('active');
-           g.selector('#swiperZoomUpload').classList.remove('modal_out')
-           g.selector('#swiperZoomUpload').classList.add('modal_in');
+           g.selector('#swiperZoomUpload').classList.remove('ui_translate_top')
+           g.selector('#swiperZoomUpload').classList.add('ui_translate_origin');
 
 
           document.addEventListener('click',function(e){
