@@ -375,8 +375,8 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
   background: radial-gradient(circle, var(--primary_color) 50%, rgba(70, 125, 185, .5) 50%)
 }
 .ui_flow_list>li[data-states="cancel"]  .ui_flow_node_icon {text-indent: -10000px;
-    background: url(../images/icon/cancel.png) no-repeat center var(--warning_color);
-    background-size: 2px
+    background: url(../images/icon/warning.svg) no-repeat center var(--warning_color);
+    background-size: 14px
 }
 .ui_flow_list .tit {margin-bottom: 5px;font-size:17px;}
 .ui_flow_list .time {font-size: 14px;color: #999;font-family: Arial}

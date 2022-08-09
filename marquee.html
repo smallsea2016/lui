@@ -70,13 +70,11 @@
     }
     renderHtml()
 
-    var marquee = lui.marqueeUp({el: '#j_marquee', height:24, size:arr.length})
-    marquee.start() 
+    var marqueeUp = lui.marqueeUp({el: '#j_marquee', height:24, size:arr.length})
+    marqueeUp.start() 
     
-  var marquee2 = lui.marquee({ 
-    container:'#j-marquee-x-box',
-    list: '#j-marquee-x'})
-  marquee2.start() 
+    var marquee = lui.marquee({container:'#j-marquee-x-box', listEl: '#j-marquee-x'})
+    marquee.start() 
 </script>
 </body>
 </html>

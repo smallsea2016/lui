@@ -66,14 +66,14 @@
   })
   ```
 
-#### lui.countDown(datetime,cb)
+#### lui.countDown(defaultValue,cb)
 倒计时
 
   **参数说明**
 
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
-  datetime|Date|是|指定倒计时时间，可被new Date()解析
+  defaultValue|Date|是|指定倒计时时间，可被new Date()解析
   cb|Function|是|回调函数，携带一个参数为倒计时剩余时间
 
   示例代码
@@ -88,7 +88,7 @@
     })
   ```
   
-#### lui.getDateTime(num,datetime,format)
+#### lui.getDateTime(num,defaultValue,format)
 返回第几天的时间
 
   **参数说明**
@@ -96,17 +96,17 @@
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
   num|Number|是|某天
-  datetime|Date|否|某天日期，可被new Date()解析
+  defaultValue|Date|否|某天日期，可被new Date()解析
   format|String|否|日期格式化，默认,返回yyyy-MM-dd HH:mm:ss
 
-#### lui.getCnDay(datetime)
+#### lui.getCnDay(defaultValue)
 返回某天中文星期
 
 **参数说明**
 
 参数 | 类型 | 必填 | 说明 
 ---|---|---|---
-datetime|Date|否|某天日期，可被new Date()解析
+defaultValue|Date|否|某天日期，可被new Date()解析
 
 
 
@@ -213,20 +213,21 @@ textarea高度自适应
         }
     })
   ```
-#### lui.coverHandler(el,object)
-遮盖层显示和隐藏
+#### lui.popupHandler(el,direction,callback)
+弹出层
 
   **参数说明**
 
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
   el|String|是|选择器
-  open|Function|否|遮盖层打开时的回调函数
-  close|Function|否|遮盖层关闭时的回调函数
+  direction|String|否|弹出方向，可选值，top，left，right，默认top
+  callback.open|Function|否|弹出层显示时的回调函数
+  callback.close|Function|否|弹出层关闭时的回调函数
 
   示例代码
   ```js
-    lui.coverHandler('#coverPage',{
+    lui.popupHandler('#coverPage','left',{
         open:function(){
             console.log('open');
         },
@@ -338,16 +339,59 @@ ios风格模态框
   ```js
     lui.watermark('#js_watermarkbox','张碧晨10056500',18)
   ```
-#### lui.photoViewer(imgs)
+#### lui.photoViewer(img)
 图片预览
 
   **参数说明**
 
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
-  imgs|String|是|图片选择器集合
+  img|String|是|图片选择器
+  
+  示例代码
+  ```js
+    lui.photoViewer('img')
+  ```
+#### lui.marqueeUp(object)
+滚动效果-纵向
 
+  **参数说明**
 
+  参数 | 类型 | 必填 | 说明 
+  ---|---|---|---
+  el|String|是|选择器元素
+  height|Number|是|单次滚动高度
+  size|Number|是|滚动元素的个数
+  wait|Number|否|间隔滚动时间，默认2s
+  start|Function|是|滚动开始函数
+  stop|Function|否|滚动终止函数
+
+  示例代码
+  ```js
+    var marqueeUp = lui.marqueeUp({el: '#j_marquee', height:24, size:arr.length})
+    marqueeUp.start() 
+  ```
+#### lui.marquee(object)
+滚动效果-横向
+
+  **参数说明**
+
+  参数 | 类型 | 必填 | 说明 
+  ---|---|---|---
+  container|String|是|滚动容器
+  listEl|String|是|滚动列表选择器
+  speed|Number|否|滚动速度，默认60ms
+  start|Function|是|滚动开始函数
+  stop|Function|否|滚动终止函数
+
+  示例代码
+  ```js
+    var marquee = lui.marquee({ 
+      container:'#j-marquee-x-box',
+      list: '#j-marquee-x'
+    })
+    marquee.start() 
+  ```
 
 
 
