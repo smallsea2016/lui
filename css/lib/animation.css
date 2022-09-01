@@ -1,0 +1,39 @@
+/*动画样式*/
+
+@keyframes flash{
+    from {
+        background-position: 0% 0%;
+      }
+      to {
+        background-position: 200px 0%;
+      }
+}
+
+@keyframes ui_effect_zoomOut {
+  0% {
+    transform:scale(1);
+    -webkit-transform:scale(1);
+  }
+  50% {
+    transform:scale(1.2);
+    -webkit-transform:scale(1.2);
+  }
+  100% {
+    transform:scale(1);
+    -webkit-transform:scale(1);
+  }
+}
+
+@keyframes ui_effect_fade {
+  0% {
+   opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ui_spinner_fade {
+    from {opacity: 1;}
+    to {opacity: 0.1;}
+}

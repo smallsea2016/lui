@@ -47,6 +47,7 @@
 - 核心js设计使用闭包，避免了污染，对外暴露唯一的一个变量lui,因此不必担心与其他框架造成冲突。
 - 某些页面引用了一款精致小巧的laytpl作为模版引擎。
 - 基于移动端手机系统运行效率考虑，不建议使用jQuery等较体积较大库。LUI有且仅有时间控件依赖了JQ。
+- 支持UMD模式加载lui.js。 <a href="../demo-seajs.html">使用seajs加载lui.js</a>，<a href="../demo-requirejs.html">使用require.js加载lui.js</a>
 
 
 #### 使用场景

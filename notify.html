@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">   
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+    <style type="text/css">
+      .page_btns li {
+        padding: 10px
+      }
+    </style>
+</head>
+<body>
+     <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>消息通知</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+              常用于表单校验提示
+            </p>
+            <div class="ui_notify" id="j-primary">这是一条主要通知</div>
+            <div class="ui_notify_success" id="j-success">这是一条成功通知</div>
+            <div class="ui_notify_warning" id="j-warning">这是一条警告通知</div>
+            <div class="ui_notify_danger" id="j-danger">这是一条危险通知</div>
+
+            <ul class="page_btns">                
+              <li><button type="button" class="ui_btn" onclick="showNotify('primary')">主要通知</button></li>
+              <li><button type="button" class="ui_btn" onclick="showNotify('success')">成功通知</button></li>
+              <li><button type="button" class="ui_btn" onclick="showNotify('warning')">警告通知</button></li>
+              <li><button type="button" class="ui_btn" onclick="showNotify('danger')">危险通知</button></li>
+            </ul>
+        </div>
+    </div>
+
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript">
+    function showNotify(type){
+      var t = null
+      clearTimeout(t)
+      document.querySelector('#j-'+type).classList.toggle('ui_notify_active')
+      t = setTimeout(() => {
+        document.querySelector('#j-' + type).classList.remove('ui_notify_active')
+      }, 3000);
+    }
+</script>
+</body>
+</html>

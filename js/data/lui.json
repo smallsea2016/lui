@@ -78,17 +78,18 @@
       "enText":"NoContent"
     }
   ],
-  "jsComponent": [{
+  "jsComponent": [
+    {
       "icon": "fa fa-fw fa-lg fa-text-height",
       "href": "textarea.html",
       "text": "多行输入框",
-      "enText":"Textarea"
+      "enText": "Textarea"
     },
     {
       "icon": "fa fa-fw fa-lg fa-exchange",
       "href": "tab.html",
       "text": "内容切换",
-      "enText":"Tabs"
+      "enText": "Tabs"
     },
     {
       "icon": "fa fa-fw fa-lg fa-paper-plane",
@@ -100,37 +101,49 @@
       "icon": "fa fa-fw fa-lg fa-caret-square-o-right",
       "href": "swiper.html",
       "text": "图片轮播",
-      "enText":"Swiper"
+      "enText": "Swiper"
     },
     {
       "icon": "fa fa-fw fa-lg fa-sliders",
       "href": "touchAction.html",
       "text": "单元格滑动",
-      "enText":"CellSwipe"
+      "enText": "CellSwipe"
     },
     {
       "icon": "fa fa-fw fa-lg fa-calendar",
       "href": "date.html",
       "text": "日期时间",
-      "enText":"DateTime"
+      "enText": "DateTime"
     },
     {
       "icon": "fa fa-fw fa-lg fa-spinner",
       "href": "loading.html",
       "text": "加载提示",
-      "enText":"Loading"
+      "enText": "Loading"
+    },
+    {
+      "icon": "fa fa-fw fa-lg fa-check-square",
+      "href": "notify.html",
+      "text": "消息通知",
+      "enText": "Notify"
     },
     {
       "icon": "fa fa-fw fa-lg fa-check-square",
       "href": "toast.html",
       "text": "轻提示",
-      "enText":"Toast"
+      "enText": "Toast"
     },
     {
       "icon": "fa fa-fw fa-lg fa-window-restore",
       "href": "modal.html",
-      "text": "模态框/弹出层",
-      "enText":"Modal/Popup"
+      "text": "模态框",
+      "enText": "Modal"
+    },
+    {
+      "icon": "fa fa-fw fa-lg fa-window-restore",
+      "href": "popup.html",
+      "text": "弹出层",
+      "enText": "Popup"
     },
     {
       "icon": "fa fa-fw fa-lg fa-navicon ",
@@ -142,7 +155,7 @@
       "icon": "fa fa-fw fa-lg fa-arrow-circle-up",
       "href": "scroll.html",
       "text": "滑动加载更多",
-      "enText":"Scroll"
+      "enText": "Scroll"
     },
     {
       "icon": "fa fa-fw fa-lg fa-arrows-v",
@@ -154,13 +167,13 @@
       "icon": "fa fa-fw fa-lg fa-vcard",
       "href": "watermark.html",
       "text": "水印",
-      "enText":"WaterMark"
+      "enText": "WaterMark"
     },
     {
       "icon": "fa fa-fw fa-lg fa-leaf",
       "href": "sign.html",
       "text": "签名功能",
-      "enText":"Sign"
+      "enText": "Sign"
     },
     {
       "icon": "fa fa-fw fa-lg fa-hourglass-half",

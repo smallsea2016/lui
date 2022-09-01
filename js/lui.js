@@ -1,6 +1,17 @@
-
-;(function(global,undefined){
-    "use strict";
+/* eslint-disable */
+;(function (global, factory) {
+   if (typeof module === "object" && module && typeof module.exports === "object") { 
+     // CommonJS规范检查
+     module.exports = factory();    
+   } else if (typeof define === 'function' && (define.amd || define.cmd)) { 
+     // AMD规范检查、CMD规范检查
+     define(factory);
+   } else {
+    // 浏览器注册全局对象     
+     global.lui = factory();
+   }
+})(this, function () {
+   "use strict";    
     var g = {};
     /**
       返回文档中匹配指定 CSS 选择器的一个元素
@@ -312,31 +323,33 @@
         cancelEl.addEventListener('click',_cancelSearch,false);
     }
      /**
-        *底部弹出层
-        @param el 弹窗页面的选择器
-        @param callback 回调方法
+        *弹出层
+        @param el 弹窗选择器
+        @param direction 弹出方向，可选值，top，left，right，默认top
+        @param callback 回调。 callback.open 弹出层显示时的回调函数； callback.close 弹出层关闭时的回调函数
      */
-    g.coverHandler = function(el,callback){
-      var t = null,el = document.querySelector(el);
+    g.popupHandler = function (el, direction, callback) {
+      var t = null, _direction = direction || 'top',el = document.querySelector(el);
+      var _class = 'ui_translate_' + _direction
         if (!el.classList.contains('j_isOpenModal')) {
           clearTimeout(t);
           el.classList.add('j_isOpenModal');
           el.style.display = 'block';
           setTimeout(function(){
-              el.classList.remove('modal_out');
-              el.classList.add('modal_in');
+              el.classList.remove(_class);
+              el.classList.add('ui_translate_origin');
           },10)
           if (callback && typeof callback === "object" && callback['open']) {
             callback['open']();
           };
         }else {
           el.classList.remove('j_isOpenModal');
-          el.classList.remove('modal_in');
-          el.classList.add('modal_out');
+          el.classList.remove('ui_translate_origin');
+          el.classList.add(_class);
           t = setTimeout(function(){
               el.style.display = 'none';
           },300)
-          if (callback && typeof callback  === "object" && callback['close']) {
+          if (callback && typeof callback === "object" && callback['close']) {
               callback['close']();
           };
         }
@@ -595,7 +608,7 @@
         }
     }
     /**
-      * 水印(增加密度)
+      * 水印
       * @param el 将水印挂载到指定html节点上
       * @param name 水印文字
       * @param len 水印个数
@@ -606,19 +619,19 @@
       container.style.cssText += 'position:relative;overflow:hidden;user-select:none;-webkit-user-select:none;'
       for (var i = 0; i < len; i++) {
         top = 19*i-40;
-        if(i%5 == 0){
+        if(i%5 === 0){
           left = '10%';
         }
-        if(i%5 == 1){
+        if(i%5 === 1){
           left = '30%';
         }
-        if(i%5 == 2){
+        if(i%5 === 2){
           left = '50%';
         }
-        if(i%5 == 3){
+        if(i%5 === 3){
           left = '70%';
         }
-        if(i%5 == 4){
+        if(i%5 === 4){
           left = '90%';
         }
         translateX = '-50%';
@@ -644,7 +657,7 @@
         div.id = 'js_photoZoomWrap';
         div.className = 'photoZoomWrap';
         var init = function(){
-              str +='<div class="swiper-container photoZoom modal_out" id="swiperZoom">'
+              str +='<div class="swiper-container photoZoom ui_translate_top" id="swiperZoom">'
                       str += '<div class="swiper-wrapper">'
                      for (i = 0; i < len; i++) {
                       str +=   '<div class="swiper-slide">'
@@ -679,8 +692,8 @@
         });
         //关闭
         var closePhotoZoom = function(){
-            g.selector('#swiperZoom').classList.remove('modal_in');
-            g.selector('#swiperZoom').classList.add('modal_out');
+            g.selector('#swiperZoom').classList.remove('ui_translate_origin');
+            g.selector('#swiperZoom').classList.add('ui_translate_top');
             setTimeout(function(){
               g.selector('#js_photoZoomWrap').classList.remove('active');
             },200)
@@ -696,8 +709,8 @@
                 arr[index].addEventListener('click',function(){
                     swiper.slideTo(index,0);
                     g.selector('#js_photoZoomWrap').classList.add('active');
-                    g.selector('#swiperZoom').classList.remove('modal_out');
-                    g.selector('#swiperZoom').classList.add('modal_in');
+                    g.selector('#swiperZoom').classList.remove('ui_translate_top');
+                    g.selector('#swiperZoom').classList.add('ui_translate_origin');
                 },false)
             })(i)
         };
@@ -714,7 +727,7 @@
         div.id = 'js_photoZoomUploadWrap';
         div.className = 'photoZoomWrap';
         var init = function(){
-            str += '<div class="swiper-container photoZoom modal_out" id="swiperZoomUpload">'
+            str += '<div class="swiper-container photoZoom ui_translate_top" id="swiperZoomUpload">'
                 str += '<div class="swiper-wrapper">'
                 for (i = 0; i < len; i++) {
                  str += '<div class="swiper-slide">'
@@ -736,7 +749,6 @@
           //关闭
           var closePhotoZoom = function(){
             var photoZoomWrap = g.selector('#js_photoZoomUploadWrap');
-            console.log(photoZoomWrap.parentNode)
             photoZoomWrap.parentNode.removeChild(photoZoomWrap)
           }
 
@@ -758,10 +770,8 @@
           });
            swiper.pagination.update();
            g.selector('#js_photoZoomUploadWrap').classList.add('active');
-           g.selector('#swiperZoomUpload').classList.remove('modal_out')
-           g.selector('#swiperZoomUpload').classList.add('modal_in');
-
-
+           g.selector('#swiperZoomUpload').classList.remove('ui_translate_top')
+           g.selector('#swiperZoomUpload').classList.add('ui_translate_origin');
           document.addEventListener('click',function(e){
             if (e.target.id == 'close_photoZoomUpload') {
               closePhotoZoom();
@@ -806,12 +816,12 @@
     /**
      * 获取第几天的时间
      * @param num {Number} 第几天
-     * @param datetime {Date} 某天的日期
+     * @param defaultValue {Date} 某天的日期
      * @param format {String} 格式化
      */
-    g.getDateTime = function (num, datetime, format) {
-        var datetime = datetime || new Date(),
-          d = new Date(datetime);
+    g.getDateTime = function (num, defaultValue, format) {
+        var defaultValue = defaultValue || new Date(),
+          d = new Date(defaultValue);
         d.setTime(d.getTime() + (24*60*60*1000) * num);
         var addZero = function (n) {
           return n < 10 ? "0" + n : n
@@ -838,11 +848,11 @@
     },
     /**
      * 返回某天中文星期
-     * @param datetime {Date}
+     * @param defaultValue {Date}
      */
-    g.getCnDay = function(datetime){    
-        var datetime = datetime || new Date();
-        var d = new Date(datetime).getDay(); 
+    g.getCnDay = function(defaultValue){    
+        var defaultValue = defaultValue || new Date();
+        var d = new Date(defaultValue).getDay(); 
         var arr = ['日','一','二','三','四','五','六']
         return arr[d]
     }
@@ -916,7 +926,7 @@
     /**
      * 滚动效果-横向(Object)
      * @param {String} container 滚动容器
-     * @param {String} list 滚动列表选择器
+     * @param {String} listEl 滚动列表选择器
      * @param {Number} speed 滚动速度，默认60ms
      * @return {Function} start 滚动开始函数
      * @return {Function} stop 滚动终止函数
@@ -926,13 +936,13 @@
       if (!opts.container) {
         throw new Error('缺少容器参数：opts.container')
       }
-      if (!opts.list) {
-        throw new Error('缺少滚动列表选择器参数：opts.list')
+      if (!opts.listEl) {
+        throw new Error('缺少滚动列表选择器参数：opts.listEl')
       }
       opts.speed = opts.speed || 60;
       var taskTimer = null;
       var box = document.querySelector(opts.container);
-      var el = document.querySelector(opts.list);
+      var el = document.querySelector(opts.listEl);
       var el_clone = document.createElement(el.tagName);
       el_clone.className = el.className;
       el_clone.id = el.id + '-clone';
@@ -954,5 +964,5 @@
         }
       }      
     }
-    global.lui = g;
-})(window);
+    return g
+})

@@ -148,6 +148,9 @@ pre{
 /*字体颜色*/
 :root {
   --primary_color:#467DB9;
+  --success_color:#28ca35;
+  --warning_color:#ff870d;
+  --danger_color:#E51C23;
 }
 .c999 {color: #999}
 .c888 {color: #888}

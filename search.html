@@ -66,12 +66,12 @@
 
         <!--底部弹出-->
         <div class="ui_actionSheet_wrap" id="js_actionSheet">
-          <div class="ui_actionSheet_mask" onclick="toggleActionSheet()"></div>
+          <div class="ui_mask" onclick="toggleActionSheet()"></div>
           <div class="ui_actionSheet">
             <ul class="ui_actionSheet_bd">
-              <li class="ui_actionSheet_item">内容1</li>
-              <li class="ui_actionSheet_item">内容2</li>
-              <li class="ui_actionSheet_item">内容3</li>
+              <li class="ui_actionSheet_item">搜索条件1</li>
+              <li class="ui_actionSheet_item">搜索条件2</li>
+              <li class="ui_actionSheet_item">搜索条件3</li>
             </ul>
             <footer class="ui_actionSheet_ft">
               <a href="javascript:;" onclick="toggleActionSheet()" class="ui_actionSheet_item">取消</a>
@@ -101,7 +101,7 @@
     /*显示和隐藏搜索条件*/
     function toggleActionSheet() {
         var el = document.querySelector('#js_actionSheet');
-         el.classList.toggle('actionSheet_active');
+         el.classList.toggle('ui_actionSheet_active');
       }
 </script>
 </body>

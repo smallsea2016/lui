@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">      
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body>
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>demo</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">这是一个简单的demo示例</p>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/require.js/2.3.3/require.js" rel="external nofollow"></script>
+    <!-- requirejs参考文档https://www.runoob.com/w3cnote/requirejs-tutorial-1.html -->
+    <script type="text/javascript">
+        require(['./js/lui'],function(lui){   
+          lui.toast({
+              position:'bottom',
+              text:'目标出现，over'
+          });
+        })
+    </script>
+</body>
+</html>
