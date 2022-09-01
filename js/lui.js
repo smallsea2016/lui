@@ -64,39 +64,42 @@
      * @param callback 加载js后的回调
     */
      g.loadScript = function(url, callback) {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.async = true;
-      script.defer = true;
+      var script = []
       if(typeof url === 'string'){
-          document.createElement("script");
-          script.type = "text/javascript";
-          script.async = true;
-          script.defer = true;
-          script.src = url;
-      } else {
-        for(var i = 0;i < url.length;i ++){
-          document.createElement("script");
-          script.type = "text/javascript";
-          script.async = true;
-          script.defer = true;
-          script.src = url[i];
-        }
+        url = [url]
+      } 
+      for (var i = 0; i < url.length; i++) {
+        script[i] = document.createElement("script");
+        script[i].type = "text/javascript";
+        script[i].async = true;
+        script[i].defer = true;
+        script[i].src = url[i];
+        document.head.appendChild(script[i]);
       }
-      document.head.appendChild(script);
-      if(callback && typeof callback == 'function'){
-        if (script.readyState) {
-            script.onreadystatechange = function () {
-              if (script.readyState == "loaded" || script.readyState == "complete") {
-                script.onreadystatechange = null;
+      var initIndex = 0
+      if(callback && typeof callback === 'function'){
+        for (var index = 0; index < script.length; index++) {
+          if (script[index].readyState) {
+            script[index].onreadystatechange = function () {
+              if (script[index].readyState === "loaded" || script[index].readyState === "complete") {
+                script[index].onreadystatechange = null;
+                initIndex++
+                if (initIndex === script.length) {
+                  // console.log('onreadystatechange', script)
+                  callback();
+                }
+              }
+            };
+          } else {            
+            script[index].onload = function () {
+              initIndex++
+              if (initIndex === script.length) {
+                // console.log('onload', script)
                 callback();
               }
             };
-          } else {
-            script.onload = function () {
-              callback();
-            };
-          }
+          }          
+        }
       }
     }
     g.pullDownRefresh = function(container,callback){
