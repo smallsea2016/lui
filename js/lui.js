@@ -422,7 +422,7 @@
       * @param showCancel 是否显示取消按钮，默认为 true
       * @param cancel {function} 取消按钮的回调函数
       * @param confirm {function}  确定按钮的回调函数
-      * @param beforeHide {function}  退出模态框前的回调函数
+      * @param beforeClose {function}  退出模态框前的回调函数
     */
     g.showModal = function(opts){
       var opts = opts || {}
@@ -443,51 +443,56 @@
                     +          '<div class="ui_modal_hd">'+opts.title+'</div>'
                     +          '<div class="ui_modal_bd">'+opts.content+'</div>'
                     +          '<div class="ui_modal_ft" id="js_btns2017">'
-                    +             '<a href="javascript:;" class="ui_modal_btn ui_modal_default_btn" data-btn="_cancel2017">'+opts.cancelText+'</a>'
-                    +             '<a href="javascript:;" class="ui_modal_btn ui_modal_primary_btn" data-btn="_confirm2017">'+opts.confirmText+'</a>'
+                    +             '<a href="javascript:;" class="ui_modal_btn ui_modal_default_btn" data-btn="_cancel">'+opts.cancelText+'</a>'
+                    +             '<a href="javascript:;" class="ui_modal_btn ui_modal_primary_btn" data-btn="_confirm">'+opts.confirmText+'</a>'
                     +           '</div>'
                     +    '</div>';
         document.body.appendChild(el);
-        var cancelBtn = g.selector('[data-btn="_cancel2017"]'),
-            confirmBtn = g.selector('[data-btn="_confirm2017"]');
+        var cancelBtn = g.selector('[data-btn="_cancel"]'),
+            confirmBtn = g.selector('[data-btn="_confirm"]');
         !opts.showCancel &&  cancelBtn.parentNode.removeChild(cancelBtn);
         var modal_wrap = document.querySelector('#j_modal_wrap'),
             modal = document.querySelector('#j_modal');
         setTimeout(function(){
            modal.classList.add('ui_modal_in');
         },60)
+        
+       var isClosing = false
        var hideModal = function(){
+            isClosing = true
             modal.classList.remove('ui_modal_in');
             modal.classList.add('ui_modal_out');
-            if (opts.beforeHide && typeof opts.beforeHide == 'function') {
-              opts.beforeHide()
-            }
             setTimeout(function(){
-              modal_wrap.parentNode.removeChild(modal_wrap);
+              modal_wrap.parentNode.removeChild(modal_wrap);              
+              isClosing = false
             },200)
        }
 
-       var modalBtnHandler = function(e){
-        var  btn = e.target.dataset.btn;
+        var modalBtnHandler = function(e){
+          var btn = e.target.dataset.btn;
           if (btn) {
-              if(btn == "_cancel2017" && opts.cancel && typeof opts.cancel == "function"){
-                  setTimeout(function(){
-                    opts.cancel();
-                  },201)
-              }
-              if(btn == "_confirm2017" && opts.confirm && typeof opts.confirm == "function") {
-                  setTimeout(function(){
-                    opts.confirm();
-                  },201)
-              }
-              hideModal();
+            if (opts.beforeClose && typeof opts.beforeClose === 'function') {
+              opts.beforeClose(btn,hideModal)
+            }else{
+              hideModal()
+            }            
+            if(btn == "_cancel" && opts.cancel && typeof opts.cancel == "function"){
+                setTimeout(function(){
+                  opts.cancel();
+                },201)
+            }
+            if(btn == "_confirm" && opts.confirm && typeof opts.confirm == "function") {
+                setTimeout(function(){
+                  opts.confirm();
+                },201)
+            }
           };
       }
       cancelBtn && cancelBtn.addEventListener('click',function(e){
-        modalBtnHandler(e);
+        !isClosing && modalBtnHandler(e);
       },false);
       confirmBtn && confirmBtn.addEventListener('click',function(e){
-        modalBtnHandler(e);
+        !isClosing && modalBtnHandler(e);
       },false);
     }
     /**

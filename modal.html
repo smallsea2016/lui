@@ -63,12 +63,17 @@
         }else if(_id == 'js_prompt'){
             var val;
             lui.showModal({
-                content:'<input type="text" placeholder="请输入" class="ui_popup_ipt" id="ipt"/>',
-                beforeHide:function(){
+                content:'<input type="text" placeholder="请输入数字" class="ui_popup_ipt" id="ipt"/>',
+                beforeClose:function(btn,done){
                     val = lui.selector('#ipt').value;
+                    if (!isNaN(val)) {
+                      done()
+                    }else{
+                      lui.selector('#ipt').value = ''
+                    }
                 },
                 confirm:function(){                    
-                    console.log(val);
+                    console.log('confirm',val);
                 }
             });
         }
