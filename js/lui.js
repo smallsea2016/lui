@@ -388,6 +388,7 @@
          * @param text 提示文本内容
          * @param duration 持续多少毫秒退出
          * @param position 所在页面位置
+         * @param disableClickBody toast关闭前是否可点击页面，默认可以
      */
     g.toast = function(opts) {
         var opts = opts || {};
@@ -395,9 +396,14 @@
         opts.text = opts.text || '提示信息';
         opts.position = opts.position || '';
         opts.duration = opts.duration || 2000;
+        opts.disableClickBody = opts.disableClickBody || false;
+       var childEl = document.getElementById('js_ui_toast');
+        if (childEl) {
+          childEl.parentNode.removeChild(childEl);
+        }
        var el = document.createElement('div');
           el.id = 'js_ui_toast';
-          el.className = 'ui_toast_wrap';
+          opts.disableClickBody && (el.className = 'ui_toast_wrap');
           el.innerHTML =  '<div class="ui_toast toast_'+opts.position+'">'
                   +           '<div class="ui_toast_inner">'
                     +            '<span class="ui_toast_ico_wrap"><i class="ui_toast_ico ui_toast_'+opts.type+'_ico"></i></span>'
@@ -408,12 +414,13 @@
                   +    '</div>';
         document.body.appendChild(el);
         el.childNodes[0].classList.add('ui_effect_fade');
-        setTimeout(function(){
-          var childEl = document.getElementById('js_ui_toast');
-          if (childEl) {
-            childEl.parentNode.removeChild(childEl);
-          }
-        },opts.duration)
+        (function(el,opts){
+          setTimeout(function(){
+            if(el.parentNode){
+              el.parentNode.removeChild(el);
+            }
+          },opts.duration)
+        })(el,opts)
     }
     /**
       * showModal模态框  (opts 接收一个对象参数 )
