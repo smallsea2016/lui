@@ -432,7 +432,7 @@
       * @param showCancel 是否显示取消按钮，默认为 true
       * @param cancel {function} 取消按钮的回调函数
       * @param confirm {function}  确定按钮的回调函数
-      * @param beforeClose {function}  退出模态框前的回调函数
+      * @param beforeClose {function}  退出模态框前的回调函数，会暂停关闭。function(btn, done)，btn 的值为'_confirm'或者'_cancel'；done 用于关闭弹窗
     */
     g.showModal = function(opts){
       var opts = opts || {}

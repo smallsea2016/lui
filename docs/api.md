@@ -265,6 +265,7 @@ textarea高度自适应
   text|String|否|提示文字
   position|String|否|在页面的位置，包含"top","middle","bottom".
   duration|String|否|提示显示持续的时间,默认2s
+  disableClickBody|Boolean|否|toast关闭前是否可点击页面，默认可以
 
   示例代码
   ```js
@@ -291,7 +292,7 @@ ios风格模态框
   cancelText|String|否|取消按钮的文字，默认为"取消"，文字不宜过长
   confirmText|String|否|确定按钮的文字，默认为"确定"，文字不宜过长
   customClass|String|否|传入的自定义class，用于自定义风格
-  beforeHide|Function|否|模态框关闭前的回调函数
+  beforeClose|Function|否|关闭前的回调，会暂停关闭。function(btn, done)，btn 的值为'_confirm'或者'_cancel'；done()用于关闭弹窗
 
   示例代码
   ```js
@@ -305,7 +306,7 @@ ios风格模态框
     var val = '';
     lui.showModal({
         content:'<input type="text" placeholder="请输入" class="ui_popup_ipt" id="ipt"/>',
-        beforeHide:function(){
+        beforeClose:function(){
             val = lui.selector('#ipt').value;
         },
         confirm:function(){                    
