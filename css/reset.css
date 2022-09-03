@@ -208,21 +208,9 @@ i[class*="_ico"] {display: inline-block;vertical-align: middle;}
     width: 2px;
     height: 2px;
 }
-.nice_scroll::-webkit-scrollbar-button {
-    background-color: 000;
-}
-.nice_scroll::-webkit-scrollbar-track {
-    background: #ddd;
-}
 .nice_scroll::-webkit-scrollbar-thumb {
-    background: #f1f1f1;
+    background: #ddd;
     border-radius: 4px;
-}
-.nice_scroll::-webkit-scrollbar-corner {
-    background: #82AFFF;
-}
-.nice_scroll::-webkit-scrollbar-resizer {
-    background: #FF0BEE;
 }
 
 /*flex 布局*/
