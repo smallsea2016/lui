@@ -73,9 +73,9 @@
     },
     {
       "icon": "fa fa-fw fa-lg fa-file-o",
-      "href": "noListData.html",
+      "href": "empty.html",
       "text": "内容缺省",
-      "enText":"NoContent"
+      "enText":"Empty"
     }
   ],
   "jsComponent": [
@@ -146,10 +146,16 @@
       "enText": "Popup"
     },
     {
-      "icon": "fa fa-fw fa-lg fa-navicon ",
-      "href": "ActionSheet.html",
+      "icon": "fa fa-fw fa-lg fa-navicon",
+      "href": "actionSheet.html",
       "text": "动作面板",
       "enText": "ActionSheet"
+    },
+    {
+      "icon": "fa fa-fw fa-lg fa-navicon",
+      "href": "cascader.html",
+      "text": "级联选择器",
+      "enText": "Cascader"
     },
     {
       "icon": "fa fa-fw fa-lg fa-arrow-circle-up",
@@ -205,7 +211,7 @@
       "icon": "fa fa-fw fa-lg fa-paper-plane",
       "href": "getStarted.html",
       "text": "快速上手",
-      "enText":"quickStart"
+      "enText":"QuickStart"
     }
   ]
 }
