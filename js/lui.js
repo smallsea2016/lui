@@ -802,8 +802,8 @@
         var lastDate = new Date(str);
         var currDate = new Date();
         if(lastDate < currDate){           
-            clearInterval(t);
-            cb();
+            clearInterval(t);            
+            return cb(s);
         }
         var intDiff = (lastDate.getTime()-currDate.getTime())/1000;
         var day=0,
@@ -824,49 +824,6 @@
         intDiff--;
         cb(s)
       }, 1000);
-    }
-    /**
-     * 获取第几天的时间
-     * @param num {Number} 第几天
-     * @param defaultValue {Date} 某天的日期
-     * @param format {String} 格式化
-     */
-    g.getDateTime = function (num, defaultValue, format) {
-        var defaultValue = defaultValue || new Date(),
-          d = new Date(defaultValue);
-        d.setTime(d.getTime() + (24*60*60*1000) * num);
-        var addZero = function (n) {
-          return n < 10 ? "0" + n : n
-        }
-        var y = addZero(d.getFullYear()),
-           M = addZero(d.getMonth() + 1),
-           _d = addZero(d.getDate()),
-           h = addZero(d.getHours()),
-           m = addZero(d.getMinutes()),
-           s = addZero(d.getSeconds());
-        var res = ''
-        switch (format) {
-          case 'yyyy-MM-dd':
-            res = y + "-" + M + "-" + _d;
-            break;
-          case 'yyyy-MM-dd HH:mm':
-            res = y + "-" + M + "-" + _d + ' ' + h + ':' + m;
-           break;        
-          default:
-            res = y + "-" + M + "-" + _d + ' ' + h + ':' + m + ':' + s;
-            break;
-        }
-        return res
-    },
-    /**
-     * 返回某天中文星期
-     * @param defaultValue {Date}
-     */
-    g.getCnDay = function(defaultValue){    
-        var defaultValue = defaultValue || new Date();
-        var d = new Date(defaultValue).getDay(); 
-        var arr = ['日','一','二','三','四','五','六']
-        return arr[d]
     }
     /**
      * 控制select默认样式

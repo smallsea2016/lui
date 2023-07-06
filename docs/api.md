@@ -87,27 +87,6 @@
       }        
     })
   ```
-  
-#### lui.getDateTime(num,defaultValue,format)
-返回第几天的时间
-
-  **参数说明**
-
-  参数 | 类型 | 必填 | 说明 
-  ---|---|---|---
-  num|Number|是|某天
-  defaultValue|Date|否|某天日期，可被new Date()解析
-  format|String|否|日期格式化，默认,返回yyyy-MM-dd HH:mm:ss
-
-#### lui.getCnDay(defaultValue)
-返回某天中文星期
-
-**参数说明**
-
-参数 | 类型 | 必填 | 说明 
----|---|---|---
-defaultValue|Date|否|某天日期，可被new Date()解析
-
 
 
 ##  交互api

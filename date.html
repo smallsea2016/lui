@@ -32,13 +32,7 @@
                 原生日期控件:<input type="date" class="ui_ipt">
             </div>
             <div class="p10">
-                今天是星期：<u class="primary_color" id="j_day"></u>
-            </div>
-            <div class="p10">
-                10天后是：<u class="primary_color" id="j_time"></u>
-            </div>
-            <div class="p10">
-                距离2018年国庆还有：<u class="primary_color" id="j_gq"></u>
+                距离<span id="j_next_year"></span>年国庆还有：<u class="primary_color" id="j_gq"></u>
             </div>
         </div>
     </div>
@@ -72,14 +66,13 @@
     //日历插件
     // opt.preset = 'date';    //年月日
     $('#taskStart,#taskStop').mobiscroll(opt);
-
-    document.querySelector('#j_day').innerHTML = lui.getCnDay();
-
-    document.querySelector('#j_time').innerHTML = lui.getDateTime(10,'','yyyy-MM-dd');
-
-    lui.countDown('2018-10-01',function(res){
-        if (res == undefined) {
+    var nextYear = new Date().getFullYear() + 1
+    document.querySelector('#j_next_year').innerHTML = nextYear
+    lui.countDown(nextYear +'-10-01',function(res){
+      console.log(`output->res`,res)
+        if (!res) {
             console.log('设定时间小于或等于当前时间');
+            document.querySelector('#j_gq').innerHTML = '已过时间'
         }else{
             var s = res.split('|');
             document.querySelector('#j_gq').innerHTML = s[0]+'天'+s[1]+'时'+s[2]+'分'+s[3]+'秒';  
