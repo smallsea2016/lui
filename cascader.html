@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">   
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+    <link rel="stylesheet" type="text/css" href="css/3rd-css/mobileSelect.css" />
+</head>
+<body>
+     <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>级联选择器</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                级联选择器，用于多层级数据的选择，典型场景为省市区选择
+            </p>
+            <br>
+            <ul class="ui_form">
+              <li class="ui_form_item flexbox">
+                <label class="ui_form_label">选择地址</label>
+                <div class="flexItem">
+                  <span class="c666 mr10" id="picker">请选择</span>
+                  <i class="ui_arrow_right"></i>
+                </div>
+              </li>
+            </ul>       
+        </div>
+    </div>
+
+<script type="text/javascript" src="js/lui.js"></script>
+<script type="text/javascript" src="js/3rd-plugins/mobileSelect.js"></script>
+<script type="text/javascript" src="js/data/city.js"></script>
+<script type="text/javascript">
+    //更多参数详情可查看文档 https://github.com/onlyhom/mobile-select
+    //更多demo：https://onlyhom.github.io/mobile-select/demo.html
+
+    /**
+     * 参数说明
+     * @param trigger(必填参数) 触发对象的id/class/tag或HTMLElement对象
+     * @param wheels(必填参数)  数据源,需要显示的数据
+     * @param title 控件标题
+     * @param initValue 默认值
+     * @param onChange 选择成功后触发的回调函数，返回indexArr(选中的选项索引)、data(选中的数据)
+     * @param ononTransitionEnd 每一次手势滑动结束后触发的回调函数,返回indexArr(当前选中的选项索引)、data(选中的数据)
+     * @param keyMap 数据字段名映射
+     */
+
+    /**
+     * 函数说明(实例化之后才可用)
+     * @function setTitle()      参数 string                 设置控件的标题
+     * @function updateWheel()   参数 sliderIndex, data      重新渲染指定的轮子(可用于先实例化，后通过ajax获取数据的场景)
+     * @function updateWheels()  参数 data                   重新渲染所有轮子,仅限级联数据格式使用(可用于先实例化，后通过ajax获取数据的场景)
+     * @function locatePosition() 参数 sliderIndex, posIndex  传入位置数组，重定位轮子的位置
+     * @function show()          参数 无参                   唤起弹窗组件
+     * @function getValue()      参数 无参                   获取组件选择的值
+     * @function destory()       参数 无参                   销毁组件
+     */
+    var mobileSelect4 = new MobileSelect({
+      trigger: '#picker',
+      title: '地区选择',
+      wheels: [
+        {
+          data: list
+        }
+      ],
+      transitionEnd: function (indexArr, data) {
+        console.log(data);
+      },
+      callback: function (indexArr, data) {
+        console.log(data);
+      }
+    })
+</script>
+</body>
+</html>
