@@ -139,57 +139,69 @@ a.ui_btn {line-height: 45px;}
 .ui_default_btn[skin="plain"] {color: #000;background-color: #fff}
 .ui_btn:active {opacity: .9;}
 
-/*角标*/
-.ui_mark,
-.ui_fill_mark,
-.ui_circular_mark {
-    position: relative;
-    padding:5px 8px;
-	line-height:1;
-    font-size: 10px;
-    border-radius: 2px;
-    background-clip: padding-box;
-}
-.ui_mark {border:1px solid var(--primary_color);color: var(--primary_color);}
-.ui_fill_mark {
-    background-color:var(--primary_color);
-    color: #fff;
-}
-.ui_stick_mark {
+/*标签*/
+[class^='ui_tag'] {
+    display:inline-block;
     padding:2px 5px;
     line-height:1;
-    font-size: 10px;
-    border:1px solid #c40000;color: #c40000
+    font-size: 12px;
 }
-.ui_circular_mark {
-    border-radius: 10px 0 0 10px;
-    background-clip: padding-box;
-    color: #fff;background-color: var(--primary_color);
+.ui_tag_lg {
+    padding:4px 6px;
+    font-size: 14px;
 }
-.ui_circular_mark:after {position: absolute;
-    right: 0;
-    bottom: -6px;
-    content: '';
-    width: 0;
-    height: 0;
-    border: 4px solid;
-    border-color: var(--primary_color) var(--primary_color) transparent transparent;
+.ui_tag_primary {
+    background-color:var(--primary_color);
+    border:1px solid var(--primary_color);color: #fff;
 }
+.ui_tag_success {
+    background-color:var(--success_color);
+    border:1px solid var(--success_color);color: #fff;
+}
+.ui_tag_warning {
+    background-color:var(--warning_color);
+    border:1px solid var(--warning_color);color: #fff;
+}
+.ui_tag_danger {
+    background-color:var(--danger_color);
+    border:1px solid var(--danger_color);color: #fff;
+}
+
+.ui_tag_primary.ui_tag_plain {
+  background-color:#fff;
+  color:var(--primary_color);
+}
+.ui_tag_success.ui_tag_plain {
+  background-color:#fff;
+  color:var(--success_color);
+}
+.ui_tag_warning.ui_tag_plain {
+  background-color:#fff;
+  color:var(--warning_color);
+}
+.ui_tag_danger.ui_tag_plain {
+  background-color:#fff;
+  color:var(--danger_color);
+}
+/*箭头*/
 .ui_triangle_up,
 .ui_triangle_down,
 .ui_arrow_up,
 .ui_arrow_down,
 .ui_arrow_left,
-.ui_arrow_right {position: relative;}
-i.ui_triangle_up,
-i.ui_triangle_down,
-i.ui_arrow_up,
-i.ui_arrow_down,
-i.ui_arrow_left,
-i.ui_arrow_right {display: inline-block;vertical-align: middle;}
+.ui_arrow_right {position: relative;display: inline-block;vertical-align: middle;}
+.ui_triangle_up,
+.ui_triangle_down {
+  width:16px;height:16px;
+}
+.ui_arrow_up,
+.ui_arrow_down,
+.ui_arrow_left,
+.ui_arrow_right {width:20px;height:20px;}
 .ui_triangle_up:after,
 .ui_triangle_down:after {
     position: absolute;
+    top:0;
     right:0;
     content: '';
     width: 0;
@@ -197,35 +209,37 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
     border: 8px solid;
 }
 .ui_triangle_up:after  {
-    top: -16px;
+    top:-4px;
     border-color: transparent transparent #bfbfbf transparent;
 }
 .ui_triangle_down:after {
-    top: -8px;
     border-color: #bfbfbf transparent transparent transparent;
 }
 .ui_arrow_up:after,
 .ui_arrow_down:after,
 .ui_arrow_left:after,
 .ui_arrow_right:after {position: absolute;
-    right: 0;
     content: '';
     width: 10px;
     height:10px;
     border: 1px solid;
     border-color: transparent #999 #999 transparent;transition: all 0.2s;-webkit-transition: all 0.2s
 }
-.ui_arrow_up:after {top:-4px;
+.ui_arrow_up:after {  
+    top:4px;right:4px;
     transform: rotate(225deg);
 }
-.ui_arrow_down:after {top:-8px;
+.ui_arrow_down:after {
+    top:0;right:4px;
     transform: rotate(45deg);
 }
-.ui_arrow_left:after {top:-6px;right: -6px;
+.ui_arrow_left:after {
+    top:2px;left:8px;
     transform: rotate(135deg);
 } 
-.ui_arrow_right:after {top:-6px;right: 4px;
-    transform: rotate(-45deg);
+.ui_arrow_right:after {
+    top:2px;right:8px;
+    transform: rotate(315deg);
 } 
 /*flex布局*/
 .ui_flex {
@@ -381,9 +395,9 @@ i.ui_arrow_right {display: inline-block;vertical-align: middle;}
 .ui_flow_list .time {font-size: 14px;color: #999;font-family: Arial}
 
 /*========= 表单 =========*/
-.ui_form {padding-left: 15px;background-color: #fff;font-size: 16px}
+.ui_form {background-color: #fff;font-size: 16px}
 .ui_form_item { 
-    position: relative;padding: 10px 10px 10px 0;
+    position: relative;padding: 10px 15px;
     align-items:center
 }
 .ui_form_item:after {position: absolute;content: '';left: 0;right: 0;bottom: 0;

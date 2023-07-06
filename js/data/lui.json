@@ -63,7 +63,7 @@
       "icon": "fa fa-fw fa-lg fa-bookmark",
       "href": "mark.html",
       "text": "标签/箭头",
-      "enText":"Badge/Arrow"
+      "enText":"Tag/Arrow"
     },
     {
       "icon": "fa fa-fw fa-lg fa-sort-numeric-asc",
