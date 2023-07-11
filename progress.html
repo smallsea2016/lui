@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUI组件库</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <link rel="icon" href="images/icon/lui.png">
+    <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+<body class="bg_white">
+    <div class="ui_page_wrap">
+        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>进度条</header>
+        <div class="ui_page_bd">
+            <p class="ui_con_block">
+                用于展示操作进度，告知用户当前状态和预期。
+            </p>
+            <h1 class="p10">线形进度条</h1>
+            <div class="p10">
+                <div class="ui_progress"><span style="width:60%"></span></div>
+                <br>
+                <div class="ui_progress ui_flash_progress"><span style="width:80%"></span></div>
+            </div>
+
+            <h1 class="p10">环形进度条</h1>
+            <div class="ui_circle">
+              <svg width="120" height="120" viewbox="0 0 120 120">
+                <circle cx="60" cy="60" r="55" stroke-width="5" stroke="#e1e1e1" fill="none"></circle>
+                <circle id="j-circle" cx="60" cy="60" r="55" stroke-width="5" stroke="#467DB9" fill="none" transform="matrix(0,-1,1,0,0,120)"
+                  stroke-dasharray="0 1069"></circle>
+              </svg>
+              <div class="ui_circle_text flexCenter">50%</div>
+            </div>
+
+            <div class="ui_circle">
+              <svg width="120" height="120" viewbox="0 0 120 120">
+                <circle cx="60" cy="60" r="52" stroke-width="8" stroke="#e1e1e1" fill="none"></circle>
+                <circle id="j-circle-2" cx="60" cy="60" r="52" stroke-width="8" stroke="#467DB9" fill="none"
+                  transform="matrix(0,-1,1,0,0,120)" stroke-dasharray="0 1069"></circle>
+              </svg>
+              <div class="ui_circle_text flexCenter">80%</div>
+            </div>
+        </div>
+    </div>
+    
+<script type="text/javascript">
+    /**
+     * @param el 选择器
+     * @param percent 圆环填充百分比
+    */
+    function setCircleData(el, percent){      
+      let circle = document.querySelector(el);
+      let perimeter = circle.getTotalLength() //圆环的周长
+      circle.setAttribute('stroke-dasharray', perimeter * percent + " " + perimeter * (1 - percent))
+    }
+    setCircleData('#j-circle',0.5)
+    setCircleData('#j-circle-2',0.8)
+</script>
+</body>
+</html>

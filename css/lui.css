@@ -311,7 +311,7 @@ a.ui_btn {line-height: 45px;}
 .ui_card_ft {position: relative;padding: 12px 15px;display: -webkit-box;display: -moz-box;display: flex;
     justify-content: space-between;align-items: center;
 }
-.ui_card_hd {font-size: 17px;color: #000;background-color: #fff;z-index: 2;border-radius: 3px 3px 0 0;background-clip: padding-box}
+.ui_card_hd {font-size: 17px;color: #000;background-color: #fff;z-index: 2;border-radius: 3px 3px 0 0;background-clip: padding-box;overflow: hidden;}
 .ui_card_hd:after,
 .ui_card_ft:after {
     content: '';
@@ -347,6 +347,21 @@ a.ui_btn {line-height: 45px;}
   background-image: linear-gradient(45deg,rgba(255,255,255,.5) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.5) 50%,rgba(255,255,255,.5) 75%,transparent 75%,transparent);
     background-size: 20px 20px;
   animation: flash 5s linear infinite;
+}
+
+.ui_circle {
+  position: relative;
+  display: inline-block;
+}
+.ui_circle_text {
+  position: absolute;
+  left: 0;top:0;
+  width: 100%;height: 100%;
+  justify-content: center;
+}
+circle {
+  -webkit-transition: stroke-dasharray 800ms;
+  transition: stroke-dasharray 800ms;
 }
 
 /*marquee*/

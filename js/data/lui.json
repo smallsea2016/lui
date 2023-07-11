@@ -195,9 +195,15 @@
     },
     {
       "icon": "fa fa-fw fa-lg fa-line-chart",
+      "href": "progress.html",
+      "text": "进度条",
+      "enText": "Progress"
+    },
+    {
+      "icon": "fa fa-fw fa-lg fa-line-chart",
       "href": "chart.html",
-      "text": "进度条/数据图表",
-      "enText": "Progress/Chart"
+      "text": "数据图表",
+      "enText": "Chart"
     }
   ],
   "list": [
