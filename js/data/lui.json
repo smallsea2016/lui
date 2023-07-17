@@ -45,7 +45,7 @@
     {
       "icon": "fa fa-fw fa-lg fa-paper-plane",
       "href": "tabBar.html",
-      "text": "底栏菜单",
+      "text": "标签栏",
       "enText": "TabBar"
     },
     {
