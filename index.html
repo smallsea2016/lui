@@ -78,16 +78,28 @@
               </a>
             </footer>
         </div>
-        <a href="docs/#/" target="_blank" class="sticky_bottom_btn">doc</a>
+        <a href="docs/#/" target="_blank" class="sticky_bottom_btn">docs</a>
     </div>
     <!--laytpl资料 https://www.cnblogs.com/JsonShare/p/6018497.html-->
     <script type="text/javascript" src="js/3rd-plugins/laytpl.js"></script>  
     <script type="text/javascript" src="js/lui.js"></script>
     <script type="text/javascript">
+        function sortFn(a, b) {
+          if (a.enText < b.enText) {
+            return -1
+          }
+          if (a.enText > b.enText) {
+            return 1
+          }
+          return 0
+        }
          lui.request({
             type:'GET',
             url:'js/data/lui.json',
             success:function(res){
+                res.cssComponent = res.cssComponent.sort(sortFn)
+                res.jsComponent = res.jsComponent.sort(sortFn)
+                res.list = res.list.sort(sortFn)
                 var getTpl = document.getElementById('tpl').innerHTML;
                 laytpl(getTpl).render(res, function(html){
                   document.getElementById('tpl_view').innerHTML = html;
