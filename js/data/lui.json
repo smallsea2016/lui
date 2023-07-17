@@ -1,5 +1,6 @@
 {
-  "cssComponent": [{
+  "cssComponent": [
+    {
       "icon": "fa fa-fw fa-lg fa-search",
       "href": "search.html",
       "text": "搜索栏",
@@ -9,73 +10,79 @@
       "icon": "fa fa-fw fa-lg fa-hand-pointer-o",
       "href": "button.html",
       "text": "按钮",
-      "enText":"Button"
+      "enText": "Button"
     },
     {
       "icon": "fa fa-fw fa-lg fa-pencil-square",
       "href": "form.html",
       "text": "表单",
-      "enText":"Form"
+      "enText": "Form"
     },
     {
       "icon": "fa fa-fw fa-lg fa-list-ul",
       "href": "list.html",
       "text": "列表",
-      "enText":"List"
+      "enText": "List"
     },
     {
       "icon": "fa fa-fw fa-lg fa-window-maximize",
       "href": "card.html",
       "text": "卡片",
-      "enText":"Card"
+      "enText": "Card"
     },
     {
       "icon": "fa fa-fw fa-lg fa-th-large",
       "href": "grid.html",
       "text": "网格",
-      "enText":"Grid"
+      "enText": "Grid"
     },
     {
       "icon": "fa fa-fw fa-lg fa-columns",
       "href": "flex.html",
       "text": "布局",
-      "enText":"Flex"
+      "enText": "Flex"
     },
     {
       "icon": "fa fa-fw fa-lg fa-paper-plane",
       "href": "tabBar.html",
       "text": "底栏菜单",
-      "enText":"TabBar"
+      "enText": "TabBar"
     },
     {
       "icon": "fa fa-fw fa-lg fa-table",
       "href": "table.html",
       "text": "表格",
-      "enText":"Table"
+      "enText": "Table"
     },
     {
       "icon": "fa fa-fw fa-lg fa-minus",
       "href": "1px.html",
       "text": "1像素边框",
-      "enText":"Border"
+      "enText": "Border"
     },
     {
       "icon": "fa fa-fw fa-lg fa-bookmark",
-      "href": "mark.html",
-      "text": "标签/箭头",
-      "enText":"Tag/Arrow"
+      "href": "arrow.html",
+      "text": "箭头",
+      "enText": "Arrow"
+    },
+    {
+      "icon": "fa fa-fw fa-lg fa-bookmark",
+      "href": "tag.html",
+      "text": "标签",
+      "enText": "Tag"
     },
     {
       "icon": "fa fa-fw fa-lg fa-sort-numeric-asc",
       "href": "flow.html",
       "text": "流程流转",
-      "enText":"Steps"
+      "enText": "Flow"
     },
     {
       "icon": "fa fa-fw fa-lg fa-file-o",
       "href": "empty.html",
       "text": "内容缺省",
-      "enText":"Empty"
+      "enText": "Empty"
     }
   ],
   "jsComponent": [
@@ -88,7 +95,7 @@
     {
       "icon": "fa fa-fw fa-lg fa-exchange",
       "href": "tab.html",
-      "text": "内容切换",
+      "text": "标签页",
       "enText": "Tabs"
     },
     {
@@ -177,9 +184,9 @@
     },
     {
       "icon": "fa fa-fw fa-lg fa-leaf",
-      "href": "sign.html",
+      "href": "signature.html",
       "text": "签名功能",
-      "enText": "Sign"
+      "enText": "Signature"
     },
     {
       "icon": "fa fa-fw fa-lg fa-hourglass-half",
