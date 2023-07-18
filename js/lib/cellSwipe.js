@@ -7,29 +7,25 @@
 */
 function CellSwipe(elm,item){
   var _this = this;
-  _this.touch;
   _this.startX;
   _this.startY;
+  _this.endX;
+  _this.endY;
   _this.moveX;
   _this.moveY;
-  _this.touchX;
-  _this.touchY;
-  _this.x;
   _this.li = document.querySelectorAll(elm);
-  _this.w = document.querySelectorAll(item)[0].clientWidth;
+  _this.actionWidth = document.querySelectorAll(item)[0].clientWidth;
   _this.flag = false;
   _this.isTouch = 'ontouchstart' in window; 
-  _this.touchEvent = null; 
   /**
       @fires  CellSwipe#touchstart 开始滑动
   */
   _this.touchstart = function(e){
     _this.flag = true;
     var tagClassName = e.target.className;
-    (_this.isTouch) ? _this.touchEvent = e.changedTouches[0] :  _this.touchEvent = e || window.event; //事件源
-    _this.touch = _this.touchEvent;
-    _this.startX = _this.touch.pageX;
-    _this.startY = _this.touch.pageY;
+    var touchEvent = _this.isTouch ? e.changedTouches[0] : e; // 事件源
+    _this.startX = touchEvent.pageX;
+    _this.startY = touchEvent.pageY;
     if (tagClassName.indexOf('js_del_btn') > -1) {
         return
     };
@@ -40,25 +36,24 @@ function CellSwipe(elm,item){
       @fires  CellSwipe#touchmove 滑动中
   */
   _this.touchmove = function(e){
-    _this.isTouch ? _this.touchEvent = e.changedTouches[0] :  _this.touchEvent = e || window.event; //事件源
-    var li = e.currentTarget;
-    _this.touch = _this.touchEvent;
-          _this.moveX = _this.touch.pageX;
-          _this.moveY = _this.touch.pageY;
-          _this.touchX = _this.moveX - _this.startX;
-    var m = function(){
-        if (Math.abs(_this.moveX - _this.startX) > Math.abs(_this.moveY - _this.startY)){
+    var li = e.currentTarget;    
+    var touchEvent = _this.isTouch ? e.changedTouches[0] : e; // 事件源
+    _this.endX = touchEvent.pageX;
+    _this.endY = touchEvent.pageY;
+    _this.moveX = _this.endX - _this.startX;
+    var move = function(){
+        if (Math.abs(_this.endX - _this.startX) > Math.abs(_this.endY - _this.startY)){
             e.preventDefault();
-        Math.abs(_this.touchX) > _this.w ? _this.touchX = - _this.w : _this.touchX;
-            li.style.cssText += "transform:translate3d("+_this.touchX+"px,0,0);webkitTransform:translate3d("+_this.touchX+"px,0,0)";
+        _this.moveX = Math.abs(_this.moveX) > _this.actionWidth ? - _this.actionWidth : _this.moveX;
+            li.style.cssText += "transform:translate3d("+_this.moveX+"px,0,0);webkitTransform:translate3d("+_this.moveX+"px,0,0)";
         }else {
           return;
         }
     }
-    if (_this.flag && _this.isTouch && e.touches.length == 1 && _this.startX > _this.moveX) {  //单手
-        m();
+    if (_this.flag && _this.isTouch && e.touches.length == 1 && _this.startX > _this.endX) {  //单手
+        move();
     }else if(_this.flag && !_this.isTouch){
-        m();
+        move();
     }
   }
   /**
@@ -70,13 +65,12 @@ function CellSwipe(elm,item){
     if (tagClassName.indexOf('js_del_btn') > -1) {
         return
     };    
-     _this.isTouch ? _this.touchEvent = e.changedTouches[0] :  _this.touchEvent = e || window.event; //事件源
-    _this.x = Math.abs(_this.touchEvent.pageX - _this.startX);
-    //console.log("_this.startX:"+_this.startX+"\n_this.moveX:"+_this.moveX);
+    var touchEvent = _this.isTouch ? e.changedTouches[0] : e; // 事件源
+    var touchEndX = Math.abs(touchEvent.pageX - _this.startX);
     var li = e.currentTarget;
-    if (_this.x > _this.w/2 && _this.moveX < _this.startX){
+    if (touchEndX > _this.actionWidth/2 && _this.endX < _this.startX){
       li.classList.add('active');
-      li.style.cssText += 'transform:translate3d(-'+_this.w+'px,0,0)';'webkitTransform:translate3d(-'+_this.w+'px,0,0)';
+      li.style.cssText += 'transform:translate3d(-'+_this.actionWidth+'px,0,0)';'webkitTransform:translate3d(-'+_this.actionWidth+'px,0,0)';
     }else{
       li.style.cssText += 'transform:translate3d(0,0,0)';'webkitTransform:translate3d(0,0,0)';
     }
