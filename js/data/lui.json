@@ -112,7 +112,7 @@
     },
     {
       "icon": "fa fa-fw fa-lg fa-sliders",
-      "href": "touchAction.html",
+      "href": "cellSwipe.html",
       "text": "单元格滑动",
       "enText": "CellSwipe"
     },
@@ -211,6 +211,12 @@
       "href": "chart.html",
       "text": "数据图表",
       "enText": "Chart"
+    },
+    {
+      "icon": "fa fa-fw fa-lg fa-leaf",
+      "href": "touchElement.html",
+      "text": "移动元素",
+      "enText": "TouchElement"
     }
   ],
   "list": [

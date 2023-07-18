@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>LUI组件库</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link rel="icon" href="images/icon/lui.png">
+  <link rel="stylesheet" type="text/css" href="css/lui.css" />
+  <style>
+    .drag_btn {
+      position: absolute;
+      z-index: 99;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-clip: padding-box;
+      color: #fff;
+      background-color: var(--primary_color);
+      font-size: 17px;
+      display: box;
+      display: -webkit-box;
+      box-align: center;
+      -webkit-box-align: center;
+      box-pack: center;
+      -webkit-box-pack: center;
+      box-shadow: 0 0 5px #999
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ui_page_wrap">
+    <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>移动元素</header>
+    <div class="ui_page_bd">
+      <p class="ui_con_block">
+        支持多种移动方式。自由移动，让遮挡的内容看见。<br />注意：①如果样式使用了定位，可设置left和top，但不要设置right和botton，②注意层级，如果层级更高的元素盖住了它，将无法拖动，因为这时候无法选中。
+      </p>
+    </div>
+  </div>
+  <span id="j-drag1" class="drag_btn" style="left:10%;top: 35%;">任意</span>
+  <span id="j-drag2" class="drag_btn" style="left:30%;top: 35%;">横向</span>
+  <span id="j-drag3" class="drag_btn" style="left:50%;top: 35%;">纵向</span>
+  <span id="j-drag4" class="drag_btn" style="left:10%;top: 50%;">向上</span>
+  <span id="j-drag5" class="drag_btn" style="left:30%;top: 50%;">向左</span>
+  <span id="j-drag6" class="drag_btn" style="left:50%;top: 50%;">向右</span>
+  <span id="j-drag7" class="drag_btn" style="left:70%;top: 50%;">向下</span>
+  <script type="text/javascript" src="js/lib/TouchElement.js"></script>
+  <script type="text/javascript">
+    new TouchElement('#j-drag1', {
+      touchStart: function (e) {
+        console.log('touchStart', e)
+      },
+      touchMove: function (e) {
+        console.log('touchMove', e)
+      },
+      touchEnd: function (e) {
+        console.log('touchEnd', e)
+      }
+    })
+    new TouchElement('#j-drag2', {
+      direction: 'row'
+    })
+    new TouchElement('#j-drag3', {
+      direction: 'column'
+    })
+    new TouchElement('#j-drag4', {
+      direction: 'up'
+    })
+    new TouchElement('#j-drag5', {
+      direction: 'left'
+    })
+    new TouchElement('#j-drag6', {
+      direction: 'right'
+    })
+    new TouchElement('#j-drag7', {
+      direction: 'down'
+    })
+  </script>
+</body>
+
+</html>
