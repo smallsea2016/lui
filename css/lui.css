@@ -15,7 +15,7 @@
 .ui_page_wrap {height: 100%;overflow: hidden;}
 .ui_page_bd {bottom: 0;overflow-x: hidden;overflow-y:auto;-webkit-scrolling-overflow:touch;}
 .ui_page_ft {bottom: 0}
-.ui_page_hd {height:45px;line-height: 45px;font-size: 18px;text-align: center;background-color: #f7f7f7}
+.ui_page_hd {height:45px;line-height: 45px;font-size: 18px;text-align: center;background-color: #fff}
 .ui_page_hd:after {position: absolute;content: '';left: 0;right: 0;bottom: 0;border-bottom: 1px solid #ccc;
     transform:scaleY(.5);
 }
@@ -111,7 +111,7 @@ input::-webkit-search-cancel-button {
 .ui_btn.ui_inline {display: inline-block;width: auto;padding-left: 15px;padding-right: 15px} 
 a.ui_btn {line-height: 45px;}
 .sticky_bottom_btn {
-  position: absolute;right: 30px;bottom: 30px;
+  position: absolute;left: calc(100% - 90px);top: calc(100% - 90px);z-index:99;
   width: 60px;height: 60px;border-radius: 50%;
   background-clip: padding-box;color: #fff;
   background-color: var(--primary_color);font-size: 17px;
