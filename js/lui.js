@@ -44,6 +44,14 @@
       if (r != null) return unescape(r[2]);
       return null;
     }
+    /**
+     * 获取数据类型
+     * @param {any} value 
+     * @returns 
+     */
+    g.getType = function(value) {
+      return Object.prototype.toString.call(value).slice(8, -1).toLowerCase()
+    }
    /**
     * 长按事件
     * @param  {string}   el [选择器]
@@ -517,14 +525,7 @@
         opts.success = opts.success || function() {};
         opts.error = opts.error || function() {};
         opts.closeLoading = opts.closeLoading || false
-        var xmlHttp;
-        if (window.XMLHttpRequest) {
-            // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-            xmlHttp = new XMLHttpRequest();
-        } else {
-            // IE6, IE5 浏览器执行代码
-            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
+        var xmlHttp = new XMLHttpRequest()
         var params = [];
         for (var key in opts.data) {
             params.push(key + '=' + opts.data[key]);
@@ -658,137 +659,6 @@
           document.body.appendChild(el);
         }
       }
-    }
-    /**
-      * 详情图片预览
-      * @param img 图片选择器集合
-    */
-    g.photoViewer = function(img){
-        var arr = document.querySelectorAll(img),i,len = arr.length,str ='',div;
-        div = document.createElement('div');
-        div.id = 'js_photoZoomWrap';
-        div.className = 'photoZoomWrap';
-        var init = function(){
-              str +='<div class="swiper-container photoZoom ui_translate_top" id="swiperZoom">'
-                      str += '<div class="swiper-wrapper">'
-                     for (i = 0; i < len; i++) {
-                      str +=   '<div class="swiper-slide">'
-                      str +=         '<div class="swiper-zoom-container">'
-                      str +=            '<img src="'+arr[i].src+'" class="swiper-lazy">'
-                      str +=       '</div>'
-                      str +=    '</div>';
-                     }
-                      str +='</div>'
-                      str +='<div class="swiper-pagination swiper-pagination-white"></div>'
-                      str +=  '<div class="swiper-button-prev"></div>'
-                      str +=  '<div class="swiper-button-next"></div>'
-                      str +='<div class="close_photoZoom" id="close_photoZoom"></div>'
-                 str +='</div>';
-            div.innerHTML = str;
-            document.body.appendChild(div);
-        }();
-          var swiper = new Swiper('#swiperZoom', {
-            zoom: true,
-            pagination: {
-              el: '.swiper-pagination',
-            },
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            },
-            on:{
-              click: function(event){
-                closePhotoZoom();
-              }
-            }
-        });
-        //关闭
-        var closePhotoZoom = function(){
-            g.selector('#swiperZoom').classList.remove('ui_translate_origin');
-            g.selector('#swiperZoom').classList.add('ui_translate_top');
-            setTimeout(function(){
-              g.selector('#js_photoZoomWrap').classList.remove('active');
-            },200)
-        }
-        document.addEventListener('click',function(e){
-          if (e.target.id == 'close_photoZoom') {
-              closePhotoZoom();
-          }
-        },false)
-        //预览当前
-        for (var i = 0; i < arr.length; i++) {
-            (function(index){
-                arr[index].addEventListener('click',function(){
-                    swiper.slideTo(index,0);
-                    g.selector('#js_photoZoomWrap').classList.add('active');
-                    g.selector('#swiperZoom').classList.remove('ui_translate_top');
-                    g.selector('#swiperZoom').classList.add('ui_translate_origin');
-                },false)
-            })(i)
-        };
-    }
-
-    /**
-      *上传图片预览大图
-      * @param img 图片选择器集合
-      * @param index 当前图片预览的索引
-    */
-    g.photoZoomUpload = function(img,index){
-        var arr = document.querySelectorAll(img),i,len = arr.length,str ='',div;
-        div = document.createElement('div');
-        div.id = 'js_photoZoomUploadWrap';
-        div.className = 'photoZoomWrap';
-        var init = function(){
-            str += '<div class="swiper-container photoZoom ui_translate_top" id="swiperZoomUpload">'
-                str += '<div class="swiper-wrapper">'
-                for (i = 0; i < len; i++) {
-                 str += '<div class="swiper-slide">'
-                 str +=         '<div class="swiper-zoom-container">'
-                 str +=            '<img src="'+arr[i].src+'" class="swiper-lazy">'
-                 str +=        '</div>'
-                 str +=    '</div>';
-          }
-                 str +='</div>'
-                 str +='<div class="swiper-pagination swiper-pagination-white"></div>'
-                 str +='<div class="swiper-button-prev"></div>'
-                 str +='<div class="swiper-button-next"></div>'
-                str +='<div class="close_photoZoom" id="close_photoZoomUpload"></div>'
-             str +='</div>';
-            div.innerHTML = str;
-            document.body.appendChild(div);
-        }();
-
-          //关闭
-          var closePhotoZoom = function(){
-            var photoZoomWrap = g.selector('#js_photoZoomUploadWrap');
-            photoZoomWrap.parentNode.removeChild(photoZoomWrap)
-          }
-
-          var swiper = new Swiper('#swiperZoomUpload', {
-              zoom: true,
-              initialSlide:index,
-              pagination: {
-                el: '.swiper-pagination',
-              },
-              navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              },
-              on:{
-                click: function(event){
-                  closePhotoZoom();
-                }
-              }
-          });
-           swiper.pagination.update();
-           g.selector('#js_photoZoomUploadWrap').classList.add('active');
-           g.selector('#swiperZoomUpload').classList.remove('ui_translate_top')
-           g.selector('#swiperZoomUpload').classList.add('ui_translate_origin');
-          document.addEventListener('click',function(e){
-            if (e.target.id == 'close_photoZoomUpload') {
-              closePhotoZoom();
-            }
-          },false)
     }
     /**
      * 倒计时
