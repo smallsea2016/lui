@@ -89,7 +89,7 @@ Date.prototype.Format = function (fmt) {
           list[index].url +
           " data-original= " +
           list[index].url +
-          ">" +
+          " />" +
           '<a href="javascript:;" class="js_del_pic ui_del_pic" data-index=' +
           index +
           ">-</a>" +
@@ -111,7 +111,7 @@ Date.prototype.Format = function (fmt) {
           objUrl +
           " data-original= " +
           objUrl +
-          ">" +
+          " />" +
           '<a href="javascript:;" class="js_del_pic ui_del_pic" data-index=' +
           imgList.length +
           ">-</a>";
@@ -143,11 +143,19 @@ Date.prototype.Format = function (fmt) {
       "click",
       function (e) {
         if (e.target.classList.contains("js_del_pic")) {
+          var index = e.target.parentNode.dataset.index
           e.target.parentNode.parentNode.removeChild(e.target.parentNode);
           imgList.splice(index, 1);
-        }
-        if (cb && typeof cb == "function") {
-          cb(imgList);
+          if (cb && typeof cb == "function") {
+            cb(imgList);
+          }
+          //移除后需重新设置下标
+          var uploadItems = uploadList.querySelectorAll('.js_upload_item')
+          var delItems = uploadList.querySelectorAll('.js_upload_item .js_del_pic')
+          for (let i = 0; i < imgList.length; i++) {
+            uploadItems[i].setAttribute('data-index', i)
+            delItems[i].setAttribute('data-index', i)
+          }
         }
       },
       false
