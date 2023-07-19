@@ -9,15 +9,14 @@ LUI本身不需要额外构建环境和安装依赖包，可直接打开html页�
 ## 一个示例页面
 ### html
   页面布局采用万能的
-  <mark>上中下</mark>布局。一个大层包含里面上中下三层。最外层使用absolute定位铺满整屏，当然,Header和Footer根据你的项目是否需要。
+  <mark>上中下</mark>布局。一个大层包含里面上中下三层。最外层使用absolute定位铺满整屏，当然,Header和Footer根据你的页面是否需要。
 
   ![layout.png](img/layout.png)
 ### css
  一般情况下引入
     <mark>lui.css</mark>就可以了，lui.css已经import了一个
-    <mark>reset.css</mark>，重置了浏览器默认样式以及包含了一些基础辅助样式。针对某些不是很常用的组件，进行了单独抽离。如果页面中有需要用到图片预览放大，要另外引入
-    <mark>zoom.css</mark>，如果页面包含富文本，要引入
-    <mark>fixck.css</mark>，比如这个快速开始页面。
+    <mark>reset.css</mark>，重置了浏览器默认样式以及包含了一些基础辅助样式。如果页面包含富文本，要引入
+    <mark>fixck.css</mark>。
 ### js
   依赖jq的只有
     <mark>mobiscroll</mark>日期控件。因此，如果你的应用没有依赖jq不需要用到mobiscroll，直接引入
@@ -36,8 +35,8 @@ LUI本身不需要额外构建环境和安装依赖包，可直接打开html页�
     <meta name="format-detection" content="telephone=no" />
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
-    <meta name="keywords" content=""/>
-    <meta name="description" content="" />
+    <meta name="keywords" content="LUI，轻量级移动端UI组件库"/>
+    <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">      
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
 </head>

@@ -1,4 +1,12 @@
 # 2023  
+
+  **2023-07-19 v1.6.2**  
+  - 【新增】获取数据类型方法lui.getType()
+  - 【新增】viewerjs图片预览功能
+  - 【新增】移动元素功能
+  - 【优化】部分样式小优化；cellSwipe代码优化；图片上传支持默认图片
+  - 【删除】lui.photoViewer和lui.photoZoomUpload以及zoom.css
+  ---
   **2023-07-12 v1.6.1**  
   - 【新增】环形进度条
   ---
