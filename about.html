@@ -16,8 +16,6 @@
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
     <!--富文本样式-->
     <link rel="stylesheet" type="text/css" href="css/lib/fixck.css" />
-    <!--大图预览样式-->
-    <link rel="stylesheet" type="text/css" href="css/lib/zoom.css" />
 </head>
 <body class="bg_white">
     <div class="ui_page_wrap">
@@ -28,7 +26,7 @@
                     <span class="ui_article_time">2018-04-15</span>
                     <span class="ui_article_name">smallsea</span>
                 </div>
-                <div class="ui_article_content fixck">
+                <div id="j-content" class="ui_article_content fixck">
                     <h4>LUI，L即light的缩写，是一套原生驱动的轻量级移动端UI组件库。</h4>
                     <section class="wx96Diy cur" data-source="bj.96weixin.com"><br>
                         <section style="padding-left: 10px;padding-right: 10px; white-space: normal; text-align: inherit; border: 1px solid rgb(0, 187, 236); font-size: 1em; font-family: inherit; font-weight: inherit; text-decoration: inherit; color: rgb(51, 51, 51); background-color: rgb(239, 239, 239, 0); box-sizing: border-box;" class="96wx-bdc"><section style="margin: -1em 16px 0px; padding: 0px; border: none; line-height: 1.4; box-sizing: border-box;" class="96wx-bdtc"><span style="display: inline-block; padding: 3px 8px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; color: rgb(255, 255, 255); font-size: 1em; text-align: center; font-family: inherit; font-weight: inherit; text-decoration: inherit; background-color: rgb(0, 187, 236); border-color: rgb(0, 187, 236); box-sizing: border-box;" class="96wx-bgc"><section class="96wx-bdtc" style="box-sizing: border-box;">了解LUI</section></span></section>
@@ -56,11 +54,14 @@
         </div>
     </div>
 
-<script type="text/javascript" src="js/lui.js"></script>
+<!-- 图片预览css和js -->
+<link href="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.11.3/viewer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.11.3/viewer.min.js"></script>
 <script type="text/javascript">
-    lui.loadScript('js/3rd-plugins/swiper-4.1.0.jquery.min.js',function(){
-      lui.photoViewer('img');
-    })    
+    //图片预览
+    var viewer = new Viewer(document.getElementById('j-content'), {
+      url: 'src'
+    });
 </script>
 </body>
 </html>

@@ -16,8 +16,6 @@
   <link rel="stylesheet" type="text/css" href="css/lui.css" />
   <!--富文本样式-->
   <link rel="stylesheet" type="text/css" href="css/lib/fixck.css" />
-  <!--大图预览样式-->
-  <link rel="stylesheet" type="text/css" href="css/lib/zoom.css" />
 </head>
 
 <body class="bg_white">
@@ -25,7 +23,7 @@
     <header class="ui_page_hd">
       <a href="javascript:history.go(-1);" class="ui_back"></a>快速上手</header>
     <div class="ui_page_bd">
-      <div class="ui_article_detail">
+      <div class="ui_article_detail" id="j-content">
         <div class="fixck">
           <h3>html</h3>
           <p>页面布局采用万能的
@@ -39,8 +37,7 @@
           <h3>css</h3>
           <p>一般情况下引入
             <mark>lui.css</mark>就可以了，lui.css已经import了一个
-            <mark>reset.css</mark>，重置了浏览器默认样式以及包含了一些基础辅助样式。针对某些不是很常用的组件，进行了单独抽离。如果页面中有需要用到图片预览放大，要另外引入
-            <mark>zoom.css</mark>，如果页面包含富文本，要引入
+            <mark>reset.css</mark>，重置了浏览器默认样式以及包含了一些基础辅助样式。如果页面包含富文本，要引入
             <mark>fixck.css</mark>，比如这个快速开始页面。</p>
           <h3>js</h3>
           <p>依赖jq的只有
@@ -55,10 +52,13 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="js/lui.js"></script>
+  <!-- 图片预览css和js -->
+  <link href="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.11.3/viewer.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.11.3/viewer.min.js"></script>
   <script type="text/javascript">
-    lui.loadScript('js/3rd-plugins/swiper-4.1.0.jquery.min.js', function () {
-       lui.photoViewer('img');
+    //图片预览
+    var viewer = new Viewer(document.getElementById('j-content'), {
+      url: 'src'
     })
   </script>
 </body>
