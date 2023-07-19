@@ -217,6 +217,12 @@
       "href": "touchElement.html",
       "text": "移动元素",
       "enText": "TouchElement"
+    },
+    {
+      "icon": "fa fa-fw fa-lg fa-leaf",
+      "href": "photoViewer.html",
+      "text": "图片预览",
+      "enText": "PhotoViewer"
     }
   ],
   "list": [

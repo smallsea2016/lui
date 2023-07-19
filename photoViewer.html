@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>LUI组件库</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link rel="icon" href="images/icon/lui.png">
+  <link rel="stylesheet" type="text/css" href="css/lui.css" />
+  <style>
+    .columns {
+      padding: 15px;
+      column-count: 3; /* 列数 */
+      column-gap: 10px; /* 列间距 */
+    }
+
+    .item {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 10px; /* 元素间距 */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ui_page_wrap">
+    <header class="ui_page_hd">
+      <a href="javascript:history.go(-1);" class="ui_back"></a>图片预览</header>
+    <div class="ui_page_bd">
+      <p class="ui_con_block">
+        使用viewerjs实现，感谢作者
+      </p>
+      <ul class="columns" id="j-viewer">
+        <li class="item"><img src="images/p1.jpg" data-original="images/p1.jpg"></li>
+        <li class="item"><img src="images/m2.jpg" data-original="images/m2.jpg"></li>
+        <li class="item"><img src="images/redtory1.jpg" data-original="images/redtory1.jpg"></li>
+        <li class="item"><img src="images/p2.jpg" data-original="images/p2.jpg"></li>
+        <li class="item"><img src="images/redtory2.jpg" data-original="images/redtory2.jpg"></li>
+        <li class="item"><img src="images/p3.jpg" data-original="images/p3.jpg"></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 图片预览css和js -->
+  <link href="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.11.3/viewer.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.11.3/viewer.min.js"></script>
+  <!-- viewerjs文档：https://fengyuanchen.github.io/viewerjs/ -->
+  <script type="text/javascript">
+    /**
+     * 图片预览
+     * 建议将大图放在data-original，让页面加载更快
+    */
+    var viewer = new Viewer(document.getElementById('j-viewer'), {
+      url: 'data-original'
+    })
+  </script>
+</body>
+
+</html>
