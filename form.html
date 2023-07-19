@@ -13,7 +13,6 @@
     <meta name="description" content="" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
-    <link rel="stylesheet" type="text/css" href="css/lib/zoom.css" />
 </head>
 <body>
     <div class="ui_page_wrap">
@@ -102,11 +101,21 @@
                 </li>
                 <li class="ui_form_item">
                     <label class="ui_form_label">图片上传</label>
-                    <div class="ui_uploader_control">
-                        <ul class="ui_uploader_box" id="loader-box">
+                    <div class="ui_uploader_control" id="upload_photo">
+                        <ul class="ui_uploader_box" data-role="upload-list">
                         </ul>
-                        <label class="ui_uploader"><input type="file" accept="image/gif,image/jpeg,image/png" hidden id="upload_photo"></label>
+                        <label class="ui_uploader"><input type="file" accept="image/gif,image/jpeg,image/png" hidden data-role="upload-btn"></label>
                    </div>
+                </li>
+
+                <li class="ui_form_item">
+                  <label class="ui_form_label">图片上传-已有图片</label>
+                  <div class="ui_uploader_control" id="upload_photo2">
+                    <ul class="ui_uploader_box" data-role="upload-list">
+                    </ul>
+                    <label class="ui_uploader"><input type="file" accept="image/gif,image/jpeg,image/png" hidden
+                        data-role="upload-btn"></label>
+                  </div>
                 </li>
             </ul>
         </div>    
@@ -119,14 +128,32 @@
 <link rel="stylesheet" type="text/css" href="css/3rd-css/mobiscroll.2.13.2.min.css">
 <script type="text/javascript" src="js/3rd-plugins/mobiscroll.2.13.2.min.js"></script>
 <script type="text/javascript" src="js/lib/form.js"></script>
+<!-- 图片预览css和js -->
+<link href="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.11.3/viewer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.11.3/viewer.min.js"></script>
+<!-- viewerjs文档：https://fengyuanchen.github.io/viewerjs/ -->
 <script type="text/javascript">    
     //星级评分
     form.Raty('#star1 li',function(num){
           console.log('选中了'+num+'颗星');
       })
     //图片上传
-    form.chooseImage('#upload_photo',function(objUrl){
-        console.log(objUrl);
+    form.chooseImage('#upload_photo', [], function(imgList){
+       console.log('imgList', imgList);
+    });
+
+    //图片上传2
+    form.chooseImage('#upload_photo2', [{
+      url:'images/redtory1.jpg'
+    }], function(imgList){
+       console.log('imgList', imgList);
+      //图片预览
+      var viewer = new Viewer(document.getElementById('upload_photo2'), {
+        url: 'data-original',
+        show: function () {  // 动态加载图片后，更新实例
+          viewer.update();
+        }
+      })
     });
     //滑块监听
     function changeRange(_this){
@@ -139,29 +166,6 @@
     $("#date-picker").val(d.Format("yyyy-MM-dd ")+"09:00");
     //日历插件
     $('#date-picker').mobiscroll(opt);
-
-    /*唤起图片上传大图预览*/
-    var _hasLoadSwiper = false;
-    document.addEventListener('click',function(ev){
-        var tagName = ev.target.tagName.toLowerCase();
-        //判断是不是要预览的图片
-        if(tagName == 'img' && ev.target.parentNode.className.indexOf('ui_uploader_item') > -1){
-
-            var imgs = document.querySelectorAll('#loader-box img'),index;
-            for(var i = 0,len = imgs.length;i < len;i++){
-                imgs[i].setAttribute('data-index',i)
-            }
-            index = ev.target.dataset.index;
-            if(! _hasLoadSwiper){   //避免重复加载swiper
-                lui.loadScript('js/3rd-plugins/swiper-4.1.0.jquery.min.js',function(){
-                    lui.photoZoomUpload('#loader-box img',index);                    
-                    _hasLoadSwiper = true
-                })   
-            }else{
-                lui.photoZoomUpload('#loader-box img',index);    
-            }   
-        }
-    },false)
 </script>
 </body>
 </html>
