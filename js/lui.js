@@ -35,7 +35,7 @@
     }
     /**
      * 获取地址栏参数值
-     * @param  {string} name 参数名称
+     * @param  {String} name 参数名称
      * @return 返回匹配结果
     */
     g.getQueryString = function (name) {
@@ -52,9 +52,38 @@
     g.getType = function(value) {
       return Object.prototype.toString.call(value).slice(8, -1).toLowerCase()
     }
+    /**
+      * 回到顶部 {object} opts 对象参数 
+      * @param {String} target  触发滚动的目标对象，支持传入选择器或DOM 元素
+      * @param {String} elm   点击事件对象，支持传入选择器或DOM元素
+      * @param {Number} offsetTop   滚动高度达到此参数值时才显示组件元素
+    */
+    g.backTop = function (opts) {
+      const _opts = {
+        target: opts.target,
+        elm: opts.elm || '[data-role="back-top"]',
+        offsetTop: opts.offsetTop || 200
+      }
+      const target = document.querySelector(_opts.target)
+      const elm = document.querySelector(_opts.elm)
+      if (!target || !elm) {
+        throw new Error('请检查传入的选择器或 DOM 元素');
+      }
+      target.onscroll = function(){
+        elm.style.cssText += target.scrollTop > _opts.offsetTop 
+        ? 'transform: scale(1);transition:all .25s ease-in-out;'
+        : elm.style.cssText += 'transform: scale(0)'
+      }
+      elm.onclick = function(){
+        target.scroll({
+          top: 0,
+          behavior: 'smooth'
+        })
+      }
+    }
    /**
     * 长按事件
-    * @param  {string}   el [选择器]
+    * @param  {String}   el [选择器]
     * @param  {Function} cb [长按后的回调函数]
     */
     g.longPress = function(el,cb){

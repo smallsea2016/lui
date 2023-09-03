@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>LUI组件库</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta name="keywords" content="LUI，轻量级移动端UI组件库" />
+  <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
+  <link rel="icon" href="images/icon/lui.png">
+  <link rel="stylesheet" type="text/css" href="css/lui.css" />
+  <!--富文本样式-->
+  <link rel="stylesheet" type="text/css" href="css/lib/fixck.css" />
+  <style>
+    .fixck p {
+      text-indent: 2em;
+    }
+  </style>
+</head>
+
+<body class="bg_white">
+  <div class="ui_page_wrap">
+    <header class="ui_page_hd">
+      <a href="javascript:history.go(-1);" class="ui_back"></a>回到顶部
+    </header>
+    <div class="ui_page_bd" id="j-back-top-container">
+      <p class="ui_con_block">
+        用于较长的页面快捷回到顶部
+      </p>
+
+      <main class="p20 fixck">
+        <img src="./images/redtory1.jpg" alt="" srcset="">
+        <p>
+          红砖厂位于广东省广州市天河区，是广州第一家非企业非房地产包装的真正意义创意区，是一个以国际标准定义的艺术、生活中心。
+
+          红砖厂前身广州罐头厂，以苏式建筑为主，现在这里有国内外知名的画廊、设计工作室等。红砖厂正以现代的视野、国际的平台，探索、打造富有时尚、创意、艺术和人文精神的新领域。
+        </p>
+        <img src="./images/redtory2.jpg" alt="" srcset="">
+        <p>
+          作为广州第一家非房地产性质的真正意义创意区，这里正在发展成一个国际标准定义的艺术、生活中心。每一栋红砖厂房，都有一段沉睡的历史，经过经年的岁月沉淀和历史升华，百废待兴。跟随全球都提倡的“保育与创造”风潮，我们责无旁贷地延续历史，唤醒新生，艺术生活区的概念油然而生。每一个大都市都有一片属于自己的LOFT天地，无论是纽约的SOHO，芝加哥的SUHU，北京的798，上海的M50……
+          这个在纽约一炮而红的概念在全球迅速蔓延，建立在仓库和厂房的画廊和工作室，介乎于艺术于生活之间，游走于创作与悠闲之中，引发遐想，品味生活。红专厂在广州正饰演这种角色。作为2010亚运主办城市，广州成为了亚洲甚至世界的焦点城市，角色自然也焕然一新。红专厂和广州的艺术建设紧密相连，共同进步，发展项目也得到市长张广宁及多个有关机构的振臂支持。
+        </p>
+        <p>
+          红专厂艺术生活区的业态种类包括艺术文化交流机构、国际画廊、艺术家工作室、雕塑展厅及广场展示区、酒吧/咖啡厅、进口书店、艺术文化商店、摄影棚、养生会所等数十个种类，是一个以国际标准定义的艺术、生活中心。现在，红专厂正以现代的视野，国际的平台，探索、打造富有时尚、创意、艺术和人文精神的新领域。
+        </p>
+        <p>
+          这里有国内外知名的画廊、设计工作室、艺术展示空间、时尚店铺、特色餐厅及咖啡厅，这里有休闲文艺的小清新。一个人的时候，你会爱上这里。
+        </p>
+      </main>
+
+    </div>
+    <span class="ui_back_top" data-role="back-top">
+      <i class="ui_back_top_ico ui_arrow_up"></i>
+    </span>
+  </div>
+
+  <!--公共js-->
+  <script type="text/javascript" src="js/lui.js"></script>
+  <script type="text/javascript">
+       lui.backTop({
+          target: '#j-back-top-container'
+        })
+  </script>
+</body>
+
+</html>
