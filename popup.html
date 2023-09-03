@@ -26,6 +26,11 @@
             <div class="p10">
                 <button type="button" class="ui_btn" onclick="togglePopup()">普通popup</button>
             </div>
+
+            <div class="p10">
+                <button type="button" class="ui_btn" onclick="togglePopup('ad')">广告popup</button>
+            </div>
+
             <div class="p10">
                 <button type="button" class="ui_btn" onclick="togglePopup('fullCover')">底部弹出popup</button>
             </div>
@@ -52,13 +57,28 @@
         </div>
     </aside>
 
+    <!--广告popup-->
+    <aside class="ui_popup ui_popup_center radius10" id="j-popup-ad" style="overflow: unset;">
+      <div class="ui_popup_inner">
+        <main class="ui_popup_body">
+          <a href="https://curl.qcloud.com/gkbTcFqA" target="_blank" rel="noopener" class="ui_poster">
+            <img class="ui_poster_img" src="./images/promotion-560X300.jpg" alt="【腾讯云】云服务器、云数据库、COS、CDN、短信等云产品特惠热卖中">
+            <span class="ui_poster_tips">广告</span>
+            <p class="pt10">【腾讯云】云服务器、云数据库、COS、CDN、短信等云产品特惠热卖中</p>
+          </a>
+        </main>
+        <div class="tc" style="position: relative;bottom: -32px;left: -16px;">
+          <a href="javascript:closePopup()" class="ui_close_ico ui_close_round_ico"></a>
+        </div>
+      </div>
+    </aside>
 
     <!--底部弹出层-全覆盖-->
     <aside class="ui_popup ui_translate_top" id="j-popup-full">
         <div class="ui_popup_inner">   
           <header class="ui_popup_header">
               <h2 class="ui_popup_title">底部弹出层标题</h2>
-              <a href="javascript:closePopup()" class="ui_close_dialog"></a>
+              <a href="javascript:closePopup()" class="ui_close_ico ui_popup_close_btn"></a>
           </header>
           <main class="ui_popup_body">
               <p class="ui_con_block">底部弹出层内容</p>   
@@ -71,7 +91,7 @@
       <div class="ui_popup_inner">
         <header class="ui_popup_header">
           <h2 class="ui_popup_title">底部弹出层标题</h2>
-          <a href="javascript:closePopup()" class="ui_close_dialog"></a>
+          <a href="javascript:closePopup()" class="ui_close_ico ui_popup_close_btn"></a>
         </header>
         <main class="ui_popup_body">
           <p class="ui_con_block">底部弹出层内容</p>
@@ -85,7 +105,7 @@
       <div class="ui_popup_inner">
         <header class="ui_popup_header">
           <h2 class="ui_popup_title">左侧弹出层标题</h2>
-          <a href="javascript:closePopup()" class="ui_close_dialog"></a>
+          <a href="javascript:closePopup()" class="ui_close_ico ui_popup_close_btn"></a>
         </header>
         <main class="ui_popup_body">
           <p class="ui_con_block">左侧弹出层内容</p>
@@ -98,7 +118,7 @@
       <div class="ui_popup_inner">
         <header class="ui_popup_header">
           <h2 class="ui_popup_title">右侧弹出层标题</h2>
-          <a href="javascript:closePopup()" class="ui_close_dialog"></a>
+          <a href="javascript:closePopup()" class="ui_close_ico ui_popup_close_btn"></a>
         </header>
         <main class="ui_popup_body">
           <p class="ui_con_block">右侧弹出层内容</p>
@@ -112,6 +132,7 @@
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
     var g_popupType = 'normal'
+    //元素显示隐藏切换
     function toggle(el){
       var _el = el || '#j-mask'
       var mask = document.querySelector(_el)
@@ -121,8 +142,12 @@
 
     function togglePopup(popupType){
       g_popupType = popupType || 'normal'
+      //遮罩层显示隐藏切换
       toggle()
       switch (popupType) {
+        case 'ad':
+          toggle('#j-popup-ad')
+          break;
         case 'fullCover':
           lui.popupHandler('#j-popup-full')
           break;

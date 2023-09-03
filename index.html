@@ -21,15 +21,14 @@
             <script id="tpl" type="text/html">
                 <section>
                     <fieldset class="ui_legend">
-                        <legend>css组件</legend>
+                        <legend>基础组件</legend>
                     </fieldset>
                     <ul class="ui_list_padded ui_list_arrow">
-                        {{# for(var i = 0,len = d.cssComponent.length;i< len;i++ ){ }}
+                        {{# for(var i = 0,len = d.baseComponent.length;i< len;i++ ){ }}
                             <li>
-                              <a class="mt10 tit" href="{{d.cssComponent[i].href}}">
-                                <i class="{{d.cssComponent[i].icon}}"></i>                                
-                                <span class="mr5">{{d.cssComponent[i].enText}}</span>
-                                {{d.cssComponent[i].text}}
+                              <a class="mt10 tit" href="{{d.baseComponent[i].href}}">                           
+                                <span class="mr5">{{d.baseComponent[i].enText}}</span>
+                                {{d.baseComponent[i].text}}
                               </a>
                             </li>
                         {{# } }}
@@ -37,15 +36,59 @@
                 </section>
                 <section>
                     <fieldset class="ui_legend">
-                        <legend>js组件</legend>
+                        <legend>表单组件</legend>
                     </fieldset>
                     <ul class="ui_list_padded ui_list_arrow">
-                        {{# for(var i = 0,len = d.jsComponent.length;i< len;i++ ){ }}
+                        {{# for(var i = 0,len = d.formComponent.length;i< len;i++ ){ }}
                             <li>
-                              <a class="mt10 tit" href="{{d.jsComponent[i].href}}">
-                                <i class="{{d.jsComponent[i].icon}}"></i>
-                                <span class="mr5">{{d.jsComponent[i].enText}}</span>
-                                {{d.jsComponent[i].text}}
+                              <a class="mt10 tit" href="{{d.formComponent[i].href}}">                           
+                                <span class="mr5">{{d.formComponent[i].enText}}</span>
+                                {{d.formComponent[i].text}}
+                              </a>
+                            </li>
+                        {{# } }}
+                    </ul>
+                </section>
+                <section>
+                    <fieldset class="ui_legend">
+                        <legend>展示组件</legend>
+                    </fieldset>
+                    <ul class="ui_list_padded ui_list_arrow">
+                        {{# for(var i = 0,len = d.displayComponent.length;i< len;i++ ){ }}
+                            <li>
+                              <a class="mt10 tit" href="{{d.displayComponent[i].href}}">            
+                                <span class="mr5">{{d.displayComponent[i].enText}}</span>
+                                {{d.displayComponent[i].text}}
+                              </a>
+                            </li>
+                        {{# } }}
+                    </ul>
+                </section>
+                <section>
+                    <fieldset class="ui_legend">
+                        <legend>导航组件</legend>
+                    </fieldset>
+                    <ul class="ui_list_padded ui_list_arrow">
+                        {{# for(var i = 0,len = d.navigatorComponent.length;i< len;i++ ){ }}
+                            <li>
+                              <a class="mt10 tit" href="{{d.navigatorComponent[i].href}}">                            
+                                <span class="mr5">{{d.navigatorComponent[i].enText}}</span>
+                                {{d.navigatorComponent[i].text}}
+                              </a>
+                            </li>
+                        {{# } }}
+                    </ul>
+                </section>
+                <section>
+                    <fieldset class="ui_legend">
+                        <legend>操作反馈组件</legend>
+                    </fieldset>
+                    <ul class="ui_list_padded ui_list_arrow">
+                        {{# for(var i = 0,len = d.feedbackComponent.length;i< len;i++ ){ }}
+                            <li>
+                              <a class="mt10 tit" href="{{d.feedbackComponent[i].href}}">
+                                <span class="mr5">{{d.feedbackComponent[i].enText}}</span>
+                                {{d.feedbackComponent[i].text}}
                               </a>
                             </li>
                         {{# } }}
@@ -59,7 +102,6 @@
                         {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
                             <li>
                               <a class="mt10 tit" href="{{d.list[i].href}}">
-                                <i class="{{d.list[i].icon}}"></i>
                                 <span class="mr5">{{d.list[i].enText}}</span> 
                                 {{d.list[i].text}}
                               </a>
@@ -70,13 +112,9 @@
             </script>
 
             <div id="tpl_view"></div>
-            <footer>
-              <a href="https://mi.aliyun.com/shop/43432" target="_blank" rel="noopener" class="ui_poster">
-                <img class="ui_poster_img" src="./images/aly.png" alt="阿里云">
-                <p class="ui_poster_text">域名</p>
-                <span class="ui_poster_tips">广告</span>
-              </a>
-            </footer>
+            <div class="ui_noMore">
+              <span class="ui_noMore_text">我是有底线的</span>
+            </div>
         </div>
         <a href="docs/#/" id="j-docs" target="_blank" class="sticky_bottom_btn">docs</a>
     </div>
@@ -85,6 +123,7 @@
     <script type="text/javascript" src="js/lui.js"></script>
     <script type="text/javascript" src="js/lib/TouchElement.js"></script>
     <script type="text/javascript">
+        //排序
         function sortFn(a, b) {
           if (a.enText < b.enText) {
             return -1
@@ -98,8 +137,11 @@
             type:'GET',
             url:'js/data/lui.json',
             success:function(res){
-                res.cssComponent = res.cssComponent.sort(sortFn)
-                res.jsComponent = res.jsComponent.sort(sortFn)
+                res.baseComponent = res.baseComponent.sort(sortFn)
+                res.formComponent = res.formComponent.sort(sortFn)
+                res.displayComponent = res.displayComponent.sort(sortFn)
+                res.navigatorComponent = res.navigatorComponent.sort(sortFn)
+                res.feedbackComponent = res.feedbackComponent.sort(sortFn)
                 res.list = res.list.sort(sortFn)
                 var getTpl = document.getElementById('tpl').innerHTML;
                 laytpl(getTpl).render(res, function(html){
@@ -107,7 +149,7 @@
                 });
             }
         })
-        
+        //移动元素实例化
         new TouchElement('#j-docs')
     </script>
 </body>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>LUI组件库</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta name="keywords" content="LUI，轻量级移动端UI组件库" />
+  <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
+  <link rel="icon" href="images/icon/lui.png">
+  <link rel="stylesheet" type="text/css" href="css/lui.css" />
+</head>
+
+<body>
+  <div class="ui_page_wrap">
+    <header class="ui_page_hd">
+      <a href="javascript:history.go(-1);" class="ui_back"></a>图片</header>
+    <div class="ui_page_bd">
+      <p class="ui_con_block">
+        提供多种图片填充模式，圆形风格，支持失败提示。
+      </p>
+      <ul class="ui_list ui_list_margin">
+        <li>
+          <div>
+            <img src="images/redtory2.jpg">
+            <p class="pt5">默认图片，填充模式为fill</p>
+          </div>
+        </li>
+        <li>
+          <p class="ui_list_hd">填充模式</p>
+          <div class="ui_flex ui_flex_wrap">
+            <div class="p10">
+              <img class="ui_fit_contain" width="100" height="100" src="images/m2.jpg">
+              <p class="pt5">contain</p>
+            </div>
+            <div class="p10">
+              <img class="ui_fit_cover" width="100" height="100" src="images/m2.jpg">
+              <p class="pt5">cover</p>
+            </div>
+            <div class="p10">
+              <img class="ui_fit_scale_down" width="100" height="100" src="images/m2.jpg">
+              <p class="pt5">scale-down</p>
+            </div>
+            <div class="p10">
+              <img class="ui_fit_none" width="100" height="100" src="images/m2.jpg">
+              <p class="pt5">none</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <p class="ui_list_hd">圆形图片</p>
+          <div class="ui_flex ui_flex_wrap">
+            <div class="p10">
+              <img class="radius100p" width="100" height="100" src="images/user2.jpeg">
+            </div>
+            <div class="p10">
+              <img class="radius10" width="100" height="100" src="images/user.jpg">
+            </div>
+          </div>
+        </li><li>
+          <p class="ui_list_hd">加载提示</p>
+          <div class="ui_flex ui_flex_wrap">
+            <div class="p10">
+              <figure class="ui_image">                  
+                <img width="100" height="100" src="images/user2">
+                <span style="width: 100px;height: 100px;"  class="ui_image_loading"></span>
+              </figure>
+              <p class="pt5">失败默认图片</p>
+            </div>
+            <div class="p10">
+              <figure class="ui_image">                  
+                <img class="radius100p" width="100" height="100" src="images/user">
+                <span style="width: 100px;height: 100px;" class="ui_img_error radius100p">黄</span>
+              </figure>
+              <p class="pt5">失败展示名字首字</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>

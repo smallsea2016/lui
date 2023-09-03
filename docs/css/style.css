@@ -1,11 +1,8 @@
-@media screen and (max-width:768px) {
-   .logo {
-     margin-top: 170px !important
-   }
- }
-
+.title {
+    padding-top: 20px;
+}
 /*宫格布局*/
-.ui_grid {margin-top:40px;
+.ui_grid {
   display: table;
   table-layout: fixed;
   width: 100%;
@@ -86,16 +83,4 @@ html body .ui_btn {display: inline-block;padding: 10px 30px;text-align: center;f
 }
 html body .ui_btn[plain] {margin-right: 30px;
   border-color: #467DB9;color: #467DB9;background-color: #fff;
-}
-.poster {
-  display: block;
-  text-align: center;
-}
-.poster-inner {
-  display: inline-block;
-  padding: 25px;border: 1px solid #eee;
-}
-.poster-img {height: 40px;}
-.poster-name {margin-top: 0;margin-bottom: 0;
-  color: #ff6a00;
 }

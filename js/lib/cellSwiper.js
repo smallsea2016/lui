@@ -5,7 +5,7 @@
     @param {string} elm 滑动的容器
     @param {string} item 进行操作的元素
 */
-function CellSwipe(elm,item){
+function cellSwiper(elm,item){
   var _this = this;
   _this.startX;
   _this.startY;
@@ -18,7 +18,7 @@ function CellSwipe(elm,item){
   _this.flag = false;
   _this.isTouch = 'ontouchstart' in window; 
   /**
-      @fires  CellSwipe#touchstart 开始滑动
+      @fires  cellSwiper#touchstart 开始滑动
   */
   _this.touchstart = function(e){
     _this.flag = true;
@@ -33,7 +33,7 @@ function CellSwipe(elm,item){
   }
 
   /**
-      @fires  CellSwipe#touchmove 滑动中
+      @fires  cellSwiper#touchmove 滑动中
   */
   _this.touchmove = function(e){
     var li = e.currentTarget;    
@@ -57,7 +57,7 @@ function CellSwipe(elm,item){
     }
   }
   /**
-      @fires  CellSwipe#touchend 滑动结束
+      @fires  cellSwiper#touchend 滑动结束
   */
   _this.touchend = function(e){
      _this.flag = false;
@@ -76,7 +76,7 @@ function CellSwipe(elm,item){
     }
   }
   /**
-      @fires  CellSwipe#update 恢复滑动前的样子
+      @fires  cellSwiper#update 恢复滑动前的样子
   */
   _this.update = function(){
     for(var i = 0,len = _this.li.length;i < len;i++){
@@ -85,7 +85,7 @@ function CellSwipe(elm,item){
     }
   }
   /**
-      @fires  CellSwipe#remove 移除列表中的某条
+      @fires  cellSwiper#remove 移除列表中的某条
   */
   _this.remove = function(idx){
     _this.li[idx].parentNode.removeChild(_this.li[idx]);

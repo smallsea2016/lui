@@ -22,7 +22,7 @@
                 <p class="ui_con_block">
                     包含通栏列表，缩进列表，卡片列表，媒体列表。PS：列表数据使用mock模拟。
                 </p>
-                 <section>
+                 <section class="mt10">
                     <h2 class="ui_list_hd">通栏列表</h2>
                     <ul class="ui_list ui_list_arrow">
                         {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
@@ -30,15 +30,15 @@
                         {{# }}}
                     </ul>
                 </section>
-                <section>
-                    <h2 class="ui_list_hd">缩进列表</h2>
+                <section class="mt10">
+                    <h2 class="ui_list_hd ui_list_hd_padded">缩进列表</h2>
                     <ul class="ui_list_padded">
                         {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
                             <li>{{d.list[i].content}}</li>
                         {{# }}}
                     </ul>
                 </section>
-                <section>
+                <section class="mt10">
                     <h2 class="ui_list_hd">卡片列表</h2>
                     <ul class="ui_list ui_list_margin">
                         {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
@@ -51,7 +51,7 @@
                         {{# }}}
                     </ul>
                 </section>
-                <section>
+                <section class="mt10">
                     <h2 class="ui_list_hd">媒体列表</h2>
                     <ul class="ui_list">
                         {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}

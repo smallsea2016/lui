@@ -21,10 +21,13 @@
             <p class="ui_con_block">
                 这里囊括了各种表单元素，从此，告别表单烦恼。
             </p>
-            <ul class="ui_form">
+            <fieldset class="ui_legend">
+              <legend>右对齐风格</legend>
+            </fieldset>
+            <ul class="ui_form ui_form_layout_right">
                 <li class="ui_form_item flexbox">
                     <label class="ui_form_label">滑块</label>
-                    <div class="flexItem">
+                    <div class="ui_form_content ui_flex_item">
                         <label class="ui_slider_check">
                             <input type="checkbox" checked>
                         </label>
@@ -32,7 +35,7 @@
                 </li>       
                 <li class="ui_form_item flexbox">
                     <label class="ui_form_label">复选</label>
-                    <div class="flexItem">
+                    <div class="ui_form_content ui_flex_item">
                         <label class="ui_checkbox">
                           <input type="checkbox" checked value="yes" name="checkbox">
                           <b>同意</b>
@@ -41,7 +44,7 @@
                 </li>
                 <li class="ui_form_item flexbox">
                     <label class="ui_form_label">单选</label>
-                    <div class="flexItem">
+                    <div class="ui_form_content ui_flex_item">
                         <label class="ui_radio">
                               <input type="radio" value="yes" checked name="radio">
                               <b>YES</b>
@@ -54,20 +57,20 @@
                 </li>
                 <li class="ui_form_item flexbox">
                     <label class="ui_form_label">日期选择</label>
-                    <div class="flexItem">
+                    <div class="ui_form_content ui_flex_item">
                        <input type="text" readonly name="" placeholder="请选择" id="date-picker" class="ui_ipt">
                     </div>
                 </li>
                 <li class="ui_form_item flexbox">
                     <label class="ui_form_label">范围选择</label>
-                    <div class="flexItem">
-                        <small id="rangeVal" class="c999">30</small>
+                    <div class="ui_form_content ui_flex_item">
+                        <small id="rangeVal" class="mr5 c999">30</small>
                         <input type="range" oninput="changeRange(this)" value="30" min="1" max="100" step="1" class="ui_range">                       
                     </div>
                 </li>
                 <li class="ui_form_item flexbox">
                     <label class="ui_form_label">下拉选择</label>
-                    <div class="flexItem">
+                    <div class="ui_form_content ui_flex_item">
                        <select class="ui_select placeholderColor" name="select" onchange="lui.changeSelectStyle(event)">
                            <option value="">请选择</option>
                            <option value="1">女汉子</option>
@@ -77,7 +80,7 @@
                 </li>
                 <li class="ui_form_item flexbox">
                     <label class="ui_form_label">星星评分</label> 
-                    <div class="flexItem">
+                    <div class="ui_form_content ui_flex_item">
                         <ul class="ui_star_review fr" id="star1">
                             <li class="item" title="差"><input value="1" type="radio" name="review" hidden="hidden"></li>
                             <li class="item" title="较差"><input value="2" type="radio" name="review" hidden="hidden"></li>
@@ -89,7 +92,7 @@
                 </li>
                 <li class="ui_form_item flexbox">
                     <label class="ui_form_label">单行输入框</label>
-                    <div class="flexItem">
+                    <div class="ui_form_content ui_flex_item">
                        <input type="text" placeholder="请输入" class="ui_ipt">
                     </div>
                 </li>
@@ -117,6 +120,76 @@
                         data-role="upload-btn"></label>
                   </div>
                 </li>
+            </ul>
+            <fieldset class="ui_legend">
+              <legend>左对齐风格</legend>
+            </fieldset>
+            <ul class="ui_form ui_form_layout_left">
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">滑块</label>
+                    <div class="ui_form_content ui_flex_item">
+                        <label class="ui_slider_check">
+                            <input type="checkbox" checked>
+                        </label>
+                    </div>
+                </li>
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">下拉选择</label>
+                    <div class="ui_form_content ui_flex_item">
+                       <select class="ui_select placeholderColor" name="select" onchange="lui.changeSelectStyle(event)">
+                           <option value="">请选择</option>
+                           <option value="1">女汉子</option>
+                           <option value="2">萌妹子</option>
+                       </select>
+                    </div>
+                </li>
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">单行输入框</label>
+                    <div class="ui_form_content ui_flex_item">
+                       <input type="text" placeholder="请输入" class="ui_ipt">
+                    </div>
+                </li>                
+            </ul>
+            <fieldset class="ui_legend">
+              <legend>详情预览风格</legend>
+            </fieldset>
+            <ul class="ui_form ui_form_detail">
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">姓名</label>
+                    <div class="ui_form_content ui_flex_item">
+                        <span>张婷</span>
+                    </div>
+                </li>       
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">午餐补助次数</label>
+                    <div class="ui_form_content ui_flex_item">
+                        <span>15</span>
+                    </div>
+                </li>   
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">午餐补助合计</label>
+                    <div class="ui_form_content ui_flex_item">
+                        <span>225</span>
+                    </div>
+                </li>   
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">加班次数</label>
+                    <div class="ui_form_content ui_flex_item">
+                        <span>12</span>
+                    </div>
+                </li>     
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">加班餐补</label>
+                    <div class="ui_form_content ui_flex_item">
+                        <span>180</span>
+                    </div>
+                </li>   
+                <li class="ui_form_item flexbox">
+                    <label class="ui_form_label">合计餐补</label>
+                    <div class="ui_form_content ui_flex_item">
+                        <span>405</span>
+                    </div>
+                </li>  
             </ul>
         </div>    
     </div>

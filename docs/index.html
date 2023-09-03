@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="css/vue.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="./lui.png">
+    <style>
+      @media screen and (max-width:720px) {
+        .app-nav {display: none;}
+      }
+    </style>
 </head>
 <body>
 <div id="app">Loading...</div>
@@ -24,7 +29,7 @@
       repo: 'https://github.com/smallsea2016/lui.git', // 仓库地址
       // logo: 'lui.png',
       loadSidebar: 'sidebar.md', // 加载自定义侧边栏
-      // loadNavbar: 'navbar.md', // 配置导航栏
+      loadNavbar: 'navbar.md', // 配置导航栏
       subMaxLevel: 5, // sidebar最大层级
       themeColor: '#467DB9',
       auto2top: true

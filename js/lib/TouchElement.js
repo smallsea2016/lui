@@ -33,6 +33,7 @@ function TouchElement(elm, opts) {
    */
   _this.initDom = function () {
     const rect = _this.item.getBoundingClientRect();
+    _this.item.style.cssText += 'user-select:none'
     initLeft = rect.left;
     initTop = rect.top;
     initWidth = rect.width;
@@ -86,10 +87,10 @@ function TouchElement(elm, opts) {
       @fires  TouchElement#touchstart 开始滑动
   */
   _this.touchstart = function (e) {
+    _this.touchEventStart = true;
     if (_this.opts.touchStart && typeof _this.opts.touchStart === 'function') {
       _this.opts.touchStart(e)
     }
-    _this.touchEventStart = true;
     const touchEvent = _this.isTouch ? e.changedTouches[0] : e; // 事件源
     _this.startX = touchEvent.pageX;
     _this.startY = touchEvent.pageY;
@@ -99,6 +100,9 @@ function TouchElement(elm, opts) {
       @fires  TouchElement#touchmove 滑动中
   */
   _this.touchmove = function (e) {
+    if (!_this.touchEventStart) {
+      return
+    }
     if (_this.opts.touchMove && typeof _this.opts.touchMove === 'function') {
       _this.opts.touchMove(e)
     }
@@ -155,10 +159,10 @@ function TouchElement(elm, opts) {
       @fires  TouchElement#touchend 滑动结束
   */
   _this.touchend = function (e) {
+    _this.touchEventStart = false;
     if (_this.opts.touchEnd && typeof _this.opts.touchEnd === 'function') {
       _this.opts.touchEnd(e)
     }
-    _this.touchEventStart = false;
   };
 
   if (_this.isTouch) {
