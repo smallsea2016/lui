@@ -168,26 +168,15 @@ pre{
 
 /*布局辅助样式*/
 /*flex 布局*/
-.flexbox {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
+.ui_flex {
     display: flex;
 }
-.flexItem {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
+.ui_flex_item {
     flex: 1;
 }
-.flexCenter  {
-    -webkit-box-align: center; 
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -ms-align-items: center;
-    align-items: center;
-    display: flex;
-}
+.ui_flex_center {display: flex;align-items: center;}
+.ui_flex_end {justify-content: flex-end;align-items: flex-end;}
+.ui_flex_wrap {flex-wrap:wrap;}
 .ui_self_center {align-self: center;}
 
 .ti2{text-indent:2em;}/*移动设备下，text-indent在input框的支持性不好，建议使用padding-left缩进*/
@@ -239,22 +228,81 @@ i[class*="_ico"] {display: inline-block;vertical-align: middle;}
 .ui_left_1px {position: relative;}
 .ui_1px:before {border: 1px solid #ccc;content: '';
     position: absolute;left:0;top:0;width: 200%;height: 200%;
-    transform:scale(.5,.5);-webkit-transform:scale(.5,.5);transform-origin: left top;-webkit-transform-origin: left top
+    transform:scale(.5,.5);transform-origin: left top;
 }
 .ui_top_1px:before,
 .ui_bottom_1px:before {
     position: absolute;content: '';left: 0;right: 0;
-    border-bottom: 1px solid #ccc;transform: scaleY(.5);-webkit-transform: scaleY(.5);
+    border-bottom: 1px solid #ccc;transform: scaleY(.5);
 }
 .ui_top_1px:before {top: 0;}
 .ui_bottom_1px:before {bottom: 0}
 .ui_left_1px:before,
 .ui_right_1px:before {
     position: absolute;content: '';top: 0;bottom: 0;
-    border-left: 1px solid #ccc;transform: scaleX(.5);-webkit-transform: scaleX(.5);
+    border-left: 1px solid #ccc;transform: scaleX(.5);
 }
 .ui_left_1px:before {left: 0;}
 .ui_right_1px:before {right: 0}
+
+/*箭头*/
+.ui_triangle_up,
+.ui_triangle_down,
+.ui_arrow_up,
+.ui_arrow_down,
+.ui_arrow_left,
+.ui_arrow_right {position: relative;display: inline-block;vertical-align: middle;}
+.ui_triangle_up,
+.ui_triangle_down {
+  width:16px;height:16px;
+}
+.ui_arrow_up,
+.ui_arrow_down,
+.ui_arrow_left,
+.ui_arrow_right {width:20px;height:20px;}
+.ui_triangle_up:after,
+.ui_triangle_down:after {
+    position: absolute;
+    top:0;
+    right:0;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 8px solid;
+}
+.ui_triangle_up:after  {
+    top:-4px;
+    border-color: transparent transparent #bfbfbf transparent;
+}
+.ui_triangle_down:after {
+    border-color: #bfbfbf transparent transparent transparent;
+}
+.ui_arrow_up:after,
+.ui_arrow_down:after,
+.ui_arrow_left:after,
+.ui_arrow_right:after {position: absolute;
+    content: '';
+    width: 10px;
+    height:10px;
+    border: 1px solid;
+    border-color: transparent #999 #999 transparent;transition: all 0.2s;
+}
+.ui_arrow_up:after {  
+    top:4px;right:4px;
+    transform: rotate(225deg);
+}
+.ui_arrow_down:after {
+    top:0;right:4px;
+    transform: rotate(45deg);
+}
+.ui_arrow_left:after {
+    top:2px;left:8px;
+    transform: rotate(135deg);
+} 
+.ui_arrow_right:after {
+    top:2px;right:8px;
+    transform: rotate(315deg);
+} 
 
 /*文字区块*/
 .ui_con_block {padding: 20px 10px;background-color:#fffbe8;color: var(--warning_color);}

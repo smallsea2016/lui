@@ -20,7 +20,7 @@
         <div class="ui_page_bd">
             <script type="text/html" id="tpl">
                 <p class="ui_con_block">
-                    包含通栏列表，缩进列表，卡片列表，媒体列表。PS：列表数据使用mock模拟。
+                    包含通栏列表，缩进列表，卡片列表，媒体列表。<br>PS：列表数据使用mock模拟。
                 </p>
                  <section class="mt10">
                     <h2 class="ui_list_hd">通栏列表</h2>
@@ -44,8 +44,8 @@
                         {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
                             <li>
                                 <a href="#">
-                                    <h2 class="ellipsis tit">{{d.list[i].content}}</h2>
-                                    <p class="pt5"><time>{{d.list[i].datetime}}</time></p>
+                                    <h2 class="ui_list_item_title ellipsis">{{d.list[i].content}}</h2>
+                                    <p class="pt5"><time class="ui_list_item_time">{{d.list[i].datetime}}</time></p>
                                 </a>
                             </li>
                         {{# }}}
@@ -55,12 +55,12 @@
                     <h2 class="ui_list_hd">媒体列表</h2>
                     <ul class="ui_list">
                         {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
-                            <li class="flexbox">
+                            <li class="ui_flex">
                                 <figure><img src="{{d.list[i].image}}" class="ui_list_thumb"></figure>
-                                <section class="flexItem ui_list_right">
-                                    <h2 class="tit ellipsis_line2">{{d.list[i].content}}</h2>
+                                <section class="ui_flex_item pl10">
+                                    <h2 class="ui_list_item_title ellipsis_line2">{{d.list[i].content}}</h2>
                                     <div>
-                                        <time>{{d.list[i].datetime}}</time>
+                                        <time class="ui_list_item_time">{{d.list[i].datetime}}</time>
                                     </div>
                                 </section>
                             </li>

@@ -315,10 +315,10 @@ tab切换
   示例代码
   ```html
   <div data-role="tabs">
-    <nav class="ui_capsule_tab flexbox">
-        <a href="javascript:;" data-role="tab" class="flexItem active">tab1</a>
-        <a href="javascript:;" data-role="tab" class="flexItem">tab2</a>
-        <a href="javascript:;" data-role="tab" class="flexItem">tab3</a>
+    <nav class="ui_capsule_tab ui_flex">
+        <a href="javascript:;" data-role="tab" class="ui_flex_item active">tab1</a>
+        <a href="javascript:;" data-role="tab" class="ui_flex_item">tab2</a>
+        <a href="javascript:;" data-role="tab" class="ui_flex_item">tab3</a>
     </nav>
     <div id="tab_content">
         <div data-role="tabContent" class="p20 active">
