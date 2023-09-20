@@ -150,50 +150,6 @@
         }
       }
     }
-    g.pullDownRefresh = function(container,callback){
-        var touch,startX,startY,moveX,moveY,touchX,touchY,flag = false;
-        var div = document.querySelector(container),
-          iconHeight = 50;
-         div.style.cssText += 'transform:translate3d(0,-'+iconHeight+'px,0);webkitTransform:translate3d(0,-'+iconHeight+'px,0);overscroll-behavior: contain';
-
-        div.addEventListener("touchstart",touchstart,false);
-        div.addEventListener("touchmove",touchmove,false);
-        div.addEventListener("touchend",touchend,false);
-
-        function touchstart(e){
-            flag = true;
-            // e.preventDefault();
-            var touch = e.changedTouches[0];
-            startX = touch.pageX;
-            startY = touch.pageY;
-            // console.log('touchstart:'+startX);
-        }
-
-        function touchmove(e){
-            var touch = e.changedTouches[0];
-            moveX = touch.pageX;
-            moveY = touch.pageY;
-            touchX = moveX - startX;
-            touchY = moveY - startY - iconHeight;
-            if (moveY - startY > 0 && flag){
-              if (touchY > 6) {
-                document.querySelector('#pullDown').classList.add('flip');
-              }else{
-                document.querySelector('#pullDown').classList.remove('flip');
-              }
-              div.style.cssText += 'transform:translate3d(0,'+touchY+'px,0);webkitTransform:translate3d(0,'+touchY+'px,0);';
-            }
-            // console.log('touchY:'+touchY);
-        }
-
-        function touchend(e){
-            flag = false;
-            div.style.cssText += 'transform:translate3d(0,-'+iconHeight+'px,0);webkitTransform:translate3d(0,-'+iconHeight+'px,0);transition:all .2s cubic-bezier(.08,.87,.08,.87);webkitTransition:all .2s cubic-bezier(.08,.87,.08,.87);';
-            if (callback && typeof callback === "object" && callback['end']) {
-                callback['end'](touchY)
-            };
-        }
-    },
     /**
       * 滑动到底加载更多（需要注意的是，有滚动条才能滚动，如果页面禁止了默认滑动，也无法使用该方法）
       * @param wrap 要滚动的元素

@@ -1,4 +1,4 @@
-@import url(reset.css);
+@import url(base.css);
 @import url(./lib/animation.css);
 /**
     @author 黄小海
@@ -121,21 +121,30 @@ a.ui_btn {line-height: 45px;}
   justify-content: center;
   border-radius: 50%;
   background-clip: padding-box;color: #fff;
-  background-color: var(--primary_color);
   font-size: 18px;
   box-shadow: 0 0 5px #999 
 } 
 .sticky_bottom_btn {
   position: absolute;left: calc(100% - 90px);top: calc(100% - 90px);z-index:99;
   width: 60px;height: 60px;
+  background-color: var(--primary_color);
 }
 .ui_back_top {
   position: fixed;
   right: 30px;
   bottom: 30px;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   transform: scale(0);
+}
+.ui_back_top_mask {
+  position: absolute;inset: 0;
+  border-radius: inherit;
+  background-color: var(--primary_color);
+  opacity: .8;
+}
+.ui_back_top_ico {
+  transform: scale(0.8) translateY(2px);
 }
 .ui_back_top_ico.ui_arrow_up::after {
   border-width: 2px;
