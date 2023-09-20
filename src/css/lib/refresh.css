@@ -2,14 +2,14 @@
   * 下拉样式 Pull down styles
 */
 .scroller_wrap {position: relative;overflow: hidden;}
-#pullDown, #pullUp {
+[data-role="pullDown"], [data-role="pullUp"] {
     text-align: center;
     height:40px;
     line-height:40px;
     padding:5px 10px;
     color:#888;
 }
-#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+[data-role="pullDown"] .pullDownIcon, [data-role="pullUp"] .pullUpIcon  {
     display:inline-block;vertical-align: middle;
     width:40px; height:40px;
     background:url(../../images/icon/pull-icon@2x.png) 0 0 no-repeat;
@@ -17,22 +17,22 @@
     -webkit-transition-property:-webkit-transform;
     -webkit-transition-duration:250ms;  
 }
-#pullDown .pullDownIcon {
+[data-role="pullDown"] .pullDownIcon {
     -webkit-transform:rotate(0deg) translateZ(0);
 }
-#pullUp .pullUpIcon  {
+[data-role="pullUp"] .pullUpIcon  {
     -webkit-transform:rotate(-180deg) translateZ(0);
 }
 
-#pullDown.flip .pullDownIcon {
+[data-role="pullDown"].flip .pullDownIcon {
     -webkit-transform:rotate(-180deg) translateZ(0);
 }
 
-#pullUp.flip .pullUpIcon {
+[data-role="pullUp"].flip .pullUpIcon {
     -webkit-transform:rotate(0deg) translateZ(0);
 }
 
-#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+[data-role="pullDown"].loading .pullDownIcon, [data-role="pullUp"].loading .pullUpIcon {
     background-position:0 100%;
     -webkit-transform:rotate(0deg) translateZ(0);
     -webkit-transition-duration:0ms;
