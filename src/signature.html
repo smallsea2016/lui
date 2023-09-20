@@ -1,57 +1,62 @@
- <!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-   <head>
-    <title>LUI组件库</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta http-equiv="Cache-Control" content="no-cache">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta name="keywords" content="LUI，轻量级移动端UI组件库"/>
-    <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
-    <link rel="icon" href="images/icon/lui.png">
-   
-    <link rel="stylesheet" type="text/css" href="css/lui.css" />
-    <style type="text/css">
-        .canvas_iframe {
-            display: block;
-            width: 100%;
-            max-width: 640px;max-height: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid #ccc;box-sizing: border-box;
-        }
-        .well_box {margin-top: 10px;margin-bottom: 10px;padding: 10px;color: #666}
-       .iframe_wrap {max-width: 640px;max-height: 400px;}
-    </style>
-</head>
-   <body>
-    <div class="ui_page_wrap">
+    <head>
+        <title>LUI组件库</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta name="keywords" content="LUI，轻量级移动端UI组件库" />
+        <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
+        <link rel="icon" href="images/icon/lui.png">        
+        <link rel="stylesheet" type="text/css" href="css/lui.css" />
+    </head>
+    <body>
+      <div class="ui_page_wrap">
         <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>签名</header>
-        <div class="ui_page_bd" id="main">
-            <div class="ui_con_block">
-                <p>
-                    canvas技术实现。
-                </p>
+        <div class="ui_page_bd">
+          <div class="ui_con_block">
+            <p>
+              canvas技术实现。
+            </p>
+          </div>
+          <!-- /// [htmldemo] -->
+          <div id="j_canvas_wrap">
+            <canvas id="j_canvas">浏览器不支持canvas</canvas>
+            <div class="tr p15">
+              <button type="button" class="ui_btn ui_default_btn ui_inline mr10" size="sm" id="j_reset" onclick="reset()">重签</button>
+              <button type="button" class="ui_btn ui_inline" size="sm" id="j_save" onclick="getBase64Sign()">确认</button>
             </div>
-            <div class="iframe_wrap">
-                <iframe src="sign_canvas.html" class="canvas_iframe" role="canvasIframe"></iframe>
-            </div>
-            <div class="ui_btn_box"><a href="javascript:base64Sign();" class="ui_btn">查看签名图片</a></div>
+          </div>
+          <!-- /// [htmldemo] -->
         </div>
-    </div>
-
-   <script type="text/javascript" src="js/lui.js"></script>    
-   <script>
+      </div>
+      
+    <script type="text/javascript" src="js/lui.js"></script>
+    <!--签名的js-->
+    <script type="text/javascript" src="js/lib/signature.js"></script>
+    <script type="text/javascript">
+        ///[jsdemo]
+        //签名
+        var _dataImg = null
+        var signature = new Signature({
+          callback:function(dataImg){
+            _dataImg = dataImg
+          }
+        });
+        function reset(){
+          signature.clearRect()
+        }
         //取得签名图片
-       function base64Sign(){
-          var src = document.getElementById('j_sign2018_img').src;
-          lui.showModal({
-            content:'<img src="'+src+'">'
-          });
-       }
-  </script>
- </body>
+        function getBase64Sign(){
+            lui.showModal({
+              content:'<img src="'+ _dataImg+'">'
+            });
+        }
+        ///[jsdemo]
+    </script>
+    </body>
 </html>

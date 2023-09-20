@@ -1,22 +1,20 @@
 /**
     * 移动端签名功能
     * @constructor
-    * @param {number} ratio 画布高度比列
-    * @param {string} container 画布外层盒子选择器
-    * @param {string} canvas 画布选择器    
-    * @param {string} save 保存按钮选择器
-    * @param {string} reset 重签按钮选择器
+    * @param {string} opts.container 画布外层盒子选择器
+    * @param {string} opts.canvas 画布选择器    
+    * @param {number} opts.ratio 画布高度比列
+    * @param {function} opts.callback 签名绘制完成后的回调，返回base64位图片
 */
-function Signature(ratio,container,canvas,save,reset){
-    var ratio = ratio || 3/5;
+function Signature(opts) {
     var _this = this;
-    _this.cavas = $$(canvas) || $$('#j_canvas');
-    _this.container = $$(container) || $$('#j_canvas_wrap');
-    _this.save = $$(save) || $$('#j_save');
-    _this.reset = $$(reset) || $$('#j_reset');
-    _this.ctx = _this.cavas.getContext('2d');
-    _this.offsetLeft = _this.container.offsetLeft;
-    _this.offsetTop = _this.container.offsetTop;
+    var _opts = opts || {}
+    var ratio = _opts.ratio || 3 / 5;
+    _this.container = $$(_opts.container) || $$('#j_canvas_wrap');
+    _this.canvas = $$(_opts.canvas) || $$('#j_canvas');
+    _this.ctx = _this.canvas.getContext('2d');
+    _this.offsetLeft = _this.container.getBoundingClientRect().left;
+    _this.offsetTop = _this.container.getBoundingClientRect().top;
     _this.flag = false;
     _this.isTouch = 'ontouchstart' in window;
     _this.img;
@@ -34,35 +32,18 @@ function Signature(ratio,container,canvas,save,reset){
     function $$(elm){
         return document.querySelector(elm)
     }
-     //判断是否存在iframe
-    function isIframe(){
-        return top.location != self.location
-    }
+    
     (_this.canvasStyle  = function (){
         //画布初始化
-        _this.cavas.style.cssText += 'background:url(images/icon/shouxie.png) no-repeat center #fff;background-size:auto 60px'
-        _this.cavas.width = _this.container.clientWidth;
-        _this.cavas.height = _this.container.clientWidth * (ratio);
-        if(isIframe()){  
-            //iframe高
-            parent.document.querySelector('[role="canvasIframe"]').setAttribute("height",_this.cavas.height+2);
-        }  
-
-        //创建存储签名的图片
-        _this.img = new Image();
-        _this.img.id = 'j_sign2018_img';
-        _this.img.setAttribute('hidden','hidden');
-        if (isIframe()) {
-            parent.document.getElementsByTagName('body')[0].appendChild(_this.img);
-        }else{
-            document.getElementsByTagName('body')[0].appendChild(_this.img);
-        };
+        _this.canvas.style.cssText += 'background:url(images/icon/shouxie.png) no-repeat center #fff;background-size:auto 60px'
+        _this.canvas.width = _this.container.clientWidth;
+        _this.canvas.height = _this.container.clientWidth * (ratio);
     })()
     //签名开始
-    _this.cavas.addEventListener(_this.down,
+    _this.canvas.addEventListener(_this.down,
         function(evt) {
             _this.flag = true;
-            _this.cavas.style.background = '#fff';
+            _this.canvas.style.background = '#fff';
             evt.preventDefault();
             (_this.isTouch) ? touchEvent = evt.touches[0] :  touchEvent = evt; //事件源
             _this.ctx.beginPath();
@@ -77,39 +58,21 @@ function Signature(ratio,container,canvas,save,reset){
             _this.ctx.stroke();
         };
     };
-    _this.cavas.addEventListener(_this.move,_this.moveFn,false);
+    _this.canvas.addEventListener(_this.move,_this.moveFn,false);
     //签名结束
-    _this.cavas.addEventListener(_this.up,
+    _this.canvas.addEventListener(_this.up,
         function(evt) {
             _this.flag = false;
+            var imgDataURL = _this.canvas.toDataURL("image/png");
+            if (_opts.callback && typeof _opts.callback === "function") {
+              _opts.callback(imgDataURL);
+            }
         },
     false);
 
-    //保存绘制的图片
-    _this.save.addEventListener('click',function(){
-        var imgDataURL = _this.cavas.toDataURL("image/png");
-            _this.img.src = imgDataURL; 
-            // _this.hideEl(imgDataURL);
-    },false)
-
     //清除canvas内容
     _this.clearRect = function (){
-        _this.cavas.style.background = 'url(images/icon/shouxie.png) no-repeat center #fff';
-        _this.ctx.clearRect(0,0,_this.cavas.clientWidth,_this.cavas.clientHeight);
+        _this.canvas.style.background = 'url(images/icon/shouxie.png) no-repeat center #fff';
+        _this.ctx.clearRect(0,0,_this.canvas.clientWidth,_this.canvas.clientHeight);
     }
-    _this.reset.addEventListener('click',function(){
-        _this.clearRect();
-    },false)
-
-    //隐藏弹窗
-    _this.hideEl = function(imgDataURL){
-        if (isIframe()) {
-            parent.document.getElementById('mask').style.display = 'none';
-            parent.document.getElementById('canvas_pop_up').style.display = 'none';
-            var data_id = _this.cavas.getAttribute('data-id');
-            parent.document.querySelector('#'+data_id).parentNode.classList.add('active');
-            parent.document.querySelector('#'+data_id).setAttribute('data-src',imgDataURL)
-        }
-    }
-
 }
