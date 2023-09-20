@@ -14,15 +14,18 @@
     <link rel="icon" href="images/icon/lui.png">   
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
     <link rel="stylesheet" type="text/css" href="css/3rd-css/mobileSelect.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
      <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>级联选择器</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>级联选择器</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 级联选择器，用于多层级数据的选择，典型场景为省市区选择
             </p>
             <br>
+            <!-- /// [htmldemo] -->
             <ul class="ui_form">
               <li class="ui_form_item ui_flex">
                 <label class="ui_form_label">选择地址</label>
@@ -31,7 +34,8 @@
                   <i class="ui_arrow_right"></i>
                 </div>
               </li>
-            </ul>       
+            </ul>
+            <!-- /// [htmldemo] -->
         </div>
     </div>
 
@@ -39,6 +43,7 @@
 <script type="text/javascript" src="js/3rd-plugins/mobileSelect.js"></script>
 <script type="text/javascript" src="js/data/city.js"></script>
 <script type="text/javascript">
+    ///[jsdemo]
     //更多参数详情可查看文档 https://github.com/onlyhom/mobile-select
     //更多demo：https://onlyhom.github.io/mobile-select/demo.html
 
@@ -63,7 +68,7 @@
      * @function getValue()      参数 无参                   获取组件选择的值
      * @function destory()       参数 无参                   销毁组件
      */
-    var mobileSelect4 = new MobileSelect({
+    var mobileSelect = new MobileSelect({
       trigger: '#picker',
       title: '地区选择',
       wheels: [
@@ -78,6 +83,7 @@
         console.log(data);
       }
     })
+    ///[jsdemo]
 </script>
 </body>
 </html>

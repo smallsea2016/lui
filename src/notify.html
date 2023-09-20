@@ -18,14 +18,17 @@
         padding: 10px
       }
     </style>
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
      <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>消息通知</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>消息通知</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
               常用于表单校验提示
             </p>
+            <!-- /// [htmldemo] -->
             <div class="ui_notify" id="j-primary">这是一条主要通知</div>
             <div class="ui_notify_success" id="j-success">这是一条成功通知</div>
             <div class="ui_notify_warning" id="j-warning">这是一条警告通知</div>
@@ -37,11 +40,13 @@
               <li><button type="button" class="ui_btn" onclick="showNotify('warning')">警告通知</button></li>
               <li><button type="button" class="ui_btn" onclick="showNotify('danger')">危险通知</button></li>
             </ul>
+            <!-- /// [htmldemo] -->
         </div>
     </div>
 
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
+    ///[jsdemo]
     function showNotify(type){
       var t = null
       clearTimeout(t)
@@ -50,6 +55,7 @@
         document.querySelector('#j-' + type).classList.remove('ui_notify_active')
       }, 3000);
     }
+    ///[jsdemo]
 </script>
 </body>
 </html>

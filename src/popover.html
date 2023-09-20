@@ -13,17 +13,19 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body ontouchstart>
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>气泡弹出框</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>气泡弹出框</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">弹出式的气泡框。让有限的空间看见更多的信息。
               <br>注意：
               <br>① 使用纯css伪类:hover实现，需要遵循约定布局：触发按钮和popover为相邻元素，触发按钮依赖属性data-role="popover-btn"，popover依赖属性data-role="popover"
               <br>② 需要在body绑定ontouchstart才能激活ios的:hover
             </p>
-
+            <!-- /// [htmldemo] -->
             <ul class="p30">
                 <li class="mb20">
                   <button type="button" class="ui_btn ui_default_btn ui_inline" skin="plain" data-role="popover-btn">默认浅色风格</button>
@@ -59,7 +61,8 @@
                     </div>
                   </div>
                 </li>
-            </ul>     
+            </ul>
+            <!-- /// [htmldemo] -->
         </div>
     </div>
 </body>

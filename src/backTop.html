@@ -21,18 +21,19 @@
       text-indent: 2em;
     }
   </style>
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 
 <body class="bg_white">
   <div class="ui_page_wrap">
     <header class="ui_page_hd">
-      <a href="javascript:history.go(-1);" class="ui_back"></a>回到顶部
+      <a href="javascript:goBack();" class="ui_back"></a>回到顶部
     </header>
     <div class="ui_page_bd" id="j-back-top-container">
       <p class="ui_con_block">
         用于较长的页面快捷回到顶部
       </p>
-
       <main class="p20 fixck">
         <img src="./images/redtory1.jpg" alt="" srcset="">
         <p>
@@ -52,19 +53,23 @@
           这里有国内外知名的画廊、设计工作室、艺术展示空间、时尚店铺、特色餐厅及咖啡厅，这里有休闲文艺的小清新。一个人的时候，你会爱上这里。
         </p>
       </main>
-
     </div>
+    <!-- /// [htmldemo] -->
     <span class="ui_back_top" data-role="back-top">
+      <span class="ui_back_top_mask"></span>
       <i class="ui_back_top_ico ui_arrow_up"></i>
     </span>
+    <!-- /// [htmldemo] -->
   </div>
 
   <!--公共js-->
   <script type="text/javascript" src="js/lui.js"></script>
   <script type="text/javascript">
+      ///[jsdemo]
        lui.backTop({
           target: '#j-back-top-container'
         })
+      ///[jsdemo]
   </script>
 </body>
 

@@ -13,16 +13,19 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body class="bg_white">
      <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>1像素边框</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>1像素边框</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 对于移动开发者而言，搞清设备分辨率和css像素之间的关系是很重要的，css单位的1像素和移动端屏幕的1像素并不是相等的。
                 比如iPhone6s的分辨率是750X1334，但实际上对应css是375X667。也就是手机1px=css的0.5px。
                 通过css伪类+css3缩放则可以达到视觉效果。
-            </p>   
+            </p>
+           <!-- /// [htmldemo] -->
             <div class="p10">
                 <div class="p10  ui_1px">1像素边框</div>
             </div>
@@ -38,6 +41,7 @@
             <div class="p10">
                 <div class="p10  ui_left_1px">1像素左边框</div>
             </div>
+            <!-- /// [htmldemo] -->
         </div>
     </div>
 </body>

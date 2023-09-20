@@ -375,6 +375,22 @@ textarea高度自适应
     })
   ```
 
+#### lui.watermark(el,name,len)
+水印
+
+  **参数说明**
+
+  参数 | 类型 | 必填 | 说明 
+  ---|---|---|---
+  el|String|是|挂载水印的文档节点
+  name|String|是|水印内容
+  len|Number|否|水印个数
+
+  示例代码
+  ```js
+    lui.watermark('#js_watermarkbox','张碧晨10056500',18)
+  ``` 
+
  #### TouchElement(el,object)
 移动元素
 
@@ -408,22 +424,6 @@ textarea高度自适应
       direction: 'row'
     })
   ```  
-
-#### lui.watermark(el,name,len)
-水印
-
-  **参数说明**
-
-  参数 | 类型 | 必填 | 说明 
-  ---|---|---|---
-  el|String|是|挂载水印的文档节点
-  name|String|是|水印内容
-  len|Number|否|水印个数
-
-  示例代码
-  ```js
-    lui.watermark('#js_watermarkbox','张碧晨10056500',18)
-  ``` 
 
 
 

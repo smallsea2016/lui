@@ -13,14 +13,17 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>水印</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>水印</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 页面上添加特定的文字或图案，可用于防止信息盗用。
             </p>
+            <!-- /// [htmldemo] -->
             <ul class="ui_form ui_form_detail" id="js_form">
                 <li class="ui_form_item ui_flex">
                     <label class="ui_form_label">姓名</label>
@@ -59,6 +62,7 @@
                     </div>
                 </li>   
             </ul>
+            <!-- /// [htmldemo] -->
             <footer class="ui_btn_box mt20">
                 <button type="button" class="ui_btn">确认无误</button>
             </footer>
@@ -67,8 +71,10 @@
     
 <!--公共js-->
 <script type="text/javascript" src="js/lui.js"></script>
-<script type="text/javascript">    
+<script type="text/javascript">
+    ///[jsdemo]
     lui.watermark('#js_form','张婷6500',18);
+    ///[jsdemo]
 </script>
 </body>
 </html>

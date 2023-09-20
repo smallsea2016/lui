@@ -15,7 +15,7 @@ LUI本身不需要额外构建环境和安装依赖包，可直接打开html页�
 ### css
  一般情况下引入
     <mark>lui.css</mark>就可以了，lui.css已经import了一个
-    <mark>reset.css</mark>，重置了浏览器默认样式以及包含了一些基础辅助样式。如果页面包含富文本，要引入
+    <mark>base.css</mark>，重置了浏览器默认样式以及包含了一些基础辅助样式。如果页面包含富文本，要引入
     <mark>fixck.css</mark>。
 ### js
   依赖jq的只有
@@ -59,4 +59,4 @@ LUI本身不需要额外构建环境和安装依赖包，可直接打开html页�
 </html>
 
 ```
-<a href="../demo.html">查看结果</a>
+<a href="../src/demo.html">查看结果</a>

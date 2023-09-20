@@ -13,23 +13,28 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
      <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>轻提示</header>
-        <div class="ui_page_bd">			
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>轻提示</header>
+        <div class="ui_page_bd">
             <p class="ui_con_block">包含成功和警告两种状态，还可以自定义3种位置，是一种比较轻量的提示。</p>
+            <!-- /// [htmldemo] -->
             <div class="ui_btn_box"><button type="button" class="ui_btn" onclick="ok()">操作成功</button></div>
             <div class="ui_btn_box"><button type="button" class="ui_btn ui_warning_btn" onclick="fail()">警告提示</button></div>
             <div class="ui_btn_box"><button type="button" class="ui_btn" skin="plain" onclick="posTop()">居于页面顶部</button></div>
             <div class="ui_btn_box"><button type="button" class="ui_btn" skin="plain" onclick="positionMiddle()">居于页面中部</button></div>
             <div class="ui_btn_box"><button type="button" class="ui_btn" skin="plain" onclick="positionBottom()">居于页面底部</button></div>
+            <!-- /// [htmldemo] -->
         </div>
     </div>
     
 <!--本项目的js-->
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
+        ///[jsdemo]
         function ok(){
             lui.toast({
                 type:'ok',
@@ -64,7 +69,7 @@
                 text:'提示内容'
             });
         } 
-
+        ///[jsdemo]
 </script>
 </body>
 </html>

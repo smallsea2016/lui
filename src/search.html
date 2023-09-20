@@ -13,12 +13,15 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>搜索框</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>搜索栏</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">多种输入框风格，满足各种常见场景。</p>
+            <!-- /// [htmldemo] -->
             <section class="mb15">
                 <div class="ui_search_box">
                     <input type="search" name="" class="ui_search_ipt ui_search_icon" placeholder="搜索">
@@ -62,8 +65,9 @@
                 </a>
               </div>
             </section>
+            <!-- /// [htmldemo] -->
         </div>
-
+        <!-- /// [htmldemo2] -->
         <!--底部弹出-->
         <div class="ui_actionSheet_wrap" id="js_actionSheet">
           <div class="ui_mask" onclick="toggleActionSheet()"></div>
@@ -78,10 +82,12 @@
             </footer>
           </div>
         </div>
+        <!-- /// [htmldemo2] -->
     </div>
 <!--公共js-->
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
+     ///[jsdemo]
     lui.search({
         el:'#js_search',
         input:function(val){
@@ -100,9 +106,10 @@
 
     /*显示和隐藏搜索条件*/
     function toggleActionSheet() {
-        var el = document.querySelector('#js_actionSheet');
-         el.classList.toggle('ui_actionSheet_active');
-      }
+      var el = document.querySelector('#js_actionSheet');
+        el.classList.toggle('ui_actionSheet_active');
+    }
+    ///[jsdemo]
 </script>
 </body>
 </html>

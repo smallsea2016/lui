@@ -13,21 +13,24 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
    <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>标签页</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>标签页</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 手势滑动tab内容切换是通过swiper插件实现的。点击则是自写js实现。
             </p>
+            <!-- /// [htmldemo] -->
             <ul class="ui_tab ui_flex" id="tab_tt">
                 <li class="ui_flex_item active" data-index="0"><a href="javascript:;">tab1</a></li>
                 <li class="ui_flex_item" data-index="1"><a href="javascript:;">tab2</a></li>
                 <li class="ui_flex_item" data-index="2"><a href="javascript:;">tab3</a></li>
             </ul>
-            <div class="swiper-scrollbar"></div>
 
+            <div class="swiper-scrollbar"></div>
             <div class="swiper-container mt10">
                 <div class="swiper-wrapper boxModal">
                     <!--tab1-->
@@ -81,7 +84,8 @@
                         tab3
                     </div>
                 </div>
-            </section>           
+            </section>
+            <!-- /// [htmldemo] -->
         </div>
     </div>
 
@@ -91,6 +95,7 @@
 <script type="text/javascript" src="js/lui.js"></script>
 
 <script type="text/javascript">
+    ///[jsdemo]
     /*tab手势切换*/
     var lis = document.querySelectorAll("#tab_tt>li");
     var tabSwiper = new Swiper('.swiper-container',{
@@ -130,6 +135,7 @@
 	lui.tabs('[data-role="tabs"]',function(idx){
     lui.toast({type:'text',text:'点击了第'+(idx+1)+'个tab',position:'top'})
   });
+  ///[jsdemo]
 </script>
 </body>
 </html>

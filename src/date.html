@@ -13,14 +13,17 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>日期时间</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>日期时间</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 移动端日期控件mobiscroll，支持多种日期格式配置。
             </p>
+            <!-- ///[htmldemo] -->
             <div class="p10">
                 <ul class="ui_flex">
                      <li class="ui_flex_item"><input type="text" readonly placeholder="开始时间" class="ui_ipt" id="taskStart"></li>
@@ -34,6 +37,7 @@
             <div class="p10">
                 距离<span id="j_next_year"></span>年国庆还有：<u class="primary_color" id="j_gq"></u>
             </div>
+            <!-- ///[htmldemo] -->
         </div>
     </div>
 
@@ -44,6 +48,7 @@
 <script type="text/javascript" src="js/3rd-plugins/mobiscroll.2.13.2.min.js"></script>
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
+    ///[jsdemo]
     /**
         ====日历设置====
         var opt = {
@@ -78,6 +83,7 @@
             document.querySelector('#j_gq').innerHTML = s[0]+'天'+s[1]+'时'+s[2]+'分'+s[3]+'秒';  
         }        
     });
+    ///[jsdemo]
 </script>
 </body>
 </html>

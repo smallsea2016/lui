@@ -27,16 +27,19 @@
       margin-bottom: 10px; /* 元素间距 */
     }
   </style>
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 
 <body>
   <div class="ui_page_wrap">
     <header class="ui_page_hd">
-      <a href="javascript:history.go(-1);" class="ui_back"></a>图片预览</header>
+      <a href="javascript:goBack();" class="ui_back"></a>图片预览</header>
     <div class="ui_page_bd">
       <p class="ui_con_block">
         使用viewerjs实现，感谢作者
       </p>
+      <!-- /// [htmldemo] -->
       <ul class="columns" id="j-viewer">
         <li class="item"><img src="images/p1.jpg" data-original="images/p1.jpg"></li>
         <li class="item"><img src="images/m2.jpg" data-original="images/m2.jpg"></li>
@@ -45,6 +48,7 @@
         <li class="item"><img src="images/redtory2.jpg" data-original="images/redtory2.jpg"></li>
         <li class="item"><img src="images/p3.jpg" data-original="images/p3.jpg"></li>
       </ul>
+      <!-- /// [htmldemo] -->
     </div>
   </div>
 
@@ -53,6 +57,7 @@
   <script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.11.3/viewer.min.js"></script>
   <!-- viewerjs文档：https://fengyuanchen.github.io/viewerjs/ -->
   <script type="text/javascript">
+    ///[jsdemo]
     /**
      * 图片预览
      * 建议将大图放在data-original，让页面加载更快
@@ -60,6 +65,7 @@
     var viewer = new Viewer(document.getElementById('j-viewer'), {
       url: 'data-original'
     })
+    ///[jsdemo]
   </script>
 </body>
 

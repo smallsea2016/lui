@@ -17,26 +17,30 @@
     <style type="text/css">
         .scroller_wrap {position: absolute;top:60px;left: 0;right: 0;bottom: 0}
     </style>
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>下拉刷新上拉加载</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>下拉刷新上拉加载</header>
         <div class="ui_page_bd" id="main">
             <p class="ui_con_block">
                 iscroll下拉刷新，上拉加载。<a rel="noopener noreferrer" target="_blank" href="https://www.npmjs.com/package/iscroll">iscroll文档</a>
             </p>
+            <!-- /// [htmldemo] -->
             <div class="scroller_wrap" id="scroller_wrap">
                 <section id="scroller">
-                    <div id="pullDown">
+                    <div id="pullDown" data-role="pullDown">
                         <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
                     </div>
                     <ul class="ui_list" id="list">
                     </ul>
-                    <div id="pullUp">
+                    <div id="pullUp" data-role="pullUp">
                       <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
                     </div>
                 </section>
-            </div>            
+            </div>
+            <!-- /// [htmldemo] -->
         </div>
     </div>
 
@@ -46,6 +50,7 @@
 <!--iscroll下拉刷新，上拉加载-->
 <script type="text/javascript" src="js/3rd-plugins/iscroll.js"></script>
 <script type="text/javascript">
+///[jsdemo]
     // 使用 Mock生成随机数据
     var data = Mock.mock('/path/to/file',{
         'result|10':[{
@@ -169,6 +174,7 @@ document.addEventListener('touchmove', preventEvent, false);
 // document.addEventListener('touchmove', function(e){console.log(e);e.preventDefault();}, false);
 document.addEventListener('DOMContentLoaded', loaded, false); 
 /*========== iscroll无限加载 END ==========*/
+///[jsdemo]
 </script>
 </body>
 </html>

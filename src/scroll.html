@@ -22,15 +22,17 @@
       }
       .ui_loadMore_tips {position: relative;z-index: 2;padding-left: 10px;padding-right: 10px;background-color: #fff;color: #999}
     </style>
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body class="bg_white">
      <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>滑动加载更多</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>滑动加载更多</header>
         <div class="ui_page_bd" id="main">
             <p class="ui_con_block">
                 通过scroll事件实现。适用于桌面端和移动端。
             </p>  
-                    
+            <!-- /// [htmldemo] -->
             <ul class="ui_list" id="list"> 
              <script id="tpl" type="text/html">                
                 {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
@@ -38,7 +40,7 @@
                 {{# } }}       
                  </script>         
             </ul>       
-
+            <!-- /// [htmldemo] -->
             <ul id="tpl_view" class="ui_list"></ul>
 
             <div class="ui_loadMore"><p class="ui_loadMore_line"><span class="ui_loadMore_tips">努力加载中</span></p></div> 
@@ -51,6 +53,7 @@
 <!--公共js-->
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
+    ///[jsdemo]
     lui.scrollToBottom('#main',function(res){
         if(res === true){          
           loadData(); //加载数据
@@ -82,6 +85,7 @@
         });
     }
     loadData();
+    ///[jsdemo]
 </script>
 </body>
 </html>

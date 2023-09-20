@@ -13,28 +13,34 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>多行输入框</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>多行输入框</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 textarea不能和div一样高度自适应，但超出默认高度后，会产生滚动条，因此可以通过实时计算scrollHeight，让它的高度等于scrollHeight就实现自适应高度了。
             </p>
+            <!-- /// [htmldemo] -->
             <textarea placeholder="请输入内容，它会自动适应高度，至多3行" class="ui_textarea pl15 pr15" id="textarea" rows="1"></textarea>
             <br><br>
             <textarea placeholder="请输入，最多能输入100字" maxlength="100" id="j_textarea" class="ui_textarea pl15 pr15" rows="5"></textarea>
             <p class="p10 tr c999"><span id="js_couter">0</span>/100</p>
+            <!-- /// [htmldemo] -->
         </div>    
     </div>
 
 <!--公共js-->
 <script type="text/javascript" src="js/lui.js"></script>
-<script type="text/javascript">       
+<script type="text/javascript">
+    ///[jsdemo]
     lui.textareaAutoHeight('#textarea');
     lui.getTextFieldLen('#j_textarea',function(len){
         js_couter.innerHTML = len
     });
+    ///[jsdemo]
 </script>
 </body>
 </html>

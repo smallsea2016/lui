@@ -14,26 +14,31 @@
     <link rel="icon" href="images/icon/lui.png">
    
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
      <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>模态框</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>模态框</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 alert，confirm，prompt。
             </p>
             <div class="nav_tab_wrap">
+                <!-- /// [htmldemo] -->
                 <nav class="ui_capsule_tab ui_flex" id="js_tabs">
                     <a href="javascript:;" class="ui_flex_item on" id="js_alert">alert</a>
                     <a href="javascript:;" class="ui_flex_item" id="js_confirm">confirm</a>
                     <a href="javascript:;" class="ui_flex_item" id="js_prompt">带输入框</a>
                 </nav>
+                <!-- /// [htmldemo] -->
             </div>
         </div>
     </div>
 
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
+    ///[jsdemo]
     lui.selector('#js_tabs').onclick = function(e){
         var _id = e.target.id;
         if (_id == 'js_alert') {
@@ -78,7 +83,7 @@
             });
         }
     };
-
+    ///[jsdemo]
     
 </script>
 </body>

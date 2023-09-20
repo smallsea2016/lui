@@ -33,14 +33,17 @@
         .ranking_user {margin-right: 5px;width: 36px;height:36px;border-radius: 100%;background-clip: padding-box}
 
     </style>
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>表格</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>表格</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 基础表格应用于排行榜
             </p>
+            <!-- /// [htmldemo] -->
             <table class="ui_table rank_table">
                 <thead>
                     <tr>
@@ -77,6 +80,7 @@
                     </tr>
                 </tbody>
             </table>
+            <!-- /// [htmldemo] -->
         </div>
     </div>
 </body>

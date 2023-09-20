@@ -13,17 +13,20 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css"/>
-  </head>
+  
+  <script type="text/javascript" src="js/demo.js"></script>
+</head>
   <body>
     <div class="ui_page_wrap">
       <header class="ui_page_hd">
-        <a href="javascript:history.go(-1);" class="ui_back"></a>标签栏</header>
+        <a href="javascript:goBack();" class="ui_back"></a>标签栏</header>
       <div class="ui_page_bd footer_space">
         <p class="ui_con_block">
           底部导航栏，用于在不同页面之间快捷切换。
         </p>
       </div>
       <footer class="ui_page_ft">
+        <!-- /// [htmldemo] -->
         <nav class="ui_tabBar">
           <a href="#" class="item active">
             <span class="ui_tabBar_icon"><img src="images/icon/lui.png"></span>
@@ -44,6 +47,7 @@
             <p>菜单4</p>
           </a>
         </nav>
+        <!-- /// [htmldemo] -->
       </footer>
     </div>
   </body>

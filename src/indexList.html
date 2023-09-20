@@ -14,14 +14,17 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>索引列表</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>索引列表</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 索引列表常用于通讯录选人和城市选择
             </p>
+            <!-- /// [htmldemo] -->
             <script id="tpl" type="text/html">
                 {{# for(var i = 0,len = d.list.length;i< len;i++ ){ }}
                     <section>
@@ -34,11 +37,11 @@
                     </section>   
                 {{# } }}        
             </script>
-
+            <!-- /// [htmldemo] -->
             <div id="tpl_view"></div>
         </div>
     </div>
-
+    <!-- /// [htmldemo2] -->
     <!--英文字母-->
     <script type="text/html" id="word_list_tpl">
         <div class="word_list" data-role="word_list">
@@ -47,13 +50,14 @@
             {{# } }} 
         </div>
     </script>
+    <!-- /// [htmldemo2] -->
     <aside id="word_list_tpl_view"></aside>
-
     <!--popup-->
     <div class="word_popup" data-role="word_popup"></div>
     <script type="text/javascript" src="js/3rd-plugins/laytpl.js"></script>  
     <script type="text/javascript" src="js/lui.js"></script>
     <script type="text/javascript">
+        ///[jsdemo]
          var data = {
           list:[
             {
@@ -137,6 +141,7 @@
         renderFn('word_list_tpl','word_list_tpl_view');
         
         lui.indexAction();
+        ///[jsdemo]
     </script>
 </body>
 </html>

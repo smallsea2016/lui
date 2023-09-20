@@ -13,14 +13,17 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>单元格滑动</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>单元格滑动</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 移动端手势滑动操作
             </p>
+            <!-- ///[htmldemo] -->
             <ul class="ui_list" id="ui_list">
                 <li>
                     <div class="f17">向左滑动试试1</div>
@@ -53,6 +56,7 @@
                     </div>
                 </li>
             </ul>
+            <!-- ///[htmldemo] -->
         </div>
     </div>
 
@@ -60,6 +64,7 @@
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript" src="js/lib/cellSwiper.js"></script>
 <script type="text/javascript">
+    ///[jsdemo]
     var slide =  new cellSwiper('#ui_list li','.ui_touch_item');
 
     var items = document.querySelectorAll('#ui_list .ui_touch_item');
@@ -74,7 +79,7 @@
           }
       }
     }
-
+  ///[jsdemo]
 </script>
 </body>
 </html>

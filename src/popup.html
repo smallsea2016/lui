@@ -14,15 +14,18 @@
     <link rel="icon" href="images/icon/lui.png">
    
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
      <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>弹出层</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>弹出层</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 合理使用弹出层，无需页面跳转，更便捷操作
             </p>
             <br>
+            <!-- /// [htmldemo] -->
             <div class="p10">
                 <button type="button" class="ui_btn" onclick="togglePopup()">普通popup</button>
             </div>
@@ -45,9 +48,10 @@
             <div class="p10">
               <button type="button" class="ui_btn ui_default_btn" onclick="togglePopup('rightCover')">右侧弹出popup</button>
             </div>
+            <!-- /// [htmldemo] -->
         </div>
     </div>
-
+    <!-- /// [htmldemo2] -->
     <!--普通popup-->
     <aside class="ui_popup ui_popup_center" id="j-popup-normal">
         <div class="ui_popup_inner">   
@@ -128,9 +132,10 @@
 
     <!-- 公共蒙层 -->
     <aside class="ui_mask" id="j-mask" onclick="closePopup()"></aside>
-
+    <!-- /// [htmldemo2] -->
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
+    ///[jsdemo]
     var g_popupType = 'normal'
     //元素显示隐藏切换
     function toggle(el){
@@ -169,7 +174,7 @@
     function closePopup(){
       togglePopup(g_popupType)
     }
-    
+    ///[jsdemo]
 </script>
 </body>
 </html>

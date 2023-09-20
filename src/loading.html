@@ -13,12 +13,15 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
      <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>加载提升</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>加载提升</header>
         <div class="ui_page_bd">
-			<p class="ui_con_block">数据请求过程中的提示和页面滑动到底加载完数据提示</p>
+			      <p class="ui_con_block">数据请求过程中的提示和页面滑动到底加载完数据提示</p>
+            <!-- /// [htmldemo] -->
             <div class="ui_spinner_block">
                <div class="ui_spinner">
                  <span class="ui_spinner_item"></span>
@@ -40,16 +43,19 @@
             <div class="ui_noMore">
                 <span class="ui_noMore_text">我是有底线的</span>
             </div>
+            <!-- /// [htmldemo] -->
         </div>
     </div>
 
 <!--本项目的js-->
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
+    ///[jsdemo]
     lui.loading();
     setTimeout(function(){
 		  lui.loading('close')
 	  },3000)
+    ///[jsdemo]
 </script>
 </body>
 </html>

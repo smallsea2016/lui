@@ -13,24 +13,28 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body class="bg_white">
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>数据图表</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>数据图表</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 让数据更直观展示，引入了echarts数据可视化插件。
             </p>
-
+            <!-- ///[htmldemo] -->
             <div id="pie" style="padding-top: 20px;height:300px;"></div>
 
             <div id="line" style="padding-top: 20px;height:300px;"></div>
+            <!-- ///[htmldemo] -->
         </div>
     </div>
     
 <!-- ECharts单文件引入 -->
 <script src="js/3rd-plugins/echarts.common.min.js"></script>
 <script type="text/javascript">
+        ///[jsdemo]
         // 基于准备好的dom，初始化echarts图表
         var myChart = echarts.init(document.getElementById('pie')); 
         option = {
@@ -190,6 +194,8 @@
 
          // 为echarts对象加载数据 
         lineChart.setOption(lineOption); 
+        
+        ///[jsdemo]
 </script>
 </body>
 </html>

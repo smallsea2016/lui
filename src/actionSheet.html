@@ -14,10 +14,12 @@
     <link rel="icon" href="images/icon/lui.png">
    
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
      <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>动作面板</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>动作面板</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 android和ios操作系统在UI表现层面差异还是很大的，select就是其中之一。抹平差异的最常用方式就是自定义UI
@@ -30,7 +32,7 @@
             </div>
         </div>
     </div>
-
+    <!-- ///[htmldemo] -->
     <!--底部弹出-->
     <div class="ui_actionSheet_wrap" id="js_actionSheet">
         <div class="ui_mask" onclick="toggleActionSheet('#js_actionSheet')"></div>
@@ -56,18 +58,20 @@
             </ul>
         </div>
     </div>
+    <!-- ///[htmldemo] -->
 
 <script type="text/javascript" src="js/lui.js"></script>
 <script type="text/javascript">
-     function toggleActionSheet(item){
-        var el = document.querySelector(item);
-        el.classList.toggle('ui_actionSheet_active');
+    ///[jsdemo]
+    function toggleActionSheet(item){
+      var el = document.querySelector(item);
+      el.classList.toggle('ui_actionSheet_active');
     }
 
     lui.longPress('#longPress',function(){
         toggleActionSheet('#js_actionSheetMiddle')
     })
-
+    ///[jsdemo]
 
 </script>
 </body>

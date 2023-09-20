@@ -13,14 +13,17 @@
     <meta name="description" content="LUI，基于html,css,js原生能力驱动，轻量级移动端UI组件库。LUI不是框架，她只是为你的应用提供基础的UI组合以及一些常用方法，架构层面随你自行组织" />
     <link rel="icon" href="images/icon/lui.png">
     <link rel="stylesheet" type="text/css" href="css/lui.css" />
+
+  <script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>
     <div class="ui_page_wrap">
-        <header class="ui_page_hd"><a href="javascript:history.go(-1);" class="ui_back"></a>表单</header>
+        <header class="ui_page_hd"><a href="javascript:goBack();" class="ui_back"></a>表单</header>
         <div class="ui_page_bd">
             <p class="ui_con_block">
                 这里囊括了各种表单元素，从此，告别表单烦恼。
             </p>
+            <!-- /// [htmldemo] -->
             <fieldset class="ui_legend">
               <legend>右对齐风格</legend>
             </fieldset>
@@ -191,6 +194,7 @@
                     </div>
                 </li>  
             </ul>
+            <!-- /// [htmldemo] -->
         </div>    
     </div>
 
@@ -205,7 +209,8 @@
 <link href="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.11.3/viewer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.11.3/viewer.min.js"></script>
 <!-- viewerjs文档：https://fengyuanchen.github.io/viewerjs/ -->
-<script type="text/javascript">    
+<script type="text/javascript">
+    ///[jsdemo]
     //星级评分
     form.Raty('#star1 li',function(num){
           console.log('选中了'+num+'颗星');
@@ -239,6 +244,7 @@
     $("#date-picker").val(d.Format("yyyy-MM-dd ")+"09:00");
     //日历插件
     $('#date-picker').mobiscroll(opt);
+    ///[jsdemo]
 </script>
 </body>
 </html>
