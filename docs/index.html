@@ -36,8 +36,11 @@
             // 解析成 html 后调用。
             // beforeEach 和 afterEach 支持处理异步逻辑
             // ...
-            // 异步处理完成后调用 next(html) 返回结果
-            next(html);
+            // 多余的html代码注释符号替换
+            const regStart = new RegExp('-->', 'g')
+            const regEnd = new RegExp('&lt;!--','g')
+            var r = html.replace(regStart,'').replace(regEnd, '')
+            next(r);
           });
         }
       ]
