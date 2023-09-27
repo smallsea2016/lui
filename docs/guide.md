@@ -6,7 +6,7 @@
 
 ```
 ├─ src 源代码
-│  ├─ css样式
+│  ├─ css                             样式
 │  │  ├─ 3rd-css                      css第三方样式
 │  │  │  ├─ mobileSelect.css          级联样式
 │  │  │  ├─ mobiscroll.2.13.2.min.css 日期时间选择样式
