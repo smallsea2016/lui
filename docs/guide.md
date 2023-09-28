@@ -83,7 +83,7 @@
 
 - 核心 js 设计使用闭包，避免了污染，对外暴露唯一的一个变量`lui`,因此不必担心与其他框架造成冲突。
 - 某些页面引用了一款精致小巧的`laytpl`作为模版引擎。
-- 基于移动端手机系统运行效率考虑，不建议使用`jQuery`等较体积较大库。LUI 有且仅有时间控件依赖了 JQ。
+- 基于移动端手机系统运行效率考虑，不建议使用`jQuery`等较大体积库。LUI 有且仅有时间控件依赖了 JQ。
 - 支持 UMD 模式加载 lui.js。 <a href="../demo-seajs.html">使用`seajs`加载 lui.js</a>，<a href="../demo-requirejs.html">使用`require.js`加载 lui.js</a>。
 
 #### 自定义主题色
@@ -108,8 +108,19 @@
 
 3. **data-role能移除吗** 
 
-部分html标签使用了data-role属性，如`backTop.html、card.html、indexList.html，iscroll.html、popover.html、tab.html`，一般是有js依赖或者样式依赖，不能移除 
+部分html标签使用了data-role属性，如`backTop.html、card.html、indexList.html、iscroll.html、popover.html、tab.html`，一般是有js依赖或者样式依赖，不能移除 
 
 4. **css和js体积还能再小吗** 
 
 虽然组件库本身css和js的体积已经是比较小的，但若追求更轻量，建议生产版本使用压缩包，可使用压缩插件或者在线压缩
+
+5. **移动端调试** 
+
+在移动端，因为没有类似桌面端的调试面板，调试往往比较困难，推荐使用[vConsole](https://github.com/Tencent/vConsole)，它模拟了桌面版的调试面板，让开发调试变得简单。
+``` js
+//建议在head标签结束符引入vconsole调试
+<script type="text/javascript" src="js/3rd-plugins/vconsole.min.js"></script>
+<script>
+  new VConsole();
+</script>
+```

@@ -1,21 +1,5 @@
 ##  基础api
-#### lui.backTop(object)
-回到顶部
 
-  **参数说明**
-
-  参数 | 类型 | 必填 | 说明 
-  ---|---|---|---
-  target|String|是|触发滚动的目标对象，支持传入选择器或DOM元素
-  elm|String|是|点击事件对象，支持传入选择器或DOM元素，默认值`[data-role="back-top"]`
-  offsetTop|Number|是|滚动高度达到此参数值时才显示组件元素，默认值`200`
-
-  示例代码
-  ```js
-     lui.backTop({
-        target: '#j-back-top-container'
-      })
-  ```
 #### lui.changeSelectStyle (e)
 控制select默认样式，和input的placeholder样式保持一致
 
@@ -24,7 +8,7 @@
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
   e|event|是|事件源，只能传递`event`
-  
+
   示例代码
   ```html
     <select class="ui_select placeholderColor" name="select" onchange="lui.changeSelectStyle(event)">
@@ -57,7 +41,7 @@
   ```
 
 
-#### lui.getQueryString(name)
+#### lui.getQueryString(name,fromEnd)
 获取地址栏参数值 
 
   **参数说明**
@@ -65,6 +49,7 @@
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
   name|String|是|参数名称
+  fromEnd|Boolean|否|是否从最后一个?问号开始匹配。在微信应用开发中，授权回调会携带额外参数，如corpId，<br>这样可能会形成url存在两个?问号，这时候我们获取参数可能要的是最后一个?问号后的
 
   示例代码
 ```js
@@ -115,6 +100,23 @@
 
 ##  交互api
 
+#### lui.backTop(object)
+回到顶部
+
+  **参数说明**
+
+  参数 | 类型 | 必填 | 说明 
+  ---|---|---|---
+  target|String|是|触发滚动的目标对象，支持传入选择器或DOM元素
+  elm|String|是|点击事件对象，支持传入选择器或DOM元素，默认值`[data-role="back-top"]`
+  offsetTop|Number|是|滚动高度达到此参数值时才显示组件元素，默认值`200`
+
+  示例代码
+  ```js
+     lui.backTop({
+        target: '#j-back-top-container'
+      })
+  ```
 
 #### lui.indexAction(el)
 滑动索引定位列表位置
@@ -309,7 +311,7 @@ tab切换
   ---|---|---|---
   container|String|是|tab头和tab内容的外层选择器，如：`'data-role="tabs"' ` 
   cb|Function|否|回调函数，回调参数为当前激活tab下标
-  
+
   > ==注意==：需要按照html固定结构。tab头必须含 `data-role="tab"`属性，tab内容必须含data-role="tabContent"属性。
 
   示例代码

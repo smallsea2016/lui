@@ -36,12 +36,16 @@
     /**
      * 获取地址栏参数值
      * @param  {String} name 参数名称
+     * @param  {Boolean} fromEnd 是否从最后一个?问号开始匹配。在微信应用开发中，授权回调会携带额外参数，如coorId，这样可能会形成url存在两个?问号，这时候我们获取参数可能要的是最后一个?问号后的
      * @return 返回匹配结果
     */
-    g.getQueryString = function (name) {
+    g.getQueryString = function (name,fromEnd) {
       var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-      var r = window.location.search.substr(1).match(reg);
-      if (r != null) return unescape(r[2]);
+      var lastSearchIndex = window.location.href.lastIndexOf('?')
+      var lastSearch = window.location.href.substring(lastSearchIndex)
+      var s = fromEnd ? lastSearch : window.location.search
+      var r = s.substring(1).match(reg);
+      if (r != null) return decodeURIComponent(r[2]);
       return null;
     }
     /**
@@ -689,12 +693,6 @@
         }else{
           ev.target.classList.remove('placeholderColor')
         }
-    }
-    //开启vConsole调试模式
-    if (g.getQueryString('vConsole') === '1') {
-        g.loadScript('js/3rd-plugins/vconsole.min.js',function(){
-            new VConsole();
-        })
     }
     /**
      * 滚动效果-纵向(Object)
