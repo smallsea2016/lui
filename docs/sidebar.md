@@ -30,7 +30,7 @@
   * [Watermark 水印](component/watermark.md)
 * **导航组件**
   * [IndexList 索引列表](component/indexList.md)
-  * [Tabbar 标签栏](component/tabbar.md)
+  * [Tabbar 标签栏](component/tabBar.md)
   * [Tabs 标签页](component/tab.md)
 * **操作反馈组件**
   * [ActionSheet 动作面板](component/actionSheet.md)
