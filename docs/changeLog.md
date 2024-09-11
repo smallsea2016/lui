@@ -1,4 +1,11 @@
-# 2023  
+# 2024 
+
+   **2024-09-11 v1.9.0**  
+  - 【修改】lui.toast()变更为lui.showToast()；lui.loading()变更为lui.showLoading()
+  - 【优化】lui.watermark()去掉len参数
+  ---
+
+# 2023
 
    **2023-09-20 v1.8.0**  
   - 【新增】文档组件代码演示以及预览
