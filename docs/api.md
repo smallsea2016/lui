@@ -129,7 +129,7 @@
   
   > 注意：html结构，需要给列表英文标题加上`'data-role="word_index"'`属性，给英文列表加上`'data-role="word_list"'`，给弹出提示框加上`'data-role="word_popup"'`属性
 
-#### lui.loading(text,opacity)
+#### lui.showLoading(text,opacity)
 页面loading效果
 
   **参数说明**
@@ -141,10 +141,10 @@
 
   示例代码
   ```js
-    lui.loading();  //loading
+    lui.showLoading();  //loading
 
     setTimeout(function(){  //3s后关闭loading
-      lui.loading('close')
+      lui.showLoading('close')
     },3000)
   ```
 #### lui.marquee(object)
@@ -351,7 +351,7 @@ textarea高度自适应
    lui.textareaAutoHeigh('#textarea2',2);
   ```
 
-#### lui.toast(object)
+#### lui.showToast(object)
 页面轻提示
 
   **参数说明**
@@ -366,18 +366,18 @@ textarea高度自适应
 
   示例代码
   ```js
-    lui.toast({
+    lui.showToast({
         type:'ok',
         text:'操作成功'
     })
 
-    lui.toast({
+    lui.showToast({
         position:'top',
         text:'提示内容'
     })
   ```
 
-#### lui.watermark(el,name,len)
+#### lui.watermark(el,name)
 水印
 
   **参数说明**
@@ -385,12 +385,11 @@ textarea高度自适应
   参数 | 类型 | 必填 | 说明 
   ---|---|---|---
   el|String|是|挂载水印的文档节点
-  name|String|是|水印内容
-  len|Number|否|水印个数
+  name|String|否|水印内容
 
   示例代码
   ```js
-    lui.watermark('#js_watermarkbox','张碧晨10056500',18)
+    lui.watermark('#js_watermarkbox','张碧晨10056500')
   ``` 
 
  #### TouchElement(el,object)

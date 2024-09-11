@@ -352,11 +352,11 @@
         }
     }
     /**
-         * loading
+         * showLoading
          * @param text 提示内容，如果传入参数为close，则关闭loading
          * @param opacity 遮罩透明度
      */
-    g.loading = function(text,opacity) {
+    g.showLoading = function(text,opacity) {
         var text = text || "加载中...";
         var removeLoading = function(){
           var maskEl = document.getElementById('j_loading_mask');
@@ -380,14 +380,14 @@
        }
     }
      /**
-         * toast (opts接受一个对象参数）
+         * showToast (opts接收一个对象参数）
          * @param type 操作提示类型,文本类型text,警告类型warning,成功类型ok
          * @param text 提示文本内容
          * @param duration 持续多少毫秒退出
          * @param position 所在页面位置
          * @param disableClickBody toast关闭前是否可点击页面，默认可以
      */
-    g.toast = function(opts) {
+    g.showToast = function(opts) {
         var opts = opts || {};
         opts.type = opts.type || 'ok';
         opts.text = opts.text || '提示信息';
@@ -530,11 +530,11 @@
             xmlHttp.send();
         }
         if (! opts.closeLoading) {
-            g.loading();
+            g.showLoading();
         }
         xmlHttp.onreadystatechange = function() {
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                g.loading('close');
+                g.showLoading('close');
                 var res = JSON.parse(xmlHttp.responseText);
                 opts.success(res)
             }
@@ -613,40 +613,25 @@
       * 水印
       * @param el 将水印挂载到指定html节点上
       * @param name 水印文字
-      * @param len 水印个数
     */
-    g.watermark = function (el, name, len) {
+    g.watermark = function (el, name) {
       var str = name || '保密水印';
-      var el,top,left,translateX,len = len || 10,container = el ? document.querySelector(el) : document.body;
-      container.style.cssText += 'position:relative;overflow:hidden;user-select:none;-webkit-user-select:none;'
+      var el,top,left,translateX,len;
+      var container = el ? document.querySelector(el) : document.body;
+      if (!container) {
+        throw new Error('Element not found.');
+      }
+      len = container.clientHeight / 20;
+      container.style.cssText += 'position:relative;overflow:hidden;'
       for (var i = 0; i < len; i++) {
-        top = 19*i-40;
-        if(i%5 === 0){
-          left = '10%';
-        }
-        if(i%5 === 1){
-          left = '30%';
-        }
-        if(i%5 === 2){
-          left = '50%';
-        }
-        if(i%5 === 3){
-          left = '70%';
-        }
-        if(i%5 === 4){
-          left = '90%';
-        }
+        top = 19 * i - 40;
+        left = (i % 5) * 20 + '%';
         translateX = '-50%';
         el = document.createElement('div');
         el.className = 'fixed_watermark';
-        el.style.cssText = 'pointer-events:none;position:absolute;transform:rotate(-25deg) translateX('+translateX+');-webkit-transform:rotate(-25deg) translateX('+translateX+');font-size:16px;color:#bcc7cd;opacity:.5;user:none;-webkit-user:none;white-space:nowrap';
+        el.style.cssText = 'pointer-events:none;position:absolute;transform:rotate(-25deg) translateX('+translateX+');-webkit-transform:rotate(-25deg) translateX('+translateX+');font-size:16px;color:#bcc7cd;opacity:.5;user:none;-webkit-user:none;white-space:nowrap;user-select:none;-webkit-user-select:none;left:'+left+';top:'+top+'px;';
         el.innerHTML = str;
-        el.style.cssText += 'left:'+left+';top:'+top+'px;';
-        if(container){
-          container.appendChild(el);
-        }else{
-          document.body.appendChild(el);
-        }
+        container.appendChild(el);
       }
     }
     /**

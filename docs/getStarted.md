@@ -50,7 +50,7 @@ LUI本身不需要额外构建环境和安装依赖包，可直接打开html页�
 
     <script type="text/javascript" src="js/lui.js"></script>
     <script type="text/javascript">
-        lui.toast({
+        lui.showToast({
             position:'bottom',
             text:'目标出现，over'
         });
