@@ -26,12 +26,10 @@
             </p>
           </div>
           <!-- /// [htmldemo] -->
-          <div id="j_canvas_wrap">
-            <canvas id="j_canvas">浏览器不支持canvas</canvas>
-            <div class="tr p15">
-              <button type="button" class="ui_btn ui_default_btn ui_inline mr10" size="sm" id="j_reset" onclick="reset()">重签</button>
-              <button type="button" class="ui_btn ui_inline" size="sm" id="j_save" onclick="getBase64Sign()">确认</button>
-            </div>
+          <canvas id="j_canvas">浏览器不支持canvas</canvas>
+          <div class="tr p15">
+            <button type="button" class="ui_btn ui_default_btn ui_inline mr10" size="sm" id="j_reset" onclick="reset()">重签</button>
+            <button type="button" class="ui_btn ui_inline" size="sm" id="j_save" onclick="getBase64Sign()">确认</button>
           </div>
           <!-- /// [htmldemo] -->
         </div>
@@ -44,7 +42,9 @@
         ///[jsdemo]
         //签名
         var _dataImg = null
-        var signature = new Signature({
+        var signature = new Signature('#j_canvas',{
+          width: document.documentElement.clientWidth,
+          height:document.documentElement.clientWidth * 1/2,
           callback:function(dataImg){
             _dataImg = dataImg
           }
@@ -55,7 +55,7 @@
         //取得签名图片
         function getBase64Sign(){
             lui.showModal({
-              content:'<img src="'+ _dataImg+'">'
+              content:_dataImg ? '<img src="'+ _dataImg+'">' : '请先签名',
             });
         }
         ///[jsdemo]
