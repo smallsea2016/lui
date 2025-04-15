@@ -65,7 +65,7 @@
 }
 .cover {background: transparent !important}
 html body .ui_btn {display: inline-block;padding: 10px 30px;text-align: center;font-size: 16px;border-radius: 30px;background-clip: padding-box;
-    color: #fff;background-color: #467DB9;border:1px solid #467DB9;
+    color: #fff;background-color: #267EF0;border:1px solid #267EF0;
 }
 .transition {
   transform: translate3d(0, 0, 0);
@@ -82,7 +82,7 @@ html body .ui_btn {display: inline-block;padding: 10px 30px;text-align: center;f
   padding-bottom: 40px;
 }
 html body .ui_btn[plain] {margin-right: 30px;
-  border-color: #467DB9;color: #467DB9;background-color: #fff;
+  border-color: #267EF0;color: #267EF0;background-color: #fff;
 }
 .markdown-section {max-width: unset;}
 

@@ -389,8 +389,31 @@ textarea高度自适应
 
   示例代码
   ```js
-    lui.watermark('#js_watermarkbox','张碧晨10056500')
-  ``` 
+    lui.watermark('#js_watermark_box','张碧晨10056500')
+  ```
+
+#### Signature(el,object)
+签名
+
+  **参数说明**
+
+  参数 | 类型 | 必填 | 说明 
+  ---|---|---|---  
+  el|String|是|canvas容器选择器
+  object.width|Number|否|画布宽度，默认值`300`
+  object.height|Number|否|画布高度，默认值`150`
+  object.callback|Function|否|签名完成后的回调函数
+
+  示例代码
+  ```js
+    var sign = new Signature('#j_sign', {
+      width: 375,
+      height: 200,
+      callback: function (data) {
+        console.log(data, '签名完成回调base64位数据')
+      }
+    })
+  ```
 
  #### TouchElement(el,object)
 移动元素
