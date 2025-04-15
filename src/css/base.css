@@ -145,10 +145,10 @@ pre{
 
 /*主题颜色*/
 :root {
-  --primary_color:#467DB9; /*主题*/
-  --success_color:#28ca35; /*成功*/
-  --warning_color:#ff870d; /*警示*/
-  --danger_color:#E51C23; /*危险*/
+  --primary_color:#267EF0; /*主题*/
+  --success_color:#26BF4C; /*成功*/
+  --warning_color:#FA8F25; /*警示*/
+  --danger_color:#FF4650; /*危险*/
 }
 .c999 {color: #999}
 .c888 {color: #888}
