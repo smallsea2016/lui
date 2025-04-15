@@ -503,47 +503,6 @@
       },false);
     }
     /**
-     * ajax封装(使用方法与jq的ajax方法几乎一样)
-     */
-    g.request = function(opts) {
-        var opts = opts || {};
-        opts.type = opts.type.toUpperCase() || 'POST';
-        opts.url = opts.url || '';
-        opts.data = opts.data || null;
-        opts.beforeSend = opts.beforeSend || function() {};
-        opts.success = opts.success || function() {};
-        opts.error = opts.error || function() {};
-        opts.closeLoading = opts.closeLoading || false
-        var xmlHttp = new XMLHttpRequest()
-        var params = [];
-        for (var key in opts.data) {
-            params.push(key + '=' + opts.data[key]);
-        }
-        var postData = params.join('&');
-        opts.beforeSend();
-        if (opts.type === 'POST') {
-            xmlHttp.open(opts.type, opts.url, true);
-            xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xmlHttp.send(postData);
-        } else if (opts.type === 'GET') {
-            xmlHttp.open(opts.type, opts.url + '?' + postData, true);
-            xmlHttp.send();
-        }
-        if (! opts.closeLoading) {
-            g.showLoading();
-        }
-        xmlHttp.onreadystatechange = function() {
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                g.showLoading('close');
-                var res = JSON.parse(xmlHttp.responseText);
-                opts.success(res)
-            }
-        }
-        xmlHttp.onerror = function(e){
-          opts.error(e)
-        }
-    }
-    /**
       * 索引列表滑动
       * @param scrollElem 滚动元素的选择器
     */
@@ -616,22 +575,22 @@
     */
     g.watermark = function (el, name) {
       var str = name || '保密水印';
-      var el,top,left,translateX,len;
+      var top,left,translateX,len;
       var container = el ? document.querySelector(el) : document.body;
       if (!container) {
         throw new Error('Element not found.');
       }
-      len = container.clientHeight / 20;
+      len =  Math.ceil(container.clientHeight / 20);
       container.style.cssText += 'position:relative;overflow:hidden;'
       for (var i = 0; i < len; i++) {
         top = 19 * i - 40;
         left = (i % 5) * 20 + '%';
         translateX = '-50%';
-        el = document.createElement('div');
-        el.className = 'fixed_watermark';
-        el.style.cssText = 'pointer-events:none;position:absolute;transform:rotate(-25deg) translateX('+translateX+');-webkit-transform:rotate(-25deg) translateX('+translateX+');font-size:16px;color:#bcc7cd;opacity:.5;user:none;-webkit-user:none;white-space:nowrap;user-select:none;-webkit-user-select:none;left:'+left+';top:'+top+'px;';
-        el.innerHTML = str;
-        container.appendChild(el);
+        var watermarkDiv = document.createElement('div');
+        watermarkDiv.className = 'fixed_watermark';
+        watermarkDiv.style.cssText = 'pointer-events:none;position:absolute;transform:rotate(-25deg) translateX('+translateX+');-webkit-transform:rotate(-25deg) translateX('+translateX+');font-size:16px;color:#bcc7cd;opacity:.5;user:none;-webkit-user:none;white-space:nowrap;user-select:none;-webkit-user-select:none;left:'+left+';top:'+top+'px;';
+        watermarkDiv.innerHTML = str;
+        container.appendChild(watermarkDiv);
       }
     }
     /**
@@ -639,10 +598,10 @@
      * @param str 时间字符串
      * @param cb 回调函数
      */
-    g.countDown = function(str,cb){
+    g.countDown = function(timeStr,cb){
       var s = "";
       var t = setInterval(function(){
-        str = str.replace(/-/g,"/");
+        var str = timeStr.replace(/-/g,"/");
         var lastDate = new Date(str);
         var currDate = new Date();
         if(lastDate < currDate){           
@@ -665,8 +624,8 @@
         if (minute < 10) minute = '0' + minute;
         if (second < 10) second = '0' + second;
         s = day+"|"+hour+'|'+minute+'|'+second;
-        intDiff--;
         cb(s)
+        intDiff--;
       }, 1000);
     }
     /**
@@ -752,7 +711,7 @@
       var el = document.querySelector(opts.listEl);
       var el_clone = document.createElement(el.tagName);
       el_clone.className = el.className;
-      el_clone.id = el.id + '-clone';
+      el_clone.id = el.id + '-clone-' + Date.now(); // 生成唯一ID;
       el_clone.innerHTML = el.innerHTML;
       el.after(el_clone)
       var run = function(){

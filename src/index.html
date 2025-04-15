@@ -122,6 +122,7 @@
     <script type="text/javascript" src="js/3rd-plugins/laytpl.js"></script>  
     <script type="text/javascript" src="js/lui.js"></script>
     <script type="text/javascript" src="js/lib/TouchElement.js"></script>
+    <script type="text/javascript" src="js/lib/request.js"></script>
     <script type="text/javascript">
         //排序
         function sortFn(a, b) {
@@ -133,8 +134,8 @@
           }
           return 0
         }
-         lui.request({
-            type:'GET',
+         request({
+            method:'GET',
             url:'js/data/lui.json',
             success:function(res){
                 res.baseComponent = res.baseComponent.sort(sortFn)
