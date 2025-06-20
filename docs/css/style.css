@@ -88,4 +88,14 @@ html body .ui_btn[plain] {margin-right: 30px;
 
 .container-demo-main {display:flex;}
 .container-demo-left {width: 60%;}
-.container-demo-right {margin-left:24px;}
+.container-demo-right {
+  zoom: 0.85;
+  margin-left:24px;
+  padding: 48px 30px 20px 30px;
+  background:url(../img/iphoneX.png) no-repeat;
+  background-size: 100% auto;
+}
+.container-demo-right iframe {
+  border:none;
+  border-radius: 5px;
+}

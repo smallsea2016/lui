@@ -13,5 +13,5 @@
   核心css不超过35kb，未压缩的核心js未超过35kb。面向浏览器直接运行，不依赖babel，npm，nodejs，gulp，webpack等环境和各种工具
   
 
-[组件库体验](https://smallsea2016.github.io/lui/src)
+[组件库体验](./src)
 

@@ -112,11 +112,12 @@
 
 4. **移动端调试** 
 
-在移动端，因为没有类似桌面端的调试面板，调试往往比较困难，推荐使用[vConsole](https://github.com/Tencent/vConsole)，它模拟了桌面版的调试面板，让开发调试变得简单。
+在移动端，因为没有类似桌面端的调试面板，调试往往比较困难，推荐使用[vConsole](https://github.com/Tencent/vConsole)，它模拟了桌面端浏览器的调试面板，让开发调试变得简单。
 ``` js
 //建议在head标签结束符引入vconsole调试
-<script type="text/javascript" src="js/3rd-plugins/vconsole.min.js"></script>
+<script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
 <script>
-  new VConsole();
+  // VConsole 默认会挂载到 `window.VConsole` 上
+  var vConsole = new window.VConsole();
 </script>
 ```
