@@ -1,180 +1,178 @@
-"use strict";
+'use strict'
+
 /**
-  * 移动元素
-  @constructor
-  @param {string} elm 移动选择器
-  @param {object} opts 接收一个对象参数 
-*/
+ * 移动元素
+ * @constructor
+ * @param {string} elm - 移动选择器
+ * @param {Object} opts - 配置对象
+ * @param {string} [opts.direction=''] - 限制滑动方向，可选值：row, column, up, down, left, right
+ * @param {Function} [opts.touchStart] - 触摸开始回调
+ * @param {Function} [opts.touchMove] - 触摸移动回调
+ * @param {Function} [opts.touchEnd] - 触摸结束回调
+ */
 function TouchElement(elm, opts) {
-  const _this = this;
-  _this.startX;
-  _this.startY;
-  _this.endX;
-  _this.endY;
-  _this.moveX;
-  _this.moveY;
-  _this.item = document.querySelector(elm);
-  _this.touchEventStart = false;
-  _this.isTouch = "ontouchstart" in window;
-  _this.opts = opts || {
-    direction: '', //限制滑动方向 可选值：row,column,up,down,left,right
-    touchStart: function () { }, //触摸开始
-    touchMove: function () { }, //触摸移动
-    touchEnd: function () { } //触摸结束
+  const defaultOpts = {
+    direction: '', // 限制滑动方向
+    touchStart: () => {}, // 触摸开始回调
+    touchMove: () => {}, // 触摸移动回调
+    touchEnd: () => {}, // 触摸结束回调
   }
-  // console.log('_this.opts', _this.opts)
-  const direction = _this.opts.direction || ''
-  let initLeft = 0;
-  let initTop = 0;
-  let initWidth = 0;
-  let initHeight = 0;
-  /**
-   * 初始化dom
-   */
-  _this.initDom = function () {
-    const rect = _this.item.getBoundingClientRect();
-    _this.item.style.cssText += 'user-select:none'
-    initLeft = rect.left;
-    initTop = rect.top;
-    initWidth = rect.width;
-    initHeight = rect.height;
-  };
-  _this.initDom();
+
+  const _this = this
+  _this.opts = { ...defaultOpts, ...opts }
+
+  if (!elm || typeof elm !== 'string') {
+    throw new Error('请传入有效的选择器')
+  }
+
+  _this.item = document.querySelector(elm)
+  if (!_this.item) {
+    throw new Error('目标元素不存在')
+  }
+
+  _this.startX = 0
+  _this.startY = 0
+  _this.endX = 0
+  _this.endY = 0
+  _this.moveX = 0
+  _this.moveY = 0
+  _this.touchEventStart = false
+  _this.isTouch = 'ontouchstart' in window
+
+  // 初始化 DOM 属性
+  const rect = _this.item.getBoundingClientRect()
+  _this.item.style.cssText += 'user-select:none;'
+  const initLeft = rect.left
+  const initTop = rect.top
+  const initWidth = rect.width
+  const initHeight = rect.height
 
   /**
    * 获取角度
-   * @param {Number} dx 
-   * @param {Number} dy 
-   * @returns 
+   * @param {Number} dx
+   * @param {Number} dy
+   * @returns {Number}
    */
-  function getSlideAngle(dx, dy) {
-    return Math.atan2(dy, dx) * 180 / Math.PI;
-  }
+  const getSlideAngle = (dx, dy) => (Math.atan2(dy, dx) * 180) / Math.PI
+
   /**
-   * 根据起点和终点返回方向 1： 向上， 2： 向下， 3： 向左， 4： 向右, 0： 未滑动
-   * @param {Number} startX 
-   * @param {Number} startY 
-   * @param {Number} endX 
-   * @param {Number} endY 
-   * @returns 
+   * 根据起点和终点返回方向
+   * @param {Number} startX
+   * @param {Number} startY
+   * @param {Number} endX
+   * @param {Number} endY
+   * @returns {Number}
    */
-  function getSlideDirection(startX, startY, endX, endY) {
-    const dy = startY - endY;
-    const dx = endX - startX;
-    let result = 0;
-    //若是滑动距离过短
+  const getSlideDirection = (startX, startY, endX, endY) => {
+    const dy = startY - endY
+    const dx = endX - startX
+    let result = 0
+
     if (Math.abs(dx) < 2 && Math.abs(dy) < 2) {
-      return result;
+      return result
     }
-    const angle = getSlideAngle(dx, dy);
+
+    const angle = getSlideAngle(dx, dy)
     if (angle >= -45 && angle < 45) {
-      // console.log(`output->`, '向右')
-      result = 4;
+      result = 4 // 向右
     } else if (angle >= 45 && angle < 135) {
-      // console.log(`output->`, '向上')
-      result = 1;
+      result = 1 // 向上
     } else if (angle >= -135 && angle < -45) {
-      // console.log(`output->`, '向下')
-      result = 2;
-    } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
-      // console.log(`output->`, '向左')
-      result = 3;
+      result = 2 // 向下
+    } else if (
+      (angle >= 135 && angle <= 180) ||
+      (angle >= -180 && angle < -135)
+    ) {
+      result = 3 // 向左
     }
-    return result;
+    return result
   }
 
   /**
-      @fires  TouchElement#touchstart 开始滑动
-  */
-  _this.touchstart = function (e) {
-    _this.touchEventStart = true;
-    if (_this.opts.touchStart && typeof _this.opts.touchStart === 'function') {
+   * 开始滑动
+   */
+  _this.touchstart = (e) => {
+    _this.touchEventStart = true
+    if (typeof _this.opts.touchStart === 'function') {
       _this.opts.touchStart(e)
     }
-    const touchEvent = _this.isTouch ? e.changedTouches[0] : e; // 事件源
-    _this.startX = touchEvent.pageX;
-    _this.startY = touchEvent.pageY;
-  };
+    const touchEvent = _this.isTouch ? e.changedTouches[0] : e
+    _this.startX = touchEvent.pageX
+    _this.startY = touchEvent.pageY
+  }
 
   /**
-      @fires  TouchElement#touchmove 滑动中
-  */
-  _this.touchmove = function (e) {
-    if (!_this.touchEventStart) {
-      return
-    }
-    if (_this.opts.touchMove && typeof _this.opts.touchMove === 'function') {
+   * 滑动中
+   */
+  _this.touchmove = (e) => {
+    if (!_this.touchEventStart) return
+
+    if (typeof _this.opts.touchMove === 'function') {
       _this.opts.touchMove(e)
     }
-    const touchEvent = _this.isTouch ? e.changedTouches[0] : e; // 事件源
-    _this.endX = touchEvent.pageX;
-    _this.endY = touchEvent.pageY;
-    _this.moveX = _this.endX - _this.startX;
-    _this.moveY = _this.endY - _this.startY;
-    let left = _this.endX - initLeft - initWidth / 2;
+
+    const touchEvent = _this.isTouch ? e.changedTouches[0] : e
+    _this.endX = touchEvent.pageX
+    _this.endY = touchEvent.pageY
+    _this.moveX = _this.endX - _this.startX
+    _this.moveY = _this.endY - _this.startY
+
     const clientWidth = document.documentElement.clientWidth
     const clientHeight = document.documentElement.clientHeight
-    if (initLeft + left < 0) { // 限制不超出左边
-      left = -initLeft;
-    } else if (initLeft + initWidth + left > clientWidth) { // 限制不超出右边
-      left = clientWidth - initLeft - initWidth;
+
+    let left = _this.endX - initLeft - initWidth / 2
+    left = Math.max(
+      -initLeft,
+      Math.min(left, clientWidth - initLeft - initWidth)
+    )
+
+    let top = _this.endY - initTop - initHeight / 2
+    top = Math.max(-initTop, Math.min(top, clientHeight - initTop - initHeight))
+
+    const dir = getSlideDirection(
+      _this.startX,
+      _this.startY,
+      _this.endX,
+      _this.endY
+    )
+    const { direction } = _this.opts
+
+    if (direction === '') {
+      _this.item.style.cssText += `transform:translate3d(${left}px, ${top}px, 0);`
+    } else if (direction === 'row' && (dir === 3 || dir === 4)) {
+      _this.item.style.cssText += `transform:translate3d(${left}px, 0, 0);`
+    } else if (direction === 'column' && (dir === 1 || dir === 2)) {
+      _this.item.style.cssText += `transform:translate3d(0, ${top}px, 0);`
+    } else if (
+      (direction === 'up' && dir === 1) ||
+      (direction === 'down' && dir === 2)
+    ) {
+      _this.item.style.cssText += `transform:translate3d(0, ${top}px, 0);`
+    } else if (
+      (direction === 'left' && dir === 3) ||
+      (direction === 'right' && dir === 4)
+    ) {
+      _this.item.style.cssText += `transform:translate3d(${left}px, 0, 0);`
     }
-    let top = _this.endY - initTop - initHeight / 2;
-    if (initTop + top < 0) { // 限制不超出顶部
-      top = -initTop;
-    } else if (initTop + initHeight + top > clientHeight) { // 限制不超出底部
-      top = clientHeight - initTop - initHeight;
-    }
-    const dir = getSlideDirection(_this.startX, _this.startY, _this.endX, _this.endY)
-    if (direction === '') {  //任意移动
-      _this.item.style.cssText += "transform:translate3d(" + left + "px, " + top + "px, 0)";
-      return
-    }
-    if (direction === 'row' && (dir === 3 || dir === 4)) { //只允许x轴移动
-      _this.item.style.cssText += "transform:translate3d(" + left + "px,0,0)";
-      return
-    }
-    if (direction === 'column' && (dir === 1 || dir === 2)) { //只允许y轴移动
-      _this.item.style.cssText += "transform:translate3d(0," + top + "px,0)";
-      return
-    }
-    if (direction === 'up' && dir === 1) { //只允许向上
-      _this.item.style.cssText += "transform:translate3d(0," + top + "px,0)";
-      return
-    }
-    if (direction === 'down' && dir === 2) { //只允许向下
-      _this.item.style.cssText += "transform:translate3d(0," + top + "px,0)";
-      return
-    }
-    if (direction === 'left' && dir === 3) { //只允许向左
-      _this.item.style.cssText += "transform:translate3d(" + left + "px,0,0)";
-      return
-    }
-    if (direction === 'right' && dir === 4) { //只允许向右
-      _this.item.style.cssText += "transform:translate3d(" + left + "px,0,0)";
-      return
-    }
-  };
+  }
+
   /**
-      @fires  TouchElement#touchend 滑动结束
-  */
-  _this.touchend = function (e) {
-    _this.touchEventStart = false;
-    if (_this.opts.touchEnd && typeof _this.opts.touchEnd === 'function') {
+   * 滑动结束
+   */
+  _this.touchend = (e) => {
+    _this.touchEventStart = false
+    if (typeof _this.opts.touchEnd === 'function') {
       _this.opts.touchEnd(e)
     }
-  };
-
-  if (_this.isTouch) {
-    _this.down = "touchstart";
-    _this.move = "touchmove";
-    _this.up = "touchend";
-  } else {
-    _this.down = "mousedown";
-    _this.move = "mousemove";
-    _this.up = "mouseup";
   }
-  _this.item.addEventListener(_this.down, _this.touchstart, false);
-  _this.item.addEventListener(_this.move, _this.touchmove, false);
-  _this.item.addEventListener(_this.up, _this.touchend, false);
+
+  // 统一事件类型
+  _this.down = _this.isTouch ? 'touchstart' : 'mousedown'
+  _this.move = _this.isTouch ? 'touchmove' : 'mousemove'
+  _this.up = _this.isTouch ? 'touchend' : 'mouseup'
+
+  // 绑定事件
+  _this.item.addEventListener(_this.down, _this.touchstart, false)
+  _this.item.addEventListener(_this.move, _this.touchmove, false)
+  _this.item.addEventListener(_this.up, _this.touchend, false)
 }

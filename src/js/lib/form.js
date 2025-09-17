@@ -36,7 +36,7 @@ Date.prototype.Format = function (fmt) {
 (function (global, undefined) {
   var form = {};
   /** 星星评分*/
-  form.Raty = function (el, cb) {
+  form.raty = function (el, cb) {
     var item = document.querySelectorAll(el),
       num = 0,
       index;
@@ -162,10 +162,20 @@ Date.prototype.Format = function (fmt) {
     );
   };
 
+  /**
+   * 控制select默认样式
+   */
+  form.changeSelectStyle = function (ev) {
+    if (ev.target.value === '') {
+      ev.target.classList.add('placeholderColor')
+    } else {
+      ev.target.classList.remove('placeholderColor')
+    }
+  }
   /**监听range*/
   form.changeRange = function (_this) {
     var val = _this.value;
     document.getElementById("rangeVal").innerHTML = val;
   };
-  global.form = form;
+  global._form = form;
 })(window);

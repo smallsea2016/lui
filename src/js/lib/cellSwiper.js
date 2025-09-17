@@ -1,109 +1,153 @@
-"use strict";
+'use strict'
+
 /**
-    * 手势侧滑操作
-    @constructor
-    @param {string} elm 滑动的容器
-    @param {string} item 进行操作的元素
-*/
-function cellSwiper(elm,item){
-  var _this = this;
-  _this.startX;
-  _this.startY;
-  _this.endX;
-  _this.endY;
-  _this.moveX;
-  _this.moveY;
-  _this.li = document.querySelectorAll(elm);
-  _this.actionWidth = document.querySelectorAll(item)[0].clientWidth;
-  _this.flag = false;
-  _this.isTouch = 'ontouchstart' in window; 
+ * 手势侧滑操作
+ * @constructor
+ * @param {string} elm 滑动的容器
+ * @param {string} item 进行操作的元素
+ */
+function CellSwiper(elm, item) {
+  const _this = this
+
+  // 初始化变量
+  _this.startX = 0
+  _this.startY = 0
+  _this.endX = 0
+  _this.endY = 0
+  _this.moveX = 0
+  _this.moveY = 0
+  _this.flag = false
+  _this.isTouch = 'ontouchstart' in window
+
+  // 获取 DOM 元素
+  _this.li = document.querySelectorAll(elm)
+  if (!_this.li.length) {
+    throw new Error('Invalid parameter: "elm" must point to valid elements.')
+  }
+
+  const actionItem = document.querySelector(item)
+  if (!actionItem) {
+    throw new Error('Invalid parameter: "item" must point to a valid element.')
+  }
+  _this.actionWidth = actionItem.clientWidth
+
+  // 统一事件类型
+  _this.down = _this.isTouch ? 'touchstart' : 'mousedown'
+  _this.move = _this.isTouch ? 'touchmove' : 'mousemove'
+  _this.up = _this.isTouch ? 'touchend' : 'mouseup'
+
   /**
-      @fires  cellSwiper#touchstart 开始滑动
-  */
-  _this.touchstart = function(e){
-    _this.flag = true;
-    var tagClassName = e.target.className;
-    var touchEvent = _this.isTouch ? e.changedTouches[0] : e; // 事件源
-    _this.startX = touchEvent.pageX;
-    _this.startY = touchEvent.pageY;
-    if (tagClassName.indexOf('js_del_btn') > -1) {
-        return
-    };
-    _this.update();
+   * 开始滑动
+   * @fires cellSwiper#touchstart
+   */
+  _this.touchstart = function (e) {
+    _this.flag = true
+    const touchEvent = _this.isTouch ? e.changedTouches[0] : e
+    _this.startX = touchEvent.pageX
+    _this.startY = touchEvent.pageY
+
+    if (e.target.className.includes('js_del_btn')) {
+      return
+    }
+    _this.update()
   }
 
   /**
-      @fires  cellSwiper#touchmove 滑动中
-  */
-  _this.touchmove = function(e){
-    var li = e.currentTarget;    
-    var touchEvent = _this.isTouch ? e.changedTouches[0] : e; // 事件源
-    _this.endX = touchEvent.pageX;
-    _this.endY = touchEvent.pageY;
-    _this.moveX = _this.endX - _this.startX;
-    var move = function(){
-        if (Math.abs(_this.endX - _this.startX) > Math.abs(_this.endY - _this.startY)){
-            e.preventDefault();
-        _this.moveX = Math.abs(_this.moveX) > _this.actionWidth ? - _this.actionWidth : _this.moveX;
-            li.style.cssText += "transform:translate3d("+_this.moveX+"px,0,0);webkitTransform:translate3d("+_this.moveX+"px,0,0)";
-        }else {
-          return;
-        }
+   * 滑动中
+   * @fires cellSwiper#touchmove
+   */
+  _this.touchmove = function (e) {
+    const li = e.currentTarget
+    const touchEvent = _this.isTouch ? e.changedTouches[0] : e
+    _this.endX = touchEvent.pageX
+    _this.endY = touchEvent.pageY
+    _this.moveX = _this.endX - _this.startX
+
+    const move = () => {
+      if (
+        Math.abs(_this.endX - _this.startX) >
+        Math.abs(_this.endY - _this.startY)
+      ) {
+        e.preventDefault()
+        _this.moveX =
+          Math.abs(_this.moveX) > _this.actionWidth
+            ? -_this.actionWidth
+            : _this.moveX
+        li.style.cssText += `
+          transform: translate3d(${_this.moveX}px, 0, 0);
+          webkitTransform: translate3d(${_this.moveX}px, 0, 0);
+        `
+      }
     }
-    if (_this.flag && _this.isTouch && e.touches.length == 1 && _this.startX > _this.endX) {  //单手
-        move();
-    }else if(_this.flag && !_this.isTouch){
-        move();
+
+    if (
+      _this.flag &&
+      ((_this.isTouch && e.touches.length === 1 && _this.startX > _this.endX) ||
+        !_this.isTouch)
+    ) {
+      move()
     }
-  }
-  /**
-      @fires  cellSwiper#touchend 滑动结束
-  */
-  _this.touchend = function(e){
-     _this.flag = false;
-    var tagClassName = e.target.className;
-    if (tagClassName.indexOf('js_del_btn') > -1) {
-        return
-    };    
-    var touchEvent = _this.isTouch ? e.changedTouches[0] : e; // 事件源
-    var touchEndX = Math.abs(touchEvent.pageX - _this.startX);
-    var li = e.currentTarget;
-    if (touchEndX > _this.actionWidth/2 && _this.endX < _this.startX){
-      li.classList.add('active');
-      li.style.cssText += 'transform:translate3d(-'+_this.actionWidth+'px,0,0)';'webkitTransform:translate3d(-'+_this.actionWidth+'px,0,0)';
-    }else{
-      li.style.cssText += 'transform:translate3d(0,0,0)';'webkitTransform:translate3d(0,0,0)';
-    }
-  }
-  /**
-      @fires  cellSwiper#update 恢复滑动前的样子
-  */
-  _this.update = function(){
-    for(var i = 0,len = _this.li.length;i < len;i++){
-        _this.li[i].classList.remove('active');
-        _this.li[i].style.cssText =  "transform:translate3d(0,0,0);webkitTransform:translate3d(0,0,0);transition:all .2s cubic-bezier(.08,.87,.08,.87);webkitTransition:all .2s cubic-bezier(.08,.87,.08,.87);"
-    }
-  }
-  /**
-      @fires  cellSwiper#remove 移除列表中的某条
-  */
-  _this.remove = function(idx){
-    _this.li[idx].parentNode.removeChild(_this.li[idx]);
   }
 
+  /**
+   * 滑动结束
+   * @fires cellSwiper#touchend
+   */
+  _this.touchend = function (e) {
+    _this.flag = false
 
-  if(_this.isTouch){
-      _this.down = 'touchstart';
-     _this.move = 'touchmove';
-     _this.up = 'touchend';
-  }else{
-      _this.down = 'mousedown';
-      _this.move = 'mousemove';
-      _this.up = 'mouseup';
+    if (e.target.className.includes('js_del_btn')) {
+      return
+    }
+
+    const touchEvent = _this.isTouch ? e.changedTouches[0] : e
+    const touchEndX = Math.abs(touchEvent.pageX - _this.startX)
+    const li = e.currentTarget
+
+    if (touchEndX > _this.actionWidth / 2 && _this.endX < _this.startX) {
+      li.classList.add('active')
+      li.style.cssText += `
+        transform: translate3d(-${_this.actionWidth}px, 0, 0);
+        webkitTransform: translate3d(-${_this.actionWidth}px, 0, 0);
+      `
+    } else {
+      li.style.cssText += `
+        transform: translate3d(0, 0, 0);
+        webkitTransform: translate3d(0, 0, 0);
+      `
+    }
   }
-  for (var i = 0; i < _this.li.length; i++) {
-      _this.li[i].addEventListener(_this.down,_this.touchstart,false);
-      _this.li[i].addEventListener(_this.move,_this.touchmove,false);
-      _this.li[i].addEventListener(_this.up,_this.touchend,false);
-  };
+
+  /**
+   * 恢复滑动前的样子
+   * @fires cellSwiper#update
+   */
+  _this.update = function () {
+    _this.li.forEach((li) => {
+      li.classList.remove('active')
+      li.style.cssText = `
+        transform: translate3d(0, 0, 0);
+        webkitTransform: translate3d(0, 0, 0);
+        transition: all .2s cubic-bezier(.08, .87, .08, .87);
+        webkitTransition: all .2s cubic-bezier(.08, .87, .08, .87);
+      `
+    })
+  }
+
+  /**
+   * 移除列表中的某条
+   * @fires cellSwiper#remove
+   */
+  _this.remove = function (idx) {
+    if (idx >= 0 && idx < _this.li.length) {
+      _this.li[idx].parentNode.removeChild(_this.li[idx])
+    }
+  }
+
+  // 绑定事件
+  _this.li.forEach((li) => {
+    li.addEventListener(_this.down, _this.touchstart, false)
+    li.addEventListener(_this.move, _this.touchmove, false)
+    li.addEventListener(_this.up, _this.touchend, false)
+  })
 }

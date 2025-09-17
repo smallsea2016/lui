@@ -74,7 +74,7 @@
                 <li class="ui_form_item ui_flex">
                     <label class="ui_form_label">下拉选择</label>
                     <div class="ui_form_content ui_flex_item">
-                       <select class="ui_select placeholderColor" name="select" onchange="lui.changeSelectStyle(event)">
+                       <select class="ui_select placeholderColor" name="select" onchange="_form.changeSelectStyle(event)">
                            <option value="">请选择</option>
                            <option value="1">女汉子</option>
                            <option value="2">萌妹子</option>
@@ -139,7 +139,7 @@
                 <li class="ui_form_item ui_flex">
                     <label class="ui_form_label">下拉选择</label>
                     <div class="ui_form_content ui_flex_item">
-                       <select class="ui_select placeholderColor" name="select" onchange="lui.changeSelectStyle(event)">
+                       <select class="ui_select placeholderColor" name="select" onchange="_form.changeSelectStyle(event)">
                            <option value="">请选择</option>
                            <option value="1">女汉子</option>
                            <option value="2">萌妹子</option>
@@ -212,16 +212,16 @@
 <script type="text/javascript">
     ///[jsdemo]
     //星级评分
-    form.Raty('#star1 li',function(num){
+    _form.raty('#star1 li',function(num){
           console.log('选中了'+num+'颗星');
       })
     //图片上传
-    form.chooseImage('#upload_photo', [], function(imgList){
+    _form.chooseImage('#upload_photo', [], function(imgList){
        console.log('imgList', imgList);
     });
 
     //图片上传2
-    form.chooseImage('#upload_photo2', [{
+    _form.chooseImage('#upload_photo2', [{
       url:'images/redtory1.jpg'
     }], function(imgList){
        console.log('imgList', imgList);
@@ -235,7 +235,7 @@
     });
     //滑块监听
     function changeRange(_this){
-        form.changeRange(_this)
+        _form.changeRange(_this)
     }
 	
     /*日期选择*/

@@ -32,7 +32,7 @@
 │  │  │  ├─ cellSwiper.js             滑动单元格js类
 │  │  │  ├─ form.js                   表单js类
 │  │  │  ├─ signature.js              签名js类
-│  │  │  ├─ TouchElement.js           移动元素js类
+│  │  │  ├─ touchElement.js           移动元素js类
 │  │  │  ├─ ...                       其他
 │  ├─ index.html                      首页
 │  ├─ ${component}.html               组件页面

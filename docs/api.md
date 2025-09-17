@@ -1,29 +1,5 @@
 ## 基础 api
 
-#### lui.changeSelectStyle (e)
-
-控制 select 默认样式，和 input 的 placeholder 样式保持一致
-
-**参数说明**
-
-| 参数 | 类型  | 必填 | 说明                    |
-| ---- | ----- | ---- | ----------------------- |
-| e    | event | 是   | 事件源，只能传递`event` |
-
-示例代码
-
-```html
-<select
-  class="ui_select placeholderColor"
-  name="select"
-  onchange="lui.changeSelectStyle(event)"
->
-  <option value="">请选择</option>
-  <option value="1">女汉子</option>
-  <option value="2">萌妹子</option>
-</select>
-```
-
 #### lui.countDown(defaultValue,cb)
 
 倒计时
@@ -320,6 +296,8 @@ ios 风格模态框
 | confirmText | String   | 否   | 确定按钮的文字，默认为"确定"，文字不宜过长                                                                     |
 | customClass | String   | 否   | 传入的自定义 class，用于自定义风格                                                                             |
 | beforeClose | Function | 否   | 关闭前的回调，会暂停关闭。`function(btn, done)`，`btn` 的值为`'_confirm'`或者`'_cancel'`；`done()`用于关闭弹窗 |
+
+> content 虽然支持传入 HTML 片段，但是在网站上动态渲染任意 HTML 是非常危险的，因为容易导致 XSS 攻击。请确保 content 的内容是可信的，永远不要将用户提交的内容赋值给 content。
 
 示例代码
 
